@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tei-crm-bridge"
-version = "0.1.0"
+version = "0.2.0"
 description = "Traceable TEI enrichment and CIDOC CRM RDF for historical texts"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -20,3 +20,6 @@ tei-crm = "tei_crm_bridge.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+markers = ["integration: needs the pinned Impresso model (TCB_MODEL_TESTS=1)"]

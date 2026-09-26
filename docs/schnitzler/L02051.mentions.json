@@ -1,0 +1,301 @@
+{
+ "document": "L02051",
+ "software": {
+  "name": "tei-crm-bridge",
+  "version": "0.2.0"
+ },
+ "input": {
+  "file": "L02051.xml",
+  "sha256": "88195515ca47f5fc017bc63a412ab76a34acb81ab47434c7ea57452d8bc46692",
+  "url": "https://raw.githubusercontent.com/arthur-schnitzler/schnitzler-briefe-data/76870800b474b0ab829c65ef1ad84c3ba5f81c4e/data/editions/L02051.xml"
+ },
+ "tei_url": "https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml",
+ "settings": {
+  "engine": "hf",
+  "model": "impresso-project/ner-hipe2020-hist-base",
+  "stride": 128,
+  "aggregation": "first",
+  "modelRevision": "afd1b509233560298ae39360ad3186253c5800d3",
+  "reading": "edited",
+  "threshold": 0.85
+ },
+ "blocks": [
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[1]/tei:address[1]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[1]/tei:address[2]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:opener[1]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:p[1]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:p[2]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:p[3]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:p[4]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:closer[1]"
+ ],
+ "mentions": [
+  {
+   "id": 1,
+   "block": 0,
+   "start": 14,
+   "end": 23,
+   "text": "M Brandes",
+   "kind": "PER",
+   "origin": "automatic",
+   "source": "impresso-project/ner-hipe2020-hist-base",
+   "score": 0.9725,
+   "inline": false,
+   "xpath": null,
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/m-brandes-c43e17e709"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 2,
+   "block": 0,
+   "start": 24,
+   "end": 28,
+   "text": "Demt",
+   "kind": "PER",
+   "origin": "automatic",
+   "source": "impresso-project/ner-hipe2020-hist-base",
+   "score": 0.9725,
+   "inline": false,
+   "xpath": null,
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/demt-eedd11bb92"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 3,
+   "block": 0,
+   "start": 31,
+   "end": 43,
+   "text": "Hotel d’Jéna",
+   "kind": "LOC",
+   "origin": "editorial",
+   "source": "tei",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[1]/tei:address[1]/tei:addrLine[3]/tei:rs[1]",
+   "entities": [
+    "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb1131"
+   ],
+   "refs": [
+    "#pmb1131"
+   ],
+   "unresolved": []
+  },
+  {
+   "id": 4,
+   "block": 0,
+   "start": 44,
+   "end": 49,
+   "text": "Paris",
+   "kind": "LOC",
+   "origin": "editorial",
+   "source": "tei",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[1]/tei:address[1]/tei:addrLine[4]/tei:rs[1]",
+   "entities": [
+    "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb182"
+   ],
+   "refs": [
+    "#pmb182"
+   ],
+   "unresolved": []
+  },
+  {
+   "id": 5,
+   "block": 1,
+   "start": 0,
+   "end": 26,
+   "text": "Monsieur Arthur Schnitzler",
+   "kind": "PER",
+   "origin": "automatic",
+   "source": "impresso-project/ner-hipe2020-hist-base",
+   "score": 0.9977,
+   "inline": false,
+   "xpath": null,
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/monsieur-arthur-schnitzler-5ed5f4473a"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 6,
+   "block": 1,
+   "start": 27,
+   "end": 47,
+   "text": "Sternwartestrasse 71",
+   "kind": "LOC",
+   "origin": "editorial",
+   "source": "tei",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[1]/tei:address[2]/tei:addrLine[2]/tei:rs[1]",
+   "entities": [
+    "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb168815"
+   ],
+   "refs": [
+    "#pmb168815"
+   ],
+   "unresolved": []
+  },
+  {
+   "id": 7,
+   "block": 1,
+   "start": 48,
+   "end": 54,
+   "text": "Vienne",
+   "kind": "LOC",
+   "origin": "automatic",
+   "source": "impresso-project/ner-hipe2020-hist-base",
+   "score": 0.9966,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[1]/tei:address[2]/tei:addrLine[3]/tei:placeName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/vienne-86af5bb904"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 8,
+   "block": 1,
+   "start": 55,
+   "end": 63,
+   "text": "Autriche",
+   "kind": "LOC",
+   "origin": "automatic",
+   "source": "impresso-project/ner-hipe2020-hist-base",
+   "score": 0.9958,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[1]/tei:address[2]/tei:addrLine[3]/tei:placeName[2]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/autriche-59d8c0aaaa"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 9,
+   "block": 2,
+   "start": 0,
+   "end": 19,
+   "text": "Paris. Hotel d’Jéna",
+   "kind": "LOC",
+   "origin": "editorial",
+   "source": "tei",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:opener[1]/tei:dateline[1]/tei:seg[1]/tei:rs[1]",
+   "entities": [
+    "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb1131"
+   ],
+   "refs": [
+    "#pmb1131"
+   ],
+   "unresolved": []
+  },
+  {
+   "id": 10,
+   "block": 3,
+   "start": 134,
+   "end": 144,
+   "text": "Kopenhagen",
+   "kind": "LOC",
+   "origin": "editorial",
+   "source": "tei",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:p[1]/tei:rs[1]",
+   "entities": [
+    "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb36300"
+   ],
+   "refs": [
+    "#pmb36300"
+   ],
+   "unresolved": []
+  },
+  {
+   "id": 11,
+   "block": 4,
+   "start": 219,
+   "end": 233,
+   "text": "Kgl. Bibliotek",
+   "kind": "ORG",
+   "origin": "editorial",
+   "source": "tei",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:p[2]/tei:rs[1]",
+   "entities": [
+    "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29526"
+   ],
+   "refs": [
+    "#pmb29526"
+   ],
+   "unresolved": []
+  },
+  {
+   "id": 12,
+   "block": 4,
+   "start": 243,
+   "end": 255,
+   "text": "G. B.-Archiv",
+   "kind": "ORG",
+   "origin": "editorial",
+   "source": "tei",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:p[2]/tei:rs[2]",
+   "entities": [
+    "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29528"
+   ],
+   "refs": [
+    "#pmb29528"
+   ],
+   "unresolved": []
+  },
+  {
+   "id": 13,
+   "block": 6,
+   "start": 21,
+   "end": 30,
+   "text": "Arthur S.",
+   "kind": "PER",
+   "origin": "automatic",
+   "source": "impresso-project/ner-hipe2020-hist-base",
+   "score": 0.9977,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:p[4]/tei:persName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/arthur-s-d71d6dbf27"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 14,
+   "block": 7,
+   "start": 16,
+   "end": 29,
+   "text": "Georg Brandes",
+   "kind": "PER",
+   "origin": "automatic",
+   "source": "impresso-project/ner-hipe2020-hist-base",
+   "score": 0.9977,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:div[2]/tei:closer[1]/tei:signed[1]/tei:persName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/georg-brandes-17d9260253"
+   ],
+   "refs": [],
+   "unresolved": []
+  }
+ ],
+ "warnings": []
+}

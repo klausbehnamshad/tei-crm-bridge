@@ -1,10 +1,31 @@
 # TEI CRM Bridge
 
-Ein kleiner, nachvollziehbarer Prototyp für Digital Humanities: TEI P5 einlesen, vorhandene Markierungen erhalten, Personennamen, Ortsnamen und Organisationen ergänzen und einen CIDOC-CRM-Graphen als Turtle exportieren.
+[![tests](https://github.com/klausbehnamshad/tei-crm-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/klausbehnamshad/tei-crm-bridge/actions/workflows/ci.yml)
 
-**[Interaktive Demo ansehen](https://klausbehnamshad.github.io/tei-crm-bridge/)** · [Beispiel-TEI](docs/letter.enriched.xml) · [Beispiel-RDF](docs/letter.ttl)
+Ein Werkzeug für Digital Humanities: Es ergänzt TEI-P5-Briefe um Personen, Orte und Organisationen, bewahrt dabei den Lesetext und die vorhandene Textauszeichnung, legt Aussagen und Vorschläge mit ihrer Herkunft als CIDOC CRM und W3C Web Annotation ab und misst sich an der redaktionellen Auszeichnung einer echten Edition.
 
-**Status:** MVP für ein Bewerbungsportfolio, kein fertiges Editionssystem. Die Beispieldaten sind fiktiv. Automatisch erkannte Namen und gleichlautende Namen sind keine geprüften Identitäten. Der Graph behauptet keine historischen Ereignisse aus bloßen NER-Treffern.
+**[Projektseite mit Messung](https://klausbehnamshad.github.io/tei-crm-bridge/)** · [echter Brief (Schnitzler-Edition)](https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html) · [fiktives Beispiel](https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html) · [Evaluation](eval/README.md)
+
+**Status:** Prototyp für ein Bewerbungsportfolio, kein fertiges Editionssystem. Automatisch erkannte Namen sind Vorschläge: Sie werden markiert und als Kandidaten annotiert, aber nicht als Tatsachen in den Graphen geschrieben.
+
+*English summary: TEI CRM Bridge adds person, place and organisation names to TEI letters while preserving the reading text and existing text markup, records statements and suggestions with provenance (CIDOC CRM, W3C Web Annotation, PROV-O), and is evaluated against the editorial annotation of 40 letters from the Arthur Schnitzler correspondence edition.*
+
+## Ergebnis von Version 0.2
+
+<!-- results:start -->
+Gemessen an 40 Briefen der Schnitzler-Edition (295 redaktionelle Referenzen), gleiche Eingaben und gleiches Modell für beide Versionen:
+
+| | v0.1 | v0.2 |
+| --- | ---: | ---: |
+| nur Text in `<p>`, strikt: F1 (P / R) | 0,619 (0,688 / 0,563) | 0,668 (0,770 / 0,591) |
+| nur Text in `<p>`, überlappend: F1 (P / R) | 0,706 (0,784 / 0,642) | 0,747 (0,861 / 0,660) |
+| alle Blöcke, strikt: F1 (P / R) | 0,514 (0,688 / 0,410) | 0,535 (0,528 / 0,542) |
+| alle Blöcke, überlappend: F1 (P / R) | 0,586 (0,784 / 0,468) | 0,702 (0,693 / 0,712) |
+| neue Namen an unzulässiger Stelle (Originalbriefe) | 307 von 336 | 0 von 55 |
+| Briefe mit verändertem Lesetext / Markup | 0 / 0 | 0 / 0 |
+
+Im Text, den v0.1 las (`<p>`), steigen Präzision und F1. Über alle Blöcke steigt der Recall, die strikte Präzision sinkt: v0.2 liest auch Adressen, Briefköpfe und Grußformeln, und 67 seiner 78 falschen Treffer liegen dort. Wie viele davon nicht annotierte Namen sind, zeigt eine Stichprobe von zehn Briefen ([eval/README.md](eval/README.md)).
+<!-- results:end -->
 
 ## Schnellstart
 
@@ -15,58 +36,85 @@ pip install -e .
 tei-crm examples/letter.xml --glossary examples/glossary.json
 ```
 
-Das erzeugt `build/letter.enriched.xml`, `build/letter.ttl` und eine im Browser öffnende `build/letter.html`. Der Glossar-Modus ist deterministisch und dient dem schnellen, vollständig lokalen Durchlauf; er ist **keine KI**.
+Das erzeugt in `build/` die angereicherte TEI-Datei, einen Turtle-Graphen, eine Mentions-Datei (JSON) und eine HTML-Vorschau. Der Glossar-Modus ist deterministisch und dient dem schnellen lokalen Durchlauf; er ist **keine KI** und vergibt keine Konfidenz.
 
-Die versionierte [Browser-Demo](docs/letter.html) verwendet bewusst den Glossar-Modus, damit der Screenshot und die Ausgabe ohne großen Modelldownload reproduzierbar sind. Ein echter KI-Lauf kann abweichen; auf diesem Beispieldokument markierte das getestete Impresso-Modell drei neue Nennungen und ließ „Jena“ innerhalb von `<hi>` aus.
-
-Für echtes historisches deutsches NER:
+Für historisches deutsches NER:
 
 ```bash
 pip install -e '.[ner]'
-tei-crm examples/letter.xml --engine hf --base-uri https://example.org/mein-projekt/
+tei-crm brief.xml --engine hf --base-uri https://example.org/mein-projekt/
 ```
 
-Der `hf`-Modus lädt bei der ersten Ausführung [`impresso-project/ner-hipe2020-hist-base`](https://huggingface.co/impresso-project/ner-hipe2020-hist-base) von Hugging Face. Der Modell-Commit ist im Code fixiert; für eigene lokale Modelle kann `--model /pfad/zum/modellordner` genutzt werden. `--local-files-only` verlangt bereits vorhandene Modelldateien. Für vertrauliche Texte ist zu prüfen, ob alle Abhängigkeiten und Modelldateien schon lokal vorliegen. Die Textinferenz läuft lokal; eine pauschale Aussage „100 % offline/GDPR-konform“ wäre ohne Prüfung der gesamten Betriebsumgebung nicht seriös. Das Impresso-Modell steht unter CC BY-NC-SA 4.0 und wird nicht mit dem MIT-lizenzierten Code verteilt.
+Der `hf`-Modus lädt [`impresso-project/ner-hipe2020-hist-base`](https://huggingface.co/impresso-project/ner-hipe2020-hist-base) in einer festgehaltenen Revision. `--local-files-only` verlangt bereits vorhandene Modelldateien; `--model` (mit `--revision`) erlaubt ein anderes Modell, dessen Labels auf Personen, Orte und Organisationen abgebildet werden – ohne passende Labels bricht der Lauf ab. Mit `--tei-base-url` zeigen die Annotationen auf die veröffentlichte TEI-Datei, `--source-url` verknüpft die Eingabe als Herkunft. Die Textinferenz läuft lokal; eine pauschale Aussage „100 % offline/DSGVO-konform“ wäre ohne Prüfung der Betriebsumgebung nicht seriös. Das Modell steht unter CC BY-NC-SA 4.0 und wird nicht mit dem MIT-lizenzierten Code verteilt.
 
-## Warum dieses Mapping?
+## So arbeitet das Werkzeug
 
-| TEI/Quelle | RDF-Aussage |
+**1. Lesetext bilden** ([`projection.py`](src/tei_crm_bridge/projection.py)). Jeder Textblock (`p`, `opener`, `closer`, `address`, `salute`, `signed`, `dateline`, …) wird zu einem zusammenhängenden Text; jedes Zeichen bleibt auf seinen XML-Textknoten rückführbar.
+
+| TEI | Regel |
 | --- | --- |
-| TEI-Dokument | `E31_Document` |
-| `persName` / `placeName` / `orgName` | `E21_Person` / `E53_Place` / `E74_Group` |
-| Nennung im Dokument | `P67_refers_to` plus eigene `oa:Annotation` für Herkunft, TEI-XPath und Konfidenz |
-| `correspAction type="sent"` | `E7_Activity` mit `P14_carried_out_by`, `P7_took_place_at`, `P4_has_time-span` und `P70_documents` |
+| `<c>`, `<hi>`, `<g>`, `<add>`, andere Inline-Elemente | Text ohne Trenner: „Ro`<c>`s`</c>`a“ bleibt „Rosa“ |
+| `<lb/>`, `<pb/>`, `<space/>` | ein Leerzeichen; bei `@break="no"` geht das Wort weiter, Leerraum daneben entfällt |
+| Zeilen in Brief­kopf, Adresse, Grußformel | Zeilenumbruch; ein Name endet an einer Zeilengrenze, eine Anrede allein ist kein Name |
+| `<note>`, `<del>`, `<fw>`, `<index>`, `<interp>`, `<certainty>`, Beschreibungen in `<gap>` | nicht Teil des Lesetexts |
+| `<choice>` | genau ein Zweig: `corr`/`reg`/`expan` (`--reading edited`, Standard) oder `sic`/`orig`/`abbr` (`diplomatic`) |
+| `<app>` | das `lem` (auch in `rdgGrp`), sonst die erste `rdg` |
+| vorhandene `persName`/`placeName`/`orgName`, Ortsteile wie `settlement`, `rs[@type=person\|place\|org]` | Annotation der Edition; darin entstehen keine neuen Namen |
 
-Ein Name im Fließtext belegt nur eine Nennung, keine Teilnahme an einem Ereignis. Deshalb entsteht ein Versandereignis ausschließlich aus der expliziten TEI-Korrespondenzmetadaten-Struktur. Datum, Akteur und Ort werden nur gesetzt, wenn sie dort angegeben sind. `@ref` an bereits vorhandenen TEI-Namen bleibt erhalten; neue Namen erhalten eine dokumentlokale URI. Gleiche Oberflächenformen werden derzeit innerhalb eines Dokuments zusammengeführt und müssen für echte Forschungsdaten später durch Authority Linking und manuelle Prüfung disambiguiert werden.
+**2. Namen erkennen** ([`ner.py`](src/tei_crm_bridge/ner.py)). Das Modell sieht den ganzen Block statt einzelner Textknoten; im Beispielbrief erhält „Jena“ allein das Label Person (0,478), im Satz Ort (0,999). Lange Blöcke werden in überlappenden Fenstern gelesen (`--stride 128`, nur mit Fast-Tokenizer); ist ein Text nicht vollständig abgedeckt, bricht der Lauf ab, statt still zu kürzen. Am Fensterrand abgeschnittene Teilnamen weichen dem ganzen Namen aus dem Nachbarfenster. Die Aggregation `first` erzeugt wortgenaue Grenzen.
 
-## Grenzen des MVP
+**3. Behutsam zurückschreiben** ([`writeback.py`](src/tei_crm_bridge/writeback.py)). Ein neues `persName`/`placeName`/`orgName` entsteht nur, wenn Anfang und Ende im selben Textknoten liegen und das Elternelement Namen erlaubt; es trägt `xml:id`, `@ref`, `@resp` und bei Modelltreffern `@cert`. Treffer über Elementgrenzen bleiben Stand-off-Annotationen. Nach dem Schreiben prüft das Werkzeug, dass der Lesetext identisch ist und das Entfernen der neuen Elemente exakt das Original ergibt; sonst bricht es ab. Der Verarbeitungslauf wird in `encodingDesc/appInfo/application` dokumentiert.
 
-- Erkennung geschieht pro Textknoten eines `<p>` im `<body>`. Namen, die über mehrere Inline-Elemente reichen, werden nicht erkannt; die Inline-Struktur bleibt dadurch erhalten.
-- Keine automatische Ereignisextraktion, Koreferenzauflösung, GND/Wikidata-Verlinkung oder Vollvalidierung gegen ein TEI-ODD.
-- Der Hugging-Face-Adapter ist optional. Modellqualität auf konkretem Quellenmaterial muss mit annotierten Beispielen geprüft werden; ein hoher Modellscore ist kein wissenschaftlicher Beleg.
-- Die URIs unter `example.org` sind Platzhalter. Für Veröffentlichung eine eigene dauerhafte HTTPS-Basis-URI über `--base-uri` angeben.
+**4. Nachvollziehbar modellieren** ([`rdf.py`](src/tei_crm_bridge/rdf.py)).
+
+| TEI/Quelle | RDF |
+| --- | --- |
+| TEI-Dokument | `crm:E31_Document`; die TEI-Datei als `dcterms:isFormatOf` |
+| redaktioneller Name | `oa:Annotation` (`tcb:editorial`), Entität mit CIDOC-CRM-Klasse, `crm:P67_refers_to` |
+| automatischer Name | `oa:Annotation` (`tcb:automatic`) mit `prov:wasGeneratedBy` und Modellscore; Körper ist ein `tcb:Candidate` mit `tcb:suggestedClass` – **keine** CRM-Instanz, **kein** `P67` |
+| Textstelle | `oa:SpecificResource` in der veröffentlichten TEI-Datei; `oa:XPathSelector` ohne Präfixbindung, verfeinert durch `oa:TextPositionSelector` und `oa:TextQuoteSelector` auf dem Stringwert der Datei |
+| `@ref` | URI direkt; `gnd:…` über `prefixDef`; `#id` zeigt auf das `xml:id` der TEI-Datei, relative Verweise nutzen `xml:base`; mehrere Registereinträge sind mehrere Entitäten; eigene `idno` des Registereintrags (GND, Wikidata, GeoNames) als `rdfs:seeAlso`; Unauflösbares bleibt als `tcb:unresolvedRef` erhalten |
+| `correspAction[@type=sent\|received]` | je ein `crm:E7_Activity` mit `crm:P2_has_type tcb:sending\|tcb:receiving`, `P14_carried_out_by`, `P7_took_place_at` |
+| `date/@when` (Jahr, Monat, Tag, Uhrzeit), `@notBefore`/`@notAfter` | `crm:E52_Time-Span` mit `P82a_begin_of_the_begin`/`P82b_end_of_the_end`; keine erfundene Genauigkeit; mehrere Daten einer Handlung werden geschnitten, Widersprüche gemeldet |
+| Verarbeitungslauf | `prov:Activity` mit Verfahren, Modell, Revision, Schwelle, Stride, Lesart, Softwareversion |
+
+`owl:sameAs` wird nicht gesetzt: Gleichlautende automatische Namen teilen sich pro Dokument einen Kandidaten, der erst nach redaktioneller Prüfung eine CRM-Klasse und Normdaten erhalten sollte. Die wenigen eigenen Terme stehen im [Vokabular](https://klausbehnamshad.github.io/tei-crm-bridge/vocab/).
+
+## Evaluation
+
+Das Korpus sind 40 Briefe der Edition [Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren](https://schnitzler-briefe.acdh.oeaw.ac.at/) (CC BY 4.0), nach fester Regel aus einem festgehaltenen Commit ausgewählt. Die redaktionellen Namen dienen als Referenz, die Auszeichnungen werden vor dem Lauf entfernt. Methode, Stichprobe, Fehleranalyse und alle Zahlen: [eval/README.md](eval/README.md).
+
+```bash
+pip install -e . -r eval/requirements.txt   # zentrale Pakete in gemessenen Versionen; kein vollständiges Lockfile
+git worktree add ../tcb-v0.1 e09fa38         # Ausgangsstand für den Vergleich
+sh eval/reproduce.sh                          # alle Kennzahlen
+python scripts/build_docs.py --with-model     # Projektseite, Demo und diese Ergebnistabelle
+```
 
 ## Tests
 
 ```bash
 pip install -e '.[test]'
-pytest -q
+pytest -q                                  # schnell, ohne Modell (CI)
+TCB_MODEL_TESTS=1 pytest -m integration    # mit dem Modell: Kontext, 5.640-Zeichen-Text, Fenstergrenze
 ```
 
-## Nächste Ausbaustufe
+## Grenzen
 
-1. 20–50 echte Beispielseiten mit Goldstandard-Annotationen und Fehleranalyse.
-2. Vergleich mit dem [SBB NER-Modell](https://huggingface.co/SBB/sbb_ner), den [dbmdz-Flair-Modellen](https://github.com/dbmdz/historic-ner) und [impresso Stacked BERT](https://huggingface.co/impresso-project/ner-stacked-bert-multilingual) auf genau diesen Quellen. Das ältere dbmdz-Flair-Checkpoint ließ sich mit Flair 0.15.1 nicht laden; Impresso Stacked BERT benötigt **Custom Code**. Das hier verwendete Impresso HIPE-Modell nutzt Standard-Transformers und Safetensors.
-3. Review-Oberfläche für Korrekturen und versionierte Provenienz; danach GND/Wikidata-Kandidaten mit manueller Bestätigung.
-4. TEI-ODD/Schematron-Validierung und dokumentierte CRM-Mappingprofile für zusätzliche Ereignistypen.
+- Die Referenz ist eine Edition mit eigenen Richtlinien: Korrespondenzpartner in Adressen und Unterschriften sind dort nicht ausgezeichnet, Titel gehören nicht zum Namen. Die Zahlen messen daher Übereinstimmung mit dieser Edition, nicht absolute Richtigkeit.
+- Organisationen kommen im Korpus nur elfmal vor; dafür gibt es keine belastbare Aussage.
+- Keine Koreferenz, keine automatische Verlinkung mit GND oder Wikidata für neue Namen, keine Ereignisse aus dem Fließtext.
+- `<choice>` ist getestet, kommt im Evaluationskorpus aber nicht vor.
+- Die URIs unter `example.org` sind Platzhalter; für eine Veröffentlichung eine eigene dauerhafte Basis-URI über `--base-uri` angeben.
+- `prefixDef`-Muster werden als reguläre Ausdrücke von Python ausgewertet; nur vertrauenswürdige TEI verarbeiten. Nicht deklarierte Entitäten (etwa aus einer externen DTD) werden nicht geladen; solche Dateien werden mit einer Fehlermeldung abgelehnt.
 
 ## Quellen und Standards
 
-- [TEI P5 Namensraum und Elementreferenz](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html)
-- [CIDOC CRM 7.1.3](https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html)
-- [dbmdz historic-ner](https://github.com/dbmdz/historic-ner)
-- [Impresso HIPE-Modellkarte](https://huggingface.co/impresso-project/ner-hipe2020-hist-base)
+- [TEI P5 Guidelines](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/) – insbesondere [`correspAction`](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-correspAction.html), [Datumsattribute](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.datable.w3c.html), [`choice`](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-choice.html)
+- [CIDOC CRM 7.1.3](https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html) und die [RDF-Umsetzung von P82a/P82b](https://cidoc-crm.org/Issue/ID-288-issue-about-p82-and-p81-usage)
+- [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/), [PROV-O](https://www.w3.org/TR/prov-o/)
+- [Impresso HIPE-Modellkarte](https://huggingface.co/impresso-project/ner-hipe2020-hist-base), [HIPE-2020](https://impresso.github.io/CLEF-HIPE-2020/)
 
 ## Lizenz
 
-MIT für den Code dieses Repositories. Die externen Modelle und Datensätze haben eigene Lizenzen und werden hier nicht mitgeliefert.
+MIT für den Code. Die Briefe in `eval/corpus/` stammen unverändert aus [schnitzler-briefe-data](https://github.com/arthur-schnitzler/schnitzler-briefe-data) und stehen unter CC BY 4.0 (Namensnennung siehe [eval/README.md](eval/README.md)). Das NER-Modell hat eine eigene Lizenz und wird nicht mitgeliefert.

@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../meta/schnitzler-briefe-schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:id="L00876" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1899-01-07" n="01">1899-01-07</title>
+            <title level="a">Georg Brandes an Arthur Schnitzler, 7. 1. 1899</title>
+            <author ref="#pmb10992">Brandes, Georg</author>
+            <editor>
+               <name>Müller, Martin Anton</name>
+               <name>Susen, Gerd-Hermann</name>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Müller, Martin Anton</persName>
+               <persName>Susen, Gerd-Hermann</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities </publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2023">2023</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen – das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten – das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung – Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen – Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-6E8D-9</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="brief"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>GB</country>
+                        <settlement>Cambridge</settlement>
+                        <repository>University Library</repository>
+                        <idno>Schnitzler, B 17</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="blatt" quantity="1"/>
+                                 <measure unit="seite" quantity="4"/>
+                                 <measure unit="zeichenanzahl" quantity="2012"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="1">
+                           <handNote medium="bleistift" style="lateinische-kurrent"/>
+                        </handDesc>
+                        <additions>
+                           <incident type="archival" rend="bleistift">
+                              <desc>von unbekannter Hand nummeriert:
+                                    »<quote>11</quote>«</desc>
+                           </incident>
+                        </additions>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+            <listBibl>
+               <biblStruct corresp="ASGB">
+                  <monogr>
+                     <author ref="#pmb10992">Brandes, Georg</author>
+                     <author ref="#pmb2121">Schnitzler, Arthur</author>
+                     <title level="m">Ein Briefwechsel</title>
+                     <editor>Bergel, Kurt</editor>
+                     <imprint>
+                        <pubPlace>Bern</pubPlace>
+                        <publisher>Francke</publisher>
+                        <date when="1956">1956</date>
+                     </imprint>
+                     <biblScope unit="pp">69–70</biblScope>
+                  </monogr>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb10992">Brandes, Georg</persName>
+               <date when="1899-01-07" n="01">7. 1. 1899</date>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb2121">Schnitzler, Arthur</persName>
+               <date evidence="conjecture" notBefore="1899-01-07" notAfter="1899-01-11">[7. 1. 1899
+                  – 11. 1. 1899?]</date>
+               <placeName evidence="conjecture" ref="#pmb50">Wien</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_10992">Brandes, Georg</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L00875">Schnitzler an Beer-Hofmann, 5. 1. 1899</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L00877">Hofmannsthal an Schnitzler, [10. 1. 1899]</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_10992" target="L00874">Schnitzler an Brandes, 4. 1. 1899</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_10992" target="L00880">Schnitzler an Brandes, 12. 1. 1899</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="approved">
+         <change who="GHS" when="2018-08-01">Angelegt</change>
+         <change who="MAM" when="2018-08-14">Durchsicht</change>
+         <change when="2018-08-15" who="MAM">Index check</change>
+         <change who="GHS" when="2019-05-01">Korrektur gelesen, facs aktualisiert,
+            finalisiert</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="MS-SCHNITZLER-B-00017-A-00001-000-00019"/>
+      <graphic url="MS-SCHNITZLER-B-00017-A-00001-000-00020"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="writingSession" n="1"><opener><dateline rend="right"><pb facs="MS-SCHNITZLER-B-00017-A-00001-000-00019"/><rs ref="#pmb36300" type="place">Kopenhagen</rs><space unit="chars" quantity="1"/><date>7 Jan. 99</date></dateline><salute>Lieber Dr. Schnitzler, sehr guter Freund</salute></opener><p>Haben Sie Dank für Ihre Zeilen. Was habe ich nicht alles erlebt seit ich Sie sah.
+               Jetzt liege ich wieder zu Bett; die Venenentzündung ist zurückgekehrt.</p><p>Ich blieb ein halbes Jahr in <rs ref="#pmb40306" type="place">Italien</rs>, kam
+               zurück, gab hier zwei Bücher aus, einen Band meiner <rs type="work" ref="#pmb33293" subtype="implied">Gedichte</rs> (staunen Sie?) und ein <rs type="work" ref="#pmb33321" subtype="implied">Buch über einen verstorbenen Freund</rs>, das
+               hier einen sehr grossen Erfolg gehabt hat –, in 8 Tagen ausverkauft. Reiste wieder
+               aus, wurde zwei Mal zurückgerufen durch Depeschen, <pb facs="MS-SCHNITZLER-B-00017-A-00001-000-00020"/>weil meine <rs type="person" ref="#pmb29102" subtype="implied">Mutter</rs> krank war. Das letzte Mal war ich in
+                  <rs ref="#pmb313" type="place">Polen</rs>, wo ich wegen meines <rs type="work" ref="#pmb32065" subtype="implied">Buches über Polen</rs> (das deutsch und polnisch
+               übersetzt worden) eingeladen und komisch vergöttert wurde.</p><p>Zurück in einem Zug aus <rs ref="#pmb46224" type="place">Lemberg</rs>. Sah meine <rs type="person" ref="#pmb29102" subtype="implied">Mutter</rs> 14 Tage dann selbst
+               krank, konnte meine <rs type="person" ref="#pmb29102" subtype="implied">Mutter</rs>
+               nicht sehen in der letzten Woche ihres Lebens und nicht an ihrer Beerdigung dasein.
+               Ich habe <hi n="1" rend="underline">nie einen einzigen Tag</hi> in <rs ref="#pmb36300" type="place">Kopenhagen</rs> versäumt meine <rs type="person" ref="#pmb29102" subtype="implied">Mutter</rs> zu besuchen.</p><p>Und jetzt liege ich in Streit mit den <rs ref="#pmb151" type="place">Deutschen</rs>
+               wegen der Austreibung der <rs ref="#pmb43570" type="place">Dänen</rs> aus <rs ref="#pmb1114" type="place">Schleswig</rs>. Gibt es etwas widerlicheres als <pb facs="MS-SCHNITZLER-B-00017-A-00001-000-00020"/><rs ref="#pmb206" type="place">Preussen</rs>? Nicht <rs ref="#pmb166" type="place">Frankreich</rs> einmal.</p><p>Mit ruhiger geniessender Freude las ich Ihr <rs ref="#pmb30219" type="work"><hi n="1" rend="underline">Vermächtnis</hi></rs>. Es ist ein völlig originales Ding, sehr discret und vornehm, tief
+               pessimistisch und human. (Kennen Sie zufällig eine kleine Erzählung von <rs ref="#pmb5449" type="person">Huysmans</rs><space unit="chars" quantity="1"/><rs ref="#pmb33319" type="work">Un
+                  dilemme</rs> die behandelt ein ähnliches Thema, nur viel gröber oder richtiger
+               ganz anders, aber es ist da ein bischen Verwandtschaft).</p><p>Es ist nur Schade, dass das <rs type="work" ref="#pmb30219" subtype="implied">Stück</rs> so ganz und gar traurig ist, dann wird es nicht so viel Bühnenerfolg
+               haben können, <pb facs="MS-SCHNITZLER-B-00017-A-00001-000-00019"/>wie ich es
+               wünschte. Der Vater ist wunderbar gezeichnet. Aber überhaupt ich hab Ihr Talent so
+               lieb. Etwas freut mich schon, weil es von Ihnen ist.</p><p>Warum lässt doch unser Freund <rs ref="#pmb10863" type="person">Beer Hofmann</rs> nie
+               von sich hören? Ist er ein bischen faul? Er ist doch ein so feiner Mensch.</p><p>Denken Sie, was es heisst für einen Mann von meinem Temperament still zu liegen,
+               Geduld haben zu sollen und <hi n="1" rend="underline">wieder</hi>, nachdem ich Ein
+               Mal ein halbes Jahr so verlor.</p><p>Behalten Sie mich lieb</p><closer>Ihr ergebener<lb/><signed>Georg Brandes</signed></closer></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb10992">
+               <persName>
+                  <forename>Georg</forename>
+                  <surname>Brandes</surname>
+               </persName>
+               <birth>
+                  <date when="1842-02-04">1842-02-04</date>
+                  <settlement ref="pmb36300">
+                     <placeName type="pref">Kopenhagen</placeName>
+                     <location>
+                        <geo>55,67594 12,56553</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1927-02-19">1927-02-19</date>
+                  <settlement ref="pmb36300">
+                     <placeName type="pref">Kopenhagen</placeName>
+                     <location>
+                        <geo>55,67594 12,56553</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2121">
+               <persName>
+                  <surname>Schnitzler</surname>
+                  <forename>Arthur</forename>
+               </persName>
+               <birth>
+                  <date when="1862-05-15">15. 5. 1862</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1931-10-21">21. 10. 1931</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb5449">
+               <persName>
+                  <forename>Joris-Karl</forename>
+                  <surname>Huysmans</surname>
+               </persName>
+               <birth>
+                  <date when="1848-02-05">1848-02-05</date>
+                  <settlement ref="pmb182">
+                     <placeName type="pref">Paris</placeName>
+                     <location>
+                        <geo>48,85341 2,3488</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1907-05-12">1907-05-12</date>
+                  <settlement ref="pmb182">
+                     <placeName type="pref">Paris</placeName>
+                     <location>
+                        <geo>48,85341 2,3488</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10863">
+               <persName>
+                  <forename>Richard</forename>
+                  <surname>Beer-Hofmann</surname>
+               </persName>
+               <birth>
+                  <date when="1866-07-11">1866-07-11</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-09-26">1945-09-26</date>
+                  <settlement ref="pmb44053">
+                     <placeName type="pref">New York City</placeName>
+                     <location>
+                        <geo>40,71427 -74,00597</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb29102" ana="implied">
+               <persName>
+                  <forename>Emilie</forename>
+                  <surname>Brandes</surname>
+               </persName>
+               <birth>
+                  <date when="1818-03-22">1818-03-22</date>
+                  <settlement ref="pmb36300">
+                     <placeName type="pref">Kopenhagen</placeName>
+                     <location>
+                        <geo>55,67594 12,56553</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1898-12-27">1898-12-27</date>
+                  <settlement ref="pmb36300">
+                     <placeName type="pref">Kopenhagen</placeName>
+                     <location>
+                        <geo>55,67594 12,56553</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2361">
+               <persName>
+                  <forename>Adele</forename>
+                  <surname>Neustädter</surname>
+               </persName>
+               <birth>
+                  <date when="1862-05-16">1862-05-16</date>
+               </birth>
+            </person>
+         </listPerson>
+         <listBibl>
+            <bibl xml:id="pmb30219">
+               <title>Das Vermächtnis. Schauspiel in drei Akten</title>
+               <author ref="pmb2121" role="hat-geschaffen">Schnitzler, Arthur</author>
+            </bibl>
+            <bibl xml:id="pmb33319">
+               <title>Ein Dilemma</title>
+               <author ref="pmb5449" role="hat-geschaffen">Huysmans, Joris-Karl</author>
+            </bibl>
+            <bibl xml:id="pmb33293" ana="implied">
+               <title>Ungdomsvers [Jugendgedichte]</title>
+               <author ref="pmb10992" role="hat-geschaffen">Brandes, Georg</author>
+            </bibl>
+            <bibl xml:id="pmb33321" ana="implied">
+               <title>Julius Lange</title>
+               <author ref="pmb10992" role="hat-geschaffen">Brandes, Georg</author>
+            </bibl>
+            <bibl xml:id="pmb32065" ana="implied">
+               <title>Polen</title>
+               <author ref="pmb10992" role="hat-geschaffen">Brandes, Georg</author>
+               <author ref="pmb2361" role="hat-ubersetzt">Neustädter, Adele</author>
+            </bibl>
+         </listBibl>
+         <listPlace>
+            <place xml:id="pmb50">
+               <placeName>Wien</placeName>
+               <placeName type="ort_fruherer-name">K.K. Reichshaupt- und Residenzstadt Wien</placeName>
+               <placeName type="alternative-name">Bécs</placeName>
+               <placeName type="alternative-name">Land Wien</placeName>
+               <placeName type="alternative-name">Vídeň</placeName>
+               <placeName type="alternative-name">Wenia</placeName>
+               <placeName type="alternative-name">Beč</placeName>
+               <placeName type="ort_fruherer-name">Vindobona</placeName>
+               <placeName type="alternative-name">Vienna</placeName>
+               <location type="coords">
+                  <geo>48,208333 16,373056</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb235218">Windmühlhöhe</placeName>
+                  <geo>48,24077 16,32092</geo>
+               </location>
+            </place>
+            <place xml:id="pmb36300">
+               <placeName>Kopenhagen</placeName>
+               <placeName type="alternative-name">Copenhagen</placeName>
+               <location type="coords">
+                  <geo>55,67594 12,56553</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb43570">Dänemark</placeName>
+                  <geo>56,0 10,0</geo>
+               </location>
+            </place>
+            <place xml:id="pmb40306">
+               <placeName>Italien</placeName>
+               <placeName type="alternative-name">Italian Republic</placeName>
+               <placeName type="alternative-name">Republic of Italy</placeName>
+               <placeName type="legacy-name-merge">Italy</placeName>
+               <location type="coords">
+                  <geo>42,83333 12,83333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb313">
+               <placeName>Polen</placeName>
+               <placeName type="alternative-name">Republic of Poland</placeName>
+               <placeName type="legacy-name-merge">Poland</placeName>
+               <location type="coords">
+                  <geo>52,0 20,0</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb46224">
+               <placeName>Lviv</placeName>
+               <placeName type="alternative-name">Lwów</placeName>
+               <placeName type="alternative-name">Lwiw</placeName>
+               <placeName type="alternative-name">Lemberg</placeName>
+               <location type="coords">
+                  <geo>49,83826 24,02324</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb666">Ukraine</placeName>
+                  <geo>49,0 32,0</geo>
+               </location>
+            </place>
+            <place xml:id="pmb151">
+               <placeName>Deutschland</placeName>
+               <placeName type="alternative-name">Bundesrepublik Deutschland</placeName>
+               <placeName type="alternative-name">West Germany</placeName>
+               <placeName type="alternative-name">Federal Republic of Germany</placeName>
+               <placeName type="legacy-name-merge">Germany</placeName>
+               <placeName type="ort_fruherer-name">Deutsches Kaiserreich</placeName>
+               <placeName type="ort_fruherer-name">Weimarer Republik</placeName>
+               <location type="coords">
+                  <geo>51,5 10,5</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb43570">
+               <placeName>Dänemark</placeName>
+               <placeName type="legacy-name-merge">Denmark</placeName>
+               <placeName type="alternative-name">Kingdom of Denmark</placeName>
+               <location type="coords">
+                  <geo>56,0 10,0</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb745">Skandinavien</placeName>
+                  <geo>63,0 25,0</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb1114">
+               <placeName>Südschleswig</placeName>
+               <placeName type="legacy-name-merge">Schleswig</placeName>
+               <placeName type="legacy-name-merge">Schleswig (Stadt)</placeName>
+               <location type="coords">
+                  <geo>54,470038 9,51416</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb151">Deutschland</placeName>
+                  <geo>51,5 10,5</geo>
+               </location>
+            </place>
+            <place xml:id="pmb206">
+               <placeName>Preußen</placeName>
+               <location type="coords">
+                  <geo>52,0 13,0</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb166">
+               <placeName>Frankreich</placeName>
+               <placeName type="alternative-name">France</placeName>
+               <location type="coords">
+                  <geo>46,0 2,0</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+         </listPlace>
+      </back>
+   </text>
+</TEI>

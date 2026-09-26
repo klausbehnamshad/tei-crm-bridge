@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../meta/schnitzler-briefe-schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:id="L01351" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1903-12-14" n="02">1903-12-14</title>
+            <title level="a">Arthur Schnitzler u. a. an Hermann Bahr, 14. 12. 1903</title>
+            <author ref="#pmb2121">Schnitzler, Arthur</author>
+            <author ref="#pmb2173">Schnitzler, Olga</author>
+            <author ref="#pmb11740">Hofmannsthal, Hugo von</author>
+            <author ref="#pmb2292">Hofmannsthal, Gerty von</author>
+            <author ref="#pmb10863">Beer-Hofmann, Richard</author>
+            <editor>
+               <name>Müller, Martin Anton</name>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Kurt Ifkovits</persName>
+               <persName>Martin Anton Müller</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities </publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2023">2023</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen – das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten – das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung – Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen – Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-7067-0</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="karte" ana="bildpostkarte"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>A</country>
+                        <settlement>Wien</settlement>
+                        <repository>Theatermuseum</repository>
+                        <idno>HS AM 49103 Ba</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="karte" quantity="1"/>
+                                 <measure unit="zeichenanzahl" quantity="142"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="5">
+                           <handNote medium="bleistift" corresp="#pmb2121" style="deutsche-kurrent"/>
+                           <handNote medium="bleistift" corresp="#pmb2173" style="nicht-anzuwenden"/>
+                           <handNote medium="bleistift" corresp="#pmb11740" style="lateinische-kurrent"/>
+                           <handNote medium="bleistift" corresp="#pmb2292" style="nicht-anzuwenden"/>
+                           <handNote medium="bleistift" corresp="#pmb10863" style="nicht-anzuwenden"/>
+                        </handDesc>
+                        <additions>
+                           <incident type="postal">
+                              <desc>
+                                 <stamp n="1" type="transmission">
+                                    <placeName ref="#pmb68">18/1 Wien</placeName>
+                                    <date when="1903-12-15">15. 12. 03</date>
+                                    <time>6–7 V</time>
+                                 </stamp>
+                              </desc>
+                           </incident>
+                           <incident type="postal">
+                              <desc>
+                                 <stamp n="2" type="delivery">
+                                    <addSpan>Bestellt</addSpan>
+                                    <placeName ref="#pmb63">Wien 13/7</placeName>
+                                    <date when="1903-12-15">15<supplied>.</supplied> 12. 03</date>
+                                    <time>11.</time>
+                                 </stamp>
+                              </desc>
+                           </incident>
+                           <incident type="archival">
+                              <desc>Lochung</desc>
+                           </incident>
+                        </additions>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+            <listBibl>
+               <biblStruct corresp="HvHHB">
+                  <monogr>
+                     <author ref="#pmb11740">Hofmannsthal, Hugo von</author>
+                     <author ref="#pmb2292">Hofmannsthal, Gerty von</author>
+                     <author ref="#pmb10815">Bahr, Hermann</author>
+                     <title level="m">Briefwechsel 1891–1934</title>
+                     <respStmt>
+                        <resp>Herausgegeben und kommentiert von</resp>
+                        <persName>Dangel-Pelloquin, Elsbeth</persName>
+                     </respStmt>
+                     <imprint>
+                        <pubPlace>Göttingen</pubPlace>
+                        <publisher>Wallstein</publisher>
+                        <date when="2013">2013</date>
+                     </imprint>
+                     <biblScope unit="pp">229</biblScope>
+                  </monogr>
+               </biblStruct>
+               <biblStruct corresp="HBAS">
+                  <monogr>
+                     <author ref="#pmb10815">Bahr, Hermann</author>
+                     <author ref="#pmb2121">Schnitzler, Arthur</author>
+                     <title level="m">Briefwechsel, Aufzeichnungen, Dokumente (1891–1931)</title>
+                     <editor>Ifkovits, Kurt</editor>
+                     <editor>Müller, Martin Anton</editor>
+                     <imprint>
+                        <pubPlace>Göttingen</pubPlace>
+                        <publisher>Wallstein</publisher>
+                        <date when="2018">2018</date>
+                     </imprint>
+                     <biblScope unit="pp">286</biblScope>
+                  </monogr>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb2121">Schnitzler, Arthur</persName>
+               <persName ref="#pmb2173">Schnitzler, Olga</persName>
+               <persName ref="#pmb11740">Hofmannsthal, Hugo von</persName>
+               <persName ref="#pmb2292">Hofmannsthal, Gerty von</persName>
+               <persName ref="#pmb10863">Beer-Hofmann, Richard</persName>
+               <date when="1903-12-14" n="02">14. 12. 1903</date>
+               <placeName ref="#pmb449">Auhofstraße</placeName>
+            </correspAction>
+            <correspAction type="delivered">
+               <date when="1903-12-15">15. 12. 1903</date>
+               <placeName ref="#pmb63">XIII., Hietzing</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb10815">Bahr, Hermann</persName>
+               <date when="1903-12-15">15. 12. 03</date>
+               <placeName ref="#pmb207274">Haus Bahr</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_10815">Bahr, Hermann</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L01330">Hofmannsthal an Schnitzler, [zwischen 14. und
+                  23. 12. 1903?]</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L01352">Bahr an Schnitzler, 16. 12. [1903]</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_10815" target="L01350">Schnitzler an Bahr, 13. 12. 1903</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_10815" target="L01352">Bahr an Schnitzler, 16. 12. [1903]</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="approved">
+         <change who="KI MAM" when="2015-10-01">Kollationiert</change>
+         <change who="MAM" when="2018-07-15">Überführt aus Bahr–Schnitzler-Daten</change>
+         <change who="GHS" when="2020-01-19">finalisiert</change>
+         <change when="2020-01-20" who="MAM">Index check</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="HS_AM49103Ba"/>
+      <graphic url="HS_AM49103Ba_R"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="address"><address><addrLine><pb facs="https://www.theatermuseum.at/de/object/eb5249560c/"/>Herrn Hermann
+                  Bahr</addrLine><addrLine><rs ref="#pmb165" type="place">Wien Ob St Veit</rs></addrLine><addrLine><rs ref="#pmb207274" type="place">Veitli<c rendition="#langesS">s</c><c rendition="#langesS">s</c>enga<c rendition="#langesS">s</c><c rendition="#langesS">s</c>e</rs></addrLine></address></div>
+         <div type="image"><p rend="center"><pb facs="https://www.theatermuseum.at/de/object/eb5249560c/"/><hi rend="pre-print"><rs ref="#pmb64" type="place">Hietzing</rs>, den <c rendition="#dots" n="3"/>
+                  19<c rendition="#dots" n="3"/></hi></p><p rend="center"><hi rend="pre-print"><rs ref="#pmb449" type="place">Auhofstrasse 1</rs>.</hi></p><p><hi rend="pre-print">Schöner Gruss vom reizenden Etablissement ›<rs ref="#pmb304" type="place">Ottakringerbräu</rs>‹ ›zum schwarzen Hahn‹, wo es so gemüthlich
+                  ist.</hi></p></div>
+         <div type="writingSession" n="1"><p><pb facs="https://www.theatermuseum.at/de/object/eb5249560c/"/><rs ref="#pmb29983" type="work">Dem Meister</rs>. – 10<c rendition="#prozent"/>!</p><p><date>14. 12. 03</date></p><p><anchor type="commentary" xml:id="K_L01351-1"/><rs ref="#pmb29909" type="work">Unter sich</rs><note type="commentary" corresp="K_L01351-1">Die <rs ref="#pmb29779" type="org">11
+                     Scharfrichter</rs> hatten <rs ref="#pmb10815" type="person">Bahrs</rs><space unit="chars" quantity="1"/>Schauspiel <rs ref="#pmb29909" type="work">Unter
+                     sich</rs> am <date>9. 12. 1903</date> in <rs ref="#pmb50" type="place">Wien</rs> gegeben.</note>:</p><closer><signed>Arthur</signed></closer><postscript><p><signed><handShift scribe="#pmb2173"/>Olga S.</signed><lb/><signed><handShift scribe="#pmb11740"/>Hugo (ich bin nicht der <rs type="work" ref="#pmb29909" subtype="implied"><anchor type="commentary" xml:id="K_L01351-2"/>Onkel<note type="commentary" corresp="K_L01351-2">Figur aus <rs ref="#pmb29909" type="work">Unter sich</rs>.</note></rs>)</signed><lb/><signed><handShift scribe="#pmb2292"/>Gerty</signed><lb/><signed><handShift scribe="#pmb10863"/>Richard</signed></p></postscript></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb2121">
+               <persName>
+                  <surname>Schnitzler</surname>
+                  <forename>Arthur</forename>
+               </persName>
+               <birth>
+                  <date when="1862-05-15">15. 5. 1862</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1931-10-21">21. 10. 1931</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2173">
+               <persName>
+                  <forename>Olga</forename>
+                  <surname>Schnitzler</surname>
+               </persName>
+               <birth>
+                  <date when="1882-01-17">1882-01-17</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1970-01-13">1970-01-13</date>
+                  <settlement ref="pmb885">
+                     <placeName type="pref">Lugano</placeName>
+                     <location>
+                        <geo>46,01008 8,96004</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11740">
+               <persName>
+                  <forename>Hugo von</forename>
+                  <surname>Hofmannsthal</surname>
+               </persName>
+               <birth>
+                  <date when="1874-02-01">1874-02-01</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1929-07-15">1929-07-15</date>
+                  <settlement ref="pmb173">
+                     <placeName type="pref">Rodaun</placeName>
+                     <location>
+                        <geo>48,132793312328 16,256152195922</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2292">
+               <persName>
+                  <forename>Gertrude von</forename>
+                  <surname>Hofmannsthal</surname>
+               </persName>
+               <birth>
+                  <date when="1880-03-16">1880-03-16</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+                  <settlement ref="pmb207076">
+                     <placeName type="pref">Strauchgasse 1</placeName>
+                     <location>
+                        <geo>48,210922 16,366201</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1959-11-09">1959-11-09</date>
+                  <settlement ref="pmb46885">
+                     <placeName type="pref">Paddington</placeName>
+                     <location>
+                        <geo>51,51558 -0,1763</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10863">
+               <persName>
+                  <forename>Richard</forename>
+                  <surname>Beer-Hofmann</surname>
+               </persName>
+               <birth>
+                  <date when="1866-07-11">1866-07-11</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-09-26">1945-09-26</date>
+                  <settlement ref="pmb44053">
+                     <placeName type="pref">New York City</placeName>
+                     <location>
+                        <geo>40,71427 -74,00597</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10815">
+               <persName>
+                  <forename>Hermann</forename>
+                  <surname>Bahr</surname>
+               </persName>
+               <birth>
+                  <date when="1863-07-19">1863-07-19</date>
+                  <settlement ref="pmb332">
+                     <placeName type="pref">Linz</placeName>
+                     <location>
+                        <geo>48,3 14,28333</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1934-01-15">1934-01-15</date>
+                  <settlement ref="pmb45258">
+                     <placeName type="pref">München</placeName>
+                     <location>
+                        <geo>48,13743 11,57549</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+         </listPerson>
+         <listBibl>
+            <bibl xml:id="pmb29983">
+               <title>Der Meister. Komödie in drei Akten</title>
+               <title type="legacy-name-merge">Der Meister. Komödie in drei Akten</title>
+               <title type="legacy-name-merge">Der Meister</title>
+               <title type="legacy-name-merge">Der Meister</title>
+               <author ref="pmb10815" role="hat-geschaffen">Bahr, Hermann</author>
+            </bibl>
+            <bibl xml:id="pmb29909">
+               <title>Unter sich. Ein Arme-Leut’-Stück</title>
+               <author ref="pmb10815" role="hat-geschaffen">Bahr, Hermann</author>
+            </bibl>
+         </listBibl>
+         <listPlace>
+            <place xml:id="pmb68">
+               <placeName>XVIII., Währing</placeName>
+               <placeName type="legacy-name-merge">Währing</placeName>
+               <location type="coords">
+                  <geo>48,23333 16,31667</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb50">Wien</placeName>
+                  <geo>48,208333 16,373056</geo>
+               </location>
+            </place>
+            <place xml:id="pmb63">
+               <placeName>XIII., Hietzing</placeName>
+               <placeName type="legacy-name-merge">Hietzing</placeName>
+               <location type="coords">
+                  <geo>48,17547 16,29101</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb50">Wien</placeName>
+                  <geo>48,208333 16,373056</geo>
+               </location>
+            </place>
+            <place xml:id="pmb50" ana="comment">
+               <placeName>Wien</placeName>
+               <placeName type="ort_fruherer-name">K.K. Reichshaupt- und Residenzstadt Wien</placeName>
+               <placeName type="alternative-name">Bécs</placeName>
+               <placeName type="alternative-name">Land Wien</placeName>
+               <placeName type="alternative-name">Vídeň</placeName>
+               <placeName type="alternative-name">Wenia</placeName>
+               <placeName type="alternative-name">Beč</placeName>
+               <placeName type="ort_fruherer-name">Vindobona</placeName>
+               <placeName type="alternative-name">Vienna</placeName>
+               <location type="coords">
+                  <geo>48,208333 16,373056</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb235218">Windmühlhöhe</placeName>
+                  <geo>48,24077 16,32092</geo>
+               </location>
+            </place>
+            <place xml:id="pmb220">
+               <placeName>Veitlissengasse</placeName>
+               <location type="coords">
+                  <geo>48,186622327678 16,259712159437</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb165">Ober Sankt Veit</placeName>
+                  <geo>48,188056 16,266389</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb63">XIII., Hietzing</placeName>
+                  <geo>48,17547 16,29101</geo>
+               </location>
+            </place>
+            <place xml:id="pmb165">
+               <placeName>Ober Sankt Veit</placeName>
+               <placeName type="legacy-name-merge">Wien-Ober-Sankt-Veit</placeName>
+               <placeName type="legacy-name-merge">Ober-Sankt-Veit</placeName>
+               <location type="coords">
+                  <geo>48,188056 16,266389</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb665">Sankt Veit</placeName>
+                  <geo>48,18805 16,26638</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb63">XIII., Hietzing</placeName>
+                  <geo>48,17547 16,29101</geo>
+               </location>
+            </place>
+            <place xml:id="pmb64">
+               <placeName>XIV., Penzing</placeName>
+               <placeName type="legacy-name-merge">Penzing</placeName>
+               <location type="coords">
+                  <geo>48,2 16,3</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb50">Wien</placeName>
+                  <geo>48,208333 16,373056</geo>
+               </location>
+            </place>
+            <place xml:id="pmb449">
+               <placeName>Auhofstraße</placeName>
+               <location type="coords">
+                  <geo>48,193314432222 16,275822411124</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb63">XIII., Hietzing</placeName>
+                  <geo>48,17547 16,29101</geo>
+               </location>
+            </place>
+            <place xml:id="pmb304">
+               <placeName>Ottakringer Bräu</placeName>
+               <placeName type="namensvariante">Hietzinger Restaurant</placeName>
+               <placeName type="namensvariante">Kuffner</placeName>
+               <location type="coords">
+                  <geo>48,18636 16,30202</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb63">XIII., Hietzing</placeName>
+                  <geo>48,17547 16,29101</geo>
+               </location>
+            </place>
+         </listPlace>
+         <listOrg>
+            <org xml:id="pmb29779" ana="comment">
+               <orgName>Die elf Scharfrichter</orgName>
+               <location type="located_in_place">
+                  <placeName ref="pmb45258">München</placeName>
+                  <geo>48,13743 11,57549</geo>
+                  <idno type="URL" subtype="d-nb">https://d-nb.info/gnd/4127793-4</idno>
+                  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/38129/</idno>
+                  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/45258/</idno>
+                  <idno type="URL" subtype="geonames">https://sws.geonames.org/2867714/</idno>
+                  <idno type="URL" subtype="www">https://www.kraus.wienbibliothek.at/legalkraus/pmb45258.html</idno>
+                  <idno type="URL" subtype="wikidata">http://www.wikidata.org/entity/Q1726</idno>
+                  <idno type="URL" subtype="wikipedia">https://de.wikipedia.org/wiki/M%C3%BCnchen</idno>
+                  <idno type="URL" subtype="schnitzler-interviews">https://schnitzler-interviews.acdh.oeaw.ac.at/pmb45258.html</idno>
+                  <idno type="URL" subtype="schnitzler-tagebuch">https://schnitzler-tagebuch.acdh.oeaw.ac.at/pmb45258.html</idno>
+                  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/263246/</idno>
+                  <idno type="URL" subtype="wienerschnitzler">https://wienerschnitzler.org/pmb45258.html</idno>
+                  <idno type="URL" subtype="schnitzler-kultur">https://schnitzler-kultur.acdh.oeaw.ac.at/pmb45258.html</idno>
+                  <idno type="URL" subtype="sk">https://sk.acdh.oeaw.ac.at/DWplace00383</idno>
+                  <idno type="URL" subtype="sk">https://sk.acdh.oeaw.ac.at/pmb45258</idno>
+                  <idno type="URL" subtype="sk">https://sk.acdh.oeaw.ac.at/fa_place00000329</idno>
+                  <idno type="URL" subtype="schnitzler-briefe">https://schnitzler-briefe.acdh.oeaw.ac.at/pmb45258.html</idno>
+                  <idno type="URL" subtype="biblio">https://biblio.ub.uni-freiburg.de/sf/#pmb45258</idno>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb50087">Türkenstraße [München]</placeName>
+                  <geo>48,150271 11,57595</geo>
+                  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/50087/</idno>
+                  <idno type="URL" subtype="wikidata">http://www.wikidata.org/entity/Q21406630</idno>
+                  <idno type="URL" subtype="wikipedia">https://de.wikipedia.org/wiki/T%C3%BCrkenstra%C3%9Fe_(M%C3%BCnchen)</idno>
+                  <idno type="URL" subtype="schnitzler-interviews">https://schnitzler-interviews.acdh.oeaw.ac.at/pmb50087.html</idno>
+                  <idno type="URL" subtype="schnitzler-briefe">https://schnitzler-briefe.acdh.oeaw.ac.at/pmb50087.html</idno>
+               </location>
+            </org>
+         </listOrg>
+      </back>
+   </text>
+</TEI>

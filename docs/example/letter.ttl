@@ -1,0 +1,236 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tcb: <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/1> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/loc/jena-0dd8aa7e1e> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n1']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='opener'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "4"^^xsd:nonNegativeInteger ;
+                            oa:start "0"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='opener'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Jena" ;
+                            oa:suffix ", den 1. August 1797" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/e821dea63e4f> ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/2> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/friedrich-schiller-86586925c3> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n2']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "18"^^xsd:nonNegativeInteger ;
+                            oa:start "0"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Friedrich Schiller" ;
+                            oa:suffix " schrieb aus Jena an GötheGoethe" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/e821dea63e4f> ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/3> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/loc/jena-0dd8aa7e1e> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n3']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "35"^^xsd:nonNegativeInteger ;
+                            oa:start "31"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Jena" ;
+                            oa:prefix "Friedrich Schiller schrieb aus " ;
+                            oa:suffix " an GötheGoethe." ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/e821dea63e4f> ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/4> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/goethe-62dc6b9d99> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n4']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "50"^^xsd:nonNegativeInteger ;
+                            oa:start "44"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Goethe" ;
+                            oa:prefix "hiller schrieb aus Jena an Göthe" ;
+                            oa:suffix "." ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/e821dea63e4f> ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/5> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/org/universitat-jena-4dd06f6754> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n5']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][2]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "20"^^xsd:nonNegativeInteger ;
+                            oa:start "4"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][2]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Universität Jena" ;
+                            oa:prefix "Die " ;
+                            oa:suffix " erwähnte auch Weimar & Umgebung" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/e821dea63e4f> ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/6> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml#weimar> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][2]/*[local-name()='placeName'][1]" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][2]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "41"^^xsd:nonNegativeInteger ;
+                            oa:start "35"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='p'][2]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Weimar" ;
+                            oa:prefix " Universität Jena erwähnte auch " ;
+                            oa:suffix " & Umgebung.Kommentar: Goethe le" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    tcb:origin tcb:editorial .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/7> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/schiller-cb0e1d0337> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='closer'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "12"^^xsd:nonNegativeInteger ;
+                            oa:start "4"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='closer'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Schiller" ;
+                            oa:prefix "Ihr " ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/e821dea63e4f> ;
+    tcb:origin tcb:automatic .
+
+<https://d-nb.info/gnd/118540238> a crm:E21_Person ;
+    rdfs:label "Johann Wolfgang von Goethe" .
+
+<https://d-nb.info/gnd/118607626> a crm:E21_Person ;
+    rdfs:label "Friedrich Schiller" .
+
+<https://d-nb.info/gnd/4028557-1> a crm:E53_Place ;
+    rdfs:label "Jena" .
+
+<https://github.com/klausbehnamshad/tei-crm-bridge> a prov:SoftwareAgent ;
+    rdfs:label "TEI CRM Bridge" .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001> a crm:E31_Document ;
+    rdfs:label "Beispielbrief aus Jena" ;
+    crm:P67_refers_to <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml#weimar> ;
+    crm:P70_documents <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/event/letter-001/received-1>,
+        <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/event/letter-001/sent-1> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/org/universitat-jena-4dd06f6754> a tcb:Candidate ;
+    rdfs:label "Universität Jena" ;
+    tcb:suggestedClass crm:E74_Group .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/friedrich-schiller-86586925c3> a tcb:Candidate ;
+    rdfs:label "Friedrich Schiller" ;
+    tcb:suggestedClass crm:E21_Person .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/goethe-62dc6b9d99> a tcb:Candidate ;
+    rdfs:label "Goethe" ;
+    tcb:suggestedClass crm:E21_Person .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/schiller-cb0e1d0337> a tcb:Candidate ;
+    rdfs:label "Schiller" ;
+    tcb:suggestedClass crm:E21_Person .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/event/letter-001/received-1> a crm:E7_Activity ;
+    rdfs:label "Empfang: Beispielbrief aus Jena" ;
+    crm:P14_carried_out_by <https://d-nb.info/gnd/118540238> ;
+    crm:P2_has_type tcb:receiving ;
+    crm:P4_has_time-span <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/event/letter-001/received-1/time> ;
+    crm:P7_took_place_at <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml#weimar> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/event/letter-001/received-1/time> a crm:E52_Time-Span ;
+    rdfs:label "Anfang August 1797" ;
+    crm:P3_has_note "TEI notBefore=\"1797-08-02\" notAfter=\"1797-08-05\"; cert=medium" ;
+    crm:P82a_begin_of_the_begin "1797-08-02T00:00:00"^^xsd:dateTime ;
+    crm:P82b_end_of_the_end "1797-08-05T23:59:59"^^xsd:dateTime .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/event/letter-001/sent-1> a crm:E7_Activity ;
+    rdfs:label "Versand: Beispielbrief aus Jena" ;
+    crm:P14_carried_out_by <https://d-nb.info/gnd/118607626> ;
+    crm:P2_has_type tcb:sending ;
+    crm:P4_has_time-span <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/event/letter-001/sent-1/time> ;
+    crm:P7_took_place_at <https://d-nb.info/gnd/4028557-1> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/event/letter-001/sent-1/time> a crm:E52_Time-Span ;
+    rdfs:label "1. August 1797" ;
+    crm:P3_has_note "TEI when=\"1797-08-01\"" ;
+    crm:P82a_begin_of_the_begin "1797-08-01T00:00:00"^^xsd:dateTime ;
+    crm:P82b_end_of_the_end "1797-08-01T23:59:59"^^xsd:dateTime .
+
+tcb:receiving a crm:E55_Type ;
+    rdfs:label "Empfang"@de,
+        "receiving"@en .
+
+tcb:sending a crm:E55_Type ;
+    rdfs:label "Versand"@de,
+        "sending"@en .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/loc/jena-0dd8aa7e1e> a tcb:Candidate ;
+    rdfs:label "Jena" ;
+    tcb:suggestedClass crm:E53_Place .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml#weimar> a crm:E53_Place ;
+    rdfs:label "Weimar" .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/e821dea63e4f> a prov:Activity ;
+    prov:wasAssociatedWith <https://github.com/klausbehnamshad/tei-crm-bridge> ;
+    tcb:engine "glossary" ;
+    tcb:glossary "glossary.json" ;
+    tcb:glossarySha256 "e99831d2c69b0d86ac96ee224c61381c25d1cc7970883caa477eb0330f3ab793" ;
+    tcb:reading "edited" ;
+    tcb:softwareVersion "0.2.0" .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> dcterms:format "application/tei+xml" ;
+    dcterms:isFormatOf <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001> .
+

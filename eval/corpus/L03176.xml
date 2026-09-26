@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../meta/schnitzler-briefe-schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:id="L03176" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1900-07-30" n="01">1900-07-30</title>
+            <title level="a">Arthur Schnitzler an Paul Goldmann, 30. 7. 1900</title>
+            <author ref="#pmb2121">Schnitzler, Arthur</author>
+            <editor>
+               <name>Müller, Martin Anton</name>
+               <name>Untner, Laura</name>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Müller, Martin Anton</persName>
+               <persName>Untner, Laura</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities </publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2023">2023</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen – das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten – das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung – Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen – Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">https://hdl.handle.net/21.11115/0000-0012-D067-D</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="brief"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>D</country>
+                        <settlement>Berlin</settlement>
+                        <repository>Akademie der Künste</repository>
+                        <idno>Alfred Kerr-Archiv, 2487</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="blatt" quantity="1"/>
+                                 <measure unit="seite" quantity="4"/>
+                                 <measure unit="zeichenanzahl" quantity="928"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="1">
+                           <handNote medium="bleistift" style="deutsche-kurrent"/>
+                        </handDesc>
+                        <additions>
+                           <incident type="archival" rend="bleistift">
+                              <desc>nummeriert: »<quote>69</quote>«</desc>
+                           </incident>
+                        </additions>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb2121">Schnitzler, Arthur</persName>
+               <date when="1900-07-30" n="01">30. 7. 1900</date>
+               <placeName ref="#pmb415">Bad Aussee</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb11485">Goldmann, Paul</persName>
+               <date evidence="external" notBefore="1900-07-31" notAfter="1900-08-02">[31. 7. 1900 –
+                  2. 8. 1900]</date>
+               <placeName ref="#pmb168">Berlin</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_11485">Goldmann, Paul</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L01061">Hofmannsthal an Schnitzler, 27. 7. 1900</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L04081">Schnitzler an Schwarzkopf, 30. 7. 1900</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_11485" target="L02925">Goldmann an Schnitzler, 26. 7. [1900]</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_11485" target="L02926">Goldmann an Schnitzler, 2. 8. [1900]</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="approved">
+         <change who="MAM" when="2023-07-25">Angelegt</change>
+         <change who="LU" when="2024-07-01">Durchsicht</change>
+         <change when="2024-07-02" who="LU">Index check</change>
+         <change who="MAM" when="2024-08-01">Durchsicht</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="Kerr_2487_002_01_R"/>
+      <graphic url="Kerr_2487_002_02_L"/>
+      <graphic url="Kerr_2487_002_02_R"/>
+      <graphic url="Kerr_2487_002_01_L"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="writingSession" n="1"><opener><dateline rend="right"><pb facs="Kerr_2487_002_01_R"/><hi rend="latintype"><rs type="place" ref="#pmb415">Aussee</rs></hi><space unit="chars" quantity="1"/><date when="1900-07-30">30/7 900</date>.</dateline></opener><p><salute>Mein lieber Paul,</salute> wir (<rs type="person" ref="#pmb10863">Richard</rs> u. ich) haben <date when="1900-07-30">heute</date>
+                  folgend<unclear>e</unclear> Punkte fe<c rendition="#langesS">s</c>tgestellt:</p><p><date when="1900-08-12">So<c rendition="#gemination-n">nn</c>tag 12.</date> Rendezvous <hi rend="underline" n="1"><rs type="place" ref="#pmb30">Salzburg</rs></hi> (<rs type="place" ref="#pmb230">Oe<c rendition="#langesS">s</c>terr. Hof</rs>.)</p><p><date when="1900-08-13">13.</date><space unit="chars" quantity="1"/><rs type="place" ref="#pmb30">Salzburg</rs>.</p><p><date when="1900-08-14">14.</date> Nach <rs type="place" ref="#pmb40336">Zell am
+                  See</rs>, <rs type="place" ref="#pmb90148">Mo<c rendition="#langesS">s</c>erboden</rs></p><p><date when="1900-08-15">15.</date> – <rs type="place" ref="#pmb90148">Mo<c rendition="#langesS">s</c>erboden</rs>
+               – <rs type="place" ref="#pmb40336">Zell am See</rs> – <rs type="place" ref="#pmb867"><hi rend="underline" n="2">Innsbruck</hi></rs></p><p><date when="1900-08-16">16.</date><space unit="chars" quantity="1"/><rs type="place" ref="#pmb867">Innsbruck</rs> Bahn <rs type="place" ref="#pmb90366">Bludenz</rs> Po<c rendition="#langesS">s</c>t <rs type="place" ref="#pmb38711">Schruns</rs>.</p><p><pb facs="Kerr_2487_002_02_L"/><date when="1900-08-17">17.</date>, event. <date when="1900-08-18">18.</date><space unit="chars" quantity="1"/><rs type="place" ref="#pmb38711">Schruns</rs>. –</p><p><date when="1900-08-19">19.</date><space unit="chars" quantity="1"/><rs type="place" ref="#pmb38711">Schruns</rs> – <rs type="place" ref="#pmb144646">Sulzfluh</rs></p><p><date when="1900-08-20">20.</date><space unit="chars" quantity="7"/>– <rs type="place" ref="#pmb40646">Küblis</rs></p><p><date when="1900-08-21">21.</date><space unit="chars" quantity="1"/><date when="1900-08-22">22.</date> auf einen noch nicht be<c rendition="#langesS">s</c>ti<c rendition="#gemination-m">mm</c>ten Weg nach <rs type="place" ref="#pmb34946">Pontre<c rendition="#langesS">s</c>ina</rs>.</p><p>Von dort nach Übereinko<c rendition="#gemination-m">mm</c>en <add place="inline">1)</add>
+               entweder <rs type="place" ref="#pmb49343">Bormio</rs>, <add place="above">a)</add>
+               von <rs type="place" ref="#pmb49343">Bormio</rs> gegen <rs type="place" ref="#pmb91918">Trafoi</rs>, <rs type="place" ref="#pmb91855">Sulden</rs><space unit="chars" quantity="1"/><hi rend="latintype">etc</hi> b) von <rs type="place" ref="#pmb49343">Bormio</rs>
+               nach dem <hi rend="latintype"><rs type="place" ref="#pmb142872">Lago d’Iseo</rs></hi> oder 2) von <rs type="place" ref="#pmb34946">Pontre<c rendition="#langesS">s</c>ina</rs> we<c rendition="#langesS">s</c>tlich in die
+                  <rs type="place" ref="#pmb43435">Schweiz</rs><space unit="chars" quantity="1"/><pb facs="Kerr_2487_002_02_R"/>oder 3) von <rs type="place" ref="#pmb34946">Pontre<c rendition="#langesS">s</c>ina</rs> nach <rs type="place" ref="#pmb40306">Italien</rs>. –</p><p>Am<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>chön<c rendition="#langesS">s</c>ten wäre al<c rendition="#langesS">s</c>o, <anchor type="commentary" xml:id="K_L03176-1"/>we<c rendition="#gemination-n">nn</c> Du am <date when="1900-08-12">12.</date> od. <date when="1900-08-13">13.</date> in <rs type="place" ref="#pmb30">Salzburg</rs>
+                  einträf<c rendition="#langesS">s</c>t<note type="commentary" corresp="K_L03176-1"><ref type="schnitzler-briefe" target="L02920" subtype="See"/>.
+               </note>; we<c rendition="#gemination-n">nn</c> Dir das nicht möglich am <date when="1900-08-15">15.</date> in <rs type="place" ref="#pmb867">Innsbruck</rs>. –</p><p>Vielleicht <anchor type="commentary" xml:id="K_L03176-2"/><c rendition="#langesS">s</c>ende<c rendition="#langesS">s</c>t Du die<c rendition="#langesS">s</c>en Brief gleich an <hi rend="latintype"><rs type="person" ref="#pmb11910">Kerr</rs></hi><note type="commentary" corresp="K_L03176-2">Das geschah, er ist im Nachlass <rs type="person" ref="#pmb11910">Kerrs</rs> überliefert.</note>, für den das<c rendition="#langesS">s</c>elbe gilt. Ich wei<c rendition="#langesS">s</c>s nicht, wohin ich zu adre<c rendition="#langesS">s</c><c rendition="#langesS">s</c>iren hätte.</p><p><pb facs="Kerr_2487_002_01_L"/>Ich fahre <date when="1900-07-31">morgen</date> nach
+                  <rs type="place" ref="#pmb414"><hi rend="underline" n="1">I<c rendition="#langesS">s</c>chl, Rudolfshöhe</hi></rs>, wo mich <anchor type="commentary" xml:id="K_L03176-3"/>bis auf weiteres<note type="commentary" corresp="K_L03176-3"><rs type="person" ref="#pmb2121">Schnitzler</rs> reiste am <ref type="schnitzler-tagebuch" target="1900-08-10" subtype="date-only"/> nach <rs type="place" ref="#pmb30">Salzburg</rs> ab.</note> Nachrichten treffen.</p><p>Bitte um recht baldige Ver<c rendition="#langesS">s</c>tändg <hi rend="latintype">resp</hi> Einver<c rendition="#langesS">s</c>tändnis.</p><closer>Herzlich<c rendition="#langesS">s</c>t <unclear>G</unclear>ruß<lb/>Dein <lb/><signed>Arthur</signed></closer></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb2121">
+               <persName>
+                  <surname>Schnitzler</surname>
+                  <forename>Arthur</forename>
+               </persName>
+               <birth>
+                  <date when="1862-05-15">15. 5. 1862</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1931-10-21">21. 10. 1931</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11485">
+               <persName>
+                  <forename>Paul</forename>
+                  <surname>Goldmann</surname>
+               </persName>
+               <birth>
+                  <date when="1865-01-31">1865-01-31</date>
+                  <settlement ref="pmb677">
+                     <placeName type="pref">Breslau</placeName>
+                     <location>
+                        <geo>51,10773 17,03533</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1935-09-25">1935-09-25</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10863">
+               <persName>
+                  <forename>Richard</forename>
+                  <surname>Beer-Hofmann</surname>
+               </persName>
+               <birth>
+                  <date when="1866-07-11">1866-07-11</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-09-26">1945-09-26</date>
+                  <settlement ref="pmb44053">
+                     <placeName type="pref">New York City</placeName>
+                     <location>
+                        <geo>40,71427 -74,00597</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11910">
+               <persName>
+                  <forename>Alfred</forename>
+                  <surname>Kerr</surname>
+               </persName>
+               <birth>
+                  <date when="1867-12-25">1867-12-25</date>
+                  <settlement ref="pmb677">
+                     <placeName type="pref">Breslau</placeName>
+                     <location>
+                        <geo>51,10773 17,03533</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1948-10-12">1948-10-12</date>
+                  <settlement ref="pmb506">
+                     <placeName type="pref">Hamburg</placeName>
+                     <location>
+                        <geo>53,55055 9,993333</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+         </listPerson>
+         <listPlace>
+            <place xml:id="pmb415">
+               <placeName>Bad Aussee</placeName>
+               <placeName type="ort_fruherer-name">Markt Aussee</placeName>
+               <location type="coords">
+                  <geo>47,60998 13,78243</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb17">Steiermark</placeName>
+                  <geo>47,38 15,7925</geo>
+               </location>
+            </place>
+            <place xml:id="pmb168">
+               <placeName>Berlin</placeName>
+               <placeName type="alternative-name">Hauptstadt Berlin</placeName>
+               <placeName type="alternative-name">Barlīn</placeName>
+               <placeName type="alternative-name">Reichshauptstadt Berlin</placeName>
+               <placeName type="alternative-name">Berolino</placeName>
+               <placeName type="legacy-name-merge">B-n</placeName>
+               <location type="coords">
+                  <geo>52,52437 13,41053</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb151">Deutschland</placeName>
+                  <geo>51,5 10,5</geo>
+               </location>
+            </place>
+            <place xml:id="pmb30" ana="comment">
+               <placeName>Salzburg</placeName>
+               <placeName type="alternative-name">Iuvavum</placeName>
+               <placeName type="legacy-name-merge">Salzburg Stadt</placeName>
+               <placeName type="legacy-name-merge">Salzburg?</placeName>
+               <location type="coords">
+                  <geo>47,80067 13,04532</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb697">Salzburg [Land]</placeName>
+                  <geo>47,41667 13,25</geo>
+               </location>
+            </place>
+            <place xml:id="pmb230">
+               <placeName>Österreichischer Hof</placeName>
+               <placeName type="legacy-name-merge">Hotel Englischer Hof [Salzburg]</placeName>
+               <location type="coords">
+                  <geo>47,802045 13,043401</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb30">Salzburg</placeName>
+                  <geo>47,80067 13,04532</geo>
+               </location>
+            </place>
+            <place xml:id="pmb40336">
+               <placeName>Zell am See</placeName>
+               <placeName type="legacy-name-merge">Zell am See?</placeName>
+               <location type="coords">
+                  <geo>47,32556 12,79444</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb90148">
+               <placeName>Berghaus Moserboden</placeName>
+               <location type="coords">
+                  <geo>47,16667 12,71667</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb48499">Kaprun</placeName>
+                  <geo>47,20551 12,72797</geo>
+               </location>
+            </place>
+            <place xml:id="pmb867">
+               <placeName>Innsbruck</placeName>
+               <placeName type="alternative-name">Oeniponte</placeName>
+               <placeName type="alternative-name">Stadt Innsbruck</placeName>
+               <placeName type="legacy-name-merge">bei Innsbruck</placeName>
+               <placeName type="legacy-name-merge">Innsbruck?</placeName>
+               <location type="coords">
+                  <geo>47,272569 11,389534</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb90366">
+               <placeName>Bludenz</placeName>
+               <location type="coords">
+                  <geo>47,15476 9,82255</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb38711">
+               <placeName>Schruns</placeName>
+               <location type="coords">
+                  <geo>47,06667 9,91667</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb141756">Vorarlberg</placeName>
+                  <geo>47,25 9,91667</geo>
+               </location>
+            </place>
+            <place xml:id="pmb144646">
+               <placeName>Sulzfluh</placeName>
+               <location type="coords">
+                  <geo>47,01268 9,83974</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb43435">Schweiz</placeName>
+                  <geo>47,00016 8,01427</geo>
+               </location>
+            </place>
+            <place xml:id="pmb40646">
+               <placeName>Küblis</placeName>
+               <location type="coords">
+                  <geo>46,91446 9,77929</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb43435">Schweiz</placeName>
+                  <geo>47,00016 8,01427</geo>
+               </location>
+            </place>
+            <place xml:id="pmb34946">
+               <placeName>Pontresina</placeName>
+               <location type="coords">
+                  <geo>46,4955 9,90126</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb353736">Oberengadin</placeName>
+                  <geo>46,502411734561655 9,86105664321974</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb43435">Schweiz</placeName>
+                  <geo>47,00016 8,01427</geo>
+               </location>
+            </place>
+            <place xml:id="pmb49343">
+               <placeName>Bormio</placeName>
+               <location type="coords">
+                  <geo>46,46717 10,37008</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb40306">Italien</placeName>
+                  <geo>42,83333 12,83333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb91918">
+               <placeName>Trafoi</placeName>
+               <location type="coords">
+                  <geo>46,5517 10,50988</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb40306">Italien</placeName>
+                  <geo>42,83333 12,83333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb91855">
+               <placeName>Solda</placeName>
+               <placeName type="ort_namensvariante">Sulden</placeName>
+               <location type="coords">
+                  <geo>46,52715 10,58905</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb40306">Italien</placeName>
+                  <geo>42,83333 12,83333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb142872">
+               <placeName>Iseosee</placeName>
+               <location type="coords">
+                  <geo>45,71667 10,06667</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb142864">Oberitalienische Seen</placeName>
+                  <geo>45,716 10,083</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb40306">Italien</placeName>
+                  <geo>42,83333 12,83333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb43435">
+               <placeName>Schweiz</placeName>
+               <placeName type="ort_namensvariante">Schweizerische Eidgenossenschaft</placeName>
+               <location type="coords">
+                  <geo>47,00016 8,01427</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb40306">
+               <placeName>Italien</placeName>
+               <placeName type="alternative-name">Italian Republic</placeName>
+               <placeName type="alternative-name">Republic of Italy</placeName>
+               <placeName type="legacy-name-merge">Italy</placeName>
+               <location type="coords">
+                  <geo>42,83333 12,83333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb414">
+               <placeName>Hotel und Pension Rudolfshöhe (Leopold Petter)</placeName>
+               <placeName type="legacy-name-merge">Rudolfshöhe</placeName>
+               <location type="coords">
+                  <geo>47,706537 13,609575</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb213">Bad Ischl</placeName>
+                  <geo>47,71109 13,61893</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb43015">Kaltenbach</placeName>
+                  <geo>47,69778 13,60913</geo>
+               </location>
+            </place>
+         </listPlace>
+      </back>
+   </text>
+</TEI>

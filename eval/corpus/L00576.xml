@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../meta/schnitzler-briefe-schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:id="L00576" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1896-08-01" n="01">1896-08-01</title>
+            <title level="a">Felix Salten und Hugo von Hofmannsthal an Arthur Schnitzler und Richard
+               Beer-Hofmann, 1. 8. 1896</title>
+            <author ref="#pmb2167">Salten, Felix</author>
+            <author ref="#pmb11740">Hofmannsthal, Hugo von</author>
+            <editor>
+               <name>Müller, Martin Anton</name>
+               <name>Susen, Gerd-Hermann</name>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Müller, Martin Anton</persName>
+               <persName>Susen, Gerd-Hermann</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities </publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2023">2023</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen – das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten – das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung – Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen – Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-6D61-B</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="karte" ana="postkarte"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>GB</country>
+                        <settlement>Cambridge</settlement>
+                        <repository>University Library</repository>
+                        <idno>Schnitzler, B 89</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="karte" quantity="1"/>
+                                 <measure unit="zeichenanzahl" quantity="411"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="2">
+                           <handNote medium="bleistift" style="lateinische-kurrent" corresp="#pmb2167"/>
+                           <handNote medium="bleistift" style="lateinische-kurrent" corresp="#pmb11740"/>
+                        </handDesc>
+                        <additions>
+                           <incident type="postal">
+                              <desc>
+                                 <stamp n="1" type="transmission">
+                                    <placeName ref="#pmb213">Ischl</placeName>
+                                    <date when="1896-08-01">1 8 <supplied>96</supplied>
+                                    </date>
+                                    <time>A</time>
+                                 </stamp>
+                              </desc>
+                           </incident>
+                           <incident type="postal">
+                              <desc>
+                                 <stamp n="2" type="delivery">
+                                    <placeName ref="#pmb36300">Kjøbenhavn</placeName>
+                                    <date when="1896-08-03">3–8 96</date>
+                                    <addSpan>20MB</addSpan>
+                                 </stamp>
+                              </desc>
+                           </incident>
+                           <incident type="archival" rend="bleistift">
+                              <desc>von unbekannter Hand die Jahreszahl »<quote>1896</quote>« bei
+                                 der geschriebenen Datumsangabe ergänzt</desc>
+                           </incident>
+                           <incident type="archival" rend="bleistift">
+                              <desc>von unbekannter Hand nummeriert: »<quote>75</quote>«</desc>
+                           </incident>
+                           <incident type="editorial">
+                              <desc>Hofmannsthals Ergänzungen in den Textklammern sind gut
+                                 erkennbar, weswegen hier auf die Auszeichung der vielen
+                                 Schriftwechsel verzichtet wird</desc>
+                           </incident>
+                        </additions>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb11740">Hofmannsthal, Hugo von</persName>
+               <persName ref="#pmb2167">Salten, Felix</persName>
+               <date when="1896-08-01" n="01">1. 8. 1896</date>
+               <placeName ref="#pmb213">Bad Ischl</placeName>
+            </correspAction>
+            <correspAction type="transmitted">
+               <date when="1896-08-01">1. 8. [1896]</date>
+               <placeName ref="#pmb213">Bad Ischl</placeName>
+            </correspAction>
+            <correspAction type="delivered">
+               <date when="1896-08-03">3. 8. 1896</date>
+               <placeName ref="#pmb36300">Kopenhagen</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb2121">Schnitzler, Arthur</persName>
+               <persName ref="#pmb10863">Beer-Hofmann, Richard</persName>
+               <date when="1896-08-03">3. 8. 1896</date>
+               <placeName ref="#pmb40903">Hotel Kongen af Danmark</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_11740">Hofmannsthal, Hugo von</ref>
+               <ref type="belongsToCorrespondence" target="correspondence_2167">Salten, Felix</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L04287">Schwarzkopf an Schnitzler, 31. 7. 1896</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L00577">Schnitzler an Beer-Hofmann, Lissy, [zwischen 3. und
+                  21. 8. 1896]</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_11740" target="L00564">Hofmannsthal an Schnitzler, 16. 7. [1896]</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_11740" target="L00579">Schnitzler an Hofmannsthal, 7. 8. 1896</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_2167" target="L03175">Salten an Schnitzler, 21. 7. 1896</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_2167" target="L03177">Salten, Schlesinger, Schlesinger, Fanto, Eisler, Laurent, Schlesinger, Schlesinger, Berger, Schlesinger an Schnitzler, 6. 8. 1896</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="approved">
+         <change who="MAM" when="2020-03-12">Angelegt mit Mikrofilm. Adress-Seite fehlt</change>
+         <change when="2020-03-13" who="MAM">Index check</change>
+         <change who="GHS" when="2020-10-16">Durchsicht nach pdf</change>
+         <change who="MAM" when="2020-10-24">Bilddateien in Farbe verlinkt, aber nicht
+            kollationiert</change>
+         <change who="MAM" when="2020-11-06">Durchsicht</change>
+         <change who="MAM" when="2026-09-21">Datierung und Stempel überprüft</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="MS-SCHNITZLER-B-00089-A-00001-000-00075-R"/>
+      <graphic url="MS-SCHNITZLER-B-00089-A-00001-000-00075-V"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="address"><address><addrLine><pb facs="MS-SCHNITZLER-B-00089-A-00001-000-00075-R"/>Herrn D<hi rend="superscript">r</hi> Arthur Schnitzler</addrLine><addrLine><rs type="place" ref="#pmb36300">Kopenhagen</rs></addrLine><addrLine><rs type="place" ref="#pmb43570">Dänemark</rs></addrLine><addrLine>poste restante</addrLine></address></div>
+         <div type="writingSession" n="1"><opener><seg><pb facs="MS-SCHNITZLER-B-00089-A-00001-000-00075-V"/><handShift scribe="#pmb11740"/>Für <hi rend="underline" n="1">Arthur <c rendition="#kaufmannsund"/> Richard</hi></seg><dateline rend="right"><handShift scribe="#pmb2167"/><rs type="place" ref="#pmb213">Ischl</rs>, <date>1. August</date></dateline></opener><p>Wir haben uns zufällig getroffen, und da hat er mir <handShift scribe="#pmb11740"/>(ich ihm) <handShift scribe="#pmb2167"/>natürlich gleich eine <anchor type="commentary" xml:id="K_L00576-1"/><rs type="work" ref="#pmb34220" subtype="implied">Novelle</rs><note type="commentary" corresp="K_L00576-1"><rs type="work" ref="#pmb34220">Geschichte der beiden Liebespaare</rs></note> vorgelesen. <handShift scribe="#pmb11740"/>Sie hat ihm <handShift scribe="#pmb2167"/>(mir) <handShift scribe="#pmb11740"/>recht gut <handShift scribe="#pmb2167"/>(sehr gut! das »recht gut« ist nur <handShift scribe="#pmb11740"/>meine <handShift scribe="#pmb2167"/>((seine)) Bescheidenheit)
+               gefallen. <handShift scribe="#pmb11740"/>Natürlich ist er <handShift scribe="#pmb2167"/>(ich) <handShift scribe="#pmb11740"/><hi rend="underline" n="1">sofort</hi> wieder <anchor type="commentary" xml:id="K_L00576-2"/>abgereist<note type="commentary" corresp="K_L00576-2"><rs type="person" ref="#pmb11740">Hofmannsthal</rs> urlaubte im gut 25 km
+                     entfernten <rs type="place" ref="#pmb415">Aussee</rs>.</note>. <handShift scribe="#pmb2167"/>Das hat er <handShift scribe="#pmb11740"/>(habe
+               ich) <handShift scribe="#pmb2167"/>seit sechs Wochen vorher gewusst. Dies wünscht Euch</p><closer><signed>Salten</signed><lb/><signed><handShift scribe="#pmb11740"/>Hugo</signed></closer></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb2167">
+               <persName>
+                  <forename>Felix</forename>
+                  <surname>Salten</surname>
+               </persName>
+               <birth>
+                  <date when="1869-09-06">1869-09-06</date>
+                  <settlement ref="pmb43471">
+                     <placeName type="pref">Budapest</placeName>
+                     <location>
+                        <geo>47,49835 19,04045</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-10-08">1945-10-08</date>
+                  <settlement ref="pmb484">
+                     <placeName type="pref">Zürich</placeName>
+                     <location>
+                        <geo>47,37174 8,54226</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11740">
+               <persName>
+                  <forename>Hugo von</forename>
+                  <surname>Hofmannsthal</surname>
+               </persName>
+               <birth>
+                  <date when="1874-02-01">1874-02-01</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1929-07-15">1929-07-15</date>
+                  <settlement ref="pmb173">
+                     <placeName type="pref">Rodaun</placeName>
+                     <location>
+                        <geo>48,132793312328 16,256152195922</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2121">
+               <persName>
+                  <surname>Schnitzler</surname>
+                  <forename>Arthur</forename>
+               </persName>
+               <birth>
+                  <date when="1862-05-15">15. 5. 1862</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1931-10-21">21. 10. 1931</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10863">
+               <persName>
+                  <forename>Richard</forename>
+                  <surname>Beer-Hofmann</surname>
+               </persName>
+               <birth>
+                  <date when="1866-07-11">1866-07-11</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-09-26">1945-09-26</date>
+                  <settlement ref="pmb44053">
+                     <placeName type="pref">New York City</placeName>
+                     <location>
+                        <geo>40,71427 -74,00597</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+         </listPerson>
+         <listBibl>
+            <bibl xml:id="pmb34220" ana="implied">
+               <title>Geschichte der beiden Liebespaare</title>
+               <author ref="pmb11740" role="hat-geschaffen">Hofmannsthal, Hugo von</author>
+            </bibl>
+         </listBibl>
+         <listPlace>
+            <place xml:id="pmb213">
+               <placeName>Bad Ischl</placeName>
+               <location type="coords">
+                  <geo>47,71109 13,61893</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb429">Salzkammergut</placeName>
+                  <geo>47,75 13,5</geo>
+               </location>
+            </place>
+            <place xml:id="pmb36300">
+               <placeName>Kopenhagen</placeName>
+               <placeName type="alternative-name">Copenhagen</placeName>
+               <location type="coords">
+                  <geo>55,67594 12,56553</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb43570">Dänemark</placeName>
+                  <geo>56,0 10,0</geo>
+               </location>
+            </place>
+            <place xml:id="pmb40903">
+               <placeName>Hotel Kongen af Danmark</placeName>
+               <placeName type="ort_namensvariante">Hotel König von Dänemark</placeName>
+               <placeName type="legacy-name-merge">Hotel Kongen Danmark</placeName>
+               <location type="coords">
+                  <geo>55,676944 12,586111</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb36300">Kopenhagen</placeName>
+                  <geo>55,67594 12,56553</geo>
+               </location>
+            </place>
+            <place xml:id="pmb43570">
+               <placeName>Dänemark</placeName>
+               <placeName type="legacy-name-merge">Denmark</placeName>
+               <placeName type="alternative-name">Kingdom of Denmark</placeName>
+               <location type="coords">
+                  <geo>56,0 10,0</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb745">Skandinavien</placeName>
+                  <geo>63,0 25,0</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb415" ana="comment">
+               <placeName>Bad Aussee</placeName>
+               <placeName type="ort_fruherer-name">Markt Aussee</placeName>
+               <location type="coords">
+                  <geo>47,60998 13,78243</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb17">Steiermark</placeName>
+                  <geo>47,38 15,7925</geo>
+               </location>
+            </place>
+         </listPlace>
+      </back>
+   </text>
+</TEI>

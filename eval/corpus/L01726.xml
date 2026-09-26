@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../meta/schnitzler-briefe-schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:id="L01726" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1907-10-25" n="01">1907-10-25</title>
+            <title level="a">Olga Schnitzler an Richard Beer-Hofmann, [25. 10. 1907]</title>
+            <author ref="#pmb2173">Schnitzler, Olga</author>
+            <editor>
+               <name>Müller, Martin Anton</name>
+               <name>Susen, Gerd-Hermann</name>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Müller, Martin Anton</persName>
+               <persName>Susen, Gerd-Hermann</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities </publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2023">2023</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen – das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten – das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung – Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen – Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-71DE-9</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="karte" ana="briefkarte"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>U.S.A.</country>
+                        <settlement>Yale</settlement>
+                        <repository>Beinecke Rare Book and Manuscript Library</repository>
+                        <idno>Yale Collection of German Literature, MSS 31</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="karte" quantity="1"/>
+                                 <measure unit="kuvert" quantity="1"/>
+                                 <measure unit="zeichenanzahl" quantity="296"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="1">
+                           <handNote medium="schwarze-tinte" style="lateinische-kurrent"/>
+                        </handDesc>
+                        <additions>
+                           <incident type="postal">
+                              <desc>ohne postalischen Übermittlungsvermerk</desc>
+                           </incident>
+                        </additions>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb2173">Schnitzler, Olga</persName>
+               <date when="1907-10-25" n="01">[25. 10. 1907]</date>
+               <placeName ref="#pmb50">Wien</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb10863">Beer-Hofmann, Richard</persName>
+               <date evidence="conjecture" notBefore="1907-10-25" notAfter="1907-10-27">[25. 10. 1907 – 29. 10. 1907?]</date>
+               <placeName ref="#pmb50">Wien</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_10863">Beer-Hofmann, Richard</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L03514">Salten an Schnitzler, [21. oder 22]. 10. 1907</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L01727">Hofmannsthal an Schnitzler, 1. 11. [1907]</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_10863" target="L01725">Schnitzler an Beer-Hofmann, [19. 10. 1907]</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_10863" target="L01736">Schnitzler an Beer-Hofmann, 6. 12. 1907</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="approved">
+         <change who="MAM" when="2021-01-15">Angelegt mit Hilfe von Artur Kernbauer</change>
+         <change who="GHS" when="2021-02-10">Durchsicht</change>
+         <change who="MAM" when="2021-02-11">Index check</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="1907_OS_RBH_1_00010"/>
+      <graphic url="1907_OS_RBH_1_00011"/>
+      <graphic url="1907_OS_RBH_1_00012"/>
+      <graphic url="1907_OS_RBH_1_00013"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="address"><address><addrLine><pb facs="1907_OS_RBH_1_00011"/><hi rend="pre-print">O. S.</hi></addrLine></address><address><addrLine><pb facs="1907_OS_RBH_1_00010"/>Herrn D<hi rend="superscript">r</hi> Richard
+                  Beer-Hofmann</addrLine></address></div>
+         <div type="writingSession" n="1"><opener><seg type="letterhead"><pb facs="1907_OS_RBH_1_00012"/><hi rend="pre-print">O. S.</hi></seg><dateline><date>Freitag.</date></dateline></opener><p><salute>Lieber Herr Doctor,</salute><space unit="chars" quantity="1"/><anchor type="commentary" xml:id="K_L01726-1"/><date>Montag</date><note type="commentary" corresp="K_L01726-1"><ref target="1907-10-28" type="schnitzler-tagebuch" subtype="Cf"/>.
+               </note><space unit="chars" quantity="1"/><time>Abend</time> kommen <rs type="person" ref="#pmb2167 #pmb23918">Saltens</rs> zum
+               Nachtmal, – es wäre sehr lieb, wenn Sie <rs type="person" ref="#pmb10860" subtype="implied">Beide</rs> auch <pb facs="1907_OS_RBH_1_00013"/>kommen wollten.
+               Bitte um Antwort. Morgen wollen wir bis Montag Früh auf den <rs type="place" ref="#pmb189">Semmering</rs>, nächste Woche beginnen meine Stunden bei <rs type="person" ref="#pmb23283">Ress</rs>.</p><closer>Die herzlichsten Grüsse!<lb/><signed>OlgaSch.</signed></closer></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb2173">
+               <persName>
+                  <forename>Olga</forename>
+                  <surname>Schnitzler</surname>
+               </persName>
+               <birth>
+                  <date when="1882-01-17">1882-01-17</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1970-01-13">1970-01-13</date>
+                  <settlement ref="pmb885">
+                     <placeName type="pref">Lugano</placeName>
+                     <location>
+                        <geo>46,01008 8,96004</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10863">
+               <persName>
+                  <forename>Richard</forename>
+                  <surname>Beer-Hofmann</surname>
+               </persName>
+               <birth>
+                  <date when="1866-07-11">1866-07-11</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-09-26">1945-09-26</date>
+                  <settlement ref="pmb44053">
+                     <placeName type="pref">New York City</placeName>
+                     <location>
+                        <geo>40,71427 -74,00597</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2167">
+               <persName>
+                  <forename>Felix</forename>
+                  <surname>Salten</surname>
+               </persName>
+               <birth>
+                  <date when="1869-09-06">1869-09-06</date>
+                  <settlement ref="pmb43471">
+                     <placeName type="pref">Budapest</placeName>
+                     <location>
+                        <geo>47,49835 19,04045</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-10-08">1945-10-08</date>
+                  <settlement ref="pmb484">
+                     <placeName type="pref">Zürich</placeName>
+                     <location>
+                        <geo>47,37174 8,54226</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb23918">
+               <persName>
+                  <forename>Ottilie</forename>
+                  <surname>Salten</surname>
+               </persName>
+               <birth>
+                  <date when="1868-03-07">1868-03-07</date>
+                  <settlement ref="pmb652">
+                     <placeName type="pref">Prag</placeName>
+                     <location>
+                        <geo>50,08333 14,46667</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1942-06-22">1942-06-22</date>
+                  <settlement ref="pmb484">
+                     <placeName type="pref">Zürich</placeName>
+                     <location>
+                        <geo>47,37174 8,54226</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb23283">
+               <persName>
+                  <forename>Johann</forename>
+                  <surname>Ress</surname>
+               </persName>
+               <birth>
+                  <date when="1839-08-08">1839-08-08</date>
+                  <settlement ref="pmb146">
+                     <placeName type="pref">Frankfurt am Main</placeName>
+                     <location>
+                        <geo>50,11552 8,68417</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1916-12-06">1916-12-06</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10860" ana="implied">
+               <persName>
+                  <forename>Paula</forename>
+                  <surname>Beer-Hofmann</surname>
+               </persName>
+               <birth>
+                  <date when="1879-02-25">1879-02-25</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1939-10-30">1939-10-30</date>
+                  <settlement ref="pmb484">
+                     <placeName type="pref">Zürich</placeName>
+                     <location>
+                        <geo>47,37174 8,54226</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+         </listPerson>
+         <listPlace>
+            <place xml:id="pmb50">
+               <placeName>Wien</placeName>
+               <placeName type="ort_fruherer-name">K.K. Reichshaupt- und Residenzstadt Wien</placeName>
+               <placeName type="alternative-name">Bécs</placeName>
+               <placeName type="alternative-name">Land Wien</placeName>
+               <placeName type="alternative-name">Vídeň</placeName>
+               <placeName type="alternative-name">Wenia</placeName>
+               <placeName type="alternative-name">Beč</placeName>
+               <placeName type="ort_fruherer-name">Vindobona</placeName>
+               <placeName type="alternative-name">Vienna</placeName>
+               <location type="coords">
+                  <geo>48,208333 16,373056</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb235218">Windmühlhöhe</placeName>
+                  <geo>48,24077 16,32092</geo>
+               </location>
+            </place>
+            <place xml:id="pmb189">
+               <placeName>Semmering</placeName>
+               <placeName type="alternative-name">Gemeinde Semmering</placeName>
+               <placeName type="alternative-name">Semmering-Semmering-Kurort</placeName>
+               <placeName type="alternative-name">Kurort Semmering</placeName>
+               <placeName type="alternative-name">Semmering-Kurort</placeName>
+               <placeName type="alternative-name">Heilklimatischer Höhenluftkurort Semmering</placeName>
+               <placeName type="alternative-name">Semmering- Kurort Semmering</placeName>
+               <location type="coords">
+                  <geo>47,64224 15,8241</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+            </place>
+         </listPlace>
+      </back>
+   </text>
+</TEI>

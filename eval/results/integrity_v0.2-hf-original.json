@@ -1,0 +1,18 @@
+{
+ "label": "v0.2-hf-original",
+ "tool": {
+  "version": "0.2.0",
+  "package_tree": "83c4a654604b70192bbabb62b70f53c681dd7c08"
+ },
+ "letters": 40,
+ "new_inline": 55,
+ "affected": 0,
+ "in_existing_name_reference": 0,
+ "in_note": 0,
+ "in_reference_and_note": 0,
+ "in_del": 0,
+ "in_c_or_g": 0,
+ "reading_text_changed": 0,
+ "markup_changed": 0,
+ "failures": []
+}

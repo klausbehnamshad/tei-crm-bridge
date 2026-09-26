@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:id="L03576" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1922-03-28" n="01">1922-03-28</title>
+            <title level="a">Felix Salten an Arthur Schnitzler, [28. oder 29]. 3. 1922</title>
+            <author ref="#pmb2167">Salten, Felix</author>
+            <editor>
+               <name>Müller, Martin Anton</name>
+               <name>Untner, Laura</name>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Müller, Martin Anton</persName>
+               <persName>Untner, Laura</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities </publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2023">2023</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen – das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten – das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung – Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen – Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">https://hdl.handle.net/21.11115/0000-0012-D1F7-9</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="karte" ana="bildpostkarte"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>GB</country>
+                        <settlement>Cambridge</settlement>
+                        <repository>University Library</repository>
+                        <idno>Schnitzler, B 89, B 2</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="karte" quantity="1"/>
+                                 <measure unit="zeichenanzahl" quantity="400"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="1">
+                           <handNote medium="schwarze-tinte" style="lateinische-kurrent"/>
+                        </handDesc>
+                        <additions>
+                           <incident type="postal">
+                              <desc>
+                                 <stamp n="1" type="non-postal">
+                                    <addSpan>Pregate i vostri corrispondenti di aggiungere
+                                       all’indirizzo il numero del quartiere postale</addSpan>
+                                 </stamp>
+                              </desc>
+                           </incident>
+                           <incident type="postal">
+                              <desc>
+                                 <stamp n="2" type="transmission">
+                                    <placeName ref="#pmb850">Venezia Ferrovia</placeName>
+                                    <date when="1922-03-29">29. III 1922</date>
+                                    <time>23–24</time>
+                                 </stamp>
+                              </desc>
+                           </incident>
+                           <incident type="archival" rend="bleistift">
+                              <desc>von <rs type="person" ref="#pmb22728">Frieda Pollak</rs> (?) mit
+                                 dem Buchstaben »<quote>A</quote>« (Abgeschrieben/Abschrift)
+                                 gekennzeichnet</desc>
+                           </incident>
+                           <incident type="archival" rend="bleistift">
+                              <desc>von unbekannter Hand nummeriert: »<quote>289</quote>«</desc>
+                           </incident>
+                        </additions>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb2167">Salten, Felix</persName>
+               <date notBefore="1922-03-28" notAfter="1922-03-29" n="01">[28. oder 29]. 3. 1922</date>
+               <placeName ref="#pmb462">Venedig</placeName>
+            </correspAction>
+            <correspAction type="transmitted">
+               <date when="1922-03-29">29. 3. 1922</date>
+               <placeName ref="#pmb850">Stazione di Venezia Santa Lucia</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb2121">Schnitzler, Arthur</persName>
+               <date evidence="conjecture" notBefore="1922-03-30" notAfter="1922-04-03">[30. 3. 1922
+                  – 3. 4. 1922?]</date>
+               <placeName ref="#pmb168815">Sternwartestraße 71</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_2167">Salten, Felix</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L02377">Schnitzler an Hauptmann, 17. 3. 1922</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L03577">Salten an Schnitzler, 2. 4. 1922</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_2167" target="L03595">Salten an Schnitzler, [22. 2. 1922?]</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_2167" target="L03577">Salten an Schnitzler, 2. 4. 1922</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="approved">
+         <change who="MAM" when="2024-01-09">Export aus Transkribus</change>
+         <change who="LU" when="2024-06-05">Durchsicht</change>
+         <change when="2024-06-06" who="LU">Index check</change>
+         <change who="MAM" when="2024-06-26">Durchsicht</change>
+         <change who="SJ" when="2026-09-23">Datierung und Stempel überprüft</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="MS-SCHNITZLER-B-00089-B-00002-000-00034-V"/>
+      <graphic url="MS-SCHNITZLER-B-00089-B-00002-000-00034-R"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="address"><address><addrLine><pb facs="MS-SCHNITZLER-B-00089-B-00002-000-00034-V"/><rs type="place" ref="#pmb41240">Aust<unclear>ria</unclear></rs></addrLine><addrLine>Herrn D<hi rend="superscript">r</hi> Arthur Schnitzler</addrLine><addrLine><rs type="place" ref="#pmb168815">XVIII. Sternwartestrasse 71</rs></addrLine><addrLine><rs type="place" ref="#pmb50">Wien</rs></addrLine></address></div>
+         <div type="image"><p rend="center"><pb facs="MS-SCHNITZLER-B-00089-B-00002-000-00034-R"/><hi rend="pre-print"><hi rend="capitals"><rs type="place" ref="#pmb462">Venezia</rs></hi> – <rs type="place" ref="#pmb261">Chiesa S. Marco</rs> e <rs type="place" ref="#pmb148261">Torre dell’ Orologio</rs></hi></p></div>
+         <div type="writingSession" n="1"><p><pb facs="MS-SCHNITZLER-B-00089-B-00002-000-00034-V"/><salute>Lieber,</salute> es ist schon sehr schön, wieder <rs type="place" subtype="implied" ref="#pmb462">hier</rs> zu sein. Bin <date when="1922-03-29">heute</date> vier Stunden spazieren gegangen. Die Leute sind so freundlich, als
+               wären auch sie des Wiedersehens froh. Es sind fast gar keine Fremden da. Ich glaube,
+               man kann hier mit 50–60 Lire im Tag gut auskommen. Das ist, an unseren Preisen
+               gemessen, nicht viel.</p><closer>Herzlichst Ihr <signed>Felix Salten</signed></closer></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb2167">
+               <persName>
+                  <forename>Felix</forename>
+                  <surname>Salten</surname>
+               </persName>
+               <birth>
+                  <date when="1869-09-06">1869-09-06</date>
+                  <settlement ref="pmb43471">
+                     <placeName type="pref">Budapest</placeName>
+                     <location>
+                        <geo>47,49835 19,04045</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-10-08">1945-10-08</date>
+                  <settlement ref="pmb484">
+                     <placeName type="pref">Zürich</placeName>
+                     <location>
+                        <geo>47,37174 8,54226</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb22728">
+               <persName>
+                  <forename>Frieda</forename>
+                  <surname>Pollak</surname>
+               </persName>
+               <birth>
+                  <date when="1881-12-08">1881-12-08</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1937-07-13">1937-07-13</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2121">
+               <persName>
+                  <surname>Schnitzler</surname>
+                  <forename>Arthur</forename>
+               </persName>
+               <birth>
+                  <date when="1862-05-15">15. 5. 1862</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1931-10-21">21. 10. 1931</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+         </listPerson>
+         <listPlace>
+            <place xml:id="pmb850">
+               <placeName>Stazione di Venezia Santa Lucia</placeName>
+               <placeName type="namensvariante">Venezia Ferrovia</placeName>
+               <placeName type="ort_namensvariante">Bahnhof Venedig</placeName>
+               <location type="coords">
+                  <geo>45,44143 12,32024</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb462">Venedig</placeName>
+                  <geo>45,43713 12,33265</geo>
+               </location>
+            </place>
+            <place xml:id="pmb462">
+               <placeName>Venedig</placeName>
+               <placeName type="legacy-name-merge">Venice</placeName>
+               <location type="coords">
+                  <geo>45,43713 12,33265</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb40306">Italien</placeName>
+                  <geo>42,83333 12,83333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb168815">
+               <placeName>Sternwartestraße 71</placeName>
+               <location type="coords">
+                  <geo>48,23188 16,33716</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb68">XVIII., Währing</placeName>
+                  <geo>48,23333 16,31667</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb533">Währinger Cottage</placeName>
+                  <geo>48,233056 16,341944</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb150">Sternwartestraße</placeName>
+                  <geo>48,23099349198 16,340117830625</geo>
+               </location>
+            </place>
+            <place xml:id="pmb41240">
+               <placeName>Österreich</placeName>
+               <placeName type="alternative-name">Republik Österreich</placeName>
+               <placeName type="alternative-name">Republic of Austria</placeName>
+               <placeName type="legacy-name-merge">Deutsch Österreich</placeName>
+               <placeName type="legacy-name-merge">Altoesterreich</placeName>
+               <location type="coords">
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb298373">Cisleithanien</placeName>
+                  <geo>48,5 16,383333333333333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb687">Österreich-Ungarn</placeName>
+                  <geo>48,4054 16,4887</geo>
+               </location>
+            </place>
+            <place xml:id="pmb50">
+               <placeName>Wien</placeName>
+               <placeName type="ort_fruherer-name">K.K. Reichshaupt- und Residenzstadt Wien</placeName>
+               <placeName type="alternative-name">Bécs</placeName>
+               <placeName type="alternative-name">Land Wien</placeName>
+               <placeName type="alternative-name">Vídeň</placeName>
+               <placeName type="alternative-name">Wenia</placeName>
+               <placeName type="alternative-name">Beč</placeName>
+               <placeName type="ort_fruherer-name">Vindobona</placeName>
+               <placeName type="alternative-name">Vienna</placeName>
+               <location type="coords">
+                  <geo>48,208333 16,373056</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb235218">Windmühlhöhe</placeName>
+                  <geo>48,24077 16,32092</geo>
+               </location>
+            </place>
+            <place xml:id="pmb261">
+               <placeName>Piazza San Marco</placeName>
+               <placeName type="namensvariante">Markusplatz</placeName>
+               <location type="coords">
+                  <geo>45,43411 12,33835</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb462">Venedig</placeName>
+                  <geo>45,43713 12,33265</geo>
+               </location>
+            </place>
+            <place xml:id="pmb148261">
+               <placeName>Torre dell’Orologio</placeName>
+               <placeName type="ort_namensvariante">Uhrturm</placeName>
+               <location type="coords">
+                  <geo>45,434722222222 12,338888888889</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb261">Piazza San Marco</placeName>
+                  <geo>45,43411 12,33835</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb462">Venedig</placeName>
+                  <geo>45,43713 12,33265</geo>
+               </location>
+            </place>
+         </listPlace>
+      </back>
+   </text>
+</TEI>

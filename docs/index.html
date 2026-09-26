@@ -1,25 +1,103 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beispielbrief aus Jena · TEI CRM Bridge</title>
-<style>
-:root{--ink:#172a2d;--muted:#577073;--paper:#f6f4ed;--line:#d8ddd7;--accent:#0c615c}
-*{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,sans-serif}
-header{background:#173b3b;color:#fff;padding:2.4rem max(1.5rem,calc((100vw - 1080px)/2))}
-header .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:#b5d4ce}h1{font:normal clamp(2rem,4vw,3.2rem)/1.12 Georgia,serif;margin:.55rem 0}
-header p{color:#d5e6e1;max-width:62ch}main{max-width:1080px;margin:auto;padding:2rem 1.5rem 4rem;display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:2rem}
-section{min-width:0}.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:1.5rem;box-shadow:0 5px 24px #18362d0a}
-h2{font:normal 1.5rem Georgia,serif;margin:.1rem 0 1rem}h3{margin:.1rem 0 .75rem;font-size:1rem}
-.toolbar{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}button{cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.42rem .85rem;color:var(--ink)}button.active{background:var(--accent);border-color:var(--accent);color:white}
-.document{font:1.1rem/1.9 Georgia,serif}.document p{margin:0 0 1rem}
-mark{padding:.08rem .16rem;border-radius:4px;color:inherit}mark.per{background:#f8dfb4}mark.loc{background:#c8e8dc}mark.org{background:#dcd5ef}mark.dimmed{background:transparent;outline:1px dotted #bcc8c6}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-bottom:1rem}.stats div{border:1px solid var(--line);border-radius:10px;padding:.6rem}.stats strong{display:block;font-size:1.35rem}.stats span,.muted{color:var(--muted);font-size:.88rem}
-dl{margin:0}dl div{display:grid;grid-template-columns:90px 1fr;gap:.5rem;border-top:1px solid var(--line);padding:.5rem 0}dt{color:var(--muted)}dd{margin:0}.links a{display:inline-block;margin:.5rem .7rem .3rem 0;color:var(--accent)}footer{max-width:1080px;margin:auto;padding:0 1.5rem 2rem;color:var(--muted);font-size:.85rem}
-@media(max-width:760px){main{grid-template-columns:1fr}}
+<title>Namen in TEI-Briefen nachvollziehbar anreichern · TEI CRM Bridge</title><style>
+:root{--ink:#172a2d;--muted:#52696c;--paper:#f6f4ed;--panel:#fff;--line:#d8ddd7;--accent:#0c615c;--head:#173b3b;--good:#1d6b43;--bad:#9b3b2f}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ink:#e4ece9;--muted:#9fb3af;--paper:#111a1b;--panel:#182324;--line:#2c3b3c;--accent:#6fc7bd;--head:#0c2020;--good:#7fd1a1;--bad:#f2a293}}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif}
+header{background:var(--head);color:#fff;padding:2.4rem max(1rem,calc((100vw - 1040px)/2)) 2rem}
+header .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:#b5d4ce}
+header h1{font:normal clamp(1.9rem,4.4vw,3rem)/1.1 Georgia,serif;margin:.5rem 0}header p{color:#d5e6e1;max-width:68ch;margin:.4rem 0}
+header nav{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem}header nav a{color:#fff;border:1px solid #6f9b95;border-radius:999px;padding:.4rem .9rem;text-decoration:none;font-size:.92rem}
+header nav a.primary{background:#e8f4f1;color:#173b3b;border-color:#e8f4f1}
+main{max-width:1040px;margin:auto;padding:1.6rem 1rem 3rem}
+h2{font:normal 1.55rem Georgia,serif;margin:2.2rem 0 .8rem}h3{font-size:1.02rem;margin:1.2rem 0 .4rem}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem;margin:0 0 1rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem;margin-top:1.2rem}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem}.tile strong{display:block;font:normal 1.7rem Georgia,serif}.tile span{color:var(--muted);font-size:.9rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.6rem;counter-reset:step}
+.steps div{border:1px solid var(--line);border-radius:12px;padding:.8rem;background:var(--panel)}.steps div::before{counter-increment:step;content:counter(step);display:inline-block;font:600 .8rem system-ui;background:var(--accent);color:var(--paper);border-radius:999px;width:1.5rem;height:1.5rem;text-align:center;line-height:1.5rem;margin-bottom:.3rem}
+.steps b{display:block}.steps span{color:var(--muted);font-size:.9rem}
+.table{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.93rem}th,td{border-bottom:1px solid var(--line);padding:.45rem .5rem;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}.up{color:var(--good)}.down{color:var(--bad)}
+.muted{color:var(--muted)}code{font-size:.86em;overflow-wrap:anywhere}a{color:var(--accent)}
+.case{border-left:4px solid var(--accent);padding-left:1rem;margin:1rem 0}.case .ctx{font-family:Georgia,serif;background:var(--paper);border-radius:8px;padding:.5rem .7rem;margin:.4rem 0}
+.case mark{background:transparent;border-bottom:2px solid var(--accent);color:inherit;font-weight:600}
+pre{background:var(--head);color:#e8f4f1;border-radius:10px;padding:.9rem 1rem;overflow-x:auto;font-size:.86rem}
+footer{max-width:1040px;margin:auto;padding:0 1rem 2.5rem;color:var(--muted);font-size:.86rem}
 </style></head><body>
-<header><div class="eyebrow">TEI → CIDOC CRM → RDF</div><h1>Beispielbrief aus Jena</h1><p>Nachvollziehbare Entitäten und explizite Korrespondenzmetadaten aus einem TEI-Dokument. Erkennung: glossary.</p></header>
-<main><section><div class="toolbar" aria-label="Entitätstyp filtern"><button class="active" data-filter="ALL">Alle</button><button data-filter="PER">Personen</button><button data-filter="LOC">Orte</button><button data-filter="ORG">Organisationen</button></div><div class="panel document"><h2>Text</h2><p><mark class="entity per" data-kind="PER" title="PER">Friedrich Schiller</mark> schrieb aus <em><mark class="entity loc" data-kind="LOC" title="LOC">Jena</mark></em> an <mark class="entity per" data-kind="PER" title="PER">Goethe</mark>.</p>
-<p>Die <mark class="entity org" data-kind="ORG" title="ORG">Universität Jena</mark> erwähnte auch <mark class="entity loc" data-kind="LOC" title="LOC">Weimar</mark> &amp; Umgebung.</p></div></section>
-<aside><div class="panel"><h2>Überblick</h2><div class="stats"><div><strong>2</strong><span>Absätze</span></div><div><strong>4</strong><span>Neue Markierungen</span></div><div><strong>1</strong><span>TEI-Markierungen</span></div><div><strong>1</strong><span>Explizite Ereignisse</span></div></div><p class="muted">NER-Treffer sind Vorschläge. Gleiche Namen sind noch nicht als historische Identitäten geprüft.</p><div class="links"><a href="letter.enriched.xml">TEI XML</a><a href="letter.ttl">RDF Turtle</a></div></div><div class="panel" style="margin-top:1rem"><h2>Korrespondenz</h2><article class="event"><h3>Versand</h3><dl><div><dt>Person</dt><dd>Friedrich Schiller</dd></div><div><dt>Ort</dt><dd>Jena</dd></div><div><dt>Datum</dt><dd>1. August 1797</dd></div></dl></article></div></aside></main>
-<footer>TEI CRM Bridge · Fiktive Demonstrationsdaten · HTML-Vorschau für die Begutachtung</footer>
-<script>document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('active',b===button));document.querySelectorAll('.entity').forEach(el=>el.classList.toggle('dimmed',button.dataset.filter!=='ALL'&&el.dataset.kind!==button.dataset.filter));}));</script>
+<header><div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none">TEI CRM Bridge 0.2.0</a></div>
+<h1>Namen in TEI-Briefen nachvollziehbar anreichern</h1><p>Ein Werkzeug, das historische Briefeditionen um Personen, Orte und Organisationen ergänzt, Lesetext und vorhandene Textauszeichnung bewahrt, Aussagen und Vorschläge mit Herkunft ablegt und sich an einer echten Edition messen lässt.</p><nav><a class="primary" href="schnitzler/L02051.html">Echter Brief ansehen</a><a href="example/letter.html">Fiktives Beispiel</a><a href="https://github.com/klausbehnamshad/tei-crm-bridge/tree/main/eval">Evaluation</a><a href="https://github.com/klausbehnamshad/tei-crm-bridge">Code</a></nav></header>
+<main>
+<div class="tiles"><div class="tile"><strong>274 → 0</strong><span>neue Namen innerhalb bestehender Namensreferenzen der Edition (40 Originalbriefe)</span></div><div class="tile"><strong>150 → 0</strong><span>neue Namen in Kommentaren <code>&lt;note&gt;</code></span></div><div class="tile"><strong>0,619 → 0,668</strong><span>F1 strikt, nur Text in <code>&lt;p&gt;</code> – der Umfang, den v0.1 las</span></div><div class="tile"><strong>0,468 → 0,712</strong><span>Recall überlappend, alle Textblöcke</span></div></div>
+
+<h2>Was das Werkzeug tut</h2>
+<div class="steps">
+<div><b>Lesetext bilden</b><span>Pro Absatz, Briefkopf, Adresse oder Grußformel ein zusammenhängender Text; <code>&lt;c&gt;</code> bleibt im Wort, Kommentare zählen nicht.</span></div>
+<div><b>Namen erkennen</b><span>Historisches NER-Modell mit überlappenden Fenstern; unvollständig gelesene Texte brechen ab statt still zu kürzen.</span></div>
+<div><b>Behutsam zurückschreiben</b><span>Inline nur innerhalb eines Textknotens; sonst Stand-off. Die ursprüngliche Textauszeichnung im <code>body</code> ist nach Entfernen der Ergänzungen wiederherstellbar.</span></div>
+<div><b>Vorschläge als Vorschläge</b><span>Automatische Treffer werden Kandidaten mit vorgeschlagener CRM-Klasse und Herkunft; Aussagen der Edition bleiben CIDOC CRM.</span></div>
+<div><b>Messen</b><span>Gegen die redaktionelle Auszeichnung von 40 Briefen der Schnitzler-Edition, reproduzierbar ab festem Commit.</span></div>
+</div>
+
+<h2>Gemessen: v0.1 gegen v0.2</h2>
+<p>40 Briefe aus <a href="https://github.com/arthur-schnitzler/schnitzler-briefe-data">schnitzler-briefe-data</a> @ <code>76870800b474</code>,
+295 redaktionelle Personen-, Orts- und Organisationsreferenzen als Referenz. Die Auszeichnungen wurden vor dem Lauf entfernt; beide Versionen erhielten dieselben Eingaben
+mit demselben Modell (<code>impresso-project/ner-hipe2020-hist-base</code>, Schwelle 0,85). Gemessen mit TEI CRM Bridge 0.2.0,
+Paketbaum <code>83c4a654604b</code> (<code>git rev-parse &lt;commit&gt;:src/tei_crm_bridge</code>).</p>
+<p><b>Beide Blickwinkel gehören zusammen:</b> Im Text, den v0.1 überhaupt las, steigen Präzision und F1. Über alle Textblöcke steigt der Recall deutlich,
+die strikte Präzision sinkt aber, weil v0.2 auch Adressen, Briefköpfe und Grußformeln liest und dort Namen vorschlägt, die die Referenz nicht enthält.</p>
+<div class="panel table"><table><thead><tr><th>Nur Text in <code>&lt;p&gt;</code></th><th></th><th class="num">v0.1</th><th class="num">v0.2</th><th class="num">Δ</th></tr></thead>
+<tbody><tr><td>strikt</td><td>Präzision</td><td class="num">0,688</td><td class="num">0,770</td><td class="num up">+0,082</td></tr><tr><td>strikt</td><td>Recall</td><td class="num">0,563</td><td class="num">0,591</td><td class="num up">+0,028</td></tr><tr><td>strikt</td><td>F1</td><td class="num">0,619</td><td class="num">0,668</td><td class="num up">+0,049</td></tr><tr><td>überlappend</td><td>Präzision</td><td class="num">0,784</td><td class="num">0,861</td><td class="num up">+0,077</td></tr><tr><td>überlappend</td><td>Recall</td><td class="num">0,642</td><td class="num">0,660</td><td class="num up">+0,018</td></tr><tr><td>überlappend</td><td>F1</td><td class="num">0,706</td><td class="num">0,747</td><td class="num up">+0,041</td></tr></tbody></table></div>
+<div class="panel table"><table><thead><tr><th>Alle Textblöcke</th><th></th><th class="num">v0.1</th><th class="num">v0.2</th><th class="num">Δ</th></tr></thead>
+<tbody><tr><td>strikt</td><td>Präzision</td><td class="num">0,688</td><td class="num">0,528</td><td class="num down">−0,160</td></tr><tr><td>strikt</td><td>Recall</td><td class="num">0,410</td><td class="num">0,542</td><td class="num up">+0,132</td></tr><tr><td>strikt</td><td>F1</td><td class="num">0,514</td><td class="num">0,535</td><td class="num up">+0,021</td></tr><tr><td>überlappend</td><td>Präzision</td><td class="num">0,784</td><td class="num">0,693</td><td class="num down">−0,091</td></tr><tr><td>überlappend</td><td>Recall</td><td class="num">0,468</td><td class="num">0,712</td><td class="num up">+0,244</td></tr><tr><td>überlappend</td><td>F1</td><td class="num">0,586</td><td class="num">0,702</td><td class="num up">+0,116</td></tr></tbody></table></div>
+<p class="muted">Strikt: gleiche Grenzen und gleicher Typ. Überlappend: gleicher Typ, mindestens ein gemeinsames Zeichen, eins zu eins. Die Regeln wurden vor der ersten Messung festgelegt.</p>
+
+<h3>v0.2 nach Typ (alle Blöcke)</h3>
+<div class="panel table"><table><thead><tr><th>Typ</th><th class="num">Referenz</th><th class="num">vorhergesagt</th><th class="num">F1 strikt</th><th class="num">P überl.</th><th class="num">R überl.</th><th class="num">F1 überl.</th></tr></thead>
+<tbody><tr><td>Personen</td><td class="num">103</td><td class="num">148</td><td class="num">0,462</td><td class="num">0,486</td><td class="num">0,699</td><td class="num">0,574</td></tr><tr><td>Orte</td><td class="num">181</td><td class="num">151</td><td class="num">0,608</td><td class="num">0,907</td><td class="num">0,757</td><td class="num">0,825</td></tr><tr><td>Organisationen</td><td class="num">11</td><td class="num">4</td><td class="num">0,133</td><td class="num">0,250</td><td class="num">0,091</td><td class="num">0,133</td></tr><tr><td>gesamt</td><td class="num">295</td><td class="num">303</td><td class="num">0,535</td><td class="num">0,693</td><td class="num">0,712</td><td class="num">0,702</td></tr></tbody></table></div>
+<p class="muted">Organisationen: nur 11 Referenzen – dafür ist die Stichprobe zu klein für eine Aussage.
+Aggregation <code>first</code> (wortgenau) statt <code>simple</code>: F1 strikt 0,535 gegenüber 0,534,
+aber kein Treffer endet mitten im Wort – Voraussetzung für TEI-Markup.</p>
+
+<h3>Integrität auf den unveränderten Briefen</h3>
+<div class="panel table"><table><thead><tr><th>Prüfung (40 Originalbriefe)</th><th class="num">v0.1</th><th class="num">v0.2</th></tr></thead><tbody>
+<tr><td>neue Namen gesamt (inline)</td><td class="num">336</td><td class="num">55</td></tr>
+<tr><td>… davon an unzulässiger Stelle (Referenz der Edition, Kommentar, Streichung oder <code>&lt;c&gt;</code>)</td><td class="num">307</td><td class="num">0</td></tr>
+<tr><td>… … in bestehender Personen-/Orts-/Organisationsreferenz</td><td class="num">274</td><td class="num">0</td></tr>
+<tr><td>… … in Kommentar <code>&lt;note&gt;</code></td><td class="num">150</td><td class="num">0</td></tr>
+<tr><td>… … in beidem zugleich</td><td class="num">117</td><td class="num">0</td></tr>
+<tr><td>Briefe mit verändertem Lesetext</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>Briefe mit verändertem vorhandenem Markup</td><td class="num">0</td><td class="num">0</td></tr>
+</tbody></table></div>
+
+<h2>Wie die Zahlen zu lesen sind</h2>
+<div class="panel">
+<p><b>Wo die falschen Treffer liegen.</b> Im ganzen Korpus liegen 67 der 78 falschen Treffer von v0.2 außerhalb von Absätzen –
+in Adressen, Grußformeln, Unterschriften und Briefköpfen.</p>
+<p><b>Was eine Stichprobe dazu zeigt.</b> In 10 Briefen wurde nach Namen gesucht, die die Edition nicht auszeichnet. Gefunden wurden 28,
+fast alle Korrespondenzpartner in Adressen, Anreden und Unterschriften; die Edition verzeichnet sie in den Metadaten (<code>correspDesc</code>).
+Von den 39 Vorhersagen dieser Briefe, die nicht exakt der Referenz entsprechen, sind 11 genau ein solcher Name
+und 8 überlappen einen. Das gilt für diese zehn Briefe; die Hauptzahlen bleiben unbereinigt.</p>
+<p><b>Grenzen folgen anderen Richtlinien.</b> Das Modell ist nach den <a href="https://doi.org/10.5281/zenodo.3604227">Impresso-Annotationsrichtlinien</a> trainiert,
+die Titel und Funktionen zur Personennennung zählen („Dr Hoffmann“); die Edition zeichnet nur den Namen aus. Umgekehrt fasst die Edition
+Adressen als einen Ort („Wien, IX. Frankg. 1.“), das Modell trennt. Deshalb werden strikte und überlappende Werte getrennt berichtet.</p>
+<p class="muted">Stichprobe: Vorprüfung durch zwei unabhängige, KI-gestützte Lesedurchgänge je Brief, Abweichungen durch eine dritte Prüfung entschieden;
+eine menschliche Bestätigung steht aus. Liste: <a href="https://github.com/klausbehnamshad/tei-crm-bridge/blob/main/eval/spotcheck.tsv">eval/spotcheck.tsv</a>.</p>
+</div>
+
+<h2>Drei belegte Fehlerfälle</h2>
+<div class="panel"><div class="case"><h3>Richtlinien statt Modellfehler: Titel im Namen</h3><p class="muted">Grenze abweichend · Brief L01476 · Vorhersage: PER „Dr Hochsinger“ · Referenz: PER „Hochsinger“</p><div class="ctx">…nes Schwagers Grfen Castell absagen müssen u <mark>Dr Hochsinger</mark> ist bemüht mit Hilfe Heines u Treßler einen…</div><p>Die Impresso-Annotationsrichtlinien, nach denen das Modell trainiert ist, zählen Titel zur Personennennung; die Edition zeichnet nur „Hochsinger“ aus. Strikt ein Fehler, überlappend ein Treffer. Titel automatisch abzutrennen würde eine Richtlinie in den Code schreiben – deshalb berichtet das Projekt beide Maße, statt das Ergebnis an die Referenz anzupassen.</p></div><div class="case"><h3>Ort über eine Person: „zum Souper bei Specht“</h3><p class="muted">Typ abweichend · Brief L03151 · Vorhersage: LOC „Specht“ · Referenz: PER „Specht“</p><div class="ctx">…Lieber Freund, ich bin zum Souper bei <mark>Specht</mark> , wo Sie mich, falls es nötig wäre, anrufen k…</div><p>Laut Register der Edition ist Richard Specht (1870–1932) gemeint; „bei Specht“ bezeichnet einen Ort über eine Person. Die Edition verweist auf die Person, das Modell liest einen Ort. Beides ist vertretbar; entscheiden kann das nur, wer die Personen kennt – ein Grund, automatische Treffer als Vorschläge und nicht als Aussagen im Graphen abzulegen.</p></div><div class="case"><h3>Ein „falscher Treffer“, der richtig ist</h3><p class="muted">falscher Treffer · Brief L03426 · Vorhersage: PER „Hedwig Fischer“</p><div class="ctx">… <mark>Hedwig Fischer</mark> grüßt Sie u. Ihre Frau.…</div><p>Hedwig Fischer grüßt in einem Nachsatz mit. Die Edition führt sie als Mitabsenderin in correspDesc, zeichnet den Namen im Text aber nicht aus. Die Stichprobe hat diesen und weitere solche Namen gefunden: Präzision gegen eine Referenz misst auch deren Annotationsrichtlinien.</p></div></div>
+
+<h2>Reproduzieren</h2>
+<pre>pip install -e . -r eval/requirements.txt
+git worktree add ../tcb-v0.1 e09fa38     # Ausgangsstand für den Vergleich
+sh eval/reproduce.sh                      # alle Zahlen dieser Seite
+python scripts/build_docs.py              # diese Seite</pre>
+<p class="muted">Methode, Auswahlregel, Lizenz und alle Kennzahlen: <a href="https://github.com/klausbehnamshad/tei-crm-bridge/blob/main/eval/README.md">eval/README.md</a>.
+Vokabular der wenigen eigenen Terme: <a href="vocab/">tcb:</a>.</p>
+</main>
+<footer>Code: MIT · <a href="https://github.com/klausbehnamshad/tei-crm-bridge">GitHub</a>. Briefe: Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren, hg. v. Martin Anton Müller und Gerd-Hermann Susen,
+Austrian Centre for Digital Humanities, <a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a>. Die Dateien in <code>eval/corpus</code> sind unverändert;
+die Demo-TEI ist maschinell bearbeitet (ergänzte Namen mit <code>@resp</code>, Verarbeitungsvermerk, absolute Schemaverweise).
+Modell: <a href="https://huggingface.co/impresso-project/ner-hipe2020-hist-base">impresso-project/ner-hipe2020-hist-base</a> (CC BY-NC-SA 4.0, nicht mitgeliefert).</footer>
 </body></html>

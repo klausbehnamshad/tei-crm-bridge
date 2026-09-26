@@ -1,0 +1,23 @@
+[
+  {
+    "category": "boundary",
+    "letter": "L01476",
+    "text": "Dr Hochsinger",
+    "title": "Richtlinien statt Modellfehler: Titel im Namen",
+    "comment": "Die Impresso-Annotationsrichtlinien, nach denen das Modell trainiert ist, zählen Titel zur Personennennung; die Edition zeichnet nur „Hochsinger“ aus. Strikt ein Fehler, überlappend ein Treffer. Titel automatisch abzutrennen würde eine Richtlinie in den Code schreiben – deshalb berichtet das Projekt beide Maße, statt das Ergebnis an die Referenz anzupassen."
+  },
+  {
+    "category": "type",
+    "letter": "L03151",
+    "text": "Specht",
+    "title": "Ort über eine Person: „zum Souper bei Specht“",
+    "comment": "Laut Register der Edition ist Richard Specht (1870–1932) gemeint; „bei Specht“ bezeichnet einen Ort über eine Person. Die Edition verweist auf die Person, das Modell liest einen Ort. Beides ist vertretbar; entscheiden kann das nur, wer die Personen kennt – ein Grund, automatische Treffer als Vorschläge und nicht als Aussagen im Graphen abzulegen."
+  },
+  {
+    "category": "spurious",
+    "letter": "L03426",
+    "text": "Hedwig Fischer",
+    "title": "Ein „falscher Treffer“, der richtig ist",
+    "comment": "Hedwig Fischer grüßt in einem Nachsatz mit. Die Edition führt sie als Mitabsenderin in correspDesc, zeichnet den Namen im Text aber nicht aus. Die Stichprobe hat diesen und weitere solche Namen gefunden: Präzision gegen eine Referenz misst auch deren Annotationsrichtlinien."
+  }
+]

@@ -1,0 +1,156 @@
+{
+ "document": "letter-001",
+ "software": {
+  "name": "tei-crm-bridge",
+  "version": "0.2.0"
+ },
+ "input": {
+  "file": "letter.xml",
+  "sha256": "40ecde7e5d5f1d8e7b5092f2f6d0170bb48bcf3abd3880ef5af54d413257bc74",
+  "url": null
+ },
+ "tei_url": "https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml",
+ "settings": {
+  "engine": "glossary",
+  "glossary": "glossary.json",
+  "glossarySha256": "e99831d2c69b0d86ac96ee224c61381c25d1cc7970883caa477eb0330f3ab793",
+  "reading": "edited"
+ },
+ "blocks": [
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:opener[1]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:p[1]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:p[2]",
+  "/tei:TEI/tei:text[1]/tei:body[1]/tei:closer[1]"
+ ],
+ "mentions": [
+  {
+   "id": 1,
+   "block": 0,
+   "start": 0,
+   "end": 4,
+   "text": "Jena",
+   "kind": "LOC",
+   "origin": "automatic",
+   "source": "glossary",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:opener[1]/tei:dateline[1]/tei:placeName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/loc/jena-0dd8aa7e1e"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 2,
+   "block": 1,
+   "start": 0,
+   "end": 18,
+   "text": "Friedrich Schiller",
+   "kind": "PER",
+   "origin": "automatic",
+   "source": "glossary",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:p[1]/tei:persName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/friedrich-schiller-86586925c3"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 3,
+   "block": 1,
+   "start": 31,
+   "end": 35,
+   "text": "Jena",
+   "kind": "LOC",
+   "origin": "automatic",
+   "source": "glossary",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:p[1]/tei:hi[1]/tei:placeName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/loc/jena-0dd8aa7e1e"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 4,
+   "block": 1,
+   "start": 39,
+   "end": 45,
+   "text": "Goethe",
+   "kind": "PER",
+   "origin": "automatic",
+   "source": "glossary",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:p[1]/tei:choice[1]/tei:corr[1]/tei:persName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/goethe-62dc6b9d99"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 5,
+   "block": 2,
+   "start": 4,
+   "end": 20,
+   "text": "Universität Jena",
+   "kind": "ORG",
+   "origin": "automatic",
+   "source": "glossary",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:p[2]/tei:orgName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/org/universitat-jena-4dd06f6754"
+   ],
+   "refs": [],
+   "unresolved": []
+  },
+  {
+   "id": 6,
+   "block": 2,
+   "start": 35,
+   "end": 41,
+   "text": "Weimar",
+   "kind": "LOC",
+   "origin": "editorial",
+   "source": "tei",
+   "score": null,
+   "inline": true,
+   "xpath": "/tei:TEI/tei:text[1]/tei:body[1]/tei:p[2]/tei:placeName[1]",
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml#weimar"
+   ],
+   "refs": [
+    "#weimar"
+   ],
+   "unresolved": []
+  },
+  {
+   "id": 7,
+   "block": 3,
+   "start": 4,
+   "end": 12,
+   "text": "Schiller",
+   "kind": "PER",
+   "origin": "automatic",
+   "source": "glossary",
+   "score": null,
+   "inline": false,
+   "xpath": null,
+   "entities": [
+    "https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/schiller-cb0e1d0337"
+   ],
+   "refs": [],
+   "unresolved": []
+  }
+ ],
+ "warnings": []
+}

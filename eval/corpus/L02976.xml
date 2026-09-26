@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../meta/schnitzler-briefe-schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:id="L02976" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1902-06-26" n="02">1902-06-26</title>
+            <title level="a">Arthur Schnitzler an Felix Salten, [26. 6. 1902]</title>
+            <author ref="#pmb2121">Schnitzler, Arthur</author>
+            <editor>
+               <name>Müller, Martin Anton</name>
+               <name>Untner, Laura</name>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Müller, Martin Anton</persName>
+               <persName>Untner, Laura</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities </publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2023">2023</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen – das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten – das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung – Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen – Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">https://hdl.handle.net/21.11115/0000-0012-CF9F-1</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="brief"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>A</country>
+                        <settlement>Wien</settlement>
+                        <repository>Wienbibliothek im Rathaus</repository>
+                        <idno>ZPH 1681, 2.1.516</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="blatt" quantity="1"/>
+                                 <measure unit="seite" quantity="2"/>
+                                 <measure unit="zeichenanzahl" quantity="421"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="1">
+                           <handNote medium="bleistift" style="deutsche-kurrent"/>
+                        </handDesc>
+                        <additions>
+                           <incident type="archival" rend="bleistift">
+                              <desc>von unbekannter Hand Nummerierung der Dppelseiten des Konvoluts:
+                                    »<quote>8</quote>«–»<quote>9</quote>«</desc>
+                           </incident>
+                           <incident type="archival" rend="bleistift">
+                              <desc>datiert: »<quote>[<date>26. 06. 1902</date>]</quote>«</desc>
+                           </incident>
+                        </additions>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb2121">Schnitzler, Arthur</persName>
+               <date when="1902-06-26" n="02">[26. 6. 1902]</date>
+               <placeName ref="#pmb50">Wien</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb2167">Salten, Felix</persName>
+               <date evidence="conjecture" notBefore="1902-06-27" notAfter="1902-07-01">[27. 6. 1902
+                  – 1. 7. 1902?]</date>
+               <placeName ref="#pmb44102">Kaltenleutgeben</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_2167">Salten, Felix</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L01225">Hofmannsthal an Schnitzler, 26. 6. 1902</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L01226">Hofmannsthal, Schnitzler an Beer-Hofmann, 30. 6. 1902</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_2167" target="L02975">Schnitzler an Salten, 14. 6. 1902</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_2167" target="L02977">Schnitzler, Hofmannsthal an Salten, [1.] 7. 1902</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="approved">
+         <change who="MAM" when="2023-03-16">Export aus Transkribus</change>
+         <change who="LU" when="2024-04-15">Durchsicht</change>
+         <change when="2024-04-16" who="LU">Index check</change>
+         <change who="MAM" when="2024-05-27">Durchsicht</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="Wienbibliothek_AS_FS_2823002"/>
+      <graphic url="Wienbibliothek_AS_FS_2823003"/>
+      <graphic url="Wienbibliothek_AS_FS_2823004"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="writingSession" n="1"><p><pb facs="Wienbibliothek_AS_FS_2823002"/><salute>lieber Freund,</salute> wieder hat mich <date when="1902-06-25">ge<c rendition="#langesS">s</c>tern</date> –<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>chon auf dem Weg, das gräßliche Wetter abgehalten Sie in <hi rend="latintype"><rs type="place" ref="#pmb44102">Kaltenl.</rs></hi> zu be<c rendition="#langesS">s</c>uchen. Nun<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>eh ich Sie wohl er<c rendition="#langesS">s</c>t, nach meiner Rückkehr, etwa gegen den
+                  <date when="1902-07-10">10. Juli</date>. Ich fahre <pb facs="Wienbibliothek_AS_FS_2823003"/><anchor type="commentary" xml:id="K_L02976-1"/><date when="1902-06-27">morgen</date><note type="commentary" corresp="K_L02976-1">Das erlaubt die Datierung des
+                  undatierten Korrespondenzstücks, <ref type="schnitzler-tagebuch" target="1902-06-27" subtype="cf"/>. <rs type="person" ref="#pmb2121">Schnitzler</rs> kehrte am <ref type="schnitzler-tagebuch" target="1902-07-08" subtype="date-only"/> nach <rs type="place" ref="#pmb50">Wien</rs> zurück und
+                  sah <rs type="person" ref="#pmb2167">Salten</rs> nachweislich am <ref type="schnitzler-tagebuch" target="1902-07-14" subtype="date-only"/>
+                  wieder.</note><space unit="chars" quantity="1"/><rs type="place" ref="#pmb30">Salzburg</rs>, <rs type="person" ref="#pmb11740">Hugo</rs> dürfte <date when="1902-06-28">übermorgen</date> nachko<c rendition="#gemination-m">mm</c>en. – Briefe werden mir aus <rs type="place" ref="#pmb50">Wien</rs> nachge<c rendition="#langesS">s</c>chickt. Die <anchor type="commentary" xml:id="K_L02976-2"/><rs type="work" ref="#pmb31345" subtype="implied"><rs type="work" ref="#pmb29857"><hi rend="latintype">Bea.</hi></rs>-Sache</rs><note type="commentary" corresp="K_L02976-2"><rs type="person" ref="#pmb2121">Schnitzler</rs> verhandelte
+                  zu diesem Zeitpunkt mit mehreren Theatern über eine Inszenierung von <rs type="work" ref="#pmb29857">Der Schleier der Beatrice</rs>,
+                  <ref type="schnitzler-tagebuch" target="1902-07-17" subtype="see"/>. Inwiefern hier <rs type="person" ref="#pmb2167">Salten</rs> 
+                  tätig war oder ob das überhaupt damit in Zusammenhang stand, konnte nicht geklärt werden.</note> ka<c rendition="#gemination-n">nn</c> ich wohl nach meiner Rückkehr noch<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>ehen,
+               nicht wahr? Wie lange denken Sie in <rs type="place" ref="#pmb44102">K.</rs><space unit="chars" quantity="1"/><pb facs="Wienbibliothek_AS_FS_2823004"/>zu bleiben?</p><closer>Ich grüße Sie herzlich <lb/>Ihr <lb/><signed>A.</signed></closer></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb2121">
+               <persName>
+                  <surname>Schnitzler</surname>
+                  <forename>Arthur</forename>
+               </persName>
+               <birth>
+                  <date when="1862-05-15">15. 5. 1862</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1931-10-21">21. 10. 1931</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2167">
+               <persName>
+                  <forename>Felix</forename>
+                  <surname>Salten</surname>
+               </persName>
+               <birth>
+                  <date when="1869-09-06">1869-09-06</date>
+                  <settlement ref="pmb43471">
+                     <placeName type="pref">Budapest</placeName>
+                     <location>
+                        <geo>47,49835 19,04045</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-10-08">1945-10-08</date>
+                  <settlement ref="pmb484">
+                     <placeName type="pref">Zürich</placeName>
+                     <location>
+                        <geo>47,37174 8,54226</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11740">
+               <persName>
+                  <forename>Hugo von</forename>
+                  <surname>Hofmannsthal</surname>
+               </persName>
+               <birth>
+                  <date when="1874-02-01">1874-02-01</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1929-07-15">1929-07-15</date>
+                  <settlement ref="pmb173">
+                     <placeName type="pref">Rodaun</placeName>
+                     <location>
+                        <geo>48,132793312328 16,256152195922</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10815">
+               <persName>
+                  <forename>Hermann</forename>
+                  <surname>Bahr</surname>
+               </persName>
+               <birth>
+                  <date when="1863-07-19">1863-07-19</date>
+                  <settlement ref="pmb332">
+                     <placeName type="pref">Linz</placeName>
+                     <location>
+                        <geo>48,3 14,28333</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1934-01-15">1934-01-15</date>
+                  <settlement ref="pmb45258">
+                     <placeName type="pref">München</placeName>
+                     <location>
+                        <geo>48,13743 11,57549</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2150">
+               <persName>
+                  <forename>Julius</forename>
+                  <surname>Bauer</surname>
+               </persName>
+               <birth>
+                  <date when="1853-10-15">1853-10-15</date>
+                  <settlement ref="pmb49199">
+                     <placeName type="pref">Szigetvár</placeName>
+                     <location>
+                        <geo>46,04865 17,80554</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1941-06-11">1941-06-11</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11707">
+               <persName>
+                  <forename>Robert</forename>
+                  <surname>Hirschfeld</surname>
+               </persName>
+               <birth>
+                  <date when="1857-09-17">1857-09-17</date>
+                  <settlement ref="pmb39803">
+                     <placeName type="pref">Žďár nad Sázavou</placeName>
+                     <location>
+                        <geo>49,5 16,03333</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1914-04-02">1914-04-02</date>
+                  <settlement ref="pmb30">
+                     <placeName type="pref">Salzburg</placeName>
+                     <location>
+                        <geo>47,80067 13,04532</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb12816">
+               <persName>
+                  <forename>Ludwig</forename>
+                  <surname>Speidel</surname>
+               </persName>
+               <birth>
+                  <date when="1830-04-11">1830-04-11</date>
+                  <settlement ref="pmb39966">
+                     <placeName type="pref">Ulm</placeName>
+                     <location>
+                        <geo>48,39841 9,99155</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1906-02-03">1906-02-03</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2416">
+               <persName>
+                  <forename>Jakob Julius</forename>
+                  <surname>David</surname>
+               </persName>
+               <birth>
+                  <date when="1859-02-06">1859-02-06</date>
+                  <settlement ref="pmb64475">
+                     <placeName type="pref">Hranice</placeName>
+                     <location>
+                        <geo>49,56018 17,70413</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1906-11-20">1906-11-20</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+         </listPerson>
+         <listBibl>
+            <bibl xml:id="pmb29857">
+               <title>Der Schleier der Beatrice. Schauspiel in fünf Akten</title>
+               <title type="werk_arbeitstitel">Shawl</title>
+               <title type="werk_link">http://anno.onb.ac.at/cgi-content/anno-buch?apm=0&amp;aid=601&amp;teil=0111&amp;seite=00000001&amp;zoom=2</title>
+               <title type="legacy-name-merge">Der Schleier der Beatrice</title>
+               <author ref="pmb2121" role="hat-geschaffen">Schnitzler, Arthur</author>
+            </bibl>
+            <bibl xml:id="pmb31345" ana="implied">
+               <title>Erklärung [Schleier der Beatrice]</title>
+               <title type="werk_bibliografische-angabe">Hermann Bahr, Julius Bauer, J. J. David, Robert Hirschfeld, Felix Salten und Ludwig Speidel: Erklärung. In: Neues Wiener Tagblatt [u. a.], Jg. 34, Nr. 252, 14.  9.  1900, S. 9–10</title>
+               <title type="werk_link">https://anno.onb.ac.at/cgi-content/anno?aid=nwg&amp;datum=19000914&amp;seite=9&amp;zoom=33</title>
+               <title type="werk_link">https://schnitzler-bahr.acdh.oeaw.ac.at/T030017.html</title>
+               <title type="legacy-name-merge">»Der Schleier der Beatrice«. Ein Konflikt mit dem Burgtheater</title>
+               <title type="werk_bibliografische-angabe">Hermann Bahr, Julius Bauer, J. J. David, Dr. Robert Hirschfeld, Felix Salten, Ludwig Speidel: »Der Schleier der Beatrice«. Ein Konflikt mit dem Burgtheater. In: Österreichische Volks-Zeitung, Jg. 46, 14.9.1900, S. 3 (2 Kreuzer–Ausgabe: 4–6).</title>
+               <author ref="pmb10815" role="hat-geschaffen">Bahr, Hermann</author>
+               <author ref="pmb2167" role="hat-geschaffen">Salten, Felix</author>
+               <author ref="pmb2150" role="hat-geschaffen">Bauer, Julius</author>
+               <author ref="pmb11707" role="hat-geschaffen">Hirschfeld, Robert</author>
+               <author ref="pmb12816" role="hat-geschaffen">Speidel, Ludwig</author>
+               <author ref="pmb2416" role="hat-geschaffen">David, Jakob Julius</author>
+            </bibl>
+         </listBibl>
+         <listPlace>
+            <place xml:id="pmb50" ana="comment">
+               <placeName>Wien</placeName>
+               <placeName type="ort_fruherer-name">K.K. Reichshaupt- und Residenzstadt Wien</placeName>
+               <placeName type="alternative-name">Bécs</placeName>
+               <placeName type="alternative-name">Land Wien</placeName>
+               <placeName type="alternative-name">Vídeň</placeName>
+               <placeName type="alternative-name">Wenia</placeName>
+               <placeName type="alternative-name">Beč</placeName>
+               <placeName type="ort_fruherer-name">Vindobona</placeName>
+               <placeName type="alternative-name">Vienna</placeName>
+               <location type="coords">
+                  <geo>48,208333 16,373056</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb235218">Windmühlhöhe</placeName>
+                  <geo>48,24077 16,32092</geo>
+               </location>
+            </place>
+            <place xml:id="pmb44102">
+               <placeName>Kaltenleutgeben</placeName>
+               <placeName type="legacy-name-merge">Kaltenleutgeben, Niederöst.</placeName>
+               <placeName type="legacy-name-merge">Kaltenleutgeben, Niederösterreich</placeName>
+               <location type="coords">
+                  <geo>48,11646 16,19956</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb30">
+               <placeName>Salzburg</placeName>
+               <placeName type="alternative-name">Iuvavum</placeName>
+               <placeName type="legacy-name-merge">Salzburg Stadt</placeName>
+               <placeName type="legacy-name-merge">Salzburg?</placeName>
+               <location type="coords">
+                  <geo>47,80067 13,04532</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb697">Salzburg [Land]</placeName>
+                  <geo>47,41667 13,25</geo>
+               </location>
+            </place>
+         </listPlace>
+      </back>
+   </text>
+</TEI>

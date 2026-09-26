@@ -1,0 +1,19 @@
+{
+ "label": "v0.1-hf-original",
+ "tool": {
+  "version": "0.1.0",
+  "package_tree": "6986ad02d6ff34b0438d818de3ed8b5b0b57109c",
+  "commit": "e09fa38c5ebafd0a67b38fe03d2aa590b3ee7a24"
+ },
+ "letters": 40,
+ "new_inline": 336,
+ "affected": 307,
+ "in_existing_name_reference": 274,
+ "in_note": 150,
+ "in_reference_and_note": 117,
+ "in_del": 0,
+ "in_c_or_g": 0,
+ "reading_text_changed": 0,
+ "markup_changed": 0,
+ "failures": []
+}
