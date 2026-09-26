@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; script-src 'sha256-E/wjcpx9QGGUI0JsyA53skZTYnn/VB2hFpVrwbidGKM='">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; script-src 'sha256-K+kI6d7BCO59dk4oSxBG5gYN/+eDUWL13KdMeV9CCtY='">
 <link rel="alternate" type="text/turtle" href="L02051.ttl" title="RDF Turtle">
 <title>Georg Brandes an Arthur und Olga Schnitzler, 3. 2. 1912 · TEI CRM Bridge</title>
 <style>
@@ -16,12 +16,20 @@ h2{font:normal 1.35rem Georgia,serif;margin:0 0 .8rem}h3{margin:.1rem 0 .5rem;fo
 .document{font:1.08rem/1.85 Georgia,serif}.block{margin:0 0 1rem}.block.opener,.block.closer,.block.address,.block.dateline,.block.salute,.block.signed{color:var(--ink);font-style:normal}.line{display:block}
 mark{padding:.05rem .15rem;border-radius:4px;color:inherit;cursor:pointer}mark.per{background:var(--per)}mark.loc{background:var(--loc)}mark.org{background:var(--org)}
 mark.automatic{border-bottom:2px dashed var(--ink)}mark.dimmed{background:transparent;outline:1px dotted var(--line);border-bottom-color:transparent}mark:focus{outline:2px solid var(--accent)}
+mark[data-review-status="accepted"]{box-shadow:inset 0 -3px #36835f}mark[data-review-status="rejected"]{box-shadow:inset 0 -3px #a35348;text-decoration:line-through}
+mark.selected,.standoff-button.selected{outline:2px solid var(--accent);outline-offset:2px}
 .other-ref{border-bottom:1px dotted var(--muted)}.note{color:var(--accent);cursor:help;font:600 .7rem system-ui;margin-left:.1rem}.excluded{color:var(--muted);text-decoration:line-through}.choice{border-bottom:1px dashed var(--muted)}
 .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin-bottom:.8rem}.stats div{border:1px solid var(--line);border-radius:10px;padding:.5rem .6rem}.stats strong{display:block;font-size:1.3rem}
 .stats span,.muted{color:var(--muted);font-size:.88rem}dl{margin:0}dl div{display:grid;grid-template-columns:minmax(80px,30%) 1fr;gap:.5rem;border-top:1px solid var(--line);padding:.4rem 0}dt{color:var(--muted)}dd{margin:0}
 code{font-size:.82rem;overflow-wrap:anywhere}a{color:var(--accent)}.links a{display:inline-block;margin:.2rem .8rem .2rem 0}ul{padding-left:1.1rem;margin:.3rem 0}
 .chip{display:inline-block;border-radius:6px;padding:0 .35rem;font-size:.75rem;font-weight:600}.chip.per{background:var(--per)}.chip.loc{background:var(--loc)}.chip.org{background:var(--org)}
 .hint{margin-top:.8rem}.legend{display:flex;flex-wrap:wrap;gap:.8rem;font-size:.85rem;color:var(--muted);margin:.2rem 0 .8rem}.legend mark{cursor:default}
+.review-actions{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}.review-actions button[aria-pressed="true"]{background:var(--accent);color:var(--paper)}
+label{display:block;font-weight:600;font-size:.9rem;margin:.65rem 0 .2rem}input[type="text"],textarea{width:100%;font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:.4rem}
+textarea{resize:vertical}.review-tools{display:flex;flex-wrap:wrap;gap:.5rem;margin:.7rem 0}.file-label{display:inline-block;margin:0;cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:.38rem .8rem;font-weight:normal}
+.file-label input{position:absolute;width:1px;height:1px;opacity:0}.file-label:focus-within{outline:2px solid var(--accent)}
+#review-message{min-height:1.4em}#review-message.error{color:#a53b32}.standoff-button{display:inline;text-align:left;border:0;border-radius:4px;padding:.15rem .25rem}.review-badge{font-size:.78rem;color:var(--muted);margin-left:.4rem}
+.standoff-button[data-review-status="accepted"] .review-badge{color:#26724b}.standoff-button[data-review-status="rejected"] .review-badge{color:#a53b32}
 footer{max-width:1120px;margin:auto;padding:0 1rem 2rem;color:var(--muted);font-size:.85rem}
 @media(max-width:820px){main{grid-template-columns:1fr}}
 </style></head><body>
@@ -32,7 +40,7 @@ footer{max-width:1120px;margin:auto;padding:0 1rem 2rem;color:var(--muted);font-
 <button aria-pressed="true" data-filter="ALL">Alle</button><button aria-pressed="false" data-filter="PER">Personen</button><button aria-pressed="false" data-filter="LOC">Orte</button><button aria-pressed="false" data-filter="ORG">Organisationen</button><button aria-pressed="false" data-filter="automatic">nur Vorschläge</button></div>
 <div class="legend"><span><mark class="per">Edition</mark> redaktionell ausgezeichnet</span><span><mark class="per automatic">Vorschlag</mark> automatisch erkannt</span><span><span class="other-ref">Werk o. Ä.</span> andere Referenz</span><span><sup class="note">K</sup> Kommentar (nicht ausgewertet)</span></div>
 <div class="panel document"><h2>Lesetext</h2><div class="block address"><span class="line"> <em>* Expedié par</em></span><span class="line"><em>M</em> Brandes</span><span class="line"><em>Dem<em>t</em> à</em> <mark class="entity loc editorial" data-kind="LOC" data-origin="editorial" data-source="tei" data-entity="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb1131" data-score="" data-text="Hotel d’Jéna" tabindex="0">Hotel d’Jéna</mark></span><span class="line"><mark class="entity loc editorial" data-kind="LOC" data-origin="editorial" data-source="tei" data-entity="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb182" data-score="" data-text="Paris" tabindex="0">Paris</mark></span></div>
-<div class="block address"><span class="line"><em>M</em>onsieur Arthur Schnitzler</span><span class="line"><mark class="entity loc editorial" data-kind="LOC" data-origin="editorial" data-source="tei" data-entity="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb168815" data-score="" data-text="Sternwartestrasse 71" tabindex="0">Sternwartestrasse 71</mark></span><span class="line"><mark class="entity loc automatic" data-kind="LOC" data-origin="automatic" data-source="impresso-project/ner-hipe2020-hist-base" data-entity="https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/vienne-86af5bb904" data-score="0.997" data-text="Vienne" tabindex="0">Vienne</mark> <mark class="entity loc automatic" data-kind="LOC" data-origin="automatic" data-source="impresso-project/ner-hipe2020-hist-base" data-entity="https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/autriche-59d8c0aaaa" data-score="0.996" data-text="Autriche" tabindex="0">Autriche</mark></span></div>
+<div class="block address"><span class="line"><em>M</em>onsieur Arthur Schnitzler</span><span class="line"><mark class="entity loc editorial" data-kind="LOC" data-origin="editorial" data-source="tei" data-entity="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb168815" data-score="" data-text="Sternwartestrasse 71" tabindex="0">Sternwartestrasse 71</mark></span><span class="line"><mark class="entity loc automatic" data-kind="LOC" data-origin="automatic" data-source="impresso-project/ner-hipe2020-hist-base" data-entity="https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/vienne-86af5bb904" data-score="0.997" data-text="Vienne" tabindex="0" data-mention-id="7">Vienne</mark> <mark class="entity loc automatic" data-kind="LOC" data-origin="automatic" data-source="impresso-project/ner-hipe2020-hist-base" data-entity="https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/autriche-59d8c0aaaa" data-score="0.996" data-text="Autriche" tabindex="0" data-mention-id="8">Autriche</mark></span></div>
 <div class="block opener"><span class="line"><span class="line"> <mark class="entity loc editorial" data-kind="LOC" data-origin="editorial" data-source="tei" data-entity="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb1131" data-score="" data-text="Paris. Hotel d’Jéna" tabindex="0">Paris. Hotel d’Jéna</mark></span><span class="line">3 Febr. 12</span></span><span class="line">Verehrter Freund, verehrte Freundin</span></div>
 <div class="block p">Ihre lieben und schönen Portraits haben mich hier eingeholt, wohin ich geflohen bin
                um verschiedenen Festlichkeiten in <mark class="entity loc editorial" data-kind="LOC" data-origin="editorial" data-source="tei" data-entity="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb36300" data-score="" data-text="Kopenhagen" tabindex="0">Kopenhagen</mark>
@@ -43,13 +51,21 @@ footer{max-width:1120px;margin:auto;padding:0 1rem 2rem;color:var(--muted);font-
                der Universität und den Schriftstellern veranstalteten ausschlug – einen Saal der <mark class="entity org editorial" data-kind="ORG" data-origin="editorial" data-source="tei" data-entity="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29526" data-score="" data-text="Kgl. Bibliotek" tabindex="0">Kgl. Bibliotek</mark> zu einem <mark class="entity org editorial" data-kind="ORG" data-origin="editorial" data-source="tei" data-entity="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29528" data-score="" data-text="G. B.-Archiv" tabindex="0">G. B.-Archiv</mark> zu verwandeln und mit meiner Büste zu versehen.</div>
 <div class="block p">Da sollen idiotische Literaturhistoriker der Zukunft in meinen alten Liebesbriefen
                schnüffeln. Das soll mir Freude machen.</div>
-<div class="block p">Glücklicherweise für <mark class="entity per automatic" data-kind="PER" data-origin="automatic" data-source="impresso-project/ner-hipe2020-hist-base" data-entity="https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/arthur-s-d71d6dbf27" data-score="0.998" data-text="Arthur S." tabindex="0">Arthur S.</mark> halten wir noch immer dieselbe Distanz von
+<div class="block p">Glücklicherweise für <mark class="entity per automatic" data-kind="PER" data-origin="automatic" data-source="impresso-project/ner-hipe2020-hist-base" data-entity="https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/arthur-s-d71d6dbf27" data-score="0.998" data-text="Arthur S." tabindex="0" data-mention-id="13">Arthur S.</mark> halten wir noch immer dieselbe Distanz von
                20 Jahren.</div>
-<div class="block closer">Ihr ergebenster <span class="line"><mark class="entity per automatic" data-kind="PER" data-origin="automatic" data-source="impresso-project/ner-hipe2020-hist-base" data-entity="https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/georg-brandes-17d9260253" data-score="0.998" data-text="Georg Brandes" tabindex="0">Georg Brandes</mark></span></div></div>
-<div class="panel"><h2>Stand-off-Vorschläge</h2><p class="muted">Treffer über Elementgrenzen werden nicht als Inline-Element eingefügt, sondern nur im Graphen (TextPositionSelector) und in der Mentions-Datei geführt.</p><ul><li><span class="chip per">PER</span> „M Brandes“ <span class="muted">Block 1, Zeichen 14–23, Score 0.973</span></li><li><span class="chip per">PER</span> „Demt“ <span class="muted">Block 1, Zeichen 24–28, Score 0.973</span></li><li><span class="chip per">PER</span> „Monsieur Arthur Schnitzler“ <span class="muted">Block 2, Zeichen 0–26, Score 0.998</span></li></ul></div>
+<div class="block closer">Ihr ergebenster <span class="line"><mark class="entity per automatic" data-kind="PER" data-origin="automatic" data-source="impresso-project/ner-hipe2020-hist-base" data-entity="https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/georg-brandes-17d9260253" data-score="0.998" data-text="Georg Brandes" tabindex="0" data-mention-id="14">Georg Brandes</mark></span></div></div>
+<div class="panel"><h2>Stand-off-Vorschläge</h2><p class="muted">Treffer über Elementgrenzen werden nicht als Inline-Element eingefügt, sondern nur im Graphen (TextPositionSelector) und in der Mentions-Datei geführt. Zum Prüfen eine Fundstelle auswählen.</p><ul><li class="standoff-item"><button type="button" data-mention-id="1" class="standoff-button"><span class="chip per">PER</span> „M Brandes“ <span class="muted">Block 1, Zeichen 14–23, Score 0.973</span> <span class="review-badge">Offen</span></button></li><li class="standoff-item"><button type="button" data-mention-id="2" class="standoff-button"><span class="chip per">PER</span> „Demt“ <span class="muted">Block 1, Zeichen 24–28, Score 0.973</span> <span class="review-badge">Offen</span></button></li><li class="standoff-item"><button type="button" data-mention-id="5" class="standoff-button"><span class="chip per">PER</span> „Monsieur Arthur Schnitzler“ <span class="muted">Block 2, Zeichen 0–26, Score 0.998</span> <span class="review-badge">Offen</span></button></li></ul></div>
 </section>
 <aside>
-<div class="panel" id="detail" aria-live="polite"><h2>Auswahl</h2><p class="muted">Eine Markierung anklicken, um Typ, Herkunft, URI und Score zu sehen.</p></div>
+<div class="panel"><h2>Redaktionelle Prüfung</h2><p class="muted">Jeder automatische Vorschlag kann angenommen, abgelehnt oder offen gelassen werden. Diese Entscheidung ändert die TEI-Datei nicht.</p>
+<p id="review-count" aria-live="polite">Lade Fundstellen …</p>
+<label for="reviewer">Name oder Kürzel der prüfenden Person</label><input id="reviewer" type="text" maxlength="200" autocomplete="name">
+<div class="review-tools"><button id="review-export" type="button">Review-Datei exportieren</button>
+<label class="file-label">Review-Datei importieren<input id="review-import" type="file" accept=".json,application/json"></label></div>
+<p id="review-message" class="muted" role="status" aria-live="polite"></p>
+<p class="muted">Entscheidungen bleiben im Browser gespeichert. Für die Weitergabe bitte die JSON-Datei exportieren; sie enthält Name, Zeitpunkt und Prüfsummen.</p>
+<p class="muted">Geprüften Graphen lokal erzeugen:<br><code>tei-crm-review L02051.mentions.json L02051.ttl L02051.review.json L02051.reviewed.ttl</code></p></div>
+<div class="panel" id="detail" aria-live="polite"><h2>Fundstelle</h2><p class="muted">Einen automatisch erkannten Namen oder Stand-off-Vorschlag auswählen.</p></div>
 <div class="panel"><h2>Überblick</h2><div class="stats"><div><strong>8</strong><span>Textblöcke</span></div><div><strong>7</strong><span>Namen der Edition</span></div><div><strong>4</strong><span>Vorschläge inline</span></div><div><strong>3</strong><span>Vorschläge stand-off</span></div><div><strong>2</strong><span>Korrespondenzereignisse</span></div></div>
 <div class="links"><a href="L02051.enriched.xml">TEI XML</a><a href="L02051.ttl">RDF Turtle</a><a href="L02051.mentions.json">Mentions JSON</a></div></div>
 <div class="panel"><h2>Korrespondenz</h2><article class="event"><h3>Versand</h3><dl><div><dt>Person</dt><dd>Brandes, Georg <code>#pmb10992</code></dd></div><div><dt>Datum</dt><dd>3. 2. 1912 (1912-02-03 – 1912-02-03)</dd></div><div><dt>Ort</dt><dd>Paris <code>#pmb182</code></dd></div></dl></article>
@@ -57,34 +73,140 @@ footer{max-width:1120px;margin:auto;padding:0 1rem 2rem;color:var(--muted);font-
 <div class="panel"><h2>Quelle</h2><dl><div><dt>Lizenz</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/deed.de">https://creativecommons.org/licenses/by/4.0/deed.de</a></dd></div><div><dt>Herausgabe</dt><dd>Austrian Centre for Digital Humanities</dd></div><div><dt>Edition</dt><dd>Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</dd></div><div><dt>handle</dt><dd><a href="https://hdl.handle.net/21.11115/0000-000E-7323-9">https://hdl.handle.net/21.11115/0000-000E-7323-9</a></dd></div><div><dt>Änderungen</dt><dd>Diese Fassung ist maschinell bearbeitet: ergänzte Namenselemente mit <code>@resp</code> und Verarbeitungsvermerk in <code>appInfo</code>. Der Lesetext ist unverändert; die ursprüngliche Auszeichnung im <code>body</code> ist nach Entfernen der Ergänzungen wiederherstellbar. Für die veröffentlichte Schnitzler-Fassung wurden die Schema-Verweise absolut gesetzt.</dd></div></dl></div>
 <div class="panel"><h2>Verarbeitung</h2><dl><div><dt>aggregation</dt><dd><code>first</code></dd></div><div><dt>engine</dt><dd><code>hf</code></dd></div><div><dt>model</dt><dd><code>impresso-project/ner-hipe2020-hist-base</code></dd></div><div><dt>modelRevision</dt><dd><code>afd1b509233560298ae39360ad3186253c5800d3</code></dd></div><div><dt>reading</dt><dd><code>edited</code></dd></div><div><dt>stride</dt><dd><code>128</code></dd></div><div><dt>threshold</dt><dd><code>0.85</code></dd></div></dl></div>
 </aside></main>
-<footer>TEI CRM Bridge 0.2.0 · HTML-Vorschau zur Begutachtung · Vorschläge sind ungeprüft</footer>
+<footer>TEI CRM Bridge 0.3.0 · Ausgangsgraph mit ungeprüften Vorschlägen · Geprüften Graphen lokal mit <code>tei-crm-review</code> erzeugen</footer>
+<script id="review-data" type="application/json">{"source": {"document": "L02051", "inputSha256": "88195515ca47f5fc017bc63a412ab76a34acb81ab47434c7ea57452d8bc46692", "mentionsSha256": "8346ec208669d23211a13b187a3f6eadca635396ba0fe2619f1de3b545a94832", "graphSha256": "22527aee4ecee888bad422081543c86ef65246dcaf5ef14e26310baff2c404c2"}, "mentions": [{"id": 1, "block": 0, "start": 14, "end": 23, "text": "M Brandes", "kind": "PER", "source": "impresso-project/ner-hipe2020-hist-base", "score": 0.9725, "entities": ["https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/m-brandes-c43e17e709"]}, {"id": 2, "block": 0, "start": 24, "end": 28, "text": "Demt", "kind": "PER", "source": "impresso-project/ner-hipe2020-hist-base", "score": 0.9725, "entities": ["https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/demt-eedd11bb92"]}, {"id": 5, "block": 1, "start": 0, "end": 26, "text": "Monsieur Arthur Schnitzler", "kind": "PER", "source": "impresso-project/ner-hipe2020-hist-base", "score": 0.9977, "entities": ["https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/monsieur-arthur-schnitzler-5ed5f4473a"]}, {"id": 7, "block": 1, "start": 48, "end": 54, "text": "Vienne", "kind": "LOC", "source": "impresso-project/ner-hipe2020-hist-base", "score": 0.9966, "entities": ["https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/vienne-86af5bb904"]}, {"id": 8, "block": 1, "start": 55, "end": 63, "text": "Autriche", "kind": "LOC", "source": "impresso-project/ner-hipe2020-hist-base", "score": 0.9958, "entities": ["https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/autriche-59d8c0aaaa"]}, {"id": 13, "block": 6, "start": 21, "end": 30, "text": "Arthur S.", "kind": "PER", "source": "impresso-project/ner-hipe2020-hist-base", "score": 0.9977, "entities": ["https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/arthur-s-d71d6dbf27"]}, {"id": 14, "block": 7, "start": 16, "end": 29, "text": "Georg Brandes", "kind": "PER", "source": "impresso-project/ner-hipe2020-hist-base", "score": 0.9977, "entities": ["https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/georg-brandes-17d9260253"]}]}</script>
 <script>
+const reviewData=JSON.parse(document.getElementById('review-data').textContent);
+const mentions=new Map(reviewData.mentions.map(m=>[m.id,m]));
+const decisions=new Map();
+const labels={PER:'Person',LOC:'Ort',ORG:'Organisation'};
+const detail=document.getElementById('detail');
+const reviewer=document.getElementById('reviewer');
+const message=document.getElementById('review-message');
+let selected=null;
+const storageKey='tcb-review:'+reviewData.source.mentionsSha256+':'+reviewData.source.graphSha256;
+function tell(value,error=false){message.textContent=value;message.classList.toggle('error',error);}
+function save(){
+  try{localStorage.setItem(storageKey,JSON.stringify({reviewer:reviewer.value,decisions:[...decisions.values()]}));}
+  catch(_error){tell('Lokaler Speicher nicht verfügbar. Bitte Review-Datei exportieren.');}
+}
+function validDecision(d){
+  const m=mentions.get(d.id);
+  return m&&['accepted','rejected'].includes(d.decision)&&
+    ['block','start','end','text','kind'].every(key=>d[key]===m[key])&&
+    typeof d.note==='string'&&d.note.length<=2000&&
+    typeof d.decidedAt==='string'&&/(Z|[+-]\d{2}:\d{2})$/.test(d.decidedAt)&&
+    !Number.isNaN(Date.parse(d.decidedAt));
+}
+function loadDecisions(items){
+  if(!Array.isArray(items)||items.some(d=>!validDecision(d))||new Set(items.map(d=>d.id)).size!==items.length)
+    throw new Error('Entscheidungen enthalten unbekannte oder veränderte Fundstellen.');
+  decisions.clear();for(const d of items)decisions.set(d.id,d);
+  refresh();if(selected!==null)show(selected);
+}
+try{
+  const saved=JSON.parse(localStorage.getItem(storageKey)||'null');
+  if(saved&&typeof saved.reviewer==='string')reviewer.value=saved.reviewer;
+  if(saved)loadDecisions(saved.decisions);
+}catch(_error){tell('Gespeicherte Entscheidungen konnten nicht geladen werden.',true);}
+reviewer.addEventListener('input',save);
+function status(id){return decisions.get(id)?.decision||'open';}
+function refresh(){
+  const counts={open:0,accepted:0,rejected:0};
+  for(const id of mentions.keys())counts[status(id)]++;
+  document.getElementById('review-count').textContent=
+    `${counts.accepted} angenommen · ${counts.rejected} abgelehnt · ${counts.open} offen`;
+  document.querySelectorAll('[data-mention-id]').forEach(el=>{
+    const value=status(Number(el.dataset.mentionId));
+    el.dataset.reviewStatus=value;
+    if(el.classList.contains('standoff-button')){
+      const badge=el.querySelector('.review-badge');
+      if(badge)badge.textContent={accepted:'Angenommen',rejected:'Abgelehnt',open:'Offen'}[value];
+    }
+  });
+}
+function row(list,key,value){
+  const div=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');
+  dt.textContent=key;dd.textContent=String(value);div.append(dt,dd);list.append(div);
+}
+function show(id){
+  selected=id;
+  const m=mentions.get(id);
+  if(!m)return;
+  const heading=document.createElement('h2');heading.textContent='Fundstelle '+id;
+  const list=document.createElement('dl');
+  for(const [key,value] of [['Text',m.text],['Typ',labels[m.kind]||m.kind],
+    ['Position',`Block ${m.block+1}, Zeichen ${m.start}–${m.end}`],['Quelle',m.source],
+    ['Score',m.score===null?'–':Number(m.score).toFixed(3)],['Kandidat-URI',m.entities.join(' ')||'–'],['Status',
+      {accepted:'Angenommen',rejected:'Abgelehnt',open:'Offen'}[status(id)]]])row(list,key,value);
+  const noteLabel=document.createElement('label');noteLabel.textContent='Begründung (optional)';noteLabel.htmlFor='review-note';
+  const note=document.createElement('textarea');note.id='review-note';note.maxLength=2000;note.rows=3;
+  note.value=decisions.get(id)?.note||'';
+  note.addEventListener('input',()=>{const d=decisions.get(id);if(d){d.note=note.value;d.decidedAt=new Date().toISOString();save();}});
+  const actions=document.createElement('div');actions.className='review-actions';
+  for(const [value,label] of [['accepted','Annehmen'],['rejected','Ablehnen'],['open','Offen lassen']]){
+    const button=document.createElement('button');button.type='button';button.textContent=label;
+    button.setAttribute('aria-pressed',String(status(id)===value));
+    button.addEventListener('click',()=>{
+      if(value==='open')decisions.delete(id);
+      else decisions.set(id,{id:m.id,block:m.block,start:m.start,end:m.end,text:m.text,kind:m.kind,
+        decision:value,note:note.value,decidedAt:new Date().toISOString()});
+      save();refresh();show(id);tell(`Fundstelle ${id}: ${label.toLowerCase()}.`);
+    });actions.append(button);
+  }
+  detail.replaceChildren(heading,list,noteLabel,note,actions);
+  document.querySelectorAll('[data-mention-id]').forEach(el=>el.classList.toggle('selected',Number(el.dataset.mentionId)===id));
+}
 const buttons=document.querySelectorAll('[data-filter]');
 buttons.forEach(button=>button.addEventListener('click',()=>{
   buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
   const f=button.dataset.filter;
-  document.querySelectorAll('mark.entity').forEach(el=>el.classList.toggle('dimmed',f!=='ALL'&&el.dataset.kind!==f&&el.dataset.origin!==f));
+  document.querySelectorAll('mark.entity').forEach(el=>el.classList.toggle('dimmed',
+    f!=='ALL'&&el.dataset.kind!==f&&el.dataset.origin!==f));
 }));
-const detail=document.getElementById('detail');
-const labels={PER:'Person',LOC:'Ort',ORG:'Organisation'};
-function show(el){
-  const d=el.dataset;
-  const rows=[['Text',d.text],['Typ',labels[d.kind]||d.kind],['Herkunft',d.origin==='automatic'?'automatischer Vorschlag (Kandidat)':'Edition'],
-    ['Quelle',d.source],['Score',d.score||'–'],['Entität',d.entity||'–']];
-  const heading=document.createElement('h2');heading.textContent='Auswahl';
-  const list=document.createElement('dl');
-  for(const [key,value] of rows){
-    const row=document.createElement('div'),term=document.createElement('dt'),desc=document.createElement('dd');
-    term.textContent=key;
-    for(const part of String(value).split(' ')){
-      if(key==='Entität'&&/^https?:\/\//.test(part)){const a=document.createElement('a');a.href=part;a.textContent=part;desc.append(a,' ');}
-      else desc.append(part+' ');
-    }
-    row.append(term,desc);list.append(row);
-  }
-  detail.replaceChildren(heading,list);
-}
-document.querySelectorAll('mark.entity').forEach(el=>{el.addEventListener('click',()=>show(el));
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(el);}});});
+document.querySelectorAll('[data-mention-id]').forEach(el=>{
+  el.addEventListener('click',()=>show(Number(el.dataset.mentionId)));
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(Number(el.dataset.mentionId));}});
+});
+document.querySelectorAll('mark.entity.editorial').forEach(el=>{
+  const showEditorial=()=>{
+    selected=null;
+    const heading=document.createElement('h2');heading.textContent='Name der Edition';
+    const list=document.createElement('dl');
+    for(const [key,value] of [['Text',el.dataset.text],['Typ',labels[el.dataset.kind]||el.dataset.kind],
+      ['Quelle',el.dataset.source],['Entität',el.dataset.entity||'–']])row(list,key,value);
+    detail.replaceChildren(heading,list);
+    document.querySelectorAll('[data-mention-id]').forEach(item=>item.classList.remove('selected'));
+  };
+  el.addEventListener('click',showEditorial);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showEditorial();}});
+});
+document.getElementById('review-export').addEventListener('click',()=>{
+  const name=reviewer.value.trim();
+  if(!name||name.length>200){tell('Bitte einen Namen oder ein Kürzel (höchstens 200 Zeichen) eintragen.',true);reviewer.focus();return;}
+  const payload={format:'tei-crm-bridge-review',version:1,source:reviewData.source,reviewer:name,
+    exportedAt:new Date().toISOString(),decisions:[...decisions.values()].sort((a,b)=>a.id-b.id)};
+  const blob=new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json'});
+  const url=URL.createObjectURL(blob),link=document.createElement('a');
+  link.href=url;link.download=reviewData.source.document+'.review.json';link.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  tell(`Review-Datei exportiert: ${payload.decisions.length} Entscheidungen. Bitte sicher aufbewahren.`);
+});
+document.getElementById('review-import').addEventListener('change',async event=>{
+  const file=event.target.files?.[0];if(!file)return;
+  try{
+    const imported=JSON.parse(await file.text());
+    if(imported.format!=='tei-crm-bridge-review'||imported.version!==1||!imported.source||
+       Object.keys(reviewData.source).some(key=>imported.source[key]!==reviewData.source[key])||
+       Object.keys(imported.source).length!==Object.keys(reviewData.source).length)
+      throw new Error('Die Datei gehört nicht zu genau diesem TEI- und RDF-Lauf.');
+    if(typeof imported.reviewer!=='string'||!imported.reviewer.trim()||imported.reviewer.length>200)
+      throw new Error('Der Name der prüfenden Person fehlt.');
+    loadDecisions(imported.decisions);reviewer.value=imported.reviewer;save();
+    tell(`Review-Datei geladen: ${decisions.size} Entscheidungen.`);
+  }catch(error){tell('Import fehlgeschlagen: '+error.message,true);}
+  event.target.value='';
+});
+refresh();
 </script>
 </body></html>

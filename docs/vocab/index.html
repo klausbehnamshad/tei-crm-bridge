@@ -25,15 +25,18 @@ th{color:var(--muted);font-weight:600}td.num,th.num{text-align:right;font-varian
 pre{background:var(--head);color:#e8f4f1;border-radius:10px;padding:.9rem 1rem;overflow-x:auto;font-size:.86rem}
 footer{max-width:1040px;margin:auto;padding:0 1rem 2.5rem;color:var(--muted);font-size:.86rem}
 </style></head><body>
-<header><div class="eyebrow"><a href="../index.html" style="color:inherit;text-decoration:none">TEI CRM Bridge 0.2.0</a></div>
+<header><div class="eyebrow"><a href="../index.html" style="color:inherit;text-decoration:none">TEI CRM Bridge 0.3.0</a></div>
 <h1>Vokabular</h1><p>tcb: – das kleine Projektvokabular</p></header>
 <main><section class="panel"><p>Namensraum <code>https://klausbehnamshad.github.io/tei-crm-bridge/vocab/#</code>. Das Projekt nutzt CIDOC CRM, W3C Web Annotation, PROV-O und Dublin Core;
 <code>tcb:</code> benennt nur, was diese offenlassen. <a href="vocab.ttl">Als Turtle</a>.</p>
 <div class="table"><table><thead><tr><th>Term</th><th>Art</th><th>Bezeichnung</th><th>Definition</th></tr></thead><tbody><tr id="Origin"><td><code>tcb:Origin</code></td><td>class</td><td>Herkunft einer Nennung</td><td>Klasse der zwei möglichen Herkünfte einer Nennung: redaktionell oder automatisch.</td></tr>
 <tr id="origin"><td><code>tcb:origin</code></td><td>property</td><td>Herkunft</td><td>Verbindet eine oa:Annotation mit ihrer Herkunft (tcb:editorial oder tcb:automatic).</td></tr>
-<tr id="editorial"><td><code>tcb:editorial</code></td><td>origin</td><td>redaktionell</td><td>Die Nennung war bereits im TEI-Dokument ausgezeichnet. Nur solche Nennungen erzeugen crm:P67_refers_to.</td></tr>
+<tr id="editorial"><td><code>tcb:editorial</code></td><td>origin</td><td>redaktionell</td><td>Die Nennung war bereits im TEI-Dokument ausgezeichnet. Im Ausgangsgraphen erzeugen nur solche Nennungen crm:P67_refers_to.</td></tr>
 <tr id="automatic"><td><code>tcb:automatic</code></td><td>origin</td><td>automatisch</td><td>Vorschlag der automatischen Erkennung. Ungeprüft; der Graph behauptet damit keine Bezugnahme des Dokuments.</td></tr>
-<tr id="Candidate"><td><code>tcb:Candidate</code></td><td>class</td><td>Kandidat</td><td>Entität, die eine automatische Erkennung vorschlägt. Sie ist bewusst keine Instanz einer CIDOC-CRM-Klasse; diese Aussage entsteht erst nach redaktioneller Bestätigung.</td></tr>
+<tr id="ReviewDecision"><td><code>tcb:ReviewDecision</code></td><td>class</td><td>Prüfentscheidung</td><td>Kontrollierte Werte einer redaktionellen Bewertung einer automatischen Annotation.</td></tr>
+<tr id="accepted"><td><code>tcb:accepted</code></td><td>decision</td><td>angenommen</td><td>Eine automatische Nennung wurde für diesen Textbefund redaktionell bestätigt.</td></tr>
+<tr id="rejected"><td><code>tcb:rejected</code></td><td>decision</td><td>abgelehnt</td><td>Eine automatische Nennung wurde für diesen Textbefund redaktionell verworfen.</td></tr>
+<tr id="Candidate"><td><code>tcb:Candidate</code></td><td>class</td><td>Kandidat</td><td>Entität, die eine automatische Erkennung vorschlägt. Im ungeprüften Graphen keine Instanz einer CIDOC-CRM-Klasse; die Klasse entsteht nur im getrennten, redaktionell bestätigten Graphen.</td></tr>
 <tr id="suggestedClass"><td><code>tcb:suggestedClass</code></td><td>property</td><td>vorgeschlagene Klasse</td><td>CIDOC-CRM-Klasse, die das Erkennungsverfahren für einen Kandidaten vorschlägt (E21 Person, E53 Place, E74 Group).</td></tr>
 <tr id="confidence"><td><code>tcb:confidence</code></td><td>property</td><td>Modellscore</td><td>Score des Erkennungsmodells (0–1) für eine automatische Nennung. Kein kalibriertes Maß für die Richtigkeit; Glossartreffer haben keinen.</td></tr>
 <tr id="unresolvedRef"><td><code>tcb:unresolvedRef</code></td><td>property</td><td>nicht aufgelöste Referenz</td><td>Wert aus @ref, der sich weder als URI, über prefixDef noch als xml:id im Dokument auflösen ließ. Wird unverändert erhalten.</td></tr>

@@ -6,13 +6,25 @@
 tcb:Candidate a rdfs:Class ;
     rdfs:label "Kandidat"@de,
         "candidate"@en ;
-    rdfs:comment "Entität, die eine automatische Erkennung vorschlägt. Sie ist bewusst keine Instanz einer CIDOC-CRM-Klasse; diese Aussage entsteht erst nach redaktioneller Bestätigung."@de ;
+    rdfs:comment "Entität, die eine automatische Erkennung vorschlägt. Im ungeprüften Graphen keine Instanz einer CIDOC-CRM-Klasse; die Klasse entsteht nur im getrennten, redaktionell bestätigten Graphen."@de ;
     rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
 
 tcb:Origin a rdfs:Class ;
     rdfs:label "Herkunft einer Nennung"@de,
         "origin of a mention"@en ;
     rdfs:comment "Klasse der zwei möglichen Herkünfte einer Nennung: redaktionell oder automatisch."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:ReviewDecision a rdfs:Class ;
+    rdfs:label "Prüfentscheidung"@de,
+        "review decision"@en ;
+    rdfs:comment "Kontrollierte Werte einer redaktionellen Bewertung einer automatischen Annotation."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:accepted a tcb:ReviewDecision ;
+    rdfs:label "angenommen"@de,
+        "accepted"@en ;
+    rdfs:comment "Eine automatische Nennung wurde für diesen Textbefund redaktionell bestätigt."@de ;
     rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
 
 tcb:aggregation a rdf:Property ;
@@ -36,7 +48,7 @@ tcb:confidence a rdf:Property ;
 tcb:editorial a tcb:Origin ;
     rdfs:label "redaktionell"@de,
         "editorial"@en ;
-    rdfs:comment "Die Nennung war bereits im TEI-Dokument ausgezeichnet. Nur solche Nennungen erzeugen crm:P67_refers_to."@de ;
+    rdfs:comment "Die Nennung war bereits im TEI-Dokument ausgezeichnet. Im Ausgangsgraphen erzeugen nur solche Nennungen crm:P67_refers_to."@de ;
     rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
 
 tcb:engine a rdf:Property ;
@@ -85,6 +97,12 @@ tcb:receiving a crm:E55_Type ;
     rdfs:label "Empfang"@de,
         "receiving"@en ;
     rdfs:comment "crm:E55_Type für Ereignisse aus tei:correspAction[@type='received']."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:rejected a tcb:ReviewDecision ;
+    rdfs:label "abgelehnt"@de,
+        "rejected"@en ;
+    rdfs:comment "Eine automatische Nennung wurde für diesen Textbefund redaktionell verworfen."@de ;
     rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
 
 tcb:sending a crm:E55_Type ;
