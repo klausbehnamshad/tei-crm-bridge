@@ -7,6 +7,7 @@ from lxml import etree
 from rdflib import RDF, RDFS, Graph, Literal, URIRef, XSD
 
 from tei_crm_bridge.core import _pieces, enrich
+from tei_crm_bridge import __version__
 from tei_crm_bridge.dates import bounds, intersect, interval
 from tei_crm_bridge.ner import Entity, GlossaryRecognizer
 from tei_crm_bridge.preview import write_preview
@@ -146,7 +147,7 @@ def test_suggestions_are_candidates_not_statements(tmp_path):
     assert (jena, VOCAB.suggestedClass, CRM.E53_Place) in graph
     assert not list(graph.triples((None, VOCAB.confidence, None)))
     [run_uri] = set(graph.objects(None, URIRef(PROV + "wasGeneratedBy")))
-    assert (run_uri, VOCAB.softwareVersion, Literal("0.2.0")) in graph
+    assert (run_uri, VOCAB.softwareVersion, Literal(__version__)) in graph
     assert not list(graph.triples((run_uri, VOCAB.threshold, None)))
 
 

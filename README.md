@@ -6,7 +6,7 @@ Ein Werkzeug für Digital Humanities: Es ergänzt TEI-P5-Briefe um Personen, Ort
 
 **[Projektseite mit Messung](https://klausbehnamshad.github.io/tei-crm-bridge/)** · [echter Brief (Schnitzler-Edition)](https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html) · [fiktives Beispiel](https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html) · [Evaluation](eval/README.md)
 
-**Status:** Prototyp für ein Bewerbungsportfolio, kein fertiges Editionssystem. Automatisch erkannte Namen sind Vorschläge: Sie werden markiert und als Kandidaten annotiert, aber nicht als Tatsachen in den Graphen geschrieben.
+**Status:** Prototyp für ein Bewerbungsportfolio, kein fertiges Editionssystem. Automatisch erkannte Namen sind im Ausgangsgraphen Vorschläge; eine redaktionelle Entscheidung kann einen getrennten geprüften Graphen erzeugen.
 
 *English summary: TEI CRM Bridge adds person, place and organisation names to TEI letters while preserving the reading text and existing text markup, records statements and suggestions with provenance (CIDOC CRM, W3C Web Annotation, PROV-O), and is evaluated against the editorial annotation of 40 letters from the Arthur Schnitzler correspondence edition.*
 
@@ -37,6 +37,19 @@ tei-crm examples/letter.xml --glossary examples/glossary.json
 ```
 
 Das erzeugt in `build/` die angereicherte TEI-Datei, einen Turtle-Graphen, eine Mentions-Datei (JSON) und eine HTML-Vorschau. Der Glossar-Modus ist deterministisch und dient dem schnellen lokalen Durchlauf; er ist **keine KI** und vergibt keine Konfidenz.
+
+## Redaktionelle Prüfung (Version 0.3)
+
+Die HTML-Vorschau öffnet sich direkt im Browser, auch ohne Server. Ein Klick auf eine automatisch erkannte Inline-Markierung oder einen Stand-off-Treffer zeigt Text, Typ, Position, Quelle und Kandidaten-URI. Die prüfende Person vergibt **Annehmen**, **Ablehnen** oder **Offen lassen** und kann eine Begründung ergänzen. Die Übersicht zählt die drei Zustände. Entscheidungen werden lokal im Browser gehalten; **Review-Datei exportieren** sichert sie als JSON, **Review-Datei importieren** lädt sie wieder. Für den Export ist ein Name oder Kürzel erforderlich.
+
+Die Review-Datei bindet jede Entscheidung an Fundstellen-ID, Textspanne, Zeitstempel sowie SHA-256-Prüfsummen der Eingabe, Mentions-Datei und des ursprünglichen RDF-Graphen. Danach lokal einen **separaten** Graphen erzeugen:
+
+```bash
+tei-crm-review build/letter.mentions.json build/letter.ttl \
+  build/letter.review.json build/letter.reviewed.ttl
+```
+
+Die Dateinamen hängen vom Eingabedokument ab. Das Kommando prüft die Bindung und lehnt veraltete, doppelte oder auf redaktionelle Namen bezogene Entscheidungen ab. Es fügt `oa:assessing`-Annotationen mit Entscheidung, Zeitpunkt und prüfender Person hinzu. Nur für angenommene Nennungen erhält der Kandidat eine CIDOC-CRM-Klasse und das Dokument `crm:P67_refers_to`. Die ursprüngliche TEI und der ursprüngliche RDF-Graph bleiben unverändert. Gleichlautende Nennungen können denselben Kandidaten teilen: Eine Ablehnung betrifft die einzelne Fundstelle; eine Annahme bestätigt die gemeinsame Entität im geprüften Graphen. Die Review-Oberfläche bietet noch keine Normdaten-Verknüpfung und keinen Mehrpersonen-Workflow.
 
 Für historisches deutsches NER:
 

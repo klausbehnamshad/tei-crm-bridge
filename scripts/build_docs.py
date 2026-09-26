@@ -166,7 +166,8 @@ def build_vocabulary() -> dict[str, bytes]:
     graph.bind("crm", CRM)
     ontology = URIRef(NAMESPACE.rstrip("#"))
     graph.add((ontology, RDFS.label, Literal("TEI CRM Bridge vocabulary", lang="en")))
-    types = {"class": RDFS.Class, "property": RDF.Property, "type": CRM.E55_Type, "origin": vocab.Origin}
+    types = {"class": RDFS.Class, "property": RDF.Property, "type": CRM.E55_Type, "origin": vocab.Origin,
+             "decision": vocab.ReviewDecision}
     for name, kind, label_de, label_en, definition in TERMS:
         term = vocab[name]
         graph.add((term, RDF.type, types[kind]))
@@ -305,8 +306,10 @@ def build_index() -> dict[str, bytes]:
 <div><b>Namen erkennen</b><span>Historisches NER-Modell mit überlappenden Fenstern; unvollständig gelesene Texte brechen ab statt still zu kürzen.</span></div>
 <div><b>Behutsam zurückschreiben</b><span>Inline nur innerhalb eines Textknotens; sonst Stand-off. Die ursprüngliche Textauszeichnung im <code>body</code> ist nach Entfernen der Ergänzungen wiederherstellbar.</span></div>
 <div><b>Vorschläge als Vorschläge</b><span>Automatische Treffer werden Kandidaten mit vorgeschlagener CRM-Klasse und Herkunft; Aussagen der Edition bleiben CIDOC CRM.</span></div>
+<div><b>Redaktionell prüfen</b><span>Version 0.3: einzelne Inline- und Stand-off-Treffer annehmen oder ablehnen, Entscheidungen mit Begründung exportieren und daraus einen getrennten geprüften Graphen erzeugen.</span></div>
 <div><b>Messen</b><span>Gegen die redaktionelle Auszeichnung von {corpus['letters']} Briefen der Schnitzler-Edition, reproduzierbar ab festem Commit.</span></div>
 </div>
+<p class="muted">Die untenstehenden Kennzahlen stammen aus Version 0.2. Die neue Prüffunktion verändert weder die Erkennung noch diese Messwerte; sie ergänzt einen nachvollziehbaren menschlichen Entscheidungsschritt.</p>
 
 <h2>Gemessen: v0.1 gegen v0.2</h2>
 <p>{corpus['letters']} Briefe aus <a href="https://github.com/arthur-schnitzler/schnitzler-briefe-data">schnitzler-briefe-data</a> @ <code>{corpus['commit'][:12]}</code>,
