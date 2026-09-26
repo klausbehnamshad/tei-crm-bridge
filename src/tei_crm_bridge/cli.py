@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from collections import Counter
 from dataclasses import asdict
@@ -168,23 +169,45 @@ def run_reconcile(args: argparse.Namespace, parser: argparse.ArgumentParser) -> 
     _check_cache_path(args.cache, parser)
     roots = [etree.parse(str(path)).getroot() for path in args.inputs]
     entities = collect_entities(roots)
-    cache = load_cache(args.cache) if args.cache.is_file() else new_cache(PmbResolver.name)
+    try:
+        cache = load_cache(args.cache) if args.cache.is_file() else new_cache(PmbResolver.name)
+    except ValueError as error:
+        parser.error(f"{error}; Datei aus git wiederherstellen oder löschen")
     resolvers = {"pmb": PmbResolver}
     resolver = resolvers[args.resolver](delay=args.delay)
     cache["resolver"] = resolver.name
-    fetched, failed, warnings = update_cache(cache, entities, resolver, offline=args.offline)
+    known = set(cache["entries"])
+    interrupted = False
+    try:
+        fetched, failed, warnings = update_cache(cache, entities, resolver, offline=args.offline,
+                                                 checkpoint=lambda: save_cache(args.cache, cache))
+    except KeyboardInterrupt:
+        interrupted = True
+        fetched = len(set(cache["entries"]) - known)
+        failed, warnings = 0, []
+    skipped = sum(1 for local_id, info in entities.items()
+                  if local_id not in cache["entries"] and not resolver.supports(info["kind"], local_id))
     changed = False
-    if fetched > 0 or (failed == 0 and not args.cache.is_file()):
+    if fetched > 0 or (failed == 0 and not interrupted and not args.cache.is_file()):
         try:
             save_cache(args.cache, cache)
         except OSError as error:
             parser.exit(1, f"tei-crm reconcile: Cache {args.cache} konnte nicht geschrieben werden "
                            f"({error}); {fetched} Abrufe verworfen.\n")
         changed = True
-    print(json.dumps({"cache": str(args.cache), "offline": args.offline, "entities": len(entities),
-                      "fetched": fetched, "failed": failed, "written": changed,
-                      "summary": summarize(entities, cache), "warnings": warnings},
-                     ensure_ascii=False, indent=2))
+    report = {"cache": str(args.cache), "offline": args.offline, "entities": len(entities),
+              "fetched": fetched, "failed": failed, "skipped": skipped, "written": changed,
+              "summary": summarize(entities, cache), "warnings": warnings}
+    if interrupted:
+        report["interrupted"] = True
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    if interrupted:
+        parser.exit(130, "tei-crm reconcile: Abgebrochen (Strg-C); bisherige Einträge gespeichert.\n")
+    drift = next((match.group(1) for warning in warnings
+                  if (match := re.search(r"PMB-API geändert\? (\S+): ", warning)) is not None), None)
+    if drift is not None:
+        parser.exit(1, f"tei-crm reconcile: Unerwartete PMB-Antwort ({drift}) – API geändert? "
+                       "Bisherige Einträge gespeichert, Lauf abgebrochen.\n")
     if fetched == 0 and failed > 0:
         # Total failure: no new cache file, existing cache untouched; exit 1 is
         # a runtime error while exit 2 stays reserved for argparse usage errors.
