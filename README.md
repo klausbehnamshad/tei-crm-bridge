@@ -112,6 +112,42 @@ pytest -q                                  # schnell, ohne Modell (CI)
 TCB_MODEL_TESTS=1 pytest -m integration    # mit dem Modell: Kontext, 5.640-Zeichen-Text, Fenstergrenze
 ```
 
+## CMIF-Export für correspSearch
+
+```bash
+tei-crm cmif eval/corpus/L*.xml --out build/cmif.xml \
+  --url-pattern 'https://edition.example.org/{id}.html' \
+  --cmif-url 'https://example.org/cmif.xml'
+```
+
+Der Unterbefehl sammelt die `correspDesc`/`correspAction`-Metadaten vieler Originalbriefe
+(kein NER nötig) in einer CMIF-Datei des [TEI Correspondence SIG](https://github.com/TEI-Correspondence-SIG/CMIF).
+Die Brief-URL in `correspDesc/@ref` entsteht aus `--url-pattern`, indem `{id}` durch die
+`xml:id` des Briefs ersetzt wird; ohne Muster steht stattdessen `key=<xml:id>`.
+Personen erhalten die GND-URI (aus `@ref`, sonst aus der Register-`idno` der Subtypes
+`gnd`/`d-nb`), Orte die GeoNames-URI (Register-`idno` des Subtypes `geonames`); ohne
+Normdaten steht der Name ohne `@ref` und es gibt eine Warnung. Nur `sent`/`received`
+werden übernommen, Datumsangaben werden über `dates.py` geprüft. Titel, Verlag und Lizenz
+kommen aus dem `teiHeader` der Briefe (`--title`, `--publisher`, `--licence` setzen sie).
+Hinweis: Die briefbegleitenden Register tragen keine GND-/GeoNames-IDs. Dafür gibt es
+die Reconciliation:
+
+```bash
+tei-crm reconcile eval/corpus/L*.xml --cache build/reconciliation.json
+tei-crm cmif eval/corpus/L*.xml --out build/cmif.xml --reconciliation build/reconciliation.json \
+  --url-pattern 'https://edition.example.org/{id}.html' --cmif-url 'https://example.org/cmif.xml'
+```
+
+`reconcile` löst die lokalen Register-IDs (`pmb<N>`) über die PMB-API gegen GND
+(Personen/Organisationen), GeoNames (Orte) und Wikidata auf und legt sie mit Quelle,
+PMB-URI und Abrufdatum in einer committbaren JSON-Cache-Datei ab (eine höfliche Anfrage
+je unbekannter Entity). Der zweite Lauf mit `--offline` nutzt nur den Cache und macht
+keinen Netzaufruf. `cmif` (und `enrich`, dort als `rdfs:seeAlso`) konsumieren nur diese
+Datei: erst vorhandene Register-`idno`, dann Cache, dann direktes GND-`@ref`.
+Für TLS bringt das Paket `certifi` mit (additiv zum System-Store; alternativ gilt
+`SSL_CERT_FILE`). Scheitern alle Abrufe, endet `reconcile` mit Exit 1 und schreibt
+keinen Cache; Teilerfolge melden einen Hinweis auf stderr.
+
 ## Grenzen
 
 - Die Referenz ist eine Edition mit eigenen Richtlinien: Korrespondenzpartner in Adressen und Unterschriften sind dort nicht ausgezeichnet, Titel gehören nicht zum Namen. Die Zahlen messen daher Übereinstimmung mit dieser Edition, nicht absolute Richtigkeit.
@@ -126,6 +162,7 @@ TCB_MODEL_TESTS=1 pytest -m integration    # mit dem Modell: Kontext, 5.640-Zeic
 - [TEI P5 Guidelines](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/) – insbesondere [`correspAction`](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-correspAction.html), [Datumsattribute](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.datable.w3c.html), [`choice`](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-choice.html)
 - [CIDOC CRM 7.1.3](https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html) und die [RDF-Umsetzung von P82a/P82b](https://cidoc-crm.org/Issue/ID-288-issue-about-p82-and-p81-usage)
 - [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/), [PROV-O](https://www.w3.org/TR/prov-o/)
+- [CMIF-Dokumentation und Schema](https://github.com/TEI-Correspondence-SIG/CMIF) (TEI Correspondence SIG, für correspSearch)
 - [Impresso HIPE-Modellkarte](https://huggingface.co/impresso-project/ner-hipe2020-hist-base), [HIPE-2020](https://impresso.github.io/CLEF-HIPE-2020/)
 
 ## Lizenz
