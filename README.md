@@ -46,7 +46,7 @@ Die Review-Datei bindet jede Entscheidung an Fundstellen-ID, Textspanne, Zeitste
 
 ```bash
 tei-crm-review build/letter.mentions.json build/letter.ttl \
-  build/letter.review.json build/letter.reviewed.ttl
+  build/letter-001.review.json build/letter.reviewed.ttl
 ```
 
 Die Dateinamen hängen vom Eingabedokument ab. Das Kommando prüft die Bindung und lehnt veraltete, doppelte oder auf redaktionelle Namen bezogene Entscheidungen ab. Es fügt `oa:assessing`-Annotationen mit Entscheidung, Zeitpunkt und prüfender Person hinzu. Nur für angenommene Nennungen erhält der Kandidat eine CIDOC-CRM-Klasse und das Dokument `crm:P67_refers_to`. Die ursprüngliche TEI und der ursprüngliche RDF-Graph bleiben unverändert. Gleichlautende Nennungen können denselben Kandidaten teilen: Eine Ablehnung betrifft die einzelne Fundstelle; eine Annahme bestätigt die gemeinsame Entität im geprüften Graphen. Die Review-Oberfläche bietet noch keine Normdaten-Verknüpfung und keinen Mehrpersonen-Workflow.
