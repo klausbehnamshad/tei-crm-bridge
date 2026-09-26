@@ -1,5 +1,20 @@
 # Changelog
 
+## Unveröffentlicht
+
+### Reconciliation
+- Neuer Unterbefehl `tei-crm reconcile` (`reconcile.py`): löst lokale Register-IDs über die PMB-API (Person/Ort/Institution) gegen GND, GeoNames und Wikidata auf und speichert sie mit Quelle, PMB-URI und Abrufdatum in einer committbaren JSON-Cache-Datei; `--offline` bleibt netzfrei, ein `Resolver`-Protokoll mit `PmbResolver` erlaubt andere Editionen.
+- `tei-crm cmif ... --reconciliation FILE` füllt `@ref` aus dem Cache (nach Register-`idno`, vor direktem GND-`@ref`); `enrich ... --reconciliation FILE` ergänzt `rdfs:seeAlso` (kein `owl:sameAs`, keine CRM-Klasse).
+- Live-PMB-Tests in `tests/test_reconcile_integration.py`, per `TCB_PMB_TESTS` wie die Modelltests gegated.
+- `certifi` als Abhängigkeit: Das CA-Bundle wird additiv zum Plattform-Store geladen, sodass `SSL_CERT_FILE` weiter gilt (python.org-Python auf macOS hat sonst keinen CA-Store). Zertifikatsfehler ohne Retry, früher Abbruch nach drei gescheiterten Abrufen ohne Erfolg, Totalausfall endet mit Exit 1 ohne Cache-Schreiben.
+- Verbindungsabbrüche (`RemoteDisconnected`, `IncompleteRead`, Resets) zählen als Netzfehler mit einem Retry. Der `--cache`-Pfad wird vor dem Netzlauf geprüft (Verzeichnis → Exit 2); fehlende Elternordner legt `save_cache` an.
+
+### CMIF
+- Neuer Unterbefehl `tei-crm cmif` (`cmif.py`): sammelt `correspDesc`/`correspAction` vieler Originalbriefe in einer CMIF-Datei für correspSearch; Brief-URL aus `--url-pattern` (`{id}` = `xml:id`), stabile Dateiadresse aus `--cmif-url`, Titel/Verlag/Lizenz aus dem `teiHeader` oder aus Optionen.
+- GND für Personen (`@ref` oder Register-`idno` `gnd`/`d-nb`), GeoNames für Orte (Register-`idno` `geonames`); ohne Normdaten Name ohne `@ref` plus Warnung; nur `sent`/`received`, Daten über `dates.py` geprüft.
+- Gegen das offizielle CMIF-Schema (RNG) validiert; neue Tests in `tests/test_cmif.py`.
+- Nur eigene Register-`idno` zählen (direkte Kinder und `location` ohne `type="located_in_place"`); `--out` legt fehlende Ordner an.
+
 ## 0.2.0
 
 Gemessen an 40 Briefen der Schnitzler-Edition; Zahlen und Methode in [eval/README.md](eval/README.md).

@@ -14,6 +14,7 @@ from __future__ import annotations
 import hashlib
 import re
 import unicodedata
+from typing import Mapping
 from urllib.parse import quote, urljoin
 
 from lxml import etree
@@ -43,6 +44,18 @@ _IRI = re.compile(r'^[A-Za-z][A-Za-z0-9+.-]*:[^\s<>"{}|\\^`]+$')
 def valid_iri(value: str) -> bool:
     """True for an absolute IRI that Turtle can serialize."""
     return bool(_IRI.match(value))
+
+
+def reconciled_uris(cache: Mapping | None, local_id: str | None) -> list[str]:
+    """Validated GND/GeoNames/Wikidata URIs of a reconciliation cache entry."""
+    if not isinstance(cache, Mapping) or not local_id:
+        return []
+    entries = cache.get("entries")
+    entry = entries.get(local_id) if isinstance(entries, Mapping) else None
+    if not isinstance(entry, Mapping):
+        return []
+    return [value for value in (entry.get("gnd"), entry.get("geonames"), entry.get("wikidata"))
+            if isinstance(value, str) and valid_iri(value)]
 
 
 def _normalize(text: str) -> str:
@@ -83,11 +96,16 @@ class GraphBuilder:
     def __init__(
         self, root: etree._Element, doc_id: str, base_uri: str, warnings: list[str],
         tei_url: str | None = None, source_url: str | None = None,
+        reconciliation: Mapping | None = None,
     ):
         self.root = root
         self.base = base_uri
         self.doc_id = doc_id
         self.warnings = warnings
+        #: Reconciled norm data (``{"entries": {local_id: {...}}}``), added as
+        #: ``rdfs:seeAlso`` next to the register ``idno`` identifiers. Never a
+        #: CRM class and never ``owl:sameAs``: reconciliation is a suggestion.
+        self.reconciliation = reconciliation
         self.doc = URIRef(base_uri + "document/" + quote(doc_id, safe=""))
         # The enriched TEI file that the selectors of every annotation point into.
         self.tei = URIRef(tei_url or str(self.doc) + "/tei")
@@ -207,6 +225,8 @@ class GraphBuilder:
                 value = _normalize(idno.text or "")
                 if (idno.get("subtype") or idno.get("type") or "").lower() in AUTHORITIES and valid_iri(value):
                     self.graph.add((uri, RDFS.seeAlso, URIRef(value)))
+            for value in reconciled_uris(self.reconciliation, record.get(XML_ID)):
+                self.graph.add((uri, RDFS.seeAlso, URIRef(value)))
         if len(records) == 1:
             for uri in external:
                 self.graph.add((records[0][0], RDFS.seeAlso, uri))
