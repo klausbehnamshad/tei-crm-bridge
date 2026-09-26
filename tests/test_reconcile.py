@@ -1,8 +1,10 @@
 """Authority reconciliation: cache fill and cache consumption, fully offline."""
 
+import email.message
 import http.client
 import io
 import json
+import os
 import ssl
 import sys
 import urllib.request
@@ -15,6 +17,7 @@ from tei_crm_bridge.cli import main
 from tei_crm_bridge.cmif import CmifOptions, build_cmif
 from tei_crm_bridge.rdf import GraphBuilder, reconciled_uris
 from tei_crm_bridge.reconcile import (
+    ApiDriftError,
     AuthorityLinks,
     PmbResolver,
     ResolverError,
@@ -23,6 +26,7 @@ from tei_crm_bridge.reconcile import (
     load_cache,
     new_cache,
     pick_links,
+    save_cache,
     summarize,
     tls_context,
     update_cache,
@@ -39,6 +43,9 @@ class FakeResolver:
         self.links = links
         self.fail = set(fail)
         self.calls = []
+
+    def supports(self, kind, local_id):
+        return True
 
     def resolve(self, kind, local_id, label):
         self.calls.append((kind, local_id))
@@ -290,7 +297,7 @@ class FakeSequenceHTTP(FakeHTTP):
     def __call__(self, request, timeout=None, context=None):
         self.calls.append({"url": request.full_url, "timeout": timeout, "context": context})
         answer = self.answers[min(len(self.calls) - 1, len(self.answers) - 1)]
-        if isinstance(answer, Exception):
+        if isinstance(answer, BaseException):
             raise answer
         return FakeHTTP.Response(answer)
 
@@ -385,3 +392,147 @@ def test_cli_total_failure_creates_no_directory(monkeypatch, capsys, tmp_path):
         main()
     assert error.value.code == 1
     assert not out.is_file() and not (tmp_path / "neu").exists()
+
+
+def http_error(code, content_type, body):
+    headers = email.message.Message()
+    if content_type:
+        headers["Content-Type"] = content_type
+    return urllib.error.HTTPError("https://pmb.acdh.oeaw.ac.at/x", code, "reason",
+                                  headers, io.BytesIO(body))
+
+
+WEIMAR_REGISTER = ('<listPerson><person xml:id="pmb1"><persName>Eins</persName></person></listPerson>'
+                    '<listPlace><place xml:id="weimar"><placeName>Weimar</placeName></place></listPlace>')
+
+
+@pytest.mark.parametrize("order", [[0, 1], [1, 0]])
+def test_unsupported_id_never_fetched(monkeypatch, capsys, tmp_path, order):
+    first = tmp_path / "A.xml"
+    first.write_text(letter("A", "", WEIMAR_REGISTER), encoding="utf-8")
+    second = tmp_path / "B.xml"
+    second.write_text(letter("B", "", WEIMAR_REGISTER), encoding="utf-8")
+    inputs = [str(first), str(second)][order[0]], [str(first), str(second)][order[1]]
+    out = tmp_path / "recon.json"
+    boom = urllib.error.URLError(OSError("refused"))
+    http = FakeHTTP([("entities/", boom)])
+    monkeypatch.setattr(urllib.request, "urlopen", http)
+    monkeypatch.setattr(sys, "argv", ["tei-crm", "reconcile", *inputs, "--cache", str(out), "--delay", "0"])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 1
+    assert not out.is_file()
+    report = json.loads(capsys.readouterr().out)
+    assert report["skipped"] == 1
+    assert report["failed"] == 1 and report["fetched"] == 0
+    assert len(http.calls) == 2  # pmb1 attempt + retry; weimar never requested
+    assert all("person/1" in call["url"] for call in http.calls)
+
+
+def test_json_404_stays_unresolved(monkeypatch):
+    err = http_error(404, "application/json", b'{"detail": "No Person matches the given query."}')
+    monkeypatch.setattr(urllib.request, "urlopen", FakeSequenceHTTP([err]))
+    stored = new_cache("fake")
+    entities = {"pmb1": {"kind": "person", "label": "Eins"}}
+    fetched, failed, warnings = update_cache(stored, entities, PmbResolver(delay=0))
+    assert (fetched, failed) == (1, 0)
+    assert stored["entries"]["pmb1"]["gnd"] is None
+    assert any("keine Normdaten" in warning for warning in warnings)
+
+
+def test_html_404_is_drift_and_aborts(monkeypatch, capsys, tmp_path):
+    err = http_error(404, "text/html", b"<html>not found</html>")
+    monkeypatch.setattr(urllib.request, "urlopen", FakeSequenceHTTP([err]))
+    with pytest.raises(ApiDriftError):
+        PmbResolver(delay=0).resolve("person", "pmb1", "Eins")
+    letter_path = tmp_path / "L1.xml"
+    letter_path.write_text(letter("L1", "", FLAKY_REGISTER), encoding="utf-8")
+    out = tmp_path / "recon.json"
+    http = FakeSequenceHTTP([err])
+    monkeypatch.setattr(urllib.request, "urlopen", http)
+    monkeypatch.setattr(sys, "argv", ["tei-crm", "reconcile", str(letter_path), "--cache", str(out), "--delay", "0"])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 1
+    assert len(http.calls) == 1
+    assert "API geändert" in capsys.readouterr().err
+
+
+def test_200_without_sameAs_is_drift(monkeypatch):
+    monkeypatch.setattr(urllib.request, "urlopen", FakeSequenceHTTP([{"id": 1}]))
+    with pytest.raises(ApiDriftError):
+        PmbResolver(delay=0).resolve("person", "pmb1", "Eins")
+    monkeypatch.setattr(urllib.request, "urlopen", FakeSequenceHTTP([[["x"]]]))
+    with pytest.raises(ApiDriftError):
+        PmbResolver(delay=0).resolve("person", "pmb1", "Eins")
+
+
+def test_drift_after_successes_keeps_entries(monkeypatch, capsys, tmp_path):
+    gnd = {"sameAs": ["https://d-nb.info/gnd/118609807"]}
+    err = http_error(404, "text/html", b"<html>not found</html>")
+    answers = [("person/1", gnd), ("person/2", gnd), ("place/3", err)]
+    monkeypatch.setattr(urllib.request, "urlopen", FakeHTTP(answers))
+    letter_path = tmp_path / "L1.xml"
+    letter_path.write_text(letter("L1", "", FLAKY_REGISTER), encoding="utf-8")
+    out = tmp_path / "recon.json"
+    monkeypatch.setattr(sys, "argv", ["tei-crm", "reconcile", str(letter_path), "--cache", str(out), "--delay", "0"])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 1
+    assert "API geändert" in capsys.readouterr().err
+    assert set(json.loads(out.read_text(encoding="utf-8"))["entries"]) == {"pmb1", "pmb2"}
+
+
+def test_save_cache_is_atomic(monkeypatch, tmp_path):
+    out = tmp_path / "recon.json"
+    out.write_text('{"entries": {}}', encoding="utf-8")
+    before = out.read_bytes()
+
+    def volle_platte(*args, **kwargs):
+        raise OSError("volle Platte")
+
+    monkeypatch.setattr(os, "replace", volle_platte)
+    with pytest.raises(OSError):
+        save_cache(out, {"entries": {"pmb1": {}}})
+    assert out.read_bytes() == before
+    assert [child.name for child in tmp_path.iterdir()] == ["recon.json"]
+
+
+def test_checkpoint_every_25():
+    entities = {f"pmb{i}": {"kind": "person", "label": f"P{i}"} for i in range(1, 31)}
+    calls = []
+    fetched, failed, _ = update_cache(new_cache("fake"), entities, FakeResolver({}),
+                                      checkpoint=lambda: calls.append(1), checkpoint_every=25)
+    assert (fetched, failed) == (30, 0) and len(calls) == 1
+
+
+def test_keyboard_interrupt_reports_130(monkeypatch, capsys, tmp_path):
+    register = "".join(f'<person xml:id="pmb{i}"><persName>P{i}</persName></person>' for i in range(1, 31))
+    letter_path = tmp_path / "L1.xml"
+    letter_path.write_text(letter("L1", "", f"<listPerson>{register}</listPerson>"), encoding="utf-8")
+    out = tmp_path / "recon.json"
+    answers = [{"sameAs": []}] * 25 + [KeyboardInterrupt()]
+    monkeypatch.setattr(urllib.request, "urlopen", FakeSequenceHTTP(answers))
+    monkeypatch.setattr(sys, "argv", ["tei-crm", "reconcile", str(letter_path), "--cache", str(out), "--delay", "0"])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 130
+    report = json.loads(capsys.readouterr().out)
+    assert report["interrupted"] is True
+    stored = json.loads(out.read_text(encoding="utf-8"))
+    assert len(stored["entries"]) >= 25
+
+
+def test_corrupt_cache_is_usage_error(monkeypatch, capsys, tmp_path):
+    letter_path = tmp_path / "L1.xml"
+    letter_path.write_text(letter("L1", "", FLAKY_REGISTER), encoding="utf-8")
+    out = tmp_path / "recon.json"
+    out.write_text("{broken", encoding="utf-8")
+    http = FakeHTTP([])
+    monkeypatch.setattr(urllib.request, "urlopen", http)
+    monkeypatch.setattr(sys, "argv", ["tei-crm", "reconcile", str(letter_path), "--cache", str(out), "--delay", "0"])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 2
+    captured = capsys.readouterr()
+    assert "Traceback" not in captured.err and http.calls == []

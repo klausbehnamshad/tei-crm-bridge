@@ -145,8 +145,10 @@ je unbekannter Entity). Der zweite Lauf mit `--offline` nutzt nur den Cache und 
 keinen Netzaufruf. `cmif` (und `enrich`, dort als `rdfs:seeAlso`) konsumieren nur diese
 Datei: erst vorhandene Register-`idno`, dann Cache, dann direktes GND-`@ref`.
 Für TLS bringt das Paket `certifi` mit (additiv zum System-Store; alternativ gilt
-`SSL_CERT_FILE`). Scheitern alle Abrufe, endet `reconcile` mit Exit 1 und schreibt
-keinen Cache; Teilerfolge melden einen Hinweis auf stderr.
+`SSL_CERT_FILE`). Scheitern alle PMB-Anfragen, endet `reconcile` mit Exit 1 und schreibt
+keinen Cache; Teilerfolge melden einen Hinweis auf stderr. IDs ohne `pmb<N>`-Form werden
+übersprungen. Antwortet die API außerhalb ihrer bekannten Form, bricht der Lauf mit Exit 1
+ab und sichert das bisher Geholte. Strg-C sichert ebenfalls und meldet Exit 130.
 
 ## Grenzen
 
