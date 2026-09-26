@@ -2,6 +2,8 @@
 
 Ein kleiner, nachvollziehbarer Prototyp für Digital Humanities: TEI P5 einlesen, vorhandene Markierungen erhalten, Personennamen, Ortsnamen und Organisationen ergänzen und einen CIDOC-CRM-Graphen als Turtle exportieren.
 
+**[Interaktive Demo ansehen](https://klausbehnamshad.github.io/tei-crm-bridge/)** · [Beispiel-TEI](docs/letter.enriched.xml) · [Beispiel-RDF](docs/letter.ttl)
+
 **Status:** MVP für ein Bewerbungsportfolio, kein fertiges Editionssystem. Die Beispieldaten sind fiktiv. Automatisch erkannte Namen und gleichlautende Namen sind keine geprüften Identitäten. Der Graph behauptet keine historischen Ereignisse aus bloßen NER-Treffern.
 
 ## Schnellstart
