@@ -8,6 +8,7 @@ import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Mapping
 
 from lxml import etree
 
@@ -91,6 +92,7 @@ def enrich(
     output_json: Path | None = None,
     tei_url: str | None = None,
     source_url: str | None = None,
+    reconciliation: Mapping | None = None,
 ) -> Result:
     """Enrich one TEI file. ``tei_url`` is where the enriched TEI will be published
     (the source of every annotation target); ``source_url`` identifies the input."""
@@ -108,7 +110,8 @@ def enrich(
     doc_id = root.get("{http://www.w3.org/XML/1998/namespace}id") or input_path.stem
     original = copy.deepcopy(root)
     warnings: list[str] = []
-    builder = GraphBuilder(root, doc_id, base_uri, warnings, tei_url=tei_url, source_url=source_url)
+    builder = GraphBuilder(root, doc_id, base_uri, warnings, tei_url=tei_url, source_url=source_url,
+                           reconciliation=reconciliation)
     events = builder.add_correspondence()  # first, so correspondents keep their full names as labels
     ids = IdMinter(root)
     application_id = ids.reserve("tcb-run") if root.find(TEI + "teiHeader") is not None else None
