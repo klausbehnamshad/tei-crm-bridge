@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="letter-001">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt><title>Beispielbrief aus Jena</title></titleStmt>
+      <publicationStmt><p>Demonstrationsdaten</p></publicationStmt>
+      <sourceDesc><p>Fiktives Beispiel für die technische Demonstration.</p></sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName>Friedrich Schiller</persName>
+          <placeName>Jena</placeName>
+          <date when="1797-08-01">1. August 1797</date>
+        </correspAction>
+      </correspDesc>
+    </profileDesc>
+  </teiHeader>
+  <text><body>
+    <p>Friedrich Schiller schrieb aus <hi>Jena</hi> an Goethe.</p>
+    <p>Die Universität Jena erwähnte auch <placeName>Weimar</placeName> &amp; Umgebung.</p>
+  </body></text>
+</TEI>

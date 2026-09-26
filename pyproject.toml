@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tei-crm-bridge"
+version = "0.1.0"
+description = "Traceable TEI enrichment and CIDOC CRM RDF for historical texts"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = ["lxml>=5,<7", "rdflib>=7,<9"]
+
+[project.optional-dependencies]
+ner = ["transformers>=4.44,<5", "torch>=2.3"]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+tei-crm = "tei_crm_bridge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

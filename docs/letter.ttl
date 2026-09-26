@@ -1,0 +1,78 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix ex: <https://example.org/tei-crm/vocab/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/tei-crm-demo/mention/letter-001/1> a oa:Annotation ;
+    oa:hasBody <https://example.org/tei-crm-demo/document/letter-001/entity/loc/weimar-74cb687a6e> ;
+    oa:hasTarget <https://example.org/tei-crm-demo/document/letter-001> ;
+    ex:source "tei-existing" ;
+    ex:surface "Weimar" ;
+    ex:teiXPath "/*/*[2]/*/*[2]/*[2]" .
+
+<https://example.org/tei-crm-demo/mention/letter-001/2> a oa:Annotation ;
+    oa:hasBody <https://example.org/tei-crm-demo/document/letter-001/entity/per/friedrich-schiller-86586925c3> ;
+    oa:hasTarget <https://example.org/tei-crm-demo/document/letter-001> ;
+    ex:confidence 1.0 ;
+    ex:source "glossary" ;
+    ex:surface "Friedrich Schiller" ;
+    ex:teiXPath "/*/*[2]/*/*[1]/*[1]" .
+
+<https://example.org/tei-crm-demo/mention/letter-001/3> a oa:Annotation ;
+    oa:hasBody <https://example.org/tei-crm-demo/document/letter-001/entity/loc/jena-0dd8aa7e1e> ;
+    oa:hasTarget <https://example.org/tei-crm-demo/document/letter-001> ;
+    ex:confidence 1.0 ;
+    ex:source "glossary" ;
+    ex:surface "Jena" ;
+    ex:teiXPath "/*/*[2]/*/*[1]/*[2]/*" .
+
+<https://example.org/tei-crm-demo/mention/letter-001/4> a oa:Annotation ;
+    oa:hasBody <https://example.org/tei-crm-demo/document/letter-001/entity/per/goethe-62dc6b9d99> ;
+    oa:hasTarget <https://example.org/tei-crm-demo/document/letter-001> ;
+    ex:confidence 1.0 ;
+    ex:source "glossary" ;
+    ex:surface "Goethe" ;
+    ex:teiXPath "/*/*[2]/*/*[1]/*[3]" .
+
+<https://example.org/tei-crm-demo/mention/letter-001/5> a oa:Annotation ;
+    oa:hasBody <https://example.org/tei-crm-demo/document/letter-001/entity/org/universitat-jena-4dd06f6754> ;
+    oa:hasTarget <https://example.org/tei-crm-demo/document/letter-001> ;
+    ex:confidence 1.0 ;
+    ex:source "glossary" ;
+    ex:surface "Universität Jena" ;
+    ex:teiXPath "/*/*[2]/*/*[2]/*[1]" .
+
+<https://example.org/tei-crm-demo/event/letter-001/sent-1> a crm:E7_Activity ;
+    rdfs:label "Versand von letter-001" ;
+    crm:P14_carried_out_by <https://example.org/tei-crm-demo/document/letter-001/entity/per/friedrich-schiller-86586925c3> ;
+    crm:P4_has_time-span <https://example.org/tei-crm-demo/event/letter-001/sent-1/time> ;
+    crm:P7_took_place_at <https://example.org/tei-crm-demo/document/letter-001/entity/loc/jena-0dd8aa7e1e> .
+
+<https://example.org/tei-crm-demo/event/letter-001/sent-1/time> a crm:E52_Time-Span ;
+    crm:P82_at_some_time_within "1797-08-01"^^xsd:date .
+
+<https://example.org/tei-crm-demo/document/letter-001/entity/loc/weimar-74cb687a6e> a crm:E53_Place ;
+    rdfs:label "Weimar" .
+
+<https://example.org/tei-crm-demo/document/letter-001/entity/org/universitat-jena-4dd06f6754> a crm:E74_Group ;
+    rdfs:label "Universität Jena" .
+
+<https://example.org/tei-crm-demo/document/letter-001/entity/per/goethe-62dc6b9d99> a crm:E21_Person ;
+    rdfs:label "Goethe" .
+
+<https://example.org/tei-crm-demo/document/letter-001/entity/loc/jena-0dd8aa7e1e> a crm:E53_Place ;
+    rdfs:label "Jena" .
+
+<https://example.org/tei-crm-demo/document/letter-001/entity/per/friedrich-schiller-86586925c3> a crm:E21_Person ;
+    rdfs:label "Friedrich Schiller" .
+
+<https://example.org/tei-crm-demo/document/letter-001> a crm:E31_Document ;
+    rdfs:label "Beispielbrief aus Jena" ;
+    crm:P67_refers_to <https://example.org/tei-crm-demo/document/letter-001/entity/loc/jena-0dd8aa7e1e>,
+        <https://example.org/tei-crm-demo/document/letter-001/entity/loc/weimar-74cb687a6e>,
+        <https://example.org/tei-crm-demo/document/letter-001/entity/org/universitat-jena-4dd06f6754>,
+        <https://example.org/tei-crm-demo/document/letter-001/entity/per/friedrich-schiller-86586925c3>,
+        <https://example.org/tei-crm-demo/document/letter-001/entity/per/goethe-62dc6b9d99> ;
+    crm:P70_documents <https://example.org/tei-crm-demo/event/letter-001/sent-1> .
+
