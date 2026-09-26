@@ -1,0 +1,29 @@
+letter	block	occurrence	kind	text	basis	reason
+L00001	0	1	LOC	Frankfurt Main	both readers	Ortsname Frankfurt am Main in der Telegramm-Adresse ist nicht annotiert.
+L00001	3	1	PER	FMamroth	both readers	Unterschrift des Absenders Fedor Mamroth ist nicht annotiert.
+L00276	4	1	PER	HermannBahr	both readers	Unterschrift des Absenders Hermann Bahr ist nicht annotiert.
+L00851	0	1	PER	Arthur	both readers	Vorname des Adressaten Arthur Schnitzler in der Anrede, nicht annotiert.
+L00851	2	1	PER	Hugo	both readers	Unterschrift Hugo von Hofmannsthals mit dem Vornamen, nicht annotiert.
+L01601	0	1	PER	Artur	both readers	Vorname des Adressaten Arthur Schnitzler in der Anrede, nicht annotiert.
+L01601	2	1	PER	Hermann	both readers	Unterschrift des Absenders Hermann Bahr mit Vornamen, nicht annotiert.
+L02051	0	1	PER	Brandes	both readers	Absendername Georg Brandes auf dem Umschlag ist nicht annotiert.
+L02051	1	1	PER	Arthur Schnitzler	both readers	Name des Empfängers in der Adresse ist nicht annotiert.
+L02051	1	1	LOC	Vienne	both readers	Ortsname Wien (französisch) in der Adresse ist nicht annotiert.
+L02051	1	1	LOC	Autriche	both readers	Ländername Österreich (französisch) in der Adresse ist nicht annotiert.
+L02051	6	1	PER	Arthur S.	both readers	Abgekürzter Name Arthur Schnitzlers ist nicht annotiert.
+L02051	7	1	PER	Georg Brandes	both readers	Unterschrift des Briefschreibers ist nicht annotiert.
+L02426	0	1	PER	A. S.	judge	„A. S.“ im Briefkopf sind die Initialen Arthur Schnitzlers, also eine abgekürzte Namensform.
+L02426	1	1	PER	Felix Braun	both readers	Vollständiger Name des Adressaten in der Adresse, nicht annotiert.
+L02426	2	1	PER	Braun	both readers	Nachname des Adressaten in der Anrede, nicht annotiert.
+L02426	4	1	PER	Arthur Schnitzler	both readers	Unterschrift des Briefschreibers mit vollem Namen, nicht annotiert.
+L02976	1	1	PER	A.	both readers	Abgekürzte Unterschrift Arthur Schnitzlers am Briefende, nicht annotiert.
+L03426	0	1	PER	Arthur Schnitzler	both readers	Name des Adressaten in der Anschrift ist nicht annotiert.
+L03426	6	1	PER	Salten	both readers	Unterschrift von Felix Salten ist nicht annotiert.
+L03426	6	1	PER	Ottilie	both readers	Unterschrift von Ottilie (Salten) ist nicht annotiert.
+L03426	7	1	PER	SFischer	both readers	Unterschrift von Samuel Fischer ist nicht annotiert.
+L03426	8	1	PER	Hedwig Fischer	both readers	Vollständiger Personenname von Hedwig Fischer ist nicht annotiert.
+L03776	0	1	PER	Arthur Schnitzler	both readers	Name des Absenders im Briefkopf ist nicht ausgezeichnet.
+L03776	0	1	PER	Zweig	both readers	Nachname des Empfängers in der Anrede ist nicht ausgezeichnet.
+L03776	2	1	PER	Arthur Schnitzler	both readers	Unterschrift des Absenders ist nicht ausgezeichnet.
+L04276	0	1	PER	Arthur Schnitzler	both readers	Name des Empfängers in der Adresse ist nicht ausgezeichnet.
+L04276	4	1	PER	RudolfSchwarzkopf	both readers	Unterschrift des Absenders Rudolf Schwarzkopf ist nicht ausgezeichnet.

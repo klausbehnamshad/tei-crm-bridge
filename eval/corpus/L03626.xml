@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../meta/schnitzler-briefe-schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:id="L03626" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1910-10-05" n="01">1910-10-05</title>
+            <title level="a">Stefan Zweig an Arthur Schnitzler, [5. oder 6. 10. 1910?]</title>
+            <author ref="#pmb13212">Zweig, Stefan</author>
+            <editor>
+               <name>Jahnke, Selma</name>
+               <name>Müller, Martin Anton</name>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Jahnke, Selma</persName>
+               <persName>Müller, Martin Anton</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities </publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2025">2025</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen — das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten — das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung — Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen — Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">XXXX</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="brief"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>GB</country>
+                        <settlement>Cambridge</settlement>
+                        <repository>University Library</repository>
+                        <idno>Schnitzler, B 118</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="seite" quantity="2"/>
+                                 <measure unit="blatt" quantity="1"/>
+                                 <measure unit="zeichenanzahl" quantity="929"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="1">
+                           <handNote medium="lila-tinte" style="lateinische-kurrent"/>
+                        </handDesc>
+                        <additions>
+                           <incident type="receiver" rend="bleistift">
+                              <desc>»<quote>
+                                    <hi rend="latintype">Zweig</hi>
+                                 </quote>«</desc>
+                           </incident>
+                        </additions>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+            <listBibl>
+               <biblStruct>
+                  <monogr>
+                     <author ref="#pmb13212">Zweig, Stefan</author>
+                     <title level="m">Briefwechsel mit Hermann Bahr, Sigmund Freud, Rainer Maria
+                        Rilke und Arthur Schnitzler</title>
+                     <editor>Berlin, Jeffrey B.</editor>
+                     <editor>Lindken, Hans-Ulrich</editor>
+                     <editor>Prater, Donald A.</editor>
+                     <imprint>
+                        <date when="1987">1987</date>
+                        <pubPlace>Frankfurt am Main</pubPlace>
+                        <publisher>S. Fischer</publisher>
+                     </imprint>
+                     <biblScope unit="pp">359–360</biblScope>
+                  </monogr>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb13212">Zweig, Stefan</persName>
+               <date notBefore="1910-10-05" notAfter="1910-10-06" n="01">[5. oder
+                  6. 10. 1910?]</date>
+               <placeName ref="#pmb50">Wien</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb2121">Schnitzler, Arthur</persName>
+               <date evidence="conjecture" notBefore="1910-10-05" notAfter="1910-10-08">[5. 10. 1910
+                  – 8. 10. 1910?]</date>
+               <placeName ref="#pmb50" evidence="conjecture">Wien</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_13212">Zweig, Stefan</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L01962">Schnitzler an Hofmannsthal, 4. 10. 1910</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L03796">Schnitzler an Zweig, 6. 10. 1910</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_13212" target="L03813">Schnitzler an Zweig, 10. 9. 1910</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_13212" target="L03796">Schnitzler an Zweig, 6. 10. 1910</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="approved">
+         <change who="MAM" when="2025-05-21">Export aus Transkribus</change>
+         <change who="SJ" when="2025-05-27">erste Auszeichnung</change>
+         <change who="MAM" when="2025-08-27">Durchsicht</change>
+         <change who="MAM" when="2025-08-27">Index check</change>
+         <change who="SJ" when="2025-10-30">Durchsicht</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="MS-SCHNITZLER-B-00118-000-00011-1"/>
+      <graphic url="MS-SCHNITZLER-B-00118-000-00012-1"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="writingSession" n="1"><opener><seg type="letterhead"><seg rend="left"><pb facs="MS-SCHNITZLER-B-00118-000-00011-1"/><hi rend="pre-print">SZ</hi></seg><seg rend="right"><hi rend="pre-print"><hi rend="capitals"><rs type="place" ref="#pmb249577">VIII. Kochgasse 8</rs></hi></hi></seg></seg><seg rend="right" type="letterhead"><hi rend="pre-print"><hi rend="capitals"><rs type="place" ref="#pmb50">Wien</rs>,</hi></hi></seg><salute>Sehr verehrter Herr Doktor,</salute></opener><p>als Sie Ihr schönes <anchor type="commentary" xml:id="K_L03626-1"/><rs type="place" ref="#pmb168815" subtype="implied">Haus</rs> bezogen<note type="commentary" corresp="K_L03626-1">Am <date>16. 7. 1910</date> übersiedelte
+                     <rs type="person" ref="#pmb2121">Arthur Schnitzler</rs> mit seiner Frau <rs type="person" ref="#pmb2173">Olga</rs> und den Kindern <rs ref="#pmb12692" type="person">Heinrich</rs> und <rs type="person" ref="#pmb2238">Lili</rs> in
+                  die selbst erworbene Villa in der <rs type="place" ref="#pmb168815">Sternwartestraße 71</rs>.</note> und ich es zum erstenmal <anchor type="commentary" xml:id="K_L03626-2"/>sehen durfte<note type="commentary" corresp="K_L03626-2">Am <ref type="schnitzler-tagebuch" target="1910-09-12" subtype="date-only"/> dokumentiert <rs type="person" ref="#pmb2121">Schnitzler</rs> einen Besuch <rs type="person" ref="#pmb13212">Stefan
+                     Zweigs</rs> im <rs type="work" ref="#pmb33243">Tagebuch</rs>.</note>, sagte ich
+               Ihnen von dem kleinen Schmuckstück, das ich mir dafür ausgedacht hatte. Es sollte der
+                  <anchor type="commentary" xml:id="K_L03626-3"/><rs type="work" subtype="implied" ref="#pmb296501"><hi rend="underline" n="1">Hausspruch</hi></rs> von <rs type="person" ref="#pmb11461"><hi rend="underline" n="1">Goethe</hi></rs><note type="commentary" corresp="K_L03626-3">Dieser Brief stellt das Begleitschreiben
+                  zu einem von <rs type="person" ref="#pmb11220">Johann Peter Eckermann</rs>
+                  zertifizierten <rs type="work" subtype="implied" ref="#pmb296501"><rs type="person" ref="#pmb11461">Goethe</rs>autograf</rs> dar, das derzeit
+                     (<date>2025</date>) verschollen ist und nicht autopsiert werden konnte. Auf
+                  Fotografien von <rs type="person" ref="#pmb2121">Schnitzlers</rs> Arbeitszimmer
+                  hängt es – neben anderen <rs type="person" ref="#pmb11461">Goethe</rs>-Memorabilien – an der Wand über dem Stehpult. Die Herausgeber der
+                  ersten Edition der Korrespondenz <rs type="person" ref="#pmb2121">Schnitzler</rs>–<rs type="person" ref="#pmb13212">Zweig</rs> zitierten den
+                  Inhalt des Autografs, gaben aber keine Auskunft über ihre Quelle. Sie schrieben: »<quote><p><rs type="work" subtype="implied" ref="#pmb296501">Vorderseite:</rs></p><p><rs type="work" subtype="implied" ref="#pmb296501">Gott segne das Haus</rs></p><p><rs type="work" subtype="implied" ref="#pmb296501">Zweymal rannt ich
+                           heraus,</rs></p><p><rs type="work" subtype="implied" ref="#pmb296501">Denn zweymal ist’s
+                           abgebrannt,</rs></p><p><rs type="work" subtype="implied" ref="#pmb296501">Komm ich zum drittenmal
+                           gerannt,</rs></p><p><rs type="work" subtype="implied" ref="#pmb296501">Da segne Gott meinen
+                           Lauf,</rs></p><p><rs type="work" subtype="implied" ref="#pmb296501">Ich bau’s warlich nicht
+                           wieder auf.</rs></p><p><rs type="work" subtype="implied" ref="#pmb296501">Was mehr ist als eine
+                           Laus</rs></p><p><rs type="work" subtype="implied" ref="#pmb296501">Trage du in’s Haus.</rs></p><p>Daß obige Zeilen von <rs type="person" ref="#pmb11461">Goethes</rs> eigener
+                        Hand geschrieben sind, bezeuge ich hiemit. <rs type="place" ref="#pmb197">Weimar</rs> d. <date>16: April 1851</date>. <rs type="person" ref="#pmb11220">J. P. Eckermann</rs>.</p><p>Rückseite (von <rs type="person" ref="#pmb2121">Schnitzler</rs> recherchiert
+                        und aufgeklebt): <rs type="work" ref="#pmb33676">Annalen oder Tages- u-
+                           Jahreshefte</rs></p><p><date>1801</date>.</p><p><rs type="work" subtype="implied" ref="#pmb33676">›In <rs type="place" ref="#pmb64287">Pyrmont</rs> bezog ich eine schöne ruhige gegen das
+                           Ende des Orts liegende Wohnung bei dem Brunnencassierer <c rendition="#dots" n="3"/><supplied>‹</supplied> (folgen Bemerkungen über Brunnengäste,
+                           Bekanntschaften, Wetterberichte et cet.) ›Der Flusspfad nach <hi rend="capitals"><rs type="place" ref="#pmb293709">Luedge</rs></hi> zwischen abgeschränkten Weidenplätzen her, ward öfters
+                           zurückgelegt. In dem Oertchen, das einigemal abgebrannt war, erregte eine
+                           desparate Hausinschrift unsere Aufmerksamkeit, die
+                              lautete:<supplied>‹</supplied></rs></p></quote>« (<bibl><rs type="person" ref="#pmb13212">Stefan Zweig</rs>: <title level="m">Briefwechsel mit Hermann Bahr, Sigmund Freud, Rainer Maria Rilke und Arthur
+                        Schnitzler</title>, S. 455–456</bibl>.)</note> in seiner Handschrift sein,
+               und wirklich glückte es mir, ihn zu erlangen.</p><p>Nun ist <add place="above">er</add> freilich nicht ein Edelspruch <rs type="person" ref="#pmb11461">Goethes</rs>, sondern eher einer wo sein Genius geschlafen hat:
+               aber immerhin, nehmen Sie nur die erste Zeile davon als den Wunsch eines
+               Erlauchtesten für Ihr <rs type="place" ref="#pmb168815" subtype="implied">Haus</rs>
+               und <pb facs="MS-SCHNITZLER-B-00118-000-00012-1"/>möge er sich – aber nur die erste
+               Zeile! – erfüllen. Ich hätte ihn rahmen lassen, wüsste ich, wie und wo Sie ihn
+               placieren wollten: <anchor type="commentary" xml:id="K_L03626-4"/>nehmen Sie ihn <subst><del rend="strikethrough">aber</del><add place="above">nun</add></subst><note type="commentary" corresp="K_L03626-4">Im <rs type="work" ref="#pmb33243">Tagebuch</rs>-Eintrag zum <ref type="schnitzler-tagebuch" target="1910-10-06" subtype="date-only"/> notiert <rs type="person" ref="#pmb2121">Schnitzler</rs>
+                  den Erhalt des Autografs. Seinen Dank spricht er »<quote>gleich</quote>« aus
+                     (<ref type="schnitzler-briefe" target="L03796"/>). Da für gewöhnlich die Post
+                  innerhalb <rs type="place" ref="#pmb50">Wiens</rs> noch am selben oder am Folgetag
+                  zugestellt wurde, ist anzunehmen, dass das vorliegende, undatierte
+                  Korrespondenzstück auf den <date>5.</date> oder <date>6. 10. 1910</date> zu
+                  datieren ist.</note> so als einen Dank für Vieles, für das Schöne, <subst><del rend="overwritten">w</del><add place="inline">d</add></subst>as ich von Ihnen mit vielen andern aus Ihren Büchern, für das Schöne, <subst><del rend="overwritten">w</del><add place="inline">d</add></subst>as ich von Ihnen allein durch <anchor type="commentary" xml:id="K_L03626-5"/>Ihr <rs type="work" ref="#pmb29905" subtype="implied">Manuscript</rs><note type="commentary" corresp="K_L03626-5"><rs type="person" ref="#pmb13212">Stefan Zweig</rs> sammelte Handschriften. Am
+                     <ref type="schnitzler-tagebuch" target="1909-12-28" subtype="date-only"/>
+                  vermerkte <rs type="person" ref="#pmb2121">Schnitzler</rs> im <rs type="work" ref="#pmb33243">Tagebuch</rs>, er habe dem »<quote>Sammler <rs type="person" ref="#pmb13212">Zweig</rs> Urform des ›<rs type="work" ref="#pmb29905">Ruf
+                        des Lebens</rs>‹ geschenkt</quote>«. Es wird heute im <bibl><publisher>Theatermuseum</publisher></bibl> in <rs type="place" ref="#pmb50">Wien</rs> verwahrt.</note>, Ihr Bild, vor
+               allem aber manches gute Gespräch und Ihre Güte empfangen habe. In herzlicher Liebe
+               und Verehrung Ihr getreuer</p><closer><signed>Stefan Zweig</signed></closer></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb13212">
+               <persName>
+                  <forename>Stefan</forename>
+                  <surname>Zweig</surname>
+               </persName>
+               <birth>
+                  <date when="1881-11-28">1881-11-28</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1942-02-23">1942-02-23</date>
+                  <settlement ref="pmb46774">
+                     <placeName type="pref">Petrópolis</placeName>
+                     <location>
+                        <geo>-22,505 -43,17861</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2121">
+               <persName>
+                  <surname>Schnitzler</surname>
+                  <forename>Arthur</forename>
+               </persName>
+               <birth>
+                  <date when="1862-05-15">15. 5. 1862</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1931-10-21">21. 10. 1931</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11461">
+               <persName>
+                  <forename>Johann Wolfgang von</forename>
+                  <surname>Goethe</surname>
+               </persName>
+               <birth>
+                  <date when="1749-08-28">1749-08-28</date>
+                  <settlement ref="pmb146">
+                     <placeName type="pref">Frankfurt am Main</placeName>
+                     <location>
+                        <geo>50,11552 8,68417</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1832-03-22">1832-03-22</date>
+                  <settlement ref="pmb197">
+                     <placeName type="pref">Weimar</placeName>
+                     <location>
+                        <geo>50,97361 11,33806</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2173" ana="comment">
+               <persName>
+                  <forename>Olga</forename>
+                  <surname>Schnitzler</surname>
+               </persName>
+               <birth>
+                  <date when="1882-01-17">1882-01-17</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1970-01-13">1970-01-13</date>
+                  <settlement ref="pmb885">
+                     <placeName type="pref">Lugano</placeName>
+                     <location>
+                        <geo>46,01008 8,96004</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb12692" ana="comment">
+               <persName>
+                  <forename>Heinrich</forename>
+                  <surname>Schnitzler</surname>
+               </persName>
+               <birth>
+                  <date when="1902-08-09">1902-08-09</date>
+                  <settlement ref="pmb75">
+                     <placeName type="pref">Hinterbrühl</placeName>
+                     <location>
+                        <geo>48,08611 16,24809</geo>
+                     </location>
+                  </settlement>
+                  <settlement ref="pmb145165">
+                     <placeName type="pref">Hauptstraße 56</placeName>
+                     <location>
+                        <geo>48,08736 16,24924</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1982-07-12">1982-07-12</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2238" ana="comment">
+               <persName>
+                  <forename>Lili</forename>
+                  <surname>Cappellini</surname>
+               </persName>
+               <birth>
+                  <date when="1909-09-13">1909-09-13</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1928-07-26">1928-07-26</date>
+                  <settlement ref="pmb462">
+                     <placeName type="pref">Venedig</placeName>
+                     <location>
+                        <geo>45,43713 12,33265</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11220" ana="comment">
+               <persName>
+                  <forename>Johann Peter</forename>
+                  <surname>Eckermann</surname>
+               </persName>
+               <birth>
+                  <date when="1792-09-21">1792-09-21</date>
+                  <settlement ref="pmb58547">
+                     <placeName type="pref">Winsen</placeName>
+                     <location>
+                        <geo>53,35753 10,21282</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1854-12-03">1854-12-03</date>
+                  <settlement ref="pmb197">
+                     <placeName type="pref">Weimar</placeName>
+                     <location>
+                        <geo>50,97361 11,33806</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+         </listPerson>
+         <listBibl>
+            <bibl xml:id="pmb33243" ana="comment">
+               <title>Tagebuch</title>
+               <title type="werk_link">https://schnitzler-tagebuch.acdh.oeaw.ac.at</title>
+               <author ref="pmb2121" role="hat-geschaffen">Schnitzler, Arthur</author>
+            </bibl>
+            <bibl xml:id="pmb296501" ana="implied">
+               <title>[Hausspruch von Goethe]</title>
+               <title type="werk_namensvariante">Gott segne das Haus Zweymal rannt ich heraus, Denn zweymal ist’s abgebrannt, Komm ich zum drittenmal gerannt, Da segne Gott meinen Lauf, Ich bau’s warlich nicht wieder auf.</title>
+               <author ref="pmb11461" role="hat-geschaffen">Goethe, Johann Wolfgang von</author>
+            </bibl>
+            <bibl xml:id="pmb33676" ana="comment">
+               <title>Tag- und Jahreshefte</title>
+               <author ref="pmb11461" role="hat-geschaffen">Goethe, Johann Wolfgang von</author>
+            </bibl>
+            <bibl xml:id="pmb29905" ana="implied">
+               <title>Der Ruf des Lebens. Schauspiel in drei Akten</title>
+               <title type="werk_link">http://www.literature.at/viewer.alo?objid=12117&amp;page=1&amp;viewmode=fullscreen</title>
+               <title type="werk_arbeitstitel">Vatermörderin</title>
+               <title type="legacy-name-merge">Der Ruf des Lebens</title>
+               <author ref="pmb2121" role="hat-geschaffen">Schnitzler, Arthur</author>
+            </bibl>
+         </listBibl>
+         <listPlace>
+            <place xml:id="pmb50" ana="comment">
+               <placeName>Wien</placeName>
+               <placeName type="ort_fruherer-name">K.K. Reichshaupt- und Residenzstadt Wien</placeName>
+               <placeName type="alternative-name">Bécs</placeName>
+               <placeName type="alternative-name">Land Wien</placeName>
+               <placeName type="alternative-name">Vídeň</placeName>
+               <placeName type="alternative-name">Wenia</placeName>
+               <placeName type="alternative-name">Beč</placeName>
+               <placeName type="ort_fruherer-name">Vindobona</placeName>
+               <placeName type="alternative-name">Vienna</placeName>
+               <location type="coords">
+                  <geo>48,208333 16,373056</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb235218">Windmühlhöhe</placeName>
+                  <geo>48,24077 16,32092</geo>
+               </location>
+            </place>
+            <place xml:id="pmb249577">
+               <placeName>Kochgasse 8</placeName>
+               <location type="coords">
+                  <geo>48,212327 16,349717</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb728">Kochgasse</placeName>
+                  <geo>48,213479790702 16,349493426813</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb58">VIII., Josefstadt</placeName>
+                  <geo>48,21126 16,34706</geo>
+               </location>
+            </place>
+            <place xml:id="pmb168815" ana="implied">
+               <placeName>Sternwartestraße 71</placeName>
+               <location type="coords">
+                  <geo>48,23188 16,33716</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb68">XVIII., Währing</placeName>
+                  <geo>48,23333 16,31667</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb533">Währinger Cottage</placeName>
+                  <geo>48,233056 16,341944</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb150">Sternwartestraße</placeName>
+                  <geo>48,23099349198 16,340117830625</geo>
+               </location>
+            </place>
+            <place xml:id="pmb197" ana="comment">
+               <placeName>Weimar</placeName>
+               <placeName type="legacy-name-merge">Kreisfreie Stadt Weimar</placeName>
+               <location type="coords">
+                  <geo>50,97361 11,33806</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb151">Deutschland</placeName>
+                  <geo>51,5 10,5</geo>
+               </location>
+            </place>
+            <place xml:id="pmb64287" ana="comment">
+               <placeName>Bad Pyrmont</placeName>
+               <location type="coords">
+                  <geo>51,98589 9,25246</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb151">Deutschland</placeName>
+                  <geo>51,5 10,5</geo>
+               </location>
+            </place>
+            <place xml:id="pmb293709" ana="comment">
+               <placeName>Lügde</placeName>
+               <location type="coords">
+                  <geo>51,9576 9,248</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb247043">Nordrhein-Westfahlen</placeName>
+                  <geo>51,466666666667 7,55</geo>
+               </location>
+            </place>
+         </listPlace>
+      </back>
+   </text>
+</TEI>

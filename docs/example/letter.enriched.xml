@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="letter-001">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt><title>Beispielbrief aus Jena</title></titleStmt>
+      <publicationStmt><p>Demonstrationsdaten</p></publicationStmt>
+      <sourceDesc><p>Fiktives Beispiel für die technische Demonstration.</p></sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <listPrefixDef>
+        <prefixDef ident="gnd" matchPattern="([0-9X-]+)" replacementPattern="https://d-nb.info/gnd/$1"/>
+      </listPrefixDef>
+    <appInfo><application ident="tei-crm-bridge" version="0.2.0" xml:id="tcb-run"><label>TEI CRM Bridge</label><desc>Automatische Namenserkennung (engine=glossary, glossary=glossary.json, glossarySha256=e99831d2c69b0d86ac96ee224c61381c25d1cc7970883caa477eb0330f3ab793, reading=edited). Vorschläge, nicht geprüft.</desc><ptr target="https://github.com/klausbehnamshad/tei-crm-bridge"/></application></appInfo></encodingDesc>
+    <profileDesc>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName ref="gnd:118607626">Friedrich Schiller</persName>
+          <placeName ref="gnd:4028557-1">Jena</placeName>
+          <date when="1797-08-01">1. August 1797</date>
+        </correspAction>
+        <correspAction type="received">
+          <persName ref="gnd:118540238">Johann Wolfgang von Goethe</persName>
+          <placeName ref="#weimar">Weimar</placeName>
+          <date notBefore="1797-08-02" notAfter="1797-08-05" cert="medium">Anfang August 1797</date>
+        </correspAction>
+      </correspDesc>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <opener><dateline><placeName xml:id="tcb-n1" ref="https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/loc/jena-0dd8aa7e1e" resp="#tcb-run">Jena</placeName>, den 1. August 1797</dateline></opener>
+      <p><persName xml:id="tcb-n2" ref="https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/friedrich-schiller-86586925c3" resp="#tcb-run">Friedrich Schiller</persName> schrieb aus <hi><placeName xml:id="tcb-n3" ref="https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/loc/jena-0dd8aa7e1e" resp="#tcb-run">Jena</placeName></hi> an <choice><sic>Göthe</sic><corr><persName xml:id="tcb-n4" ref="https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/per/goethe-62dc6b9d99" resp="#tcb-run">Goethe</persName></corr></choice>.</p>
+      <p>Die <orgName xml:id="tcb-n5" ref="https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001/candidate/org/universitat-jena-4dd06f6754" resp="#tcb-run">Universität Jena</orgName> erwähnte auch <placeName ref="#weimar">Weimar</placeName> &amp; Umgebung.<note>Kommentar: Goethe lebte in Weimar.</note></p>
+      <closer>Ihr <signed>Schil<lb break="no"/>ler</signed></closer>
+    </body>
+    <back>
+      <listPlace>
+        <place xml:id="weimar"><placeName>Weimar</placeName></place>
+      </listPlace>
+    </back>
+  </text>
+</TEI>

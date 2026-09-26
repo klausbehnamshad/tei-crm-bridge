@@ -6,18 +6,37 @@
       <publicationStmt><p>Demonstrationsdaten</p></publicationStmt>
       <sourceDesc><p>Fiktives Beispiel für die technische Demonstration.</p></sourceDesc>
     </fileDesc>
+    <encodingDesc>
+      <listPrefixDef>
+        <prefixDef ident="gnd" matchPattern="([0-9X-]+)" replacementPattern="https://d-nb.info/gnd/$1"/>
+      </listPrefixDef>
+    </encodingDesc>
     <profileDesc>
       <correspDesc>
         <correspAction type="sent">
-          <persName>Friedrich Schiller</persName>
-          <placeName>Jena</placeName>
+          <persName ref="gnd:118607626">Friedrich Schiller</persName>
+          <placeName ref="gnd:4028557-1">Jena</placeName>
           <date when="1797-08-01">1. August 1797</date>
+        </correspAction>
+        <correspAction type="received">
+          <persName ref="gnd:118540238">Johann Wolfgang von Goethe</persName>
+          <placeName ref="#weimar">Weimar</placeName>
+          <date notBefore="1797-08-02" notAfter="1797-08-05" cert="medium">Anfang August 1797</date>
         </correspAction>
       </correspDesc>
     </profileDesc>
   </teiHeader>
-  <text><body>
-    <p>Friedrich Schiller schrieb aus <hi>Jena</hi> an Goethe.</p>
-    <p>Die Universität Jena erwähnte auch <placeName>Weimar</placeName> &amp; Umgebung.</p>
-  </body></text>
+  <text>
+    <body>
+      <opener><dateline>Jena, den 1. August 1797</dateline></opener>
+      <p>Friedrich Schiller schrieb aus <hi>Jena</hi> an <choice><sic>Göthe</sic><corr>Goethe</corr></choice>.</p>
+      <p>Die Universität Jena erwähnte auch <placeName ref="#weimar">Weimar</placeName> &amp; Umgebung.<note>Kommentar: Goethe lebte in Weimar.</note></p>
+      <closer>Ihr <signed>Schil<lb break="no"/>ler</signed></closer>
+    </body>
+    <back>
+      <listPlace>
+        <place xml:id="weimar"><placeName>Weimar</placeName></place>
+      </listPlace>
+    </back>
+  </text>
 </TEI>

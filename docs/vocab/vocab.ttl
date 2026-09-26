@@ -1,0 +1,127 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tcb: <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/#> .
+
+tcb:Candidate a rdfs:Class ;
+    rdfs:label "Kandidat"@de,
+        "candidate"@en ;
+    rdfs:comment "Entität, die eine automatische Erkennung vorschlägt. Sie ist bewusst keine Instanz einer CIDOC-CRM-Klasse; diese Aussage entsteht erst nach redaktioneller Bestätigung."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:Origin a rdfs:Class ;
+    rdfs:label "Herkunft einer Nennung"@de,
+        "origin of a mention"@en ;
+    rdfs:comment "Klasse der zwei möglichen Herkünfte einer Nennung: redaktionell oder automatisch."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:aggregation a rdf:Property ;
+    rdfs:label "Aggregation"@de,
+        "aggregation"@en ;
+    rdfs:comment "Verfahren, mit dem Teilwort-Vorhersagen zu Namen zusammengefasst werden (first: wortgenau)."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:automatic a tcb:Origin ;
+    rdfs:label "automatisch"@de,
+        "automatic"@en ;
+    rdfs:comment "Vorschlag der automatischen Erkennung. Ungeprüft; der Graph behauptet damit keine Bezugnahme des Dokuments."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:confidence a rdf:Property ;
+    rdfs:label "Modellscore"@de,
+        "model score"@en ;
+    rdfs:comment "Score des Erkennungsmodells (0–1) für eine automatische Nennung. Kein kalibriertes Maß für die Richtigkeit; Glossartreffer haben keinen."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:editorial a tcb:Origin ;
+    rdfs:label "redaktionell"@de,
+        "editorial"@en ;
+    rdfs:comment "Die Nennung war bereits im TEI-Dokument ausgezeichnet. Nur solche Nennungen erzeugen crm:P67_refers_to."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:engine a rdf:Property ;
+    rdfs:label "Erkennungsverfahren"@de,
+        "engine"@en ;
+    rdfs:comment "Verfahren eines Verarbeitungslaufs: glossary (deterministisch) oder hf (Transformers-Modell)."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:glossary a rdf:Property ;
+    rdfs:label "Glossar"@de,
+        "glossary"@en ;
+    rdfs:comment "Dateiname des verwendeten Glossars."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:glossarySha256 a rdf:Property ;
+    rdfs:label "Glossar-Prüfsumme"@de,
+        "glossary checksum"@en ;
+    rdfs:comment "SHA-256 des Glossars."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:model a rdf:Property ;
+    rdfs:label "Modell"@de,
+        "model"@en ;
+    rdfs:comment "Kennung des verwendeten Modells, z. B. ein Hugging-Face-Repository."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:modelRevision a rdf:Property ;
+    rdfs:label "Modellrevision"@de,
+        "model revision"@en ;
+    rdfs:comment "Festgehaltener Commit der Modelldateien."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:origin a rdf:Property ;
+    rdfs:label "Herkunft"@de,
+        "origin"@en ;
+    rdfs:comment "Verbindet eine oa:Annotation mit ihrer Herkunft (tcb:editorial oder tcb:automatic)."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:reading a rdf:Property ;
+    rdfs:label "Lesart"@de,
+        "reading"@en ;
+    rdfs:comment "Welcher Zweig von tei:choice dem Erkennungsverfahren vorgelegt wurde: edited (corr/reg/expan) oder diplomatic (sic/orig/abbr)."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:receiving a crm:E55_Type ;
+    rdfs:label "Empfang"@de,
+        "receiving"@en ;
+    rdfs:comment "crm:E55_Type für Ereignisse aus tei:correspAction[@type='received']."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:sending a crm:E55_Type ;
+    rdfs:label "Versand"@de,
+        "sending"@en ;
+    rdfs:comment "crm:E55_Type für Ereignisse aus tei:correspAction[@type='sent']."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:softwareVersion a rdf:Property ;
+    rdfs:label "Softwareversion"@de,
+        "software version"@en ;
+    rdfs:comment "Version von TEI CRM Bridge im Verarbeitungslauf."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:stride a rdf:Property ;
+    rdfs:label "Fensterüberlappung"@de,
+        "stride"@en ;
+    rdfs:comment "Überlappung der Modellfenster in Tokens; lange Absätze werden so vollständig gelesen."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:suggestedClass a rdf:Property ;
+    rdfs:label "vorgeschlagene Klasse"@de,
+        "suggested class"@en ;
+    rdfs:comment "CIDOC-CRM-Klasse, die das Erkennungsverfahren für einen Kandidaten vorschlägt (E21 Person, E53 Place, E74 Group)."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:threshold a rdf:Property ;
+    rdfs:label "Schwelle"@de,
+        "threshold"@en ;
+    rdfs:comment "Mindestscore für automatische Nennungen eines Modells."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+tcb:unresolvedRef a rdf:Property ;
+    rdfs:label "nicht aufgelöste Referenz"@de,
+        "unresolved reference"@en ;
+    rdfs:comment "Wert aus @ref, der sich weder als URI, über prefixDef noch als xml:id im Dokument auflösen ließ. Wird unverändert erhalten."@de ;
+    rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> rdfs:label "TEI CRM Bridge vocabulary"@en .
+

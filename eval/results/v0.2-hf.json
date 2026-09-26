@@ -1,0 +1,3945 @@
+{
+ "label": "v0.2-hf",
+ "run": {
+  "label": "v0.2-hf",
+  "input": "stripped",
+  "tool": {
+   "version": "0.2.0",
+   "package_tree": "83c4a654604b70192bbabb62b70f53c681dd7c08"
+  },
+  "options": [
+   "--engine",
+   "hf",
+   "--local-files-only"
+  ],
+  "versions": {
+   "python": "3.13.3",
+   "lxml": "6.1.3",
+   "rdflib": "7.6.0",
+   "transformers": "4.57.6",
+   "torch": "2.14.0",
+   "tokenizers": "0.22.2"
+  }
+ },
+ "corpus": {
+  "letters": 40,
+  "commit": "76870800b474b0ab829c65ef1ad84c3ba5f81c4e",
+  "gold": 295,
+  "excluded_gold": {
+   "implied": 40,
+   "nested": 0
+  }
+ },
+ "metrics": {
+  "strict": {
+   "PER": {
+    "tp": 58,
+    "predicted": 148,
+    "gold": 103,
+    "precision": 0.3918918918918919,
+    "recall": 0.5631067961165048,
+    "f1": 0.46215139442231074
+   },
+   "LOC": {
+    "tp": 101,
+    "predicted": 151,
+    "gold": 181,
+    "precision": 0.6688741721854304,
+    "recall": 0.5580110497237569,
+    "f1": 0.608433734939759
+   },
+   "ORG": {
+    "tp": 1,
+    "predicted": 4,
+    "gold": 11,
+    "precision": 0.25,
+    "recall": 0.09090909090909091,
+    "f1": 0.13333333333333333
+   },
+   "all": {
+    "tp": 160,
+    "predicted": 303,
+    "gold": 295,
+    "precision": 0.528052805280528,
+    "recall": 0.5423728813559322,
+    "f1": 0.5351170568561872
+   }
+  },
+  "overlap": {
+   "PER": {
+    "tp": 72,
+    "predicted": 148,
+    "gold": 103,
+    "precision": 0.4864864864864865,
+    "recall": 0.6990291262135923,
+    "f1": 0.5737051792828686
+   },
+   "LOC": {
+    "tp": 137,
+    "predicted": 151,
+    "gold": 181,
+    "precision": 0.9072847682119205,
+    "recall": 0.7569060773480663,
+    "f1": 0.825301204819277
+   },
+   "ORG": {
+    "tp": 1,
+    "predicted": 4,
+    "gold": 11,
+    "precision": 0.25,
+    "recall": 0.09090909090909091,
+    "f1": 0.13333333333333333
+   },
+   "all": {
+    "tp": 210,
+    "predicted": 303,
+    "gold": 295,
+    "precision": 0.693069306930693,
+    "recall": 0.711864406779661,
+    "f1": 0.7023411371237457
+   }
+  }
+ },
+ "metrics_v01_scope": {
+  "strict": {
+   "PER": {
+    "tp": 57,
+    "predicted": 87,
+    "gold": 100,
+    "precision": 0.6551724137931034,
+    "recall": 0.57,
+    "f1": 0.6096256684491977
+   },
+   "LOC": {
+    "tp": 70,
+    "predicted": 77,
+    "gold": 108,
+    "precision": 0.9090909090909091,
+    "recall": 0.6481481481481481,
+    "f1": 0.7567567567567568
+   },
+   "ORG": {
+    "tp": 0,
+    "predicted": 1,
+    "gold": 7,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+   },
+   "all": {
+    "tp": 127,
+    "predicted": 165,
+    "gold": 215,
+    "precision": 0.7696969696969697,
+    "recall": 0.5906976744186047,
+    "f1": 0.6684210526315789
+   }
+  },
+  "overlap": {
+   "PER": {
+    "tp": 70,
+    "predicted": 87,
+    "gold": 100,
+    "precision": 0.8045977011494253,
+    "recall": 0.7,
+    "f1": 0.7486631016042781
+   },
+   "LOC": {
+    "tp": 72,
+    "predicted": 77,
+    "gold": 108,
+    "precision": 0.935064935064935,
+    "recall": 0.6666666666666666,
+    "f1": 0.7783783783783784
+   },
+   "ORG": {
+    "tp": 0,
+    "predicted": 1,
+    "gold": 7,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+   },
+   "all": {
+    "tp": 142,
+    "predicted": 165,
+    "gold": 215,
+    "precision": 0.8606060606060606,
+    "recall": 0.6604651162790698,
+    "f1": 0.7473684210526316
+   }
+  }
+ },
+ "error_counts": {
+  "missed": 78,
+  "spurious": 78,
+  "boundary": 58,
+  "type": 7
+ },
+ "errors_by_block_type": {
+  "missed": {
+   "address": 2,
+   "closer": 1,
+   "opener": 6,
+   "p": 68,
+   "postscript": 1
+  },
+  "spurious": {
+   "address": 27,
+   "closer": 27,
+   "opener": 8,
+   "p": 11,
+   "postscript": 5
+  },
+  "boundary": {
+   "address": 25,
+   "opener": 15,
+   "p": 18
+  },
+  "type": {
+   "address": 1,
+   "opener": 1,
+   "p": 4,
+   "postscript": 1
+  }
+ },
+ "structure": {
+  "inline": 262,
+  "standoff": 41,
+  "in_note": 0,
+  "in_del": 0,
+  "in_other_reference": 8,
+  "in_c_or_g": 0
+ },
+ "spotcheck": {
+  "letters": 10,
+  "unannotated_names_listed": 28,
+  "predicted": 62,
+  "strict_tp": 23,
+  "unmatched": 39,
+  "unmatched_equal_to_listed_name": 11,
+  "unmatched_overlapping_listed_name": 8
+ },
+ "problems": [],
+ "examples": [
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00001",
+    "block": 0,
+    "start": 0,
+    "end": 37,
+    "kind": "ORG",
+    "text": "Frankfurter Zeitung und Handelsblatt."
+   },
+   "context": "… [Frankfurter Zeitung und Handelsblatt.] Redaction. Frankfurt a. M., 2. Aug. 1889 Tel…",
+   "block_type": "opener"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02576",
+    "block": 2,
+    "start": 45,
+    "end": 52,
+    "kind": "PER",
+    "text": "Rolland"
+   },
+   "context": "…Ich schicke Ihnen zugleich den versprochenen [Rolland] ; Sie hätten ihn längst bekommen, aber ich wu…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04526",
+    "block": 1,
+    "start": 26,
+    "end": 30,
+    "kind": "LOC",
+    "text": "Enge"
+   },
+   "context": "…Reichenau (N.-Ö.) mit der [Enge] .…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00001",
+    "block": 3,
+    "start": 14,
+    "end": 25,
+    "kind": "PER",
+    "text": "Dr FMamroth"
+   },
+   "gold": null,
+   "context": "…Ihr ergebener [Dr FMamroth] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02051",
+    "block": 1,
+    "start": 55,
+    "end": 63,
+    "kind": "LOC",
+    "text": "Autriche"
+   },
+   "gold": null,
+   "context": "…rthur Schnitzler Sternwartestrasse 71 Vienne [Autriche] …",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04526",
+    "block": 4,
+    "start": 30,
+    "end": 36,
+    "kind": "PER",
+    "text": "Arthur"
+   },
+   "gold": null,
+   "context": "…Auf baldiges Wiedersehen! Ihr [Arthur] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L00026",
+    "block": 2,
+    "start": 1197,
+    "end": 1208,
+    "kind": "PER",
+    "text": "Dr Hoffmann"
+   },
+   "gold": {
+    "letter": "L00026",
+    "block": 2,
+    "start": 1200,
+    "end": 1208,
+    "kind": "PER",
+    "text": "Hoffmann"
+   },
+   "context": "…qui parfois se réveille wie Ste. Beuve sagt. [Dr Hoffmann] hat mir auf einen 4 Seiten langen Brief nach…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04526",
+    "block": 1,
+    "start": 11,
+    "end": 16,
+    "kind": "LOC",
+    "text": "N.-Ö."
+   },
+   "gold": {
+    "letter": "L04526",
+    "block": 1,
+    "start": 0,
+    "end": 17,
+    "kind": "LOC",
+    "text": "Reichenau (N.-Ö.)"
+   },
+   "context": "…Reichenau ( [N.-Ö.] ) mit der Enge.…",
+   "block_type": "p"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L03151",
+    "block": 0,
+    "start": 39,
+    "end": 45,
+    "kind": "LOC",
+    "text": "Specht"
+   },
+   "gold": {
+    "letter": "L03151",
+    "block": 0,
+    "start": 39,
+    "end": 45,
+    "kind": "PER",
+    "text": "Specht"
+   },
+   "context": "…Lieber Freund, ich bin zum Souper bei [Specht] , wo Sie mich, falls es nötig wäre, anrufen k…",
+   "block_type": "p"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L04276",
+    "block": 5,
+    "start": 6,
+    "end": 11,
+    "kind": "ORG",
+    "text": "Hotel"
+   },
+   "gold": {
+    "letter": "L04276",
+    "block": 5,
+    "start": 6,
+    "end": 21,
+    "kind": "LOC",
+    "text": "Hotel Passerhof"
+   },
+   "context": "…Meran [Hotel] Passerhof 25/9…",
+   "block_type": "postscript"
+  }
+ ],
+ "errors": [
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00001",
+    "block": 0,
+    "start": 0,
+    "end": 37,
+    "kind": "ORG",
+    "text": "Frankfurter Zeitung und Handelsblatt."
+   },
+   "context": "… [Frankfurter Zeitung und Handelsblatt.] Redaction. Frankfurt a. M., 2. Aug. 1889 Tel…",
+   "block_type": "opener"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00026",
+    "block": 2,
+    "start": 506,
+    "end": 514,
+    "kind": "LOC",
+    "text": "Salzburg"
+   },
+   "context": "…nn Sie vielleicht in der Kunstchronik meinem [Salzburg] erbericht begegnen, so lassen Sie sich von mi…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00026",
+    "block": 2,
+    "start": 1477,
+    "end": 1489,
+    "kind": "ORG",
+    "text": "Freien Bühne"
+   },
+   "context": "…und hoffe daß die Comités der [Freien Bühne] das Gegentheil thuen.…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00026",
+    "block": 7,
+    "start": 4,
+    "end": 10,
+    "kind": "PER",
+    "text": "Conway"
+   },
+   "context": "…4.) [Conway] , der Novellist der Telepathie…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00126",
+    "block": 0,
+    "start": 57,
+    "end": 61,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "context": "…ard Beer Hofmann [Wien] I. Wollzeile 15…",
+   "block_type": "address"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00126",
+    "block": 1,
+    "start": 16,
+    "end": 23,
+    "kind": "PER",
+    "text": "Torres."
+   },
+   "context": "…Lieber Richard! [Torres.] holt mich Montag Nachmittag vor 5 Uhr für di…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00201",
+    "block": 1,
+    "start": 487,
+    "end": 496,
+    "kind": "ORG",
+    "text": "Concordia"
+   },
+   "context": "…heute auf Davids Aufforderung in die [Concordia] .…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00276",
+    "block": 0,
+    "start": 44,
+    "end": 64,
+    "kind": "LOC",
+    "text": "III. Salesianerg. 12"
+   },
+   "context": "…Deutsche Zeitung Wien, 25. Octbr. 1893 Wien [III. Salesianerg. 12] IX., Pelikangasse 4. Verehrter Freund!…",
+   "block_type": "opener"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00376",
+    "block": 3,
+    "start": 35,
+    "end": 42,
+    "kind": "LOC",
+    "text": "italien"
+   },
+   "context": "…Das einzige, was Sie mir von Ihrer [italien] . Reise mittheilen, ist dass m…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00376",
+    "block": 3,
+    "start": 91,
+    "end": 99,
+    "kind": "PER",
+    "text": "Guercino"
+   },
+   "context": "…Reise mittheilen, ist dass mein [Guercino] in Mailand hängt. Das steht aber schon im…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00376",
+    "block": 3,
+    "start": 161,
+    "end": 166,
+    "kind": "PER",
+    "text": "Lübke"
+   },
+   "context": "…. Das steht aber schon im » [Lübke] « – ich muss Sie also, wenn Sie überhaupt die…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00376",
+    "block": 3,
+    "start": 468,
+    "end": 474,
+    "kind": "PER",
+    "text": "Ploetz"
+   },
+   "context": "…t Julius Caesar ermordet wurde – es steht im [Ploetz] ! – Dagegen bin ich gern bereit, persönlicher…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00376",
+    "block": 4,
+    "start": 43,
+    "end": 57,
+    "kind": "ORG",
+    "text": "Wr. Allg. Ztg."
+   },
+   "context": "…Einige Thatsachen: Ludaßy ist Chefred. der [Wr. Allg. Ztg.] (mit einem nicht übeln Gehalt…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00376",
+    "block": 8,
+    "start": 10,
+    "end": 20,
+    "kind": "PER",
+    "text": "Rosenkranz"
+   },
+   "context": "…Ich lese: [Rosenkranz] , Diderot; – Keller, Musikgeschichte u. a. –…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00626",
+    "block": 3,
+    "start": 52,
+    "end": 59,
+    "kind": "LOC",
+    "text": "Hamburg"
+   },
+   "context": "…erzlichst verehrtester Herr Doctor für Ihren [Hamburg] -Brief. Nehmen Sie meine innigsten…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00851",
+    "block": 1,
+    "start": 170,
+    "end": 184,
+    "kind": "LOC",
+    "text": "venezianisches"
+   },
+   "context": "…Act große Angst gehabt. Mein [venezianisches] halb-ernstes Stück ist nahezu fertig. Ich bi…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00851",
+    "block": 1,
+    "start": 528,
+    "end": 540,
+    "kind": "PER",
+    "text": "Schlesingers"
+   },
+   "context": "…nkelwerden hier blieben. Sie wissen dass die [Schlesingers] darin keinen auf sie bezüglic…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00876",
+    "block": 4,
+    "start": 38,
+    "end": 47,
+    "kind": "LOC",
+    "text": "Deutschen"
+   },
+   "context": "…Und jetzt liege ich in Streit mit den [Deutschen] wegen der Austreibung der Dän…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00876",
+    "block": 4,
+    "start": 89,
+    "end": 94,
+    "kind": "LOC",
+    "text": "Dänen"
+   },
+   "context": "…hen wegen der Austreibung der [Dänen] aus Schleswig. Gibt es etwas widerlicheres a…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L00876",
+    "block": 7,
+    "start": 30,
+    "end": 42,
+    "kind": "PER",
+    "text": "Beer Hofmann"
+   },
+   "context": "…Warum lässt doch unser Freund [Beer Hofmann] nie von sich hören? Ist er ei…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L01351",
+    "block": 3,
+    "start": 43,
+    "end": 58,
+    "kind": "LOC",
+    "text": "Ottakringerbräu"
+   },
+   "context": "…Schöner Gruss vom reizenden Etablissement › [Ottakringerbräu] ‹ ›zum schwarzen Hahn‹, wo es so gemüthlich…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L01601",
+    "block": 1,
+    "start": 317,
+    "end": 323,
+    "kind": "PER",
+    "text": "Salten"
+   },
+   "context": "…itte ich Dich, es, wenn Dus gelesen hast, an [Salten] nach Berlin zu schicken. Ich fahre morgen na…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L01726",
+    "block": 3,
+    "start": 40,
+    "end": 47,
+    "kind": "PER",
+    "text": "Saltens"
+   },
+   "context": "…Lieber Herr Doctor, Montag Abend kommen [Saltens] zum Nachtmal, – es wäre sehr…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L01726",
+    "block": 3,
+    "start": 261,
+    "end": 265,
+    "kind": "PER",
+    "text": "Ress"
+   },
+   "context": "…ng, nächste Woche beginnen meine Stunden bei [Ress] .…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L01751",
+    "block": 2,
+    "start": 18,
+    "end": 32,
+    "kind": "LOC",
+    "text": "österreichisch"
+   },
+   "context": "…Dürfte doch diese [österreichisch] so unverzeihlich lang hinausgezögerte Ehrung…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L01751",
+    "block": 2,
+    "start": 812,
+    "end": 838,
+    "kind": "PER",
+    "text": "Walther von der Vogelweide"
+   },
+   "context": "…: hätte es zu Grillparzers Zeiten etwa einen [Walther von der Vogelweide] -Preis gegeben, alle möglichen Halme und Gutz…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L01751",
+    "block": 2,
+    "start": 869,
+    "end": 874,
+    "kind": "PER",
+    "text": "Halme"
+   },
+   "context": "…der Vogelweide-Preis gegeben, alle möglichen [Halme] und Gutzkows hätten ihn erbuc…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L01751",
+    "block": 2,
+    "start": 939,
+    "end": 943,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "context": "…hätten ihn erbuckelt, nur nicht den [Wien] er Dichter hätte man durch ihn…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02051",
+    "block": 0,
+    "start": 31,
+    "end": 43,
+    "kind": "LOC",
+    "text": "Hotel d’Jéna"
+   },
+   "context": "…* Expedié par M Brandes Demt à [Hotel d’Jéna] Paris…",
+   "block_type": "address"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02051",
+    "block": 4,
+    "start": 219,
+    "end": 233,
+    "kind": "ORG",
+    "text": "Kgl. Bibliotek"
+   },
+   "context": "…rn veranstalteten ausschlug – einen Saal der [Kgl. Bibliotek] zu einem G. B.-Archiv zu verwandeln und mit…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02051",
+    "block": 4,
+    "start": 243,
+    "end": 255,
+    "kind": "ORG",
+    "text": "G. B.-Archiv"
+   },
+   "context": "…lug – einen Saal der Kgl. Bibliotek zu einem [G. B.-Archiv] zu verwandeln und mit meiner Büste zu verseh…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02201",
+    "block": 2,
+    "start": 804,
+    "end": 812,
+    "kind": "PER",
+    "text": "Shspeare"
+   },
+   "context": "…ber Goethe, parallel zu dem, ich einmal über [Shspeare] schrieb. Ausserdem habe ich fast jeden Monat…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02376",
+    "block": 2,
+    "start": 144,
+    "end": 154,
+    "kind": "LOC",
+    "text": "daenischer"
+   },
+   "context": "…nz unbekannt, daß mich ein [daenischer] Journalist interviewt hat; –…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02376",
+    "block": 2,
+    "start": 542,
+    "end": 556,
+    "kind": "LOC",
+    "text": "amerikanischen"
+   },
+   "context": "…»Interview« mit mir, vor einem Jahr in einer [amerikanischen] Zeitung zu lesen bekam – Nun Sie haben wohl…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02376",
+    "block": 6,
+    "start": 962,
+    "end": 975,
+    "kind": "LOC",
+    "text": "Hofbibliothek"
+   },
+   "context": "…von Maß für Maß gemacht – er arbeitet in der [Hofbibliothek] – jetzt Nationalbibliothek, – und hat auch a…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02376",
+    "block": 6,
+    "start": 984,
+    "end": 1002,
+    "kind": "LOC",
+    "text": "Nationalbibliothek"
+   },
+   "context": "…t – er arbeitet in der Hofbibliothek – jetzt [Nationalbibliothek] , – und hat auch an der Wanderbühne schon kle…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02376",
+    "block": 6,
+    "start": 1026,
+    "end": 1037,
+    "kind": "ORG",
+    "text": "Wanderbühne"
+   },
+   "context": "…zt Nationalbibliothek, – und hat auch an der [Wanderbühne] schon kleinere Rollen gespielt. – Meine Toch…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02376",
+    "block": 6,
+    "start": 1086,
+    "end": 1090,
+    "kind": "PER",
+    "text": "Lili"
+   },
+   "context": "…on kleinere Rollen gespielt. – Meine Tochter [Lili] , zwölf vorbei geht ins Gymnasium; –…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02576",
+    "block": 2,
+    "start": 45,
+    "end": 52,
+    "kind": "PER",
+    "text": "Rolland"
+   },
+   "context": "…Ich schicke Ihnen zugleich den versprochenen [Rolland] ; Sie hätten ihn längst bekommen, aber ich wu…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02576",
+    "block": 2,
+    "start": 354,
+    "end": 360,
+    "kind": "PER",
+    "text": "Händel"
+   },
+   "context": "…inde ich ja ein bischen langweilig, aber der [Händel] ist ergreifend schön für meinen Geschmack. A…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02576",
+    "block": 2,
+    "start": 528,
+    "end": 537,
+    "kind": "LOC",
+    "text": "Engländer"
+   },
+   "context": "…gefallen und der musikwütige [Engländer] , der Musik so sehr vergöttert…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02676",
+    "block": 5,
+    "start": 324,
+    "end": 330,
+    "kind": "PER",
+    "text": "Porges"
+   },
+   "context": "…r dankbar. Oder gar Dein Herr [Porges] ! Grüße Dich Gott, mein lieber Alter!…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02776",
+    "block": 0,
+    "start": 0,
+    "end": 19,
+    "kind": "ORG",
+    "text": "Frankfurter Zeitung"
+   },
+   "context": "… [Frankfurter Zeitung] (Gazette de Francfort). Fondateur M. L. Sonn…",
+   "block_type": "opener"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02776",
+    "block": 0,
+    "start": 21,
+    "end": 41,
+    "kind": "ORG",
+    "text": "Gazette de Francfort"
+   },
+   "context": "…Frankfurter Zeitung ( [Gazette de Francfort] ). Fondateur M. L. Sonnemann. Journal politiq…",
+   "block_type": "opener"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02776",
+    "block": 3,
+    "start": 43,
+    "end": 48,
+    "kind": "ORG",
+    "text": "Odéon"
+   },
+   "context": "…Die Ernennung von Antoine zum Director des [Odéon] eröffnet uns eine unverhoffte…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02776",
+    "block": 4,
+    "start": 454,
+    "end": 458,
+    "kind": "PER",
+    "text": "Adam"
+   },
+   "context": "…r Deutschen-Feindin Madame [Adam] redigirt. Noch nie ist darin ein ausführlich…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L02776",
+    "block": 8,
+    "start": 18,
+    "end": 23,
+    "kind": "PER",
+    "text": "Loris"
+   },
+   "context": "…Gewiß, der kleine [Loris] ist nicht manierirt, sondern ehrlich – oder…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 0,
+    "start": 0,
+    "end": 6,
+    "kind": "LOC",
+    "text": "Aussee"
+   },
+   "context": "… [Aussee] 30/7 900.…",
+   "block_type": "opener"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 4,
+    "start": 9,
+    "end": 38,
+    "kind": "LOC",
+    "text": "Zell am\n                  See"
+   },
+   "context": "…14. Nach [Zell am See] , Moserboden…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 5,
+    "start": 6,
+    "end": 16,
+    "kind": "LOC",
+    "text": "Moserboden"
+   },
+   "context": "…15. – [Moserboden] – Zell am See – Innsbruck…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 5,
+    "start": 34,
+    "end": 45,
+    "kind": "LOC",
+    "text": "Zell am See"
+   },
+   "context": "…15. – Moserboden – [Zell am See] – Innsbruck…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 6,
+    "start": 4,
+    "end": 13,
+    "kind": "LOC",
+    "text": "Innsbruck"
+   },
+   "context": "…16. [Innsbruck] Bahn Bludenz Post Schruns.…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 6,
+    "start": 32,
+    "end": 39,
+    "kind": "LOC",
+    "text": "Schruns"
+   },
+   "context": "…16. Innsbruck Bahn Bludenz Post [Schruns] .…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 7,
+    "start": 16,
+    "end": 23,
+    "kind": "LOC",
+    "text": "Schruns"
+   },
+   "context": "…17., event. 18. [Schruns] . –…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 8,
+    "start": 4,
+    "end": 11,
+    "kind": "LOC",
+    "text": "Schruns"
+   },
+   "context": "…19. [Schruns] – Sulzfluh…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 8,
+    "start": 14,
+    "end": 22,
+    "kind": "LOC",
+    "text": "Sulzfluh"
+   },
+   "context": "…19. Schruns – [Sulzfluh] …",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03176",
+    "block": 13,
+    "start": 45,
+    "end": 49,
+    "kind": "PER",
+    "text": "Kerr"
+   },
+   "context": "…Vielleicht sendest Du diesen Brief gleich an [Kerr] , für den dasselbe gilt. Ich weiss nicht, woh…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03401",
+    "block": 2,
+    "start": 115,
+    "end": 122,
+    "kind": "LOC",
+    "text": "Riedhof"
+   },
+   "context": "…er Mittwoch Abend (½ 9) im [Riedhof] . Da Otti nur auf 3 Stunden vom Haus fort kan…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03401",
+    "block": 2,
+    "start": 270,
+    "end": 275,
+    "kind": "PER",
+    "text": "Beide"
+   },
+   "context": "…agen laßen, außer Sie könnten [Beide] am Sonntag od. Montag Abend bei uns sein, wa…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03426",
+    "block": 3,
+    "start": 0,
+    "end": 13,
+    "kind": "LOC",
+    "text": "Pfuhl’s Hôtel"
+   },
+   "context": "… [Pfuhl’s Hôtel] …",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03426",
+    "block": 6,
+    "start": 19,
+    "end": 23,
+    "kind": "PER",
+    "text": "Olga"
+   },
+   "context": "…herzlichst für Sie [Olga] Ihr Salten Ottilie…",
+   "block_type": "closer"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03501",
+    "block": 0,
+    "start": 12,
+    "end": 17,
+    "kind": "LOC",
+    "text": "Grado"
+   },
+   "context": "…Villa Bauer [Grado] Küstenland 29. VI. 09 Lieber,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03501",
+    "block": 1,
+    "start": 1140,
+    "end": 1144,
+    "kind": "LOC",
+    "text": "Lido"
+   },
+   "context": "…hier. In Venedig war es sehr schön, und den [Lido] fanden wir in allen Verhältnissen, Strand, B…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03576",
+    "block": 1,
+    "start": 0,
+    "end": 7,
+    "kind": "LOC",
+    "text": "Venezia"
+   },
+   "context": "… [Venezia] – Chiesa S. Marco e Torre dell’ Orologio…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03576",
+    "block": 1,
+    "start": 10,
+    "end": 25,
+    "kind": "LOC",
+    "text": "Chiesa S. Marco"
+   },
+   "context": "…Venezia – [Chiesa S. Marco] e Torre dell’ Orologio…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03926",
+    "block": 2,
+    "start": 1725,
+    "end": 1731,
+    "kind": "PER",
+    "text": "Schick"
+   },
+   "context": "…recht, so mache ich diese Sache wieder durch [Schick] indem ich nämlich im Schnabel’s eigenen Name…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03926",
+    "block": 2,
+    "start": 1781,
+    "end": 1788,
+    "kind": "PER",
+    "text": "Fischer"
+   },
+   "context": "…m ich nämlich im Schnabel’s eigenen Namen an [Fischer] schreiben und die Antwort an Schick’s Adress…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03926",
+    "block": 2,
+    "start": 1818,
+    "end": 1824,
+    "kind": "PER",
+    "text": "Schick"
+   },
+   "context": "…amen an Fischer schreiben und die Antwort an [Schick] ’s Adresse gelangen lasse. – I…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L03926",
+    "block": 2,
+    "start": 2149,
+    "end": 2156,
+    "kind": "PER",
+    "text": "Fischer"
+   },
+   "context": "…en auch persönlich, d. h. in meinem Namen an [Fischer] , gebe nur zu bedenken, dass ich für seine…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04126",
+    "block": 2,
+    "start": 469,
+    "end": 487,
+    "kind": "LOC",
+    "text": "Electrizitätshotel"
+   },
+   "context": "…erfahren Sie noch – ich möchte das [Electrizitätshotel] versuchen, das billig und angenehm sein soll…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04276",
+    "block": 2,
+    "start": 365,
+    "end": 370,
+    "kind": "LOC",
+    "text": "Brühl"
+   },
+   "context": "…ganz im Gegensatz zu unserem Tisch in der [Brühl] , bin ich an unserm Table-d’hote der jüngste…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04276",
+    "block": 5,
+    "start": 0,
+    "end": 5,
+    "kind": "LOC",
+    "text": "Meran"
+   },
+   "context": "… [Meran] Hotel Passerhof 25/9…",
+   "block_type": "postscript"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04326",
+    "block": 2,
+    "start": 477,
+    "end": 487,
+    "kind": "PER",
+    "text": "Maupassant"
+   },
+   "context": "…bock der Vernunft macht, erinnert lebhaft an [Maupassant] mit dem Sie auch die Kraft und Prägnanz des…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04326",
+    "block": 2,
+    "start": 618,
+    "end": 631,
+    "kind": "LOC",
+    "text": "französischen"
+   },
+   "context": "…während die dialogisierende Form in Ihrer [französischen] Feinheit an Gyp anklingt. Als die Perle der…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04326",
+    "block": 2,
+    "start": 644,
+    "end": 647,
+    "kind": "PER",
+    "text": "Gyp"
+   },
+   "context": "…ende Form in Ihrer französischen Feinheit an [Gyp] anklingt. Als die Perle der Sammlung möchte…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04326",
+    "block": 5,
+    "start": 216,
+    "end": 222,
+    "kind": "PER",
+    "text": "Salten"
+   },
+   "context": "…. Bitte grüßen sie mir herzl. [Salten] , Bahr, Loris, Beraton, Beer-Hoffmann, u die…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04451",
+    "block": 3,
+    "start": 60,
+    "end": 66,
+    "kind": "LOC",
+    "text": "Sekirn"
+   },
+   "context": "…ach und wir bleiben hier. Von [Sekirn] sind ein paar Stunden her, we…",
+   "block_type": "p"
+  },
+  {
+   "category": "missed",
+   "predicted": null,
+   "gold": {
+    "letter": "L04526",
+    "block": 1,
+    "start": 26,
+    "end": 30,
+    "kind": "LOC",
+    "text": "Enge"
+   },
+   "context": "…Reichenau (N.-Ö.) mit der [Enge] .…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00001",
+    "block": 3,
+    "start": 14,
+    "end": 25,
+    "kind": "PER",
+    "text": "Dr FMamroth"
+   },
+   "gold": null,
+   "context": "…Ihr ergebener [Dr FMamroth] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00026",
+    "block": 10,
+    "start": 0,
+    "end": 5,
+    "kind": "LOC",
+    "text": "Loris"
+   },
+   "gold": null,
+   "context": "… [Loris] .…",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00126",
+    "block": 0,
+    "start": 0,
+    "end": 56,
+    "kind": "PER",
+    "text": "Hrn Dr. Richard Beer\n                            Hofmann"
+   },
+   "gold": null,
+   "context": "… [Hrn Dr. Richard Beer Hofmann] Wien I. Wollzeile 15…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00126",
+    "block": 2,
+    "start": 21,
+    "end": 27,
+    "kind": "PER",
+    "text": "Arthur"
+   },
+   "gold": null,
+   "context": "…Herzlich grüßend Ihr [Arthur] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00201",
+    "block": 0,
+    "start": 0,
+    "end": 27,
+    "kind": "PER",
+    "text": "Herrn Dr  Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Herrn Dr Arthur Schnitzler] I Grillparzerstrasse 7 Wien…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00201",
+    "block": 2,
+    "start": 0,
+    "end": 4,
+    "kind": "PER",
+    "text": "Hugo"
+   },
+   "gold": null,
+   "context": "… [Hugo] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00276",
+    "block": 1,
+    "start": 145,
+    "end": 153,
+    "kind": "LOC",
+    "text": "Therapie"
+   },
+   "gold": null,
+   "context": "…der der sog. naturhysterischen Schule in der [Therapie] . Am 30. November sind es h…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00276",
+    "block": 4,
+    "start": 27,
+    "end": 38,
+    "kind": "PER",
+    "text": "HermannBahr"
+   },
+   "gold": null,
+   "context": "…In herzlicher Freundschaft [HermannBahr] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00376",
+    "block": 0,
+    "start": 0,
+    "end": 21,
+    "kind": "PER",
+    "text": "Dr. Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Dr. Arthur Schnitzler] , Wien, IX. Frankg. 1.…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00376",
+    "block": 1,
+    "start": 0,
+    "end": 51,
+    "kind": "PER",
+    "text": "Herrn Dr. Richard\n                     Beer-Hofmann"
+   },
+   "gold": null,
+   "context": "… [Herrn Dr. Richard Beer-Hofmann] Rom a posta ferma Italien…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00376",
+    "block": 3,
+    "start": 596,
+    "end": 603,
+    "kind": "PER",
+    "text": "Rondoli"
+   },
+   "gold": null,
+   "context": "…rfahren – haben Sie keine von den Schwestern [Rondoli] getroffen? – Beantworten Sie…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00376",
+    "block": 9,
+    "start": 90,
+    "end": 96,
+    "kind": "PER",
+    "text": "Phryne"
+   },
+   "gold": null,
+   "context": "…in Versen, in dem aber gewiss Talent steckt; [Phryne] von Leo Ebermann, der mich aber als Mensch u…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00376",
+    "block": 10,
+    "start": 0,
+    "end": 8,
+    "kind": "PER",
+    "text": "Phrrryne"
+   },
+   "gold": null,
+   "context": "… [Phrrryne] …",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00576",
+    "block": 0,
+    "start": 0,
+    "end": 26,
+    "kind": "PER",
+    "text": "Herrn Dr Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Herrn Dr Arthur Schnitzler] Kopenhagen Dänemark poste restante…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00576",
+    "block": 1,
+    "start": 4,
+    "end": 19,
+    "kind": "PER",
+    "text": "Arthur  Richard"
+   },
+   "gold": null,
+   "context": "…Für [Arthur Richard] Ischl, 1. August…",
+   "block_type": "opener"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00576",
+    "block": 3,
+    "start": 0,
+    "end": 6,
+    "kind": "PER",
+    "text": "Salten"
+   },
+   "gold": null,
+   "context": "… [Salten] Hugo…",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00576",
+    "block": 3,
+    "start": 7,
+    "end": 11,
+    "kind": "PER",
+    "text": "Hugo"
+   },
+   "gold": null,
+   "context": "…Salten [Hugo] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00626",
+    "block": 0,
+    "start": 0,
+    "end": 45,
+    "kind": "PER",
+    "text": "Herrn Dr. Arthur\n                  Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Herrn Dr. Arthur Schnitzler] , Wien, IX Frankgasse 1.…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00626",
+    "block": 1,
+    "start": 0,
+    "end": 38,
+    "kind": "PER",
+    "text": "Marcell Salzer, der herrliche Vorleser"
+   },
+   "gold": null,
+   "context": "… [Marcell Salzer, der herrliche Vorleser] sitzt neben mir und erzählt m…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00626",
+    "block": 4,
+    "start": 4,
+    "end": 10,
+    "kind": "PER",
+    "text": "Salzer"
+   },
+   "gold": null,
+   "context": "…Ihr [Salzer] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00851",
+    "block": 2,
+    "start": 15,
+    "end": 19,
+    "kind": "PER",
+    "text": "Hugo"
+   },
+   "gold": null,
+   "context": "…Von Herzen Ihr [Hugo] .…",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00876",
+    "block": 0,
+    "start": 21,
+    "end": 42,
+    "kind": "PER",
+    "text": "Lieber Dr. Schnitzler"
+   },
+   "gold": null,
+   "context": "…Kopenhagen 7 Jan. 99 [Lieber Dr. Schnitzler] , sehr guter Freund…",
+   "block_type": "opener"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L00876",
+    "block": 10,
+    "start": 14,
+    "end": 27,
+    "kind": "PER",
+    "text": "Georg Brandes"
+   },
+   "gold": null,
+   "context": "…Ihr ergebener [Georg Brandes] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01351",
+    "block": 0,
+    "start": 0,
+    "end": 36,
+    "kind": "PER",
+    "text": "Herrn Hermann\n                  Bahr"
+   },
+   "gold": null,
+   "context": "… [Herrn Hermann Bahr] Wien Ob St Veit Veitlissengasse…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01351",
+    "block": 8,
+    "start": 0,
+    "end": 7,
+    "kind": "PER",
+    "text": "Olga S."
+   },
+   "gold": null,
+   "context": "… [Olga S.] Hugo (ich bin nicht der Onkel) Gerty Richard…",
+   "block_type": "postscript"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01351",
+    "block": 8,
+    "start": 8,
+    "end": 12,
+    "kind": "PER",
+    "text": "Hugo"
+   },
+   "gold": null,
+   "context": "…Olga S. [Hugo] (ich bin nicht der Onkel) Gerty Richard…",
+   "block_type": "postscript"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01351",
+    "block": 8,
+    "start": 39,
+    "end": 44,
+    "kind": "PER",
+    "text": "Gerty"
+   },
+   "gold": null,
+   "context": "…Olga S. Hugo (ich bin nicht der Onkel) [Gerty] Richard…",
+   "block_type": "postscript"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01351",
+    "block": 8,
+    "start": 45,
+    "end": 52,
+    "kind": "PER",
+    "text": "Richard"
+   },
+   "gold": null,
+   "context": "…Olga S. Hugo (ich bin nicht der Onkel) Gerty [Richard] …",
+   "block_type": "postscript"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01476",
+    "block": 3,
+    "start": 12,
+    "end": 27,
+    "kind": "PER",
+    "text": "Dr Hofmannsthal"
+   },
+   "gold": null,
+   "context": "…ergebensten [Dr Hofmannsthal] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01726",
+    "block": 0,
+    "start": 0,
+    "end": 5,
+    "kind": "PER",
+    "text": "O. S."
+   },
+   "gold": null,
+   "context": "… [O. S.] …",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01726",
+    "block": 1,
+    "start": 0,
+    "end": 47,
+    "kind": "PER",
+    "text": "Herrn Dr Richard\n                  Beer-Hofmann"
+   },
+   "gold": null,
+   "context": "… [Herrn Dr Richard Beer-Hofmann] …",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01726",
+    "block": 4,
+    "start": 25,
+    "end": 32,
+    "kind": "PER",
+    "text": "OlgaSch"
+   },
+   "gold": null,
+   "context": "…Die herzlichsten Grüsse! [OlgaSch] .…",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L01751",
+    "block": 5,
+    "start": 33,
+    "end": 50,
+    "kind": "PER",
+    "text": "Albert Ehrenstein"
+   },
+   "gold": null,
+   "context": "…Hochachtungsvoll Ihr Ergebenster [Albert Ehrenstein] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02001",
+    "block": 0,
+    "start": 0,
+    "end": 21,
+    "kind": "PER",
+    "text": "Dr. Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Dr. Arthur Schnitzler] Wien XVIII. Sternwartestrasse 71 31/1 911 li…",
+   "block_type": "opener"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02051",
+    "block": 0,
+    "start": 14,
+    "end": 23,
+    "kind": "PER",
+    "text": "M Brandes"
+   },
+   "gold": null,
+   "context": "…* Expedié par [M Brandes] Demt à Hotel d’Jéna Paris…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02051",
+    "block": 0,
+    "start": 24,
+    "end": 28,
+    "kind": "PER",
+    "text": "Demt"
+   },
+   "gold": null,
+   "context": "…* Expedié par M Brandes [Demt] à Hotel d’Jéna Paris…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02051",
+    "block": 1,
+    "start": 0,
+    "end": 26,
+    "kind": "PER",
+    "text": "Monsieur Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Monsieur Arthur Schnitzler] Sternwartestrasse 71 Vienne Autriche…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02051",
+    "block": 1,
+    "start": 48,
+    "end": 54,
+    "kind": "LOC",
+    "text": "Vienne"
+   },
+   "gold": null,
+   "context": "…sieur Arthur Schnitzler Sternwartestrasse 71 [Vienne] Autriche…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02051",
+    "block": 1,
+    "start": 55,
+    "end": 63,
+    "kind": "LOC",
+    "text": "Autriche"
+   },
+   "gold": null,
+   "context": "…rthur Schnitzler Sternwartestrasse 71 Vienne [Autriche] …",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02051",
+    "block": 6,
+    "start": 21,
+    "end": 30,
+    "kind": "PER",
+    "text": "Arthur S."
+   },
+   "gold": null,
+   "context": "…Glücklicherweise für [Arthur S.] halten wir noch immer dieselbe Distanz von…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02051",
+    "block": 7,
+    "start": 16,
+    "end": 29,
+    "kind": "PER",
+    "text": "Georg Brandes"
+   },
+   "gold": null,
+   "context": "…Ihr ergebenster [Georg Brandes] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02201",
+    "block": 0,
+    "start": 0,
+    "end": 45,
+    "kind": "PER",
+    "text": "Herrn Dr. Arthur\n                  Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Herrn Dr. Arthur Schnitzler] Sternwartestrasse 71 Wien XVIII…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02201",
+    "block": 3,
+    "start": 55,
+    "end": 60,
+    "kind": "PER",
+    "text": "G. B."
+   },
+   "gold": null,
+   "context": "…e Ihre Frau Gemahlin und Beer-Hoffmanns. Ihr [G. B.] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02251",
+    "block": 0,
+    "start": 0,
+    "end": 21,
+    "kind": "PER",
+    "text": "Dr. Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Dr. Arthur Schnitzler] Wien XVIII. Sternwartestrasse 71…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02251",
+    "block": 1,
+    "start": 0,
+    "end": 24,
+    "kind": "PER",
+    "text": "Hrn Dr. Rob. Adam Pollak"
+   },
+   "gold": null,
+   "context": "… [Hrn Dr. Rob. Adam Pollak] Wien XII. Meidlinger Hptstr 56…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02251",
+    "block": 4,
+    "start": 33,
+    "end": 37,
+    "kind": "PER",
+    "text": ". S."
+   },
+   "gold": null,
+   "context": "…Herzlichst grüßend Ihr ergebner A [. S.] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02376",
+    "block": 1,
+    "start": 890,
+    "end": 903,
+    "kind": "PER",
+    "text": "Georg Brandes"
+   },
+   "gold": null,
+   "context": "…gethan war und bin als Ihnen, [Georg Brandes] – und der mir – nicht nur durch seine Werke,…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02376",
+    "block": 4,
+    "start": 262,
+    "end": 270,
+    "kind": "PER",
+    "text": "Casanova"
+   },
+   "gold": null,
+   "context": "…meinen Papieren lagen, durch die Lectüre der [Casanova] Memoiren plötzlich lebendig geworden sind. D…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02376",
+    "block": 8,
+    "start": 21,
+    "end": 38,
+    "kind": "PER",
+    "text": "Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "…Der Ihrige wie immer [Arthur Schnitzler] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02426",
+    "block": 1,
+    "start": 4,
+    "end": 15,
+    "kind": "PER",
+    "text": "Felix Braun"
+   },
+   "gold": null,
+   "context": "…Hrn [Felix Braun] Wien XIX Sieveringer Straße 99…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02426",
+    "block": 2,
+    "start": 32,
+    "end": 42,
+    "kind": "PER",
+    "text": "Herr Braun"
+   },
+   "gold": null,
+   "context": "…28. 12. 24 lieber und verehrter [Herr Braun] ,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02426",
+    "block": 4,
+    "start": 29,
+    "end": 46,
+    "kind": "PER",
+    "text": "Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "…Herzliche Neujahrsgrüße! Ihr [Arthur Schnitzler] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02576",
+    "block": 5,
+    "start": 5,
+    "end": 16,
+    "kind": "PER",
+    "text": "Therese Rie"
+   },
+   "gold": null,
+   "context": "…Ihre [Therese Rie] .…",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02676",
+    "block": 7,
+    "start": 0,
+    "end": 10,
+    "kind": "PER",
+    "text": "Hildegarde"
+   },
+   "gold": null,
+   "context": "… [Hildegarde] hast Du nie gesehen?…",
+   "block_type": "postscript"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02776",
+    "block": 2,
+    "start": 219,
+    "end": 229,
+    "kind": "LOC",
+    "text": "Scottsborg"
+   },
+   "gold": null,
+   "context": "…, was man ungefähr pro Tag in [Scottsborg] braucht? Ich freue mich unendlich darauf,…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L02776",
+    "block": 10,
+    "start": 12,
+    "end": 25,
+    "kind": "PER",
+    "text": "Paul Goldmann"
+   },
+   "gold": null,
+   "context": "…Dein treuer [Paul Goldmann] .…",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03176",
+    "block": 1,
+    "start": 12,
+    "end": 16,
+    "kind": "PER",
+    "text": "Paul"
+   },
+   "gold": null,
+   "context": "…Mein lieber [Paul] , wir (Richard u. ich) haben heute…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03176",
+    "block": 16,
+    "start": 16,
+    "end": 27,
+    "kind": "PER",
+    "text": "Dein Arthur"
+   },
+   "gold": null,
+   "context": "…Herzlichst Gruß [Dein Arthur] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03401",
+    "block": 0,
+    "start": 0,
+    "end": 26,
+    "kind": "PER",
+    "text": "Herrn Dr Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Herrn Dr Arthur Schnitzler] Wien XVIII. Spöttelgaße 7…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03426",
+    "block": 0,
+    "start": 0,
+    "end": 26,
+    "kind": "PER",
+    "text": "Herrn Dr Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Herrn Dr Arthur Schnitzler] Wien XVIII. Spöttelgasse 7…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03426",
+    "block": 8,
+    "start": 0,
+    "end": 14,
+    "kind": "PER",
+    "text": "Hedwig Fischer"
+   },
+   "gold": null,
+   "context": "… [Hedwig Fischer] grüßt Sie u. Ihre Frau.…",
+   "block_type": "p"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03501",
+    "block": 0,
+    "start": 18,
+    "end": 28,
+    "kind": "LOC",
+    "text": "Küstenland"
+   },
+   "gold": null,
+   "context": "…Villa Bauer Grado [Küstenland] 29. VI. 09 Lieber,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03501",
+    "block": 0,
+    "start": 40,
+    "end": 46,
+    "kind": "PER",
+    "text": "Lieber"
+   },
+   "gold": null,
+   "context": "…Villa Bauer Grado Küstenland 29. VI. 09 [Lieber] ,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03576",
+    "block": 0,
+    "start": 8,
+    "end": 13,
+    "kind": "PER",
+    "text": "Herrn"
+   },
+   "gold": null,
+   "context": "…Austria [Herrn] Dr Arthur Schnitzler XVIII. Sternwartestrass…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03576",
+    "block": 0,
+    "start": 14,
+    "end": 34,
+    "kind": "PER",
+    "text": "Dr Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "…Austria Herrn [Dr Arthur Schnitzler] XVIII. Sternwartestrasse 71 Wien…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03576",
+    "block": 3,
+    "start": 15,
+    "end": 27,
+    "kind": "PER",
+    "text": "Felix Salten"
+   },
+   "gold": null,
+   "context": "…Herzlichst Ihr [Felix Salten] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03626",
+    "block": 3,
+    "start": 0,
+    "end": 12,
+    "kind": "PER",
+    "text": "Stefan Zweig"
+   },
+   "gold": null,
+   "context": "… [Stefan Zweig] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03776",
+    "block": 0,
+    "start": 0,
+    "end": 21,
+    "kind": "PER",
+    "text": "Dr. Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Dr. Arthur Schnitzler] 9. 11. 1914. Wien XVIII. Sternwartestrasse 7…",
+   "block_type": "opener"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03776",
+    "block": 0,
+    "start": 75,
+    "end": 92,
+    "kind": "PER",
+    "text": "Herr Doktor Zweig"
+   },
+   "gold": null,
+   "context": "…914. Wien XVIII. Sternwartestrasse 71 Lieber [Herr Doktor Zweig] .…",
+   "block_type": "opener"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L03776",
+    "block": 2,
+    "start": 110,
+    "end": 127,
+    "kind": "PER",
+    "text": "Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "…auf baldiges Wiedersehen Ihr [Arthur Schnitzler] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04126",
+    "block": 0,
+    "start": 0,
+    "end": 24,
+    "kind": "PER",
+    "text": "Herrn Gustav Schwarzkopf"
+   },
+   "gold": null,
+   "context": "… [Herrn Gustav Schwarzkopf] Wien I. Tiefer Graben 23.…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04151",
+    "block": 0,
+    "start": 0,
+    "end": 40,
+    "kind": "PER",
+    "text": "Hrn Gustav\n                  Schwarzkopf"
+   },
+   "gold": null,
+   "context": "… [Hrn Gustav Schwarzkopf] Wien I. Tiefer Graben 23…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04276",
+    "block": 0,
+    "start": 0,
+    "end": 27,
+    "kind": "PER",
+    "text": "Herrn Dor Arthur Schnitzler"
+   },
+   "gold": null,
+   "context": "… [Herrn Dor Arthur Schnitzler] Wien I Grillparzerstr 7…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04276",
+    "block": 4,
+    "start": 17,
+    "end": 34,
+    "kind": "PER",
+    "text": "RudolfSchwarzkopf"
+   },
+   "gold": null,
+   "context": "…Ihr ganz ergeben [RudolfSchwarzkopf] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04451",
+    "block": 0,
+    "start": 0,
+    "end": 45,
+    "kind": "PER",
+    "text": "Herrn Gustav\n                     Schwarzkopf"
+   },
+   "gold": null,
+   "context": "… [Herrn Gustav Schwarzkopf] Wien I Tiefer Graben…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04451",
+    "block": 4,
+    "start": 22,
+    "end": 24,
+    "kind": "PER",
+    "text": "A."
+   },
+   "gold": null,
+   "context": "…Wir grüßen herzlichst [A.] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04526",
+    "block": 0,
+    "start": 0,
+    "end": 22,
+    "kind": "PER",
+    "text": "Hrn Gustav Schwarzkopf"
+   },
+   "gold": null,
+   "context": "… [Hrn Gustav Schwarzkopf] Wien I Tiefer Graben 17…",
+   "block_type": "address"
+  },
+  {
+   "category": "spurious",
+   "predicted": {
+    "letter": "L04526",
+    "block": 4,
+    "start": 30,
+    "end": 36,
+    "kind": "PER",
+    "text": "Arthur"
+   },
+   "gold": null,
+   "context": "…Auf baldiges Wiedersehen! Ihr [Arthur] …",
+   "block_type": "closer"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L00026",
+    "block": 2,
+    "start": 1197,
+    "end": 1208,
+    "kind": "PER",
+    "text": "Dr Hoffmann"
+   },
+   "gold": {
+    "letter": "L00026",
+    "block": 2,
+    "start": 1200,
+    "end": 1208,
+    "kind": "PER",
+    "text": "Hoffmann"
+   },
+   "context": "…qui parfois se réveille wie Ste. Beuve sagt. [Dr Hoffmann] hat mir auf einen 4 Seiten langen Brief nach…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L00126",
+    "block": 0,
+    "start": 65,
+    "end": 77,
+    "kind": "LOC",
+    "text": "Wollzeile 15"
+   },
+   "gold": {
+    "letter": "L00126",
+    "block": 0,
+    "start": 62,
+    "end": 77,
+    "kind": "LOC",
+    "text": "I. Wollzeile 15"
+   },
+   "context": "…Hofmann Wien I. [Wollzeile 15] …",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L00201",
+    "block": 0,
+    "start": 30,
+    "end": 48,
+    "kind": "LOC",
+    "text": "Grillparzerstrasse"
+   },
+   "gold": {
+    "letter": "L00201",
+    "block": 0,
+    "start": 28,
+    "end": 50,
+    "kind": "LOC",
+    "text": "I Grillparzerstrasse 7"
+   },
+   "context": "…Herrn Dr Arthur Schnitzler I [Grillparzerstrasse] 7 Wien…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L00276",
+    "block": 0,
+    "start": 70,
+    "end": 84,
+    "kind": "LOC",
+    "text": "Pelikangasse 4"
+   },
+   "gold": {
+    "letter": "L00276",
+    "block": 0,
+    "start": 65,
+    "end": 84,
+    "kind": "LOC",
+    "text": "IX., Pelikangasse 4"
+   },
+   "context": "…. Octbr. 1893 Wien III. Salesianerg. 12 IX., [Pelikangasse 4] . Verehrter Freund!…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L00376",
+    "block": 0,
+    "start": 23,
+    "end": 27,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L00376",
+    "block": 0,
+    "start": 23,
+    "end": 43,
+    "kind": "LOC",
+    "text": "Wien, IX. Frankg. 1."
+   },
+   "context": "…Dr. Arthur Schnitzler, [Wien] , IX. Frankg. 1.…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L00626",
+    "block": 0,
+    "start": 47,
+    "end": 51,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L00626",
+    "block": 0,
+    "start": 47,
+    "end": 55,
+    "kind": "LOC",
+    "text": "Wien, IX"
+   },
+   "context": "…rrn Dr. Arthur Schnitzler, [Wien] , IX Frankgasse 1.…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L00851",
+    "block": 0,
+    "start": 7,
+    "end": 23,
+    "kind": "LOC",
+    "text": "Gießhüblerstraße"
+   },
+   "gold": {
+    "letter": "L00851",
+    "block": 0,
+    "start": 7,
+    "end": 25,
+    "kind": "LOC",
+    "text": "Gießhüblerstraße 2"
+   },
+   "context": "…12. X. [Gießhüblerstraße] 2 mein lieber Arthur…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L01351",
+    "block": 0,
+    "start": 37,
+    "end": 41,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L01351",
+    "block": 0,
+    "start": 37,
+    "end": 52,
+    "kind": "LOC",
+    "text": "Wien Ob St Veit"
+   },
+   "context": "…Herrn Hermann Bahr [Wien] Ob St Veit Veitlissengasse…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L01351",
+    "block": 0,
+    "start": 45,
+    "end": 52,
+    "kind": "LOC",
+    "text": "St Veit"
+   },
+   "gold": {
+    "letter": "L01351",
+    "block": 0,
+    "start": 37,
+    "end": 52,
+    "kind": "LOC",
+    "text": "Wien Ob St Veit"
+   },
+   "context": "…Herrn Hermann Bahr Wien Ob [St Veit] Veitlissengasse…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L01476",
+    "block": 1,
+    "start": 437,
+    "end": 447,
+    "kind": "PER",
+    "text": "Baron Haas"
+   },
+   "gold": {
+    "letter": "L01476",
+    "block": 1,
+    "start": 443,
+    "end": 447,
+    "kind": "PER",
+    "text": "Haas"
+   },
+   "context": "…den Standpönal klar gemacht. [Baron Haas] hat wegen des Ablebens seines Schwagers Grfe…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L01476",
+    "block": 1,
+    "start": 488,
+    "end": 501,
+    "kind": "PER",
+    "text": "Grfen Castell"
+   },
+   "gold": {
+    "letter": "L01476",
+    "block": 1,
+    "start": 494,
+    "end": 501,
+    "kind": "PER",
+    "text": "Castell"
+   },
+   "context": "…Haas hat wegen des Ablebens seines Schwagers [Grfen Castell] absagen müssen u Dr Hochsinger ist bemüht mi…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L01476",
+    "block": 1,
+    "start": 519,
+    "end": 532,
+    "kind": "PER",
+    "text": "Dr Hochsinger"
+   },
+   "gold": {
+    "letter": "L01476",
+    "block": 1,
+    "start": 522,
+    "end": 532,
+    "kind": "PER",
+    "text": "Hochsinger"
+   },
+   "context": "…nes Schwagers Grfen Castell absagen müssen u [Dr Hochsinger] ist bemüht mit Hilfe Heines u Treßler einen…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L01601",
+    "block": 0,
+    "start": 0,
+    "end": 4,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L01601",
+    "block": 0,
+    "start": 0,
+    "end": 11,
+    "kind": "LOC",
+    "text": "Wien XIII/7"
+   },
+   "context": "… [Wien] XIII/7 21. 6. 06 Lieber Artur!…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L01751",
+    "block": 0,
+    "start": 0,
+    "end": 4,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L01751",
+    "block": 0,
+    "start": 0,
+    "end": 29,
+    "kind": "LOC",
+    "text": "Wien, XVI. Ottakringerstr 114"
+   },
+   "context": "… [Wien] , XVI. Ottakringerstr 114 16. Januar 07 Sehr…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02001",
+    "block": 0,
+    "start": 22,
+    "end": 26,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L02001",
+    "block": 0,
+    "start": 22,
+    "end": 54,
+    "kind": "LOC",
+    "text": "Wien XVIII. Sternwartestrasse 71"
+   },
+   "context": "…Dr. Arthur Schnitzler [Wien] XVIII. Sternwartestrasse 71 31/1 911 lieber…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02001",
+    "block": 0,
+    "start": 34,
+    "end": 51,
+    "kind": "LOC",
+    "text": "Sternwartestrasse"
+   },
+   "gold": {
+    "letter": "L02001",
+    "block": 0,
+    "start": 22,
+    "end": 54,
+    "kind": "LOC",
+    "text": "Wien XVIII. Sternwartestrasse 71"
+   },
+   "context": "…Dr. Arthur Schnitzler Wien XVIII. [Sternwartestrasse] 71 31/1 911 lieber Herr Doktor,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02051",
+    "block": 1,
+    "start": 27,
+    "end": 44,
+    "kind": "LOC",
+    "text": "Sternwartestrasse"
+   },
+   "gold": {
+    "letter": "L02051",
+    "block": 1,
+    "start": 27,
+    "end": 47,
+    "kind": "LOC",
+    "text": "Sternwartestrasse 71"
+   },
+   "context": "…Monsieur Arthur Schnitzler [Sternwartestrasse] 71 Vienne Autriche…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02051",
+    "block": 2,
+    "start": 0,
+    "end": 5,
+    "kind": "LOC",
+    "text": "Paris"
+   },
+   "gold": {
+    "letter": "L02051",
+    "block": 2,
+    "start": 0,
+    "end": 19,
+    "kind": "LOC",
+    "text": "Paris. Hotel d’Jéna"
+   },
+   "context": "… [Paris] . Hotel d’Jéna 3 Febr. 12 Verehrter Freund, v…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02051",
+    "block": 2,
+    "start": 7,
+    "end": 19,
+    "kind": "LOC",
+    "text": "Hotel d’Jéna"
+   },
+   "gold": {
+    "letter": "L02051",
+    "block": 2,
+    "start": 0,
+    "end": 19,
+    "kind": "LOC",
+    "text": "Paris. Hotel d’Jéna"
+   },
+   "context": "…Paris. [Hotel d’Jéna] 3 Febr. 12 Verehrter Freund, verehrte Freund…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02251",
+    "block": 0,
+    "start": 22,
+    "end": 26,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L02251",
+    "block": 0,
+    "start": 22,
+    "end": 54,
+    "kind": "LOC",
+    "text": "Wien XVIII. Sternwartestrasse 71"
+   },
+   "context": "…Dr. Arthur Schnitzler [Wien] XVIII. Sternwartestrasse 71…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02251",
+    "block": 0,
+    "start": 34,
+    "end": 51,
+    "kind": "LOC",
+    "text": "Sternwartestrasse"
+   },
+   "gold": {
+    "letter": "L02251",
+    "block": 0,
+    "start": 22,
+    "end": 54,
+    "kind": "LOC",
+    "text": "Wien XVIII. Sternwartestrasse 71"
+   },
+   "context": "…Dr. Arthur Schnitzler Wien XVIII. [Sternwartestrasse] 71…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02251",
+    "block": 1,
+    "start": 25,
+    "end": 29,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L02251",
+    "block": 1,
+    "start": 25,
+    "end": 33,
+    "kind": "LOC",
+    "text": "Wien XII"
+   },
+   "context": "…Hrn Dr. Rob. Adam Pollak [Wien] XII. Meidlinger Hptstr 56…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02251",
+    "block": 1,
+    "start": 35,
+    "end": 52,
+    "kind": "LOC",
+    "text": "Meidlinger Hptstr"
+   },
+   "gold": {
+    "letter": "L02251",
+    "block": 1,
+    "start": 35,
+    "end": 55,
+    "kind": "LOC",
+    "text": "Meidlinger Hptstr 56"
+   },
+   "context": "…Hrn Dr. Rob. Adam Pollak Wien XII. [Meidlinger Hptstr] 56…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02426",
+    "block": 0,
+    "start": 6,
+    "end": 10,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L02426",
+    "block": 0,
+    "start": 6,
+    "end": 18,
+    "kind": "LOC",
+    "text": "Wien, XVIII."
+   },
+   "context": "…A. S. [Wien] , XVIII. Sternwartestr. 71…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02426",
+    "block": 0,
+    "start": 19,
+    "end": 32,
+    "kind": "LOC",
+    "text": "Sternwartestr"
+   },
+   "gold": {
+    "letter": "L02426",
+    "block": 0,
+    "start": 19,
+    "end": 36,
+    "kind": "LOC",
+    "text": "Sternwartestr. 71"
+   },
+   "context": "…A. S. Wien, XVIII. [Sternwartestr] . 71…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02426",
+    "block": 1,
+    "start": 16,
+    "end": 20,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L02426",
+    "block": 1,
+    "start": 16,
+    "end": 24,
+    "kind": "LOC",
+    "text": "Wien XIX"
+   },
+   "context": "…Hrn Felix Braun [Wien] XIX Sieveringer Straße 99…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02426",
+    "block": 1,
+    "start": 25,
+    "end": 43,
+    "kind": "LOC",
+    "text": "Sieveringer Straße"
+   },
+   "gold": {
+    "letter": "L02426",
+    "block": 1,
+    "start": 25,
+    "end": 46,
+    "kind": "LOC",
+    "text": "Sieveringer Straße 99"
+   },
+   "context": "…Hrn Felix Braun Wien XIX [Sieveringer Straße] 99…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02576",
+    "block": 0,
+    "start": 20,
+    "end": 32,
+    "kind": "LOC",
+    "text": "Schönburgstr"
+   },
+   "gold": {
+    "letter": "L02576",
+    "block": 0,
+    "start": 16,
+    "end": 36,
+    "kind": "LOC",
+    "text": "IV. Schönburgstr. 48"
+   },
+   "context": "…Wien, 30. 9. 23 IV. [Schönburgstr] . 48 Verehrter Herr Doktor,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02776",
+    "block": 0,
+    "start": 44,
+    "end": 69,
+    "kind": "PER",
+    "text": "Fondateur M. L. Sonnemann"
+   },
+   "gold": {
+    "letter": "L02776",
+    "block": 0,
+    "start": 57,
+    "end": 69,
+    "kind": "PER",
+    "text": "L. Sonnemann"
+   },
+   "context": "…Frankfurter Zeitung (Gazette de Francfort). [Fondateur M. L. Sonnemann] . Journal politique,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02776",
+    "block": 0,
+    "start": 218,
+    "end": 229,
+    "kind": "LOC",
+    "text": "Rue Feydeau"
+   },
+   "gold": {
+    "letter": "L02776",
+    "block": 0,
+    "start": 214,
+    "end": 229,
+    "kind": "LOC",
+    "text": "24. Rue Feydeau"
+   },
+   "context": "…par jour. Bureau à Paris Paris, 4. Juni. 24. [Rue Feydeau] . Mein lieber Freund,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02776",
+    "block": 4,
+    "start": 0,
+    "end": 20,
+    "kind": "PER",
+    "text": "M. Christian Schefer"
+   },
+   "gold": {
+    "letter": "L02776",
+    "block": 4,
+    "start": 3,
+    "end": 20,
+    "kind": "PER",
+    "text": "Christian Schefer"
+   },
+   "context": "… [M. Christian Schefer] besuchte mich dieser Tage u. sagte mir, er h…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L02776",
+    "block": 4,
+    "start": 602,
+    "end": 612,
+    "kind": "PER",
+    "text": "M. Schefer"
+   },
+   "gold": {
+    "letter": "L02776",
+    "block": 4,
+    "start": 605,
+    "end": 612,
+    "kind": "PER",
+    "text": "Schefer"
+   },
+   "context": "…steller erschienen; die Besprechung, die Dir [M. Schefer] widmet, ist darum noch aus diesem besonderen…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03176",
+    "block": 14,
+    "start": 40,
+    "end": 45,
+    "kind": "LOC",
+    "text": "Ischl"
+   },
+   "gold": {
+    "letter": "L03176",
+    "block": 14,
+    "start": 40,
+    "end": 58,
+    "kind": "LOC",
+    "text": "Ischl, Rudolfshöhe"
+   },
+   "context": "…Ich fahre morgen nach [Ischl] , Rudolfshöhe, wo mich bis auf weiteres Nachr…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03176",
+    "block": 14,
+    "start": 47,
+    "end": 58,
+    "kind": "LOC",
+    "text": "Rudolfshöhe"
+   },
+   "gold": {
+    "letter": "L03176",
+    "block": 14,
+    "start": 40,
+    "end": 58,
+    "kind": "LOC",
+    "text": "Ischl, Rudolfshöhe"
+   },
+   "context": "…h fahre morgen nach Ischl, [Rudolfshöhe] , wo mich bis auf weiteres Nachrichten treffe…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03401",
+    "block": 0,
+    "start": 39,
+    "end": 50,
+    "kind": "LOC",
+    "text": "Spöttelgaße"
+   },
+   "gold": {
+    "letter": "L03401",
+    "block": 0,
+    "start": 32,
+    "end": 52,
+    "kind": "LOC",
+    "text": "XVIII. Spöttelgaße 7"
+   },
+   "context": "…Herrn Dr Arthur Schnitzler Wien XVIII. [Spöttelgaße] 7…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03401",
+    "block": 3,
+    "start": 89,
+    "end": 114,
+    "kind": "PER",
+    "text": "Herrn Siegfried Jacobsohn"
+   },
+   "gold": {
+    "letter": "L03401",
+    "block": 3,
+    "start": 95,
+    "end": 114,
+    "kind": "PER",
+    "text": "Siegfried Jacobsohn"
+   },
+   "context": "…u sprechen, da ich über den Artikel, den Sie [Herrn Siegfried Jacobsohn] gewidmet haben, manches wesen…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03426",
+    "block": 0,
+    "start": 27,
+    "end": 31,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L03426",
+    "block": 0,
+    "start": 27,
+    "end": 38,
+    "kind": "LOC",
+    "text": "Wien XVIII."
+   },
+   "context": "…Herrn Dr Arthur Schnitzler [Wien] XVIII. Spöttelgasse 7…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03426",
+    "block": 0,
+    "start": 39,
+    "end": 51,
+    "kind": "LOC",
+    "text": "Spöttelgasse"
+   },
+   "gold": {
+    "letter": "L03426",
+    "block": 0,
+    "start": 39,
+    "end": 53,
+    "kind": "LOC",
+    "text": "Spöttelgasse 7"
+   },
+   "context": "…Herrn Dr Arthur Schnitzler Wien XVIII. [Spöttelgasse] 7…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03426",
+    "block": 2,
+    "start": 37,
+    "end": 51,
+    "kind": "PER",
+    "text": "Königin Louise"
+   },
+   "gold": {
+    "letter": "L03426",
+    "block": 2,
+    "start": 45,
+    "end": 51,
+    "kind": "PER",
+    "text": "Louise"
+   },
+   "context": "…Historisches Buffet aus der Zeit der [Königin Louise] …",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03501",
+    "block": 1,
+    "start": 845,
+    "end": 855,
+    "kind": "PER",
+    "text": "Frau Kainz"
+   },
+   "gold": {
+    "letter": "L03501",
+    "block": 1,
+    "start": 850,
+    "end": 855,
+    "kind": "PER",
+    "text": "Kainz"
+   },
+   "context": "…wird. Wenn Sie wollen, frage ich direkt bei [Frau Kainz] an. Sicherlich wird sie mir dann gegen den 7…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03501",
+    "block": 1,
+    "start": 1761,
+    "end": 1770,
+    "kind": "PER",
+    "text": "Frau Olga"
+   },
+   "gold": {
+    "letter": "L03501",
+    "block": 1,
+    "start": 1766,
+    "end": 1770,
+    "kind": "PER",
+    "text": "Olga"
+   },
+   "context": "…nd Beinen wie ein Molch. Alles Gute für Sie, [Frau Olga] u. Heini!…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03576",
+    "block": 0,
+    "start": 42,
+    "end": 59,
+    "kind": "LOC",
+    "text": "Sternwartestrasse"
+   },
+   "gold": {
+    "letter": "L03576",
+    "block": 0,
+    "start": 35,
+    "end": 62,
+    "kind": "LOC",
+    "text": "XVIII. Sternwartestrasse 71"
+   },
+   "context": "…Austria Herrn Dr Arthur Schnitzler XVIII. [Sternwartestrasse] 71 Wien…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03626",
+    "block": 0,
+    "start": 9,
+    "end": 18,
+    "kind": "LOC",
+    "text": "Kochgasse"
+   },
+   "gold": {
+    "letter": "L03626",
+    "block": 0,
+    "start": 3,
+    "end": 20,
+    "kind": "LOC",
+    "text": "VIII. Kochgasse 8"
+   },
+   "context": "…SZ VIII. [Kochgasse] 8 Wien, Sehr verehrter Herr Doktor,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03776",
+    "block": 0,
+    "start": 35,
+    "end": 45,
+    "kind": "LOC",
+    "text": "Wien XVIII"
+   },
+   "gold": {
+    "letter": "L03776",
+    "block": 0,
+    "start": 35,
+    "end": 67,
+    "kind": "LOC",
+    "text": "Wien XVIII. Sternwartestrasse 71"
+   },
+   "context": "…Dr. Arthur Schnitzler 9. 11. 1914. [Wien XVIII] . Sternwartestrasse 71 Lieber Herr Doktor Zwe…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03776",
+    "block": 0,
+    "start": 47,
+    "end": 64,
+    "kind": "LOC",
+    "text": "Sternwartestrasse"
+   },
+   "gold": {
+    "letter": "L03776",
+    "block": 0,
+    "start": 35,
+    "end": 67,
+    "kind": "LOC",
+    "text": "Wien XVIII. Sternwartestrasse 71"
+   },
+   "context": "…. Arthur Schnitzler 9. 11. 1914. Wien XVIII. [Sternwartestrasse] 71 Lieber Herr Doktor Zweig.…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03776",
+    "block": 1,
+    "start": 150,
+    "end": 167,
+    "kind": "PER",
+    "text": "Dr. Ludo Hartmann"
+   },
+   "gold": {
+    "letter": "L03776",
+    "block": 1,
+    "start": 154,
+    "end": 167,
+    "kind": "PER",
+    "text": "Ludo Hartmann"
+   },
+   "context": "…für deren Zustandekommen sich hier besonders [Dr. Ludo Hartmann] einsetzt. Er war bei mir unter anderm um mic…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L03926",
+    "block": 2,
+    "start": 0,
+    "end": 15,
+    "kind": "PER",
+    "text": "Herr S. Fischer"
+   },
+   "gold": {
+    "letter": "L03926",
+    "block": 2,
+    "start": 5,
+    "end": 15,
+    "kind": "PER",
+    "text": "S. Fischer"
+   },
+   "context": "… [Herr S. Fischer] ist augenblicklich in Wiesbaden und es schei…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04126",
+    "block": 0,
+    "start": 33,
+    "end": 46,
+    "kind": "LOC",
+    "text": "Tiefer Graben"
+   },
+   "gold": {
+    "letter": "L04126",
+    "block": 0,
+    "start": 30,
+    "end": 49,
+    "kind": "LOC",
+    "text": "I. Tiefer Graben 23"
+   },
+   "context": "…Herrn Gustav Schwarzkopf Wien I. [Tiefer Graben] 23.…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04151",
+    "block": 0,
+    "start": 49,
+    "end": 62,
+    "kind": "LOC",
+    "text": "Tiefer Graben"
+   },
+   "gold": {
+    "letter": "L04151",
+    "block": 0,
+    "start": 46,
+    "end": 65,
+    "kind": "LOC",
+    "text": "I. Tiefer Graben 23"
+   },
+   "context": "…Gustav Schwarzkopf Wien I. [Tiefer Graben] 23…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04276",
+    "block": 0,
+    "start": 35,
+    "end": 49,
+    "kind": "LOC",
+    "text": "Grillparzerstr"
+   },
+   "gold": {
+    "letter": "L04276",
+    "block": 0,
+    "start": 33,
+    "end": 51,
+    "kind": "LOC",
+    "text": "I Grillparzerstr 7"
+   },
+   "context": "…Herrn Dor Arthur Schnitzler Wien I [Grillparzerstr] 7…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04326",
+    "block": 0,
+    "start": 0,
+    "end": 3,
+    "kind": "LOC",
+    "text": "Rom"
+   },
+   "gold": {
+    "letter": "L04326",
+    "block": 0,
+    "start": 0,
+    "end": 27,
+    "kind": "LOC",
+    "text": "Rom Piazza Montecitorio 121"
+   },
+   "context": "… [Rom] Piazza Montecitorio 121 9. 12. 92. Mein hoch…",
+   "block_type": "opener"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04326",
+    "block": 5,
+    "start": 246,
+    "end": 250,
+    "kind": "PER",
+    "text": "Beer"
+   },
+   "gold": {
+    "letter": "L04326",
+    "block": 5,
+    "start": 246,
+    "end": 259,
+    "kind": "PER",
+    "text": "Beer-Hoffmann"
+   },
+   "context": "…sie mir herzl. Salten, Bahr, Loris, Beraton, [Beer] -Hoffmann, u die andern Herrndes »allerjüngst…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04326",
+    "block": 5,
+    "start": 251,
+    "end": 259,
+    "kind": "PER",
+    "text": "Hoffmann"
+   },
+   "gold": {
+    "letter": "L04326",
+    "block": 5,
+    "start": 246,
+    "end": 259,
+    "kind": "PER",
+    "text": "Beer-Hoffmann"
+   },
+   "context": "…ir herzl. Salten, Bahr, Loris, Beraton, Beer- [Hoffmann] , u die andern Herrndes »allerjüngsten« u las…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04451",
+    "block": 0,
+    "start": 46,
+    "end": 50,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L04451",
+    "block": 0,
+    "start": 46,
+    "end": 52,
+    "kind": "LOC",
+    "text": "Wien I"
+   },
+   "context": "…errn Gustav Schwarzkopf [Wien] I Tiefer Graben 23…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04451",
+    "block": 0,
+    "start": 53,
+    "end": 90,
+    "kind": "LOC",
+    "text": "Tiefer\n                        Graben"
+   },
+   "gold": {
+    "letter": "L04451",
+    "block": 0,
+    "start": 53,
+    "end": 93,
+    "kind": "LOC",
+    "text": "Tiefer\n                        Graben 23"
+   },
+   "context": "…stav Schwarzkopf Wien I [Tiefer Graben] 23…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04526",
+    "block": 0,
+    "start": 23,
+    "end": 27,
+    "kind": "LOC",
+    "text": "Wien"
+   },
+   "gold": {
+    "letter": "L04526",
+    "block": 0,
+    "start": 23,
+    "end": 29,
+    "kind": "LOC",
+    "text": "Wien I"
+   },
+   "context": "…Hrn Gustav Schwarzkopf [Wien] I Tiefer Graben 17…",
+   "block_type": "address"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04526",
+    "block": 1,
+    "start": 0,
+    "end": 9,
+    "kind": "LOC",
+    "text": "Reichenau"
+   },
+   "gold": {
+    "letter": "L04526",
+    "block": 1,
+    "start": 0,
+    "end": 17,
+    "kind": "LOC",
+    "text": "Reichenau (N.-Ö.)"
+   },
+   "context": "… [Reichenau] (N.-Ö.) mit der Enge.…",
+   "block_type": "p"
+  },
+  {
+   "category": "boundary",
+   "predicted": {
+    "letter": "L04526",
+    "block": 1,
+    "start": 11,
+    "end": 16,
+    "kind": "LOC",
+    "text": "N.-Ö."
+   },
+   "gold": {
+    "letter": "L04526",
+    "block": 1,
+    "start": 0,
+    "end": 17,
+    "kind": "LOC",
+    "text": "Reichenau (N.-Ö.)"
+   },
+   "context": "…Reichenau ( [N.-Ö.] ) mit der Enge.…",
+   "block_type": "p"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L03151",
+    "block": 0,
+    "start": 39,
+    "end": 45,
+    "kind": "LOC",
+    "text": "Specht"
+   },
+   "gold": {
+    "letter": "L03151",
+    "block": 0,
+    "start": 39,
+    "end": 45,
+    "kind": "PER",
+    "text": "Specht"
+   },
+   "context": "…Lieber Freund, ich bin zum Souper bei [Specht] , wo Sie mich, falls es nötig wäre, anrufen k…",
+   "block_type": "p"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L03176",
+    "block": 4,
+    "start": 40,
+    "end": 50,
+    "kind": "PER",
+    "text": "Moserboden"
+   },
+   "gold": {
+    "letter": "L03176",
+    "block": 4,
+    "start": 40,
+    "end": 50,
+    "kind": "LOC",
+    "text": "Moserboden"
+   },
+   "context": "…14. Nach Zell am See, [Moserboden] …",
+   "block_type": "p"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L03176",
+    "block": 9,
+    "start": 6,
+    "end": 12,
+    "kind": "PER",
+    "text": "Küblis"
+   },
+   "gold": {
+    "letter": "L03176",
+    "block": 9,
+    "start": 6,
+    "end": 12,
+    "kind": "LOC",
+    "text": "Küblis"
+   },
+   "context": "…20. – [Küblis] …",
+   "block_type": "p"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L03501",
+    "block": 0,
+    "start": 0,
+    "end": 11,
+    "kind": "PER",
+    "text": "Villa Bauer"
+   },
+   "gold": {
+    "letter": "L03501",
+    "block": 0,
+    "start": 0,
+    "end": 11,
+    "kind": "LOC",
+    "text": "Villa Bauer"
+   },
+   "context": "… [Villa Bauer] Grado Küstenland 29. VI. 09 Lieber,…",
+   "block_type": "opener"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L03576",
+    "block": 0,
+    "start": 0,
+    "end": 7,
+    "kind": "ORG",
+    "text": "Austria"
+   },
+   "gold": {
+    "letter": "L03576",
+    "block": 0,
+    "start": 0,
+    "end": 7,
+    "kind": "LOC",
+    "text": "Austria"
+   },
+   "context": "… [Austria] Herrn Dr Arthur Schnitzler XVIII. Sternwarte…",
+   "block_type": "address"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L03576",
+    "block": 1,
+    "start": 28,
+    "end": 48,
+    "kind": "ORG",
+    "text": "Torre dell’ Orologio"
+   },
+   "gold": {
+    "letter": "L03576",
+    "block": 1,
+    "start": 28,
+    "end": 48,
+    "kind": "LOC",
+    "text": "Torre dell’ Orologio"
+   },
+   "context": "…Venezia – Chiesa S. Marco e [Torre dell’ Orologio] …",
+   "block_type": "p"
+  },
+  {
+   "category": "type",
+   "predicted": {
+    "letter": "L04276",
+    "block": 5,
+    "start": 6,
+    "end": 11,
+    "kind": "ORG",
+    "text": "Hotel"
+   },
+   "gold": {
+    "letter": "L04276",
+    "block": 5,
+    "start": 6,
+    "end": 21,
+    "kind": "LOC",
+    "text": "Hotel Passerhof"
+   },
+   "context": "…Meran [Hotel] Passerhof 25/9…",
+   "block_type": "postscript"
+  }
+ ]
+}

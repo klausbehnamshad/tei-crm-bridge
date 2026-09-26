@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../meta/schnitzler-briefe-schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 ../meta/schnitzler-briefe-schema.xsd" xml:base="https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions" xml:id="L04326">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren</title>
+            <title type="iso-date" when-iso="1892-12-09" n="01">1892-12-09</title>
+            <title level="a">Carl von Torresani an Arthur Schnitzler, 9. 12. 1892</title>
+            <author ref="#pmb26121">Torresani, Carl von</author>
+            <editor>
+               <persName>Jahnke, Selma</persName>
+               <persName>Müller, Martin Anton</persName>
+            </editor>
+            <funder>
+               <name>Österreichischer Wissenschaftsfonds FWF</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Wien</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Wien</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>schnitzler-briefe</edition>
+            <respStmt>
+               <resp>Transkription und Kommentierung</resp>
+               <persName>Jahnke, Selma</persName>
+               <persName>Müller, Martin Anton</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities</publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2026">2026</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.de">
+                  <p>Sie dürfen: Teilen — das Material in jedwedem Format oder Medium
+                     vervielfältigen und weiterverbreiten Bearbeiten — das Material remixen,
+                     verändern und darauf aufbauen und zwar für beliebige Zwecke, sogar
+                     kommerziell.</p>
+                  <p>Der Lizenzgeber kann diese Freiheiten nicht widerrufen solange Sie sich an die
+                     Lizenzbedingungen halten. Unter folgenden Bedingungen:</p>
+                  <p>Namensnennung — Sie müssen angemessene Urheber- und Rechteangaben machen, einen
+                     Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden. Diese
+                     Angaben dürfen in jeder angemessenen Art und Weise gemacht werden, allerdings
+                     nicht so, dass der Eindruck entsteht, der Lizenzgeber unterstütze gerade Sie
+                     oder Ihre Nutzung besonders. Keine weiteren Einschränkungen — Sie dürfen keine
+                     zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen
+                     rechtlich irgendetwas untersagen, was die Lizenz erlaubt.</p>
+                  <p>Hinweise:</p>
+                  <p>Sie müssen sich nicht an diese Lizenz halten hinsichtlich solcher Teile des
+                     Materials, die gemeinfrei sind, oder soweit Ihre Nutzungshandlungen durch
+                     Ausnahmen und Schranken des Urheberrechts gedeckt sind. Es werden keine
+                     Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen
+                     möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung
+                     brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und
+                     Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend
+                     beschränken.</p>
+               </licence>
+            </availability>
+            <idno type="handle">XXXX</idno>
+         </publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Correspondences of Arthur Schnitzler</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <objectType corresp="brief"/>
+                  <msDesc>
+                     <msIdentifier>
+                        <country>GB</country>
+                        <settlement>Cambridge</settlement>
+                        <repository>University Library</repository>
+                        <idno>Schnitzler, B 106</idno>
+                     </msIdentifier>
+                     <physDesc>
+                        <objectDesc>
+                           <supportDesc>
+                              <extent>
+                                 <measure unit="seite" quantity="4"/>
+                                 <measure unit="blatt" quantity="1"/>
+                                 <measure unit="zeichenanzahl" quantity="2237"/>
+                              </extent>
+                           </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="1">
+                           <handNote medium="schwarze-tinte" style="deutsche-kurrent"/>
+                        </handDesc>
+                     </physDesc>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="de-AT">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName ref="#pmb26121">Torresani, Carl von</persName>
+               <date when="1892-12-09" n="01">9. 12. 1892</date>
+               <placeName ref="#pmb445" evidence="internal">Rom</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#pmb2121">Schnitzler, Arthur</persName>
+               <date evidence="conjecture" notBefore="1892-12-10" notAfter="1892-12-14">[10. 12. 1892 – 14. 12. 1892?]</date>
+               <placeName ref="#pmb50" evidence="conjecture">Wien</placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="correspondence_26121">Torresani, Carl von</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="L00141">Hofmannsthal an Schnitzler, [1. 12. 1892]</ref>
+               <ref subtype="next_letter" type="withinCollection" target="L04100">Schnitzler an Schwarzkopf, 10. 12. 1892</ref>
+               <ref subtype="previous_letter" type="withinCorrespondence" source="correspondence_26121" target="L04325">Torresani an Schnitzler, 8. 10. [1892]</ref>
+               <ref subtype="next_letter" type="withinCorrespondence" source="correspondence_26121" target="L04330">Torresani an Schnitzler, 8. 5. 1893</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="proposed">
+         <change who="MAM" when="2026-03-04">Export aus Transkribus</change>
+         <change who="SJ" when="2026-03-31">Durchsicht</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <graphic url="MS-SCHNITZLER-B-00106-000-00011-1"/>
+      <graphic url="MS-SCHNITZLER-B-00106-000-00012-0"/>
+      <graphic url="MS-SCHNITZLER-B-00106-000-00012-1"/>
+      <graphic url="MS-SCHNITZLER-B-00106-000-00011-0"/>
+   </facsimile>
+   <text>
+      <body>
+         <div type="writingSession" n="1"><opener><seg rend="right"><pb facs="MS-SCHNITZLER-B-00106-000-00011-1"/><hi rend="latintype"><rs type="place" ref="#pmb336768">Rom Piazza Montecitorio 121</rs></hi></seg><dateline rend="right"><date>9. 12. 92</date>.</dateline><salute>Mein hochverehrter Herr Doktor!</salute></opener><p>Auf das allerfreudig<c rendition="#langesS">s</c>te wurde ich vor nun <hi rend="latintype">cca</hi> 14 Tagen
+               durch das Eintreffen ihres Buches: <hi rend="latintype"><rs type="work" ref="#pmb29935">Anatol</rs></hi> überra<c rendition="#langesS">s</c>cht, für de<c rendition="#langesS">s</c><c rendition="#langesS">s</c>en Sendung und liebenswürdige Widmung ich hiemit meinen
+               wärm<c rendition="#langesS">s</c>ten Dank aus<c rendition="#langesS">s</c>preche.</p><p>Ich wollte nicht<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>chreiben, bevor ich das <rs type="work" ref="#pmb29935" subtype="implied">Buch</rs> mit der Gründlichkeit u Aufmerksamkeit, wie es als
+               Ihre Arbeit verdient, gele<c rendition="#langesS">s</c>en haben würde. Das i<c rendition="#langesS">s</c>t nun ge<c rendition="#langesS">s</c>chehen <pb facs="MS-SCHNITZLER-B-00106-000-00012-0"/>und ich kann Ihnen nur <c rendition="#langesS">s</c>agen, daß ich
+               bedauere, zu Ende zu <c rendition="#langesS">s</c>ein. Es ist gei<c rendition="#langesS">s</c>treich von Anfang zum Schluße. Der<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>ubtil
+               zer<c rendition="#langesS">s</c>etzende, wühlende, analy<c rendition="#langesS">s</c>irende Gei<c rendition="#langesS">s</c>t, der das ganze durchdringt, das Gefühl zum
+               Sündenbock der Vernunft macht, erinnert lebhaft an <hi rend="latintype"><rs type="person" ref="#pmb12201">Maupa<c rendition="#langesS">s</c>sant</rs></hi> mit dem Sie auch die Kraft und Prägnanz des Ausdrucks gemein<c rendition="#langesS">s</c>am haben, –
+               während die dialogisierende Form in Ihrer <rs type="place" ref="#pmb166">franzö<c rendition="#langesS">s</c>i<c rendition="#langesS">s</c>chen</rs> Feinheit an <hi rend="latintype"><rs type="person" ref="#pmb21501">Gyp</rs></hi> anklingt. Als die Perle der <rs type="work" ref="#pmb29935" subtype="implied">Sammlung</rs> möchte ich »<rs type="work" ref="#pmb30145">Denksteine</rs>«
+               bezeichnen. Der Schluß i<c rendition="#langesS">s</c>t <pb facs="MS-SCHNITZLER-B-00106-000-00012-1"/>mei<c rendition="#langesS">s</c>terhaft,
+               unerwartet, überwältigend – und <c rendition="#langesS">s</c>o p<c rendition="#langesS">s</c>ychologi<c rendition="#langesS">s</c>ch <hi rend="underline" n="1">berechtigt</hi>. — Einige Aphorismen möchte ich wirklich den be<c rendition="#langesS">s</c>ten <del rend="strikethrough">beste</del> die ich kenne einreihen;<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>o <del rend="strikethrough"><unclear>werden</unclear></del> zB <add place="above">dieses</add>: »gewi<c rendition="#langesS">s</c><c rendition="#langesS">s</c>e Arten den Wahrheit<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>ind nur die
+               Aufrichtigkeit ermüdeter Lügner«. Der Ausdruck: Hypochonder der Liebe, jener andere:
+               »leicht<c rendition="#langesS">s</c>inniger Melancholiker« entzücken mich durch ihre Richtigkeit. Kurz, die
+               Lektüre i<c rendition="#langesS">s</c>t mir ein Genuß gewe<c rendition="#langesS">s</c>en. Nehmen Sie meine aufrichtig<c rendition="#langesS">s</c>ten Complimente –</p><p>Was macht Ihr Stück: »<rs type="work" ref="#pmb29823">Das Märchen</rs>?« Ich habe nie
+               ver<c rendition="#langesS">s</c>äumt, in der <rs type="work" ref="#pmb36374">N.F.P</rs> unter den
+               »Theaternachrichten« danach zu<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>chauen, habe es aber, bis <pb facs="MS-SCHNITZLER-B-00106-000-00011-0"/>jetzt nicht finden können.</p><p>Ich<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>chicke diesen Brief auf Gut Glück an Ihre alte <rs type="place" ref="#pmb167805" subtype="implied">Adre<c rendition="#langesS">s</c><c rendition="#langesS">s</c>e</rs>, überzeugt daß er Ihnen<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>chließlich zukommen wird.
+               Bitte mir <anchor type="commentary" xml:id="K_L04326-1"/>Ihre <rs type="place" subtype="implied" ref="#pmb167782">neue</rs><note type="commentary" corresp="K_L04326-1"><rs type="person" ref="#pmb2121">Schnitzler</rs> übersiedelte laut <rs type="work" ref="#pmb33243">Tagebuch</rs> am <ref type="schnitzler-tagebuch" target="1892-10-15" subtype="date-only"/> von der <rs type="place" ref="#pmb167805">Giselastraße 11</rs> in die <rs type="place" ref="#pmb167782">Grillparzerstraße 7</rs>.</note> möglich<c rendition="#langesS">s</c>t umgehend mitzutheilen; ich möchte
+               Ihnen mein<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>oeben er<c rendition="#langesS">s</c>chienenes »<rs type="work" ref="#pmb31653">Oberlicht</rs>« auf<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>ichere Wei<c rendition="#langesS">s</c>e zukommen la<c rendition="#langesS">s</c><c rendition="#langesS">s</c>en. Auch würde ich Ihnen, be<c rendition="#langesS">s</c>ter Herr Doctor,<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>ehr für die
+               Angabe von <hi rend="latintype"><rs type="person" ref="#pmb10815">H. Bahrs</rs></hi> Adre<c rendition="#langesS">s</c><c rendition="#langesS">s</c>e verbunden<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>ein<supplied>.</supplied></p><p>Wir<space unit="chars" quantity="1"/><c rendition="#langesS">s</c>itzen hier in Wärme u Sonnen<c rendition="#langesS">s</c>chein, gehen ohne Mäntel aus, u le<c rendition="#langesS">s</c>en mit
+               angenehmem Gruseln Berichte über Fro<c rendition="#langesS">s</c>t u Schneeverwehungen aus den Binnenländern.
+               Bitte grüßen sie mir herzl. <hi rend="latintype"><rs type="person" ref="#pmb2167">Salten</rs></hi>, <hi rend="latintype"><rs type="person" ref="#pmb10815">Bahr</rs></hi>, <hi rend="latintype"><rs type="person" ref="#pmb11740">Loris</rs></hi>, <hi rend="latintype"><rs type="person" ref="#pmb14756">Beraton</rs></hi>, <add place="above"><hi rend="latintype"><rs type="person" ref="#pmb10863">Beer-Hoffmann</rs></hi>,</add> u die <anchor type="textConst" xml:id="T_L04326-1"/>andern Herrn<note type="textConst" corresp="T_L04326-1">ab hier bis zum Schluss entlang des linken
+                     Seitenrandes geschrieben</note><anchor type="commentary" xml:id="K_L04326-2"/>des »allerjüng<c rendition="#langesS">s</c>ten«<note type="commentary" corresp="K_L04326-2">Anspielung auf den literarischen Nachwuchs <rs type="place" ref="#pmb50">Wiens</rs>, für den sich bald »Jung Wien« als Begrifflichkeit durchsetzte</note> u la<c rendition="#langesS">s</c><c rendition="#langesS">s</c>en Sie <c rendition="#langesS">s</c>ich <c rendition="#langesS">s</c>elb<c rendition="#langesS">s</c>t
+            herzl. die Hand drücken von Ihrem in wirklicher Verehrung ergebnen</p><closer><signed>Torresani</signed></closer></div>
+      </body>
+      <back>
+         <listPerson>
+            <person xml:id="pmb26121">
+               <persName>
+                  <forename>Carl von</forename>
+                  <surname>Torresani-Lanzenfeld</surname>
+               </persName>
+               <birth>
+                  <date when="1846-04-19">1846-04-19</date>
+                  <settlement ref="pmb886">
+                     <placeName type="pref">Mailand</placeName>
+                     <location>
+                        <geo>45,46427 9,18951</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1907-04-16">1907-04-16</date>
+                  <settlement ref="pmb36469">
+                     <placeName type="pref">Nago-Torbole</placeName>
+                     <location>
+                        <geo>45,87594 10,89106</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2121">
+               <persName>
+                  <surname>Schnitzler</surname>
+                  <forename>Arthur</forename>
+               </persName>
+               <birth>
+                  <date when="1862-05-15">15. 5. 1862</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1931-10-21">21. 10. 1931</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb12201">
+               <persName>
+                  <forename>Guy de</forename>
+                  <surname>Maupassant</surname>
+               </persName>
+               <birth>
+                  <date when="1850-08-05">1850-08-05</date>
+                  <settlement ref="pmb39903">
+                     <placeName type="pref">Tourville-sur-Arques</placeName>
+                     <location>
+                        <geo>49,85926 1,10238</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1893-07-07">1893-07-07</date>
+                  <settlement ref="pmb182">
+                     <placeName type="pref">Paris</placeName>
+                     <location>
+                        <geo>48,85341 2,3488</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb21501">
+               <persName>
+                  <forename>Sibylle de</forename>
+                  <surname>Mirabeau</surname>
+               </persName>
+               <birth>
+                  <date when="1850-08-15">1850-08-15</date>
+                  <settlement ref="pmb43351">
+                     <placeName type="pref">Plumergat</placeName>
+                     <location>
+                        <geo>47,74134 -2,91501</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1932-06-30">1932-06-30</date>
+                  <settlement ref="pmb36749">
+                     <placeName type="pref">Neuilly-sur-Seine</placeName>
+                     <location>
+                        <geo>48,8846 2,26965</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10815">
+               <persName>
+                  <forename>Hermann</forename>
+                  <surname>Bahr</surname>
+               </persName>
+               <birth>
+                  <date when="1863-07-19">1863-07-19</date>
+                  <settlement ref="pmb332">
+                     <placeName type="pref">Linz</placeName>
+                     <location>
+                        <geo>48,3 14,28333</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1934-01-15">1934-01-15</date>
+                  <settlement ref="pmb45258">
+                     <placeName type="pref">München</placeName>
+                     <location>
+                        <geo>48,13743 11,57549</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb2167">
+               <persName>
+                  <forename>Felix</forename>
+                  <surname>Salten</surname>
+               </persName>
+               <birth>
+                  <date when="1869-09-06">1869-09-06</date>
+                  <settlement ref="pmb43471">
+                     <placeName type="pref">Budapest</placeName>
+                     <location>
+                        <geo>47,49835 19,04045</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-10-08">1945-10-08</date>
+                  <settlement ref="pmb484">
+                     <placeName type="pref">Zürich</placeName>
+                     <location>
+                        <geo>47,37174 8,54226</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb11740">
+               <persName>
+                  <forename>Hugo von</forename>
+                  <surname>Hofmannsthal</surname>
+               </persName>
+               <birth>
+                  <date when="1874-02-01">1874-02-01</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1929-07-15">1929-07-15</date>
+                  <settlement ref="pmb173">
+                     <placeName type="pref">Rodaun</placeName>
+                     <location>
+                        <geo>48,132793312328 16,256152195922</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb14756">
+               <persName>
+                  <forename>Ferry</forename>
+                  <surname>Bératon</surname>
+               </persName>
+               <birth>
+                  <date when="1859-12-06">1859-12-06</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1900-02-11">1900-02-11</date>
+                  <settlement ref="pmb462">
+                     <placeName type="pref">Venedig</placeName>
+                     <location>
+                        <geo>45,43713 12,33265</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10863">
+               <persName>
+                  <forename>Richard</forename>
+                  <surname>Beer-Hofmann</surname>
+               </persName>
+               <birth>
+                  <date when="1866-07-11">1866-07-11</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1945-09-26">1945-09-26</date>
+                  <settlement ref="pmb44053">
+                     <placeName type="pref">New York City</placeName>
+                     <location>
+                        <geo>40,71427 -74,00597</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10809">
+               <persName>
+                  <forename>Eduard</forename>
+                  <surname>Bacher</surname>
+               </persName>
+               <birth>
+                  <date when="1846-03-07">1846-03-07</date>
+                  <settlement ref="pmb44284">
+                     <placeName type="pref">Postoloprty</placeName>
+                     <location>
+                        <geo>50,35979 13,70291</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1908-01-16">1908-01-16</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10875">
+               <persName>
+                  <forename>Moriz</forename>
+                  <surname>Benedikt</surname>
+               </persName>
+               <birth>
+                  <date when="1849-05-27">1849-05-27</date>
+                  <settlement ref="pmb43642">
+                     <placeName type="pref">Kvačice</placeName>
+                     <location>
+                        <geo>48,98984 17,41025</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1920-03-18">1920-03-18</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+            <person xml:id="pmb10872">
+               <persName>
+                  <forename>Ernst</forename>
+                  <surname>Benedikt</surname>
+               </persName>
+               <birth>
+                  <date when="1882-05-20">1882-05-20</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </birth>
+               <death>
+                  <date when="1973-12-28">1973-12-28</date>
+                  <settlement ref="pmb50">
+                     <placeName type="pref">Wien</placeName>
+                     <location>
+                        <geo>48,208333 16,373056</geo>
+                     </location>
+                  </settlement>
+               </death>
+            </person>
+         </listPerson>
+         <listBibl>
+            <bibl xml:id="pmb29935">
+               <title>Anatol</title>
+               <title type="werk_bibliografische-angabe">Arthur Schnitzler: Anatol. Berlin: Bibliographisches Bureau 1892, vordatiert auf 1893</title>
+               <title type="legacy-name-merge">Anatol</title>
+               <author ref="pmb2121" role="hat-geschaffen">Schnitzler, Arthur</author>
+               <author ref="pmb11740" role="hat-ein-vorwortnachwort-verfasst-zu">Hofmannsthal, Hugo von</author>
+            </bibl>
+            <bibl xml:id="pmb30145">
+               <title>Denksteine</title>
+               <title type="werk_bibliografische-angabe">Arthur Schnitzler: Denksteine. In: Moderne Rundschau, Bd. 3, H. 4, 15. 5. 1891, S. 151–154</title>
+               <author ref="pmb2121" role="hat-geschaffen">Schnitzler, Arthur</author>
+            </bibl>
+            <bibl xml:id="pmb29823">
+               <title>Das Märchen. Schauspiel in drei Aufzügen</title>
+               <title type="werk_bibliografische-angabe">Arthur Schnitzler: Das Märchen. Schauspiel in drei Aufzügen. Dresden, Leipzig: E. Pierson’s Verlag 1894.</title>
+               <title type="werk_link">https://babel.hathitrust.org/cgi/pt?id=coo.31924026341598&amp;view=1up&amp;seq=5</title>
+               <author ref="pmb2121" role="hat-geschaffen">Schnitzler, Arthur</author>
+            </bibl>
+            <bibl xml:id="pmb36374">
+               <title>Neue Freie Presse</title>
+               <title type="werk_link">http://anno.onb.ac.at/cgi-content/anno?aid=nfp</title>
+               <title type="legacy-name-merge">Neue freie Presse (Zeitung, Wien)</title>
+               <author ref="pmb10809" role="hat-herausgegeben">Bacher, Eduard</author>
+               <author ref="pmb10875" role="hat-herausgegeben">Benedikt, Moriz</author>
+               <author ref="pmb10872" role="hat-herausgegeben">Benedikt, Ernst</author>
+            </bibl>
+            <bibl xml:id="pmb31653">
+               <title>Oberlicht. Künstlerroman</title>
+               <title type="legacy-name-merge">Oberlicht. Künstlerroman</title>
+               <title type="werk_bibliografische-angabe">Oberlicht. Künstlerroman. Dresden 1892.</title>
+               <author ref="pmb26121" role="hat-geschaffen">Torresani-Lanzenfeld, Carl von</author>
+            </bibl>
+            <bibl xml:id="pmb33243" ana="comment">
+               <title>Tagebuch</title>
+               <title type="werk_link">https://schnitzler-tagebuch.acdh.oeaw.ac.at</title>
+               <author ref="pmb2121" role="hat-geschaffen">Schnitzler, Arthur</author>
+            </bibl>
+         </listBibl>
+         <listPlace>
+            <place xml:id="pmb445">
+               <placeName>Rom</placeName>
+               <placeName type="legacy-name-merge">bei Rom</placeName>
+               <placeName type="legacy-name-merge">Roma</placeName>
+               <location type="coords">
+                  <geo>41,89193 12,51133</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb40306">Italien</placeName>
+                  <geo>42,83333 12,83333</geo>
+               </location>
+            </place>
+            <place xml:id="pmb50" ana="comment">
+               <placeName>Wien</placeName>
+               <placeName type="ort_fruherer-name">K.K. Reichshaupt- und Residenzstadt Wien</placeName>
+               <placeName type="alternative-name">Bécs</placeName>
+               <placeName type="alternative-name">Land Wien</placeName>
+               <placeName type="alternative-name">Vídeň</placeName>
+               <placeName type="alternative-name">Wenia</placeName>
+               <placeName type="alternative-name">Beč</placeName>
+               <placeName type="ort_fruherer-name">Vindobona</placeName>
+               <placeName type="alternative-name">Vienna</placeName>
+               <location type="coords">
+                  <geo>48,208333 16,373056</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb41240">Österreich</placeName>
+                  <geo>47,33333 13,33333</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb235218">Windmühlhöhe</placeName>
+                  <geo>48,24077 16,32092</geo>
+               </location>
+            </place>
+            <place xml:id="pmb336768">
+               <placeName>Piazza Montecitorio 121</placeName>
+               <location type="coords">
+                  <geo>41,90063306849813 12,47837907729109</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb336770">Piazza Montecitorio</placeName>
+                  <geo>41,90089034146982 12,478781141865971</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb445">Rom</placeName>
+                  <geo>41,89193 12,51133</geo>
+               </location>
+            </place>
+            <place xml:id="pmb166">
+               <placeName>Frankreich</placeName>
+               <placeName type="alternative-name">France</placeName>
+               <location type="coords">
+                  <geo>46,0 2,0</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb468">Europa</placeName>
+                  <geo>48,69096 9,14062</geo>
+               </location>
+            </place>
+            <place xml:id="pmb167805" ana="implied">
+               <placeName>Kärntnerring 12/Bösendorferstraße 11</placeName>
+               <placeName type="ort_fruherer-name">Giselastraße 11</placeName>
+               <location type="coords">
+                  <geo>48,20143 16,37196</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb51">I., Innere Stadt</placeName>
+                  <geo>48,20769 16,37049</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb501">Kärntnerring</placeName>
+                  <geo>48,201874800905 16,371985203093</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb542">Bösendorferstraße</placeName>
+                  <geo>48,201213 16,371141</geo>
+               </location>
+            </place>
+            <place xml:id="pmb167782" ana="implied">
+               <placeName>Wohnung und Ordination Arthur Schnitzler Grillparzerstraße 7/3. Stock</placeName>
+               <location type="coords">
+                  <geo>48,212477 16,357233</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb51">I., Innere Stadt</placeName>
+                  <geo>48,20769 16,37049</geo>
+               </location>
+               <location type="located_in_place">
+                  <placeName ref="pmb412">Grillparzerstraße</placeName>
+                  <geo>48,212643768549 16,357353835756</geo>
+               </location>
+            </place>
+         </listPlace>
+      </back>
+   </text>
+</TEI>

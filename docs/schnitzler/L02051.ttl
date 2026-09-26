@@ -1,0 +1,413 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tcb: <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/1> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/m-brandes-c43e17e709> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "22"^^xsd:nonNegativeInteger ;
+                            oa:start "13"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "M Brandes" ;
+                            oa:prefix "* Expedié par" ;
+                            oa:suffix "Demt àHotel d’JénaParis" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/3385a3401d8b> ;
+    tcb:confidence 0.9725 ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/10> a oa:Annotation ;
+    oa:hasBody <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb36300> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][1]/*[local-name()='rs'][1]" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "144"^^xsd:nonNegativeInteger ;
+                            oa:start "134"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Kopenhagen" ;
+                            oa:prefix "verschiedenen Festlichkeiten in " ;
+                            oa:suffix """
+               zu vermeiden. Ic""" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    tcb:origin tcb:editorial .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/11> a oa:Annotation ;
+    oa:hasBody <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29526> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][2]/*[local-name()='rs'][1]" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][2]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "297"^^xsd:nonNegativeInteger ;
+                            oa:start "283"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][2]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Kgl. Bibliotek" ;
+                            oa:prefix "eten ausschlug – einen Saal der " ;
+                            oa:suffix " zu einem G. B.-Archiv zu verwan" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    tcb:origin tcb:editorial .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/12> a oa:Annotation ;
+    oa:hasBody <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29528> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][2]/*[local-name()='rs'][2]" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][2]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "319"^^xsd:nonNegativeInteger ;
+                            oa:start "307"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][2]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "G. B.-Archiv" ;
+                            oa:prefix "aal der Kgl. Bibliotek zu einem " ;
+                            oa:suffix " zu verwandeln und mit meiner Bü" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    tcb:origin tcb:editorial .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/13> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/arthur-s-d71d6dbf27> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n3']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][4]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "30"^^xsd:nonNegativeInteger ;
+                            oa:start "21"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='p'][4]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Arthur S." ;
+                            oa:prefix "Glücklicherweise für " ;
+                            oa:suffix " halten wir noch immer dieselbe " ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/3385a3401d8b> ;
+    tcb:confidence 0.9977 ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/14> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/georg-brandes-17d9260253> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n4']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='closer'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "29"^^xsd:nonNegativeInteger ;
+                            oa:start "16"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='closer'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Georg Brandes" ;
+                            oa:prefix "Ihr ergebenster " ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/3385a3401d8b> ;
+    tcb:confidence 0.9977 ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/2> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/demt-eedd11bb92> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "26"^^xsd:nonNegativeInteger ;
+                            oa:start "22"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Demt" ;
+                            oa:prefix "* Expedié parM Brandes" ;
+                            oa:suffix " àHotel d’JénaParis" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/3385a3401d8b> ;
+    tcb:confidence 0.9725 ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/3> a oa:Annotation ;
+    oa:hasBody <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb1131> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]/*[local-name()='addrLine'][3]/*[local-name()='rs'][1]" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "40"^^xsd:nonNegativeInteger ;
+                            oa:start "28"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Hotel d’Jéna" ;
+                            oa:prefix "* Expedié parM BrandesDemt à" ;
+                            oa:suffix "Paris" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    tcb:origin tcb:editorial .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/4> a oa:Annotation ;
+    oa:hasBody <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb182> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]/*[local-name()='addrLine'][4]/*[local-name()='rs'][1]" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "45"^^xsd:nonNegativeInteger ;
+                            oa:start "40"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Paris" ;
+                            oa:prefix "é parM BrandesDemt àHotel d’Jéna" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    tcb:origin tcb:editorial .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/5> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/monsieur-arthur-schnitzler-5ed5f4473a> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "26"^^xsd:nonNegativeInteger ;
+                            oa:start "0"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Monsieur Arthur Schnitzler" ;
+                            oa:suffix "Sternwartestrasse 71VienneAutric" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/3385a3401d8b> ;
+    tcb:confidence 0.9977 ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/6> a oa:Annotation ;
+    oa:hasBody <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb168815> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]/*[local-name()='addrLine'][2]/*[local-name()='rs'][1]" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "46"^^xsd:nonNegativeInteger ;
+                            oa:start "26"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Sternwartestrasse 71" ;
+                            oa:prefix "Monsieur Arthur Schnitzler" ;
+                            oa:suffix "VienneAutriche" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    tcb:origin tcb:editorial .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/7> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/vienne-86af5bb904> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n1']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "52"^^xsd:nonNegativeInteger ;
+                            oa:start "46"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Vienne" ;
+                            oa:prefix "r SchnitzlerSternwartestrasse 71" ;
+                            oa:suffix "Autriche" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/3385a3401d8b> ;
+    tcb:confidence 0.9966 ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/8> a oa:Annotation ;
+    oa:hasBody <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/autriche-59d8c0aaaa> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "//*[@xml:id='tcb-n2']" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "60"^^xsd:nonNegativeInteger ;
+                            oa:start "52"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][1]/*[local-name()='address'][2]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Autriche" ;
+                            oa:prefix "itzlerSternwartestrasse 71Vienne" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/3385a3401d8b> ;
+    tcb:confidence 0.9958 ;
+    tcb:origin tcb:automatic .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/mention/L02051/9> a oa:Annotation ;
+    oa:hasBody <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb1131> ;
+    oa:hasTarget [ a oa:SpecificResource ;
+            oa:hasSelector [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='opener'][1]/*[local-name()='dateline'][1]/*[local-name()='seg'][1]/*[local-name()='rs'][1]" ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='opener'][1]" ;
+                    oa:refinedBy [ a oa:TextPositionSelector ;
+                            oa:end "19"^^xsd:nonNegativeInteger ;
+                            oa:start "0"^^xsd:nonNegativeInteger ] ],
+                [ a oa:XPathSelector ;
+                    rdf:value "/*[local-name()='TEI']/*[local-name()='text'][1]/*[local-name()='body'][1]/*[local-name()='div'][2]/*[local-name()='opener'][1]" ;
+                    oa:refinedBy [ a oa:TextQuoteSelector ;
+                            oa:exact "Paris. Hotel d’Jéna" ;
+                            oa:suffix "3 Febr. 12Verehrter Freund, vere" ] ] ;
+            oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
+    oa:motivatedBy oa:identifying ;
+    tcb:origin tcb:editorial .
+
+<https://github.com/klausbehnamshad/tei-crm-bridge> a prov:SoftwareAgent ;
+    rdfs:label "TEI CRM Bridge" .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb10992> a crm:E21_Person ;
+    rdfs:label "Georg Brandes" .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb2121> a crm:E21_Person ;
+    rdfs:label "Arthur Schnitzler" .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb2173> a crm:E21_Person ;
+    rdfs:label "Olga Schnitzler" .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051> a crm:E31_Document ;
+    rdfs:label "Georg Brandes an Arthur und Olga Schnitzler, 3. 2. 1912" ;
+    crm:P67_refers_to <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb1131>,
+        <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb168815>,
+        <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb182>,
+        <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29526>,
+        <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29528>,
+        <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb36300> ;
+    crm:P70_documents <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/event/L02051/received-1>,
+        <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/event/L02051/sent-1> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/autriche-59d8c0aaaa> a tcb:Candidate ;
+    rdfs:label "Autriche" ;
+    tcb:suggestedClass crm:E53_Place .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/loc/vienne-86af5bb904> a tcb:Candidate ;
+    rdfs:label "Vienne" ;
+    tcb:suggestedClass crm:E53_Place .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/arthur-s-d71d6dbf27> a tcb:Candidate ;
+    rdfs:label "Arthur S." ;
+    tcb:suggestedClass crm:E21_Person .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/demt-eedd11bb92> a tcb:Candidate ;
+    rdfs:label "Demt" ;
+    tcb:suggestedClass crm:E21_Person .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/georg-brandes-17d9260253> a tcb:Candidate ;
+    rdfs:label "Georg Brandes" ;
+    tcb:suggestedClass crm:E21_Person .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/m-brandes-c43e17e709> a tcb:Candidate ;
+    rdfs:label "M Brandes" ;
+    tcb:suggestedClass crm:E21_Person .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051/candidate/per/monsieur-arthur-schnitzler-5ed5f4473a> a tcb:Candidate ;
+    rdfs:label "Monsieur Arthur Schnitzler" ;
+    tcb:suggestedClass crm:E21_Person .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/event/L02051/received-1> a crm:E7_Activity ;
+    rdfs:label "Empfang: Georg Brandes an Arthur und Olga Schnitzler, 3. 2. 1912" ;
+    crm:P14_carried_out_by <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb2121>,
+        <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb2173> ;
+    crm:P2_has_type tcb:receiving ;
+    crm:P4_has_time-span <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/event/L02051/received-1/time> ;
+    crm:P7_took_place_at <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb168815> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/event/L02051/received-1/time> a crm:E52_Time-Span ;
+    rdfs:label "[4. 2. 1912 – 8. 2. 1912?]" ;
+    crm:P3_has_note "TEI notBefore=\"1912-02-04\" notAfter=\"1912-02-08\"; evidence=conjecture" ;
+    crm:P82a_begin_of_the_begin "1912-02-04T00:00:00"^^xsd:dateTime ;
+    crm:P82b_end_of_the_end "1912-02-08T23:59:59"^^xsd:dateTime .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/event/L02051/sent-1> a crm:E7_Activity ;
+    rdfs:label "Versand: Georg Brandes an Arthur und Olga Schnitzler, 3. 2. 1912" ;
+    crm:P14_carried_out_by <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb10992> ;
+    crm:P2_has_type tcb:sending ;
+    crm:P4_has_time-span <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/event/L02051/sent-1/time> ;
+    crm:P7_took_place_at <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb182> .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/event/L02051/sent-1/time> a crm:E52_Time-Span ;
+    rdfs:label "3. 2. 1912" ;
+    crm:P3_has_note "TEI when=\"1912-02-03\"" ;
+    crm:P82a_begin_of_the_begin "1912-02-03T00:00:00"^^xsd:dateTime ;
+    crm:P82b_end_of_the_end "1912-02-03T23:59:59"^^xsd:dateTime .
+
+tcb:receiving a crm:E55_Type ;
+    rdfs:label "Empfang"@de,
+        "receiving"@en .
+
+tcb:sending a crm:E55_Type ;
+    rdfs:label "Versand"@de,
+        "sending"@en .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29526> a crm:E74_Group ;
+    rdfs:label "Det Kongelige Bibliotek" .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb29528> a crm:E74_Group ;
+    rdfs:label "Georg Brandes-arkiv" .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb36300> a crm:E53_Place ;
+    rdfs:label "Kopenhagen" .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb1131> a crm:E53_Place ;
+    rdfs:label "Hotel d’Jéna" .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb168815> a crm:E53_Place ;
+    rdfs:label "Sternwartestraße 71" .
+
+<https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb182> a crm:E53_Place ;
+    rdfs:label "Paris" .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/3385a3401d8b> a prov:Activity ;
+    prov:used <https://huggingface.co/impresso-project/ner-hipe2020-hist-base> ;
+    prov:wasAssociatedWith <https://github.com/klausbehnamshad/tei-crm-bridge> ;
+    tcb:aggregation "first" ;
+    tcb:engine "hf" ;
+    tcb:model "impresso-project/ner-hipe2020-hist-base" ;
+    tcb:modelRevision "afd1b509233560298ae39360ad3186253c5800d3" ;
+    tcb:reading "edited" ;
+    tcb:softwareVersion "0.2.0" ;
+    tcb:stride 128 ;
+    tcb:threshold 0.85 .
+
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> dcterms:format "application/tei+xml" ;
+    dcterms:isFormatOf <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/document/L02051> ;
+    prov:wasDerivedFrom <https://raw.githubusercontent.com/arthur-schnitzler/schnitzler-briefe-data/76870800b474b0ab829c65ef1ad84c3ba5f81c4e/data/editions/L02051.xml> .
+
