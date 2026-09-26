@@ -11,11 +11,14 @@ from __future__ import annotations
 
 import http.client
 import json
+import os
 import re
 import ssl
+import tempfile
 import time
 import urllib.error
 import urllib.request
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
@@ -60,10 +63,22 @@ class ResolverError(RuntimeError):
     """Transport or parse failure; the caller skips caching and retries later."""
 
 
+class ApiDriftError(ResolverError):
+    """The API answered outside its known shape; abort instead of caching empties."""
+
+    def __init__(self, url: str, detail: str):
+        super().__init__(f"{url}: {detail}")
+        self.url = url
+
+
 class Resolver(Protocol):
     """Pluggable authority lookup, mirroring ``ner.Recognizer``."""
 
     name: str
+
+    def supports(self, kind: str, local_id: str) -> bool:
+        """Whether this backend can resolve the ID at all (no network). ..."""
+        ...
 
     def resolve(self, kind: str, local_id: str, label: str) -> AuthorityLinks:
         """Norm data for one register entity (``kind``: person/place/org). ..."""
@@ -106,6 +121,9 @@ class PmbResolver:
         self.user_agent = user_agent
         self.context = tls_context()
 
+    def supports(self, kind: str, local_id: str) -> bool:
+        return kind in self.ENDPOINTS and _PMB_ID.match(local_id) is not None
+
     def resolve(self, kind: str, local_id: str, label: str) -> AuthorityLinks:
         endpoint, match = self.ENDPOINTS.get(kind), _PMB_ID.match(local_id)
         if endpoint is None or match is None:
@@ -114,7 +132,7 @@ class PmbResolver:
         return pick_links(self._fetch(url))
 
     def _fetch(self, url: str) -> list[str]:
-        """The ``sameAs`` URI list of one entity; 404 and empty mean unresolved."""
+        """The ``sameAs`` URI list of one entity; 404-JSON means unresolved."""
         request = urllib.request.Request(url, headers={"User-Agent": self.user_agent, "Accept": "application/json"})
         for attempt in (1, 2):
             try:
@@ -122,9 +140,11 @@ class PmbResolver:
                     payload = json.load(response)
                 break
             except urllib.error.HTTPError as error:
-                if error.code == 404:
+                if error.code != 404:
+                    raise ResolverError(f"{url}: HTTP {error.code}") from None
+                if _is_api_not_found(error):
                     return []
-                raise ResolverError(f"{url}: HTTP {error.code}") from None
+                raise ApiDriftError(url, "404 ohne API-Fehlerformat") from None
             # Only h.request() errors arrive wrapped in URLError; getresponse()
             # and json.load() failures (drops, resets, bad status, raw SSL
             # errors) reach us unwrapped, hence the broad OSError branch below
@@ -136,10 +156,24 @@ class PmbResolver:
                 if attempt == 2:
                     raise ResolverError(f"{url}: {error}") from None
                 time.sleep(self.delay)
-        same = payload.get("sameAs") if isinstance(payload, dict) else None
+        if not isinstance(payload, dict):
+            raise ApiDriftError(url, "Antwort ist kein JSON-Objekt") from None
+        same = payload.get("sameAs")
         if not isinstance(same, list):
-            return []
+            raise ApiDriftError(url, "Antwort ohne sameAs-Liste") from None
         return [item for item in same if isinstance(item, str)]
+
+
+def _is_api_not_found(error: urllib.error.HTTPError) -> bool:
+    """True only for the API's own JSON error (missing entity, not a moved path)."""
+    ctype = error.headers.get_content_type() if error.headers else ""
+    if ctype != "application/json":
+        return False
+    try:
+        body = json.loads(error.read().decode("utf-8", "replace"))
+    except ValueError:
+        return False
+    return isinstance(body, dict) and "detail" in body
 
 
 def pick_links(uris: list[str]) -> AuthorityLinks:
@@ -190,9 +224,22 @@ def load_cache(path: Path) -> dict:
 
 def save_cache(path: Path, cache: dict) -> None:
     # Created here (not pre-checked): on total failure this never runs, so no
-    # file and no directory is left behind.
+    # file and no directory is left behind. Atomic within the target directory
+    # (same filesystem for os.replace); leftovers are removed on failure.
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(cache, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=path.name + ".", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            handle.write(json.dumps(cache, ensure_ascii=False, indent=2) + "\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(tmp, path)
+    except Exception:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+        raise
 
 
 def links_for(cache: Mapping | None, local_id: str) -> Mapping | None:
@@ -205,12 +252,17 @@ def links_for(cache: Mapping | None, local_id: str) -> Mapping | None:
 
 
 def update_cache(cache: dict, entities: dict[str, dict[str, str]], resolver: Resolver,
-                 offline: bool = False, max_leading_failures: int = 3) -> tuple[int, int, list[str]]:
+                 offline: bool = False, max_leading_failures: int = 3,
+                 checkpoint: Callable[[], None] | None = None,
+                 checkpoint_every: int = 25) -> tuple[int, int, list[str]]:
     """Fetch missing entities (one request per ID); returns (fetched, failed, warnings).
 
     ``max_leading_failures`` aborts the loop once that many fetches fail before
     the first success, so a systematic outage (no network, broken TLS) does not
-    burn hundreds of doomed requests on a large corpus.
+    burn hundreds of doomed requests on a large corpus. IDs the resolver does
+    not support are skipped with a warning (no entry, no fetch, no breaker).
+    An ``ApiDriftError`` aborts immediately. ``checkpoint`` runs after every
+    ``checkpoint_every`` newly stored entries.
     """
     fetched, failed, warnings = 0, 0, []
     missing = [local_id for local_id in entities if local_id not in cache["entries"]]
@@ -218,8 +270,15 @@ def update_cache(cache: dict, entities: dict[str, dict[str, str]], resolver: Res
         if offline:
             continue
         info = entities[local_id]
+        if not resolver.supports(info["kind"], local_id):
+            warnings.append(f"{local_id}: übersprungen, keine PMB-ID")
+            continue
         try:
             links = resolver.resolve(info["kind"], local_id, info["label"])
+        except ApiDriftError as error:
+            failed += 1
+            warnings.append(f"PMB-API geändert? {error}")
+            break
         except ResolverError as error:
             failed += 1
             warnings.append(f"{local_id}: Abruf gescheitert ({error}), kein Eintrag gespeichert")
@@ -237,6 +296,8 @@ def update_cache(cache: dict, entities: dict[str, dict[str, str]], resolver: Res
             warnings.append(f"{local_id} ({info['label']!r}): keine Normdaten, als unaufgelöst gespeichert")
         cache["entries"][local_id] = entry
         fetched += 1
+        if checkpoint is not None and checkpoint_every > 0 and fetched % checkpoint_every == 0:
+            checkpoint()
         if position < len(missing) - 1 and isinstance(resolver, PmbResolver):
             time.sleep(resolver.delay)
     return fetched, failed, warnings

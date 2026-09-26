@@ -8,6 +8,7 @@
 - Live-PMB-Tests in `tests/test_reconcile_integration.py`, per `TCB_PMB_TESTS` wie die Modelltests gegated.
 - `certifi` als Abhängigkeit: Das CA-Bundle wird additiv zum Plattform-Store geladen, sodass `SSL_CERT_FILE` weiter gilt (python.org-Python auf macOS hat sonst keinen CA-Store). Zertifikatsfehler ohne Retry, früher Abbruch nach drei gescheiterten Abrufen ohne Erfolg, Totalausfall endet mit Exit 1 ohne Cache-Schreiben.
 - Verbindungsabbrüche (`RemoteDisconnected`, `IncompleteRead`, Resets) zählen als Netzfehler mit einem Retry. Der `--cache`-Pfad wird vor dem Netzlauf geprüft (Verzeichnis → Exit 2); fehlende Elternordner legt `save_cache` an.
+- Cache-Integrität: IDs ohne `pmb<N>`-Form werden übersprungen (Warnung, kein Eintrag); API-Antworten außerhalb der bekannten Form brechen den Lauf sofort ab (Exit 1, bisher Geholtes bleibt gespeichert); `save_cache` schreibt atomar mit Checkpoints alle 25 Einträge; Strg-C sichert und meldet Exit 130; korrupter Cache endet mit Exit 2 statt Traceback.
 
 ### CMIF
 - Neuer Unterbefehl `tei-crm cmif` (`cmif.py`): sammelt `correspDesc`/`correspAction` vieler Originalbriefe in einer CMIF-Datei für correspSearch; Brief-URL aus `--url-pattern` (`{id}` = `xml:id`), stabile Dateiadresse aus `--cmif-url`, Titel/Verlag/Lizenz aus dem `teiHeader` oder aus Optionen.
