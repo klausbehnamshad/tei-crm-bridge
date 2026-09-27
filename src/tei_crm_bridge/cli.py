@@ -17,7 +17,17 @@ from .cmif import CmifOptions, export_cmif
 from .core import enrich
 from .ner import GlossaryRecognizer, HuggingFaceRecognizer
 from .preview import write_preview
-from .reconcile import PmbResolver, collect_entities, load_cache, new_cache, save_cache, summarize, update_cache
+from .reconcile import (
+    Failure,
+    PmbResolver,
+    UpdateResult,
+    collect_entities,
+    load_cache,
+    new_cache,
+    save_cache,
+    summarize,
+    update_cache,
+)
 
 
 def _enrich_parser(parser: argparse.ArgumentParser) -> None:
@@ -177,45 +187,107 @@ def run_reconcile(args: argparse.Namespace, parser: argparse.ArgumentParser) -> 
     resolver = resolvers[args.resolver](delay=args.delay)
     cache["resolver"] = resolver.name
     known = set(cache["entries"])
-    interrupted = False
     try:
-        fetched, failed, warnings = update_cache(cache, entities, resolver, offline=args.offline,
-                                                 checkpoint=lambda: save_cache(args.cache, cache))
+        result: UpdateResult | None = update_cache(cache, entities, resolver, offline=args.offline,
+                                                   checkpoint=lambda: save_cache(args.cache, cache))
     except KeyboardInterrupt:
-        interrupted = True
-        fetched = len(set(cache["entries"]) - known)
-        failed, warnings = 0, []
-    skipped = sum(1 for local_id, info in entities.items()
-                  if local_id not in cache["entries"] and not resolver.supports(info["kind"], local_id))
+        result = None
+    interrupted = result is None
+    outcome = result or UpdateResult(
+        fetched=len(set(cache["entries"]) - known),
+        skipped=sum(1 for local_id, info in entities.items()
+                    if local_id not in cache["entries"] and not resolver.supports(info["kind"], local_id)))
+    fetched, failed = outcome.fetched, outcome.failed
+    systemic = [failure for failure in outcome.failures if failure.systemic]
+    if interrupted:
+        status = "interrupted"
+    elif outcome.stop == "drift":
+        status = "drift"
+    elif outcome.stop == "consecutive":
+        status = "aborted"
+    elif fetched == 0 and systemic:
+        status = "no_progress"
+    else:
+        status = "partial" if failed else "ok"
     changed = False
-    if fetched > 0 or (failed == 0 and not interrupted and not args.cache.is_file()):
+    # A first run ending ok/partial always leaves a valid (possibly empty) cache,
+    # so a following ``cmif``/``enrich --reconciliation`` finds the file.
+    if fetched > 0 or (status in ("ok", "partial") and not args.cache.is_file()):
         try:
             save_cache(args.cache, cache)
         except OSError as error:
             parser.exit(1, f"tei-crm reconcile: Cache {args.cache} konnte nicht geschrieben werden "
-                           f"({error}); {fetched} Abrufe verworfen.\n")
+                           f"({error}); {_count(fetched, 'Abruf', 'Abrufe')} verworfen.\n")
         changed = True
     report = {"cache": str(args.cache), "offline": args.offline, "entities": len(entities),
-              "fetched": fetched, "failed": failed, "skipped": skipped, "written": changed,
-              "summary": summarize(entities, cache), "warnings": warnings}
+              "fetched": fetched, "failed": failed, "skipped": outcome.skipped, "written": changed,
+              "status": status,
+              "failures": [{"id": failure.local_id, "systemic": failure.systemic, "detail": failure.detail}
+                           for failure in outcome.failures],
+              "summary": summarize(entities, cache), "warnings": outcome.warnings}
     if interrupted:
         report["interrupted"] = True
     print(json.dumps(report, ensure_ascii=False, indent=2))
+    prefix = "tei-crm reconcile: "
     if interrupted:
-        parser.exit(130, "tei-crm reconcile: Abgebrochen (Strg-C); bisherige Einträge gespeichert.\n")
-    drift = next((match.group(1) for warning in warnings
-                  if (match := re.search(r"PMB-API geändert\? (\S+): ", warning)) is not None), None)
-    if drift is not None:
-        parser.exit(1, f"tei-crm reconcile: Unerwartete PMB-Antwort ({drift}) – API geändert? "
+        parser.exit(130, f"{prefix}Abgebrochen (Strg-C); bisherige Einträge gespeichert.\n")
+    if status == "drift":
+        parser.exit(1, f"{prefix}Unerwartete PMB-Antwort ({outcome.drift_url}) – API geändert? "
                        "Bisherige Einträge gespeichert, Lauf abgebrochen.\n")
-    if fetched == 0 and failed > 0:
-        # Total failure: no new cache file, existing cache untouched; exit 1 is
-        # a runtime error while exit 2 stays reserved for argparse usage errors.
-        parser.exit(1, f"tei-crm reconcile: Alle {failed} PMB-Abrufe gescheitert ({warnings[0]}). "
-                       "Netzwerk/Proxy prüfen; bei Zertifikatsfehlern certifi installieren oder "
-                       "SSL_CERT_FILE auf ein CA-Bundle setzen. Cache nicht geschrieben.\n")
+    # Exit 1 is a runtime error; exit 2 stays reserved for argparse usage errors.
+    if status == "no_progress":
+        what = (f"Die ersten {outcome.attempted} von {outcome.attempted + outcome.untried} Abrufen sind "
+                f"gescheitert, {outcome.untried} nicht versucht" if outcome.stop == "leading"
+                else f"{_count(failed, 'Abruf ist', 'Abrufe sind')} gescheitert, keiner erfolgreich")
+        parser.exit(1, f"{prefix}{what} ({_cause_text(systemic[0])}). {_advice(systemic[0])} "
+                       "Cache nicht geschrieben.\n")
+    if status == "aborted":
+        parser.exit(1, f"{prefix}Lauf nach {_count(outcome.streak, 'systematischen Fehler', 'systematischen Fehlern')} "
+                       "in Folge abgebrochen "
+                       f"({_cause_text(systemic[-1])}); {_count(fetched, 'Eintrag', 'Einträge')} gespeichert, "
+                       f"{outcome.untried} nicht versucht. {_advice(systemic[-1])} "
+                       "Erneut ausführen, um den Rest zu holen.\n")
     if failed:
-        print(f"Hinweis: {failed} Abrufe gescheitert; ein erneuter Lauf holt sie nach.", file=sys.stderr)
+        listed = ", ".join(f"{failure.local_id} ({_cause_text(failure)})" for failure in outcome.failures[:10])
+        more = f" und {len(outcome.failures) - 10} weitere" if len(outcome.failures) > 10 else ""
+        print(f"Hinweis: {_count(failed, 'Abruf', 'Abrufe')} gescheitert: {listed}{more}. "
+              "Ein erneuter Lauf versucht es noch einmal.", file=sys.stderr)
+
+
+def _count(number: int, singular: str, plural: str) -> str:
+    return f"{number} {singular if number == 1 else plural}"
+
+
+def _cause_text(failure: Failure) -> str:
+    """Short German cause: the HTTP status where there is one, else the cause class."""
+    status = re.search(r"HTTP (\d{3})", failure.detail)
+    if status:
+        return f"HTTP {status.group(1)}"
+    return {"transport": "Netzfehler", "tls": "Zertifikatsfehler", "throttle": "Server überlastet",
+            "drift": "API geändert", "http": "HTTP-Fehler"}[failure.cause]
+
+
+def _advice(failure: Failure) -> str:
+    """What to do next, matching the cause (network/TLS advice only for those)."""
+    if failure.cause == "tls":
+        return f"Zertifikate prüfen: {_tls_hint()}"
+    if failure.cause == "transport":
+        return "Netzwerk/Proxy prüfen."
+    if failure.cause == "throttle":
+        return "Die PMB drosselt oder ist überlastet; später erneut versuchen oder --delay erhöhen."
+    return "Die PMB meldet Fehler; später erneut versuchen."
+
+
+def _tls_hint() -> str:
+    """The certificate fix that applies here: certifi missing, its bundle unusable, or neither."""
+    try:
+        import certifi
+    except ImportError:
+        return "certifi installieren oder SSL_CERT_FILE auf ein CA-Bundle setzen."
+    bundle = Path(certifi.where())
+    if not bundle.is_file() or bundle.stat().st_size == 0:
+        return f"das certifi-Bundle {bundle} fehlt oder ist leer: certifi neu installieren oder SSL_CERT_FILE setzen."
+    return "SSL_CERT_FILE auf das CA-Bundle der Einrichtung setzen (Proxy mit eigener CA?)."
 
 
 if __name__ == "__main__":
