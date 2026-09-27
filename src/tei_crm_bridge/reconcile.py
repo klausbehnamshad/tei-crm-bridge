@@ -9,6 +9,7 @@ null values. Nothing is invented.
 
 from __future__ import annotations
 
+import email.utils
 import http.client
 import json
 import os
@@ -19,10 +20,10 @@ import time
 import urllib.error
 import urllib.request
 from collections.abc import Callable
-from dataclasses import dataclass
-from datetime import date
+from dataclasses import dataclass, field
+from datetime import date, datetime, timezone
 from pathlib import Path
-from typing import Mapping, Protocol
+from typing import Literal, Mapping, Protocol
 
 from lxml import etree
 
@@ -59,15 +60,37 @@ class AuthorityLinks:
         return self.gnd is not None or self.geonames is not None or self.wikidata is not None
 
 
+#: Why a lookup failed. Everything but ``http`` points at a systematic problem
+#: (network, TLS, rate limiting, API change) rather than at one entity.
+Cause = Literal["transport", "tls", "throttle", "http", "drift"]
+
+#: Statuses that mean "the server is busy", retried with backoff.
+THROTTLE_STATUS = frozenset({429, 502, 503, 504})
+
+#: Bounds for one backoff wait: at least this long even with ``--delay 0``,
+#: at most this long whatever ``Retry-After`` asks for.
+MIN_BACKOFF = 1.0
+MAX_BACKOFF = 60.0
+
+
 class ResolverError(RuntimeError):
-    """Transport or parse failure; the caller skips caching and retries later."""
+    """Lookup failure; the caller skips caching and retries on a later run."""
+
+    def __init__(self, message: str, cause: Cause = "transport"):
+        super().__init__(message)
+        self.cause: Cause = cause
+
+    @property
+    def systemic(self) -> bool:
+        """True unless the failure is specific to one entity (a plain HTTP error)."""
+        return self.cause != "http"
 
 
 class ApiDriftError(ResolverError):
     """The API answered outside its known shape; abort instead of caching empties."""
 
     def __init__(self, url: str, detail: str):
-        super().__init__(f"{url}: {detail}")
+        super().__init__(f"{url}: {detail}", cause="drift")
         self.url = url
 
 
@@ -104,22 +127,56 @@ def tls_context() -> ssl.SSLContext:
         import certifi
     except ImportError:
         return context
-    context.load_verify_locations(cafile=certifi.where())
+    try:
+        context.load_verify_locations(cafile=certifi.where())
+    except (OSError, ssl.SSLError):
+        pass  # broken or missing bundle: keep the platform store, like a missing certifi
     return context
 
 
+def _retry_after(error: urllib.error.HTTPError) -> float:
+    """Seconds requested by a ``Retry-After`` header (seconds or HTTP date), else 0."""
+    value = (error.headers.get("Retry-After") if error.headers else None) or ""
+    value = value.strip()
+    if value.isascii() and value.isdigit():  # "²".isdigit() is True, float("²") is not
+        return float(value)
+    try:
+        moment = email.utils.parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        return 0.0
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=timezone.utc)
+    return max(0.0, (moment - datetime.now(timezone.utc)).total_seconds())
+
+
 class PmbResolver:
-    """Resolve ``pmb<N>`` register IDs via the PMB entities API."""
+    """Resolve ``pmb<N>`` register IDs via the PMB entities API.
+
+    Requests are paced: at least ``delay`` seconds pass between the start of
+    any two requests, retries included, and a server-requested pause (rate
+    limiting) also holds for the next entity. The TLS context is built on the
+    first request, so ``--offline`` never touches TLS.
+    """
 
     name = "pmb-apis"
     ENDPOINTS = {"person": "person", "place": "place", "org": "institution"}
+    TRANSPORT_RETRIES = 1
+    THROTTLE_RETRIES = 3
 
     def __init__(self, delay: float = 0.5, timeout: float = 20,
                  user_agent: str = f"tei-crm-bridge/{__version__} (+https://github.com/klausbehnamshad/tei-crm-bridge)"):
         self.delay = delay
         self.timeout = timeout
         self.user_agent = user_agent
-        self.context = tls_context()
+        self._context: ssl.SSLContext | None = None
+        self._last_request: float | None = None
+        self._not_before = 0.0
+
+    @property
+    def context(self) -> ssl.SSLContext:
+        if self._context is None:
+            self._context = tls_context()
+        return self._context
 
     def supports(self, kind: str, local_id: str) -> bool:
         return kind in self.ENDPOINTS and _PMB_ID.match(local_id) is not None
@@ -131,20 +188,42 @@ class PmbResolver:
         url = f"{PMB_API}/{endpoint}/{match.group(1)}/?format=json"
         return pick_links(self._fetch(url))
 
+    def _pace(self) -> None:
+        now = time.monotonic()
+        wait = self._not_before - now
+        if self._last_request is not None:
+            wait = max(wait, self.delay - (now - self._last_request))
+        if wait > 0:
+            time.sleep(wait)
+        self._last_request = time.monotonic()
+
     def _fetch(self, url: str) -> list[str]:
         """The ``sameAs`` URI list of one entity; 404-JSON means unresolved."""
         request = urllib.request.Request(url, headers={"User-Agent": self.user_agent, "Accept": "application/json"})
-        for attempt in (1, 2):
+        transport_left, throttle_left, backoff = self.TRANSPORT_RETRIES, self.THROTTLE_RETRIES, 0
+        while True:
+            self._pace()
             try:
                 with urllib.request.urlopen(request, timeout=self.timeout, context=self.context) as response:
                     payload = json.load(response)
                 break
             except urllib.error.HTTPError as error:
-                if error.code != 404:
-                    raise ResolverError(f"{url}: HTTP {error.code}") from None
-                if _is_api_not_found(error):
-                    return []
-                raise ApiDriftError(url, "404 ohne API-Fehlerformat") from None
+                if error.code == 404:
+                    try:
+                        not_found = _is_api_not_found(error)
+                    except (OSError, http.client.HTTPException) as read_error:
+                        raise ResolverError(f"{url}: {read_error}", cause="transport") from None
+                    if not_found:
+                        return []
+                    raise ApiDriftError(url, "404 ohne API-Fehlerformat") from None
+                if error.code not in THROTTLE_STATUS:
+                    raise ResolverError(f"{url}: HTTP {error.code}", cause="http") from None
+                wait = min(MAX_BACKOFF, max(MIN_BACKOFF, self.delay * 2 ** backoff, _retry_after(error)))
+                self._not_before = time.monotonic() + wait  # _pace waits; also binds the next entity
+                if throttle_left == 0:
+                    raise ResolverError(f"{url}: HTTP {error.code}", cause="throttle") from None
+                throttle_left -= 1
+                backoff += 1
             # Only h.request() errors arrive wrapped in URLError; getresponse()
             # and json.load() failures (drops, resets, bad status, raw SSL
             # errors) reach us unwrapped, hence the broad OSError branch below
@@ -152,10 +231,10 @@ class PmbResolver:
             except (OSError, http.client.HTTPException, ValueError) as error:
                 reason = error.reason if isinstance(error, urllib.error.URLError) else error
                 if isinstance(reason, ssl.SSLCertVerificationError):
-                    raise ResolverError(f"{url}: {reason}") from None  # not transient: no retry
-                if attempt == 2:
-                    raise ResolverError(f"{url}: {error}") from None
-                time.sleep(self.delay)
+                    raise ResolverError(f"{url}: {reason}", cause="tls") from None  # not transient: no retry
+                if transport_left == 0:
+                    raise ResolverError(f"{url}: {error}", cause="transport") from None
+                transport_left -= 1
         if not isinstance(payload, dict):
             raise ApiDriftError(url, "Antwort ist kein JSON-Objekt") from None
         same = payload.get("sameAs")
@@ -251,56 +330,112 @@ def links_for(cache: Mapping | None, local_id: str) -> Mapping | None:
     return entry if isinstance(entry, Mapping) else None
 
 
+@dataclass(frozen=True)
+class Failure:
+    """One failed lookup: entity, cause class and message."""
+
+    local_id: str
+    cause: Cause
+    detail: str
+
+    @property
+    def systemic(self) -> bool:
+        return self.cause != "http"
+
+
+@dataclass
+class UpdateResult:
+    """Outcome of :func:`update_cache`.
+
+    ``attempted`` counts entities a lookup was started for, ``untried`` the
+    supported ones left over after an abort. ``stop`` is ``None`` for a
+    complete pass, ``"leading"`` (systematic failures before any success),
+    ``"consecutive"`` (systematic failures in a row after a success) or
+    ``"drift"`` (unexpected API answer).
+    """
+
+    fetched: int = 0
+    failed: int = 0
+    skipped: int = 0
+    attempted: int = 0
+    untried: int = 0
+    streak: int = 0
+    warnings: list[str] = field(default_factory=list)
+    failures: list[Failure] = field(default_factory=list)
+    stop: Literal["leading", "consecutive", "drift"] | None = None
+    drift_url: str | None = None
+
+
 def update_cache(cache: dict, entities: dict[str, dict[str, str]], resolver: Resolver,
                  offline: bool = False, max_leading_failures: int = 3,
+                 max_consecutive_failures: int = 5,
                  checkpoint: Callable[[], None] | None = None,
-                 checkpoint_every: int = 25) -> tuple[int, int, list[str]]:
-    """Fetch missing entities (one request per ID); returns (fetched, failed, warnings).
+                 checkpoint_every: int = 25) -> UpdateResult:
+    """Fetch missing entities (one lookup per ID) into ``cache``.
 
-    ``max_leading_failures`` aborts the loop once that many fetches fail before
-    the first success, so a systematic outage (no network, broken TLS) does not
-    burn hundreds of doomed requests on a large corpus. IDs the resolver does
-    not support are skipped with a warning (no entry, no fetch, no breaker).
-    An ``ApiDriftError`` aborts immediately. ``checkpoint`` runs after every
-    ``checkpoint_every`` newly stored entries.
+    Only systematic failures (network, TLS, rate limiting, API drift) count
+    towards the circuit breaker: ``max_leading_failures`` of them before the
+    first success, or ``max_consecutive_failures`` in a row after one, stop the
+    loop, so an outage does not burn hundreds of doomed requests. A failure
+    specific to one entity (a plain HTTP error) neither counts nor resets the
+    streak. IDs the resolver does not support are skipped with a warning (no
+    entry, no fetch). An ``ApiDriftError`` stops immediately. ``checkpoint``
+    runs after every ``checkpoint_every`` newly stored entries.
     """
-    fetched, failed, warnings = 0, 0, []
+    result = UpdateResult()
     missing = [local_id for local_id in entities if local_id not in cache["entries"]]
-    for position, local_id in enumerate(missing):
-        if offline:
-            continue
+    todo = []
+    for local_id in missing:
+        if resolver.supports(entities[local_id]["kind"], local_id):
+            todo.append(local_id)
+        else:
+            result.skipped += 1
+            if not offline:
+                result.warnings.append(f"{local_id}: übersprungen, keine PMB-ID")
+    if offline:
+        return result
+    streak = 0
+    for position, local_id in enumerate(todo):
         info = entities[local_id]
-        if not resolver.supports(info["kind"], local_id):
-            warnings.append(f"{local_id}: übersprungen, keine PMB-ID")
-            continue
+        result.attempted += 1
         try:
             links = resolver.resolve(info["kind"], local_id, info["label"])
-        except ApiDriftError as error:
-            failed += 1
-            warnings.append(f"PMB-API geändert? {error}")
-            break
         except ResolverError as error:
-            failed += 1
-            warnings.append(f"{local_id}: Abruf gescheitert ({error}), kein Eintrag gespeichert")
-            if fetched == 0 and failed >= max_leading_failures:
-                remaining = len(missing) - position - 1
-                warnings.append(f"Abbruch nach {failed} gescheiterten Abrufen ohne Erfolg; "
-                                f"{remaining} Entities nicht versucht")
+            result.failed += 1
+            result.failures.append(Failure(local_id, error.cause, str(error)))
+            if isinstance(error, ApiDriftError):
+                result.warnings.append(f"PMB-API geändert? {error}")
+                result.stop, result.drift_url = "drift", error.url
+            else:
+                result.warnings.append(f"{local_id}: Abruf gescheitert ({error}), kein Eintrag gespeichert")
+                if error.systemic and position < len(todo) - 1:  # last one: the pass is complete anyway
+                    streak += 1
+                    if result.fetched == 0 and streak >= max_leading_failures:
+                        result.stop = "leading"
+                    elif result.fetched > 0 and streak >= max_consecutive_failures:
+                        result.stop = "consecutive"
+            if result.stop is not None:
+                result.untried, result.streak = len(todo) - position - 1, streak
+                if result.stop == "leading":
+                    result.warnings.append(f"Abbruch nach {streak} gescheiterten Abrufen ohne Erfolg; "
+                                           f"{result.untried} Entities nicht versucht")
+                elif result.stop == "consecutive":
+                    result.warnings.append(f"Abbruch nach {streak} systematischen Fehlern in Folge; "
+                                           f"{result.untried} Entities nicht versucht")
                 break
             continue
+        streak = 0
         entry = {"kind": info["kind"], "label": info["label"],
                  "pmb": pmb_url(local_id) if resolver.name == PmbResolver.name else None,
                  "gnd": links.gnd, "geonames": links.geonames, "wikidata": links.wikidata,
                  "source": resolver.name, "retrieved": date.today().isoformat()}
         if not links.any():
-            warnings.append(f"{local_id} ({info['label']!r}): keine Normdaten, als unaufgelöst gespeichert")
+            result.warnings.append(f"{local_id} ({info['label']!r}): keine Normdaten, als unaufgelöst gespeichert")
         cache["entries"][local_id] = entry
-        fetched += 1
-        if checkpoint is not None and checkpoint_every > 0 and fetched % checkpoint_every == 0:
+        result.fetched += 1
+        if checkpoint is not None and checkpoint_every > 0 and result.fetched % checkpoint_every == 0:
             checkpoint()
-        if position < len(missing) - 1 and isinstance(resolver, PmbResolver):
-            time.sleep(resolver.delay)
-    return fetched, failed, warnings
+    return result
 
 
 def summarize(entities: dict[str, dict[str, str]], cache: Mapping | None) -> dict[str, dict[str, int]]:

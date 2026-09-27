@@ -144,11 +144,17 @@ PMB-URI und Abrufdatum in einer committbaren JSON-Cache-Datei ab (eine höfliche
 je unbekannter Entity). Der zweite Lauf mit `--offline` nutzt nur den Cache und macht
 keinen Netzaufruf. `cmif` (und `enrich`, dort als `rdfs:seeAlso`) konsumieren nur diese
 Datei: erst vorhandene Register-`idno`, dann Cache, dann direktes GND-`@ref`.
-Für TLS bringt das Paket `certifi` mit (additiv zum System-Store; alternativ gilt
-`SSL_CERT_FILE`). Scheitern alle PMB-Anfragen, endet `reconcile` mit Exit 1 und schreibt
-keinen Cache; Teilerfolge melden einen Hinweis auf stderr. IDs ohne `pmb<N>`-Form werden
-übersprungen. Antwortet die API außerhalb ihrer bekannten Form, bricht der Lauf mit Exit 1
-ab und sichert das bisher Geholte. Strg-C sichert ebenfalls und meldet Exit 130.
+Für TLS lädt das Paket `certifi` zusätzlich zum System-Store; `SSL_CERT_FILE` gilt weiter.
+Zwischen zwei Anfragen liegen mindestens `--delay` Sekunden, auch bei Wiederholungen;
+auf HTTP 429/502/503/504 wartet `reconcile` (bis zu drei Versuche, `Retry-After` wird
+beachtet, höchstens 60 s). Netz-, Zertifikats- und Überlastungsfehler gelten als
+systematisch: Drei davon vor dem ersten Erfolg oder fünf in Folge danach brechen den Lauf
+ab (Exit 1, Geholtes bleibt gespeichert), ebenso ein Lauf ohne jeden Erfolg. Ein einzelner
+HTTP-Fehler betrifft nur seine Entität: Exit 0 mit Hinweis auf stderr, ein späterer Lauf
+versucht sie erneut. IDs ohne `pmb<N>`-Form werden übersprungen. Antwortet die API
+außerhalb ihrer bekannten Form, bricht der Lauf mit Exit 1 ab. Strg-C sichert und meldet
+Exit 130. Der JSON-Bericht nennt das Ergebnis in `status`
+(`ok`, `partial`, `no_progress`, `aborted`, `drift`, `interrupted`) und listet `failures`.
 
 ## Grenzen
 
