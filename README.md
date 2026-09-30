@@ -1,12 +1,13 @@
 # TEI CRM Bridge
 
 [![tests](https://github.com/klausbehnamshad/tei-crm-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/klausbehnamshad/tei-crm-bridge/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22979658.svg)](https://doi.org/10.5281/zenodo.22979658)
 
 Ein Werkzeug für Digital Humanities: Es ergänzt TEI-P5-Briefe um Personen, Orte und Organisationen, bewahrt dabei den Lesetext und die vorhandene Textauszeichnung, legt Aussagen und Vorschläge mit ihrer Herkunft als CIDOC CRM und W3C Web Annotation ab und misst sich an der redaktionellen Auszeichnung einer echten Edition.
 
 **[Projektseite mit Messung](https://klausbehnamshad.github.io/tei-crm-bridge/)** · [echter Brief (Schnitzler-Edition)](https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html) · [fiktives Beispiel](https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html) · [Evaluation](eval/README.md)
 
-**Status:** Prototyp für ein Bewerbungsportfolio, kein fertiges Editionssystem. Automatisch erkannte Namen sind im Ausgangsgraphen Vorschläge; eine redaktionelle Entscheidung kann einen getrennten geprüften Graphen erzeugen.
+**Status:** Forschungsprototyp, kein fertiges Editionssystem. Automatisch erkannte Namen sind im Ausgangsgraphen Vorschläge; eine redaktionelle Entscheidung kann einen getrennten geprüften Graphen erzeugen.
 
 *English summary: TEI CRM Bridge adds person, place and organisation names to TEI letters while preserving the reading text and existing text markup, records statements and suggestions with provenance (CIDOC CRM, W3C Web Annotation, PROV-O), and is evaluated against the editorial annotation of 40 letters from the Arthur Schnitzler correspondence edition.*
 
