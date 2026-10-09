@@ -6,8 +6,7 @@ type: software
 authors:
   - given-names: Klaus
     family-names: Behnam Shad
-version: 0.2.0
-date-released: "2026-09-26"
+version: 0.4.0
 license: MIT
 repository-code: "https://github.com/klausbehnamshad/tei-crm-bridge"
 url: "https://klausbehnamshad.github.io/tei-crm-bridge/"
