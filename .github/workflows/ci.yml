@@ -15,8 +15,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: python -m pip install -e '.[test]'
+      - run: python -m pip install -e '.[test,store,validate,network]'
       - run: pytest -q
+      - run: tei-crm validate docs/example/letter.ttl
+      - run: tei-crm validate docs/schnitzler/L02051.ttl
+      - run: tei-crm network examples/letter.xml --out-dir build/network
       - run: tei-crm examples/letter.xml --out-dir build
       - name: Generated site and README are up to date
         run: python scripts/build_docs.py --check

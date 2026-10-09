@@ -1,0 +1,157 @@
+# TCB-SHACL-Profil: Formregeln für Ausgangs- und geprüfte Graphen.
+#
+# Ein Profil je Datei wäre doppelt: Sechs Shapes gelten für beide Profile,
+# die Kandidat- und die P67-Regel unterscheiden sich je Profil, und die
+# Prüfvermerk-Regel kommt in "reviewed" dazu. Darum EINE Datei: Shapes ohne tcbsh:forProfile gelten
+# für beide Profile; tcbsh:P67SourceShape nur für "source",
+# tcbsh:P67ReviewedShape und tcbsh:AssessingShape nur für "reviewed".
+# validate() filtert die jeweils andere Gruppe mit Blank-Node-Hülle heraus.
+# Jede Shape nennt ihre Regel; die README-Tabelle (Abschnitt "Validierung
+# mit SHACL") übernimmt diese Regelnamen.
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix tcb: <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/#> .
+@prefix tcbsh: <https://klausbehnamshad.github.io/tei-crm-bridge/shapes#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Kandidat ohne CRM-Klasse (nur Ausgangsgraph): Unbestätigtes bleibt ohne
+# E21/E53/E74. Im geprüften Graphen trägt ein angenommener Kandidat beide
+# Typen (review.py, unverändert), darum entfällt die Regel unter "reviewed";
+# P67ReviewedShape verlangt dort weiterhin die Klasse.
+tcbsh:CandidateShape a sh:NodeShape ;
+    tcbsh:forProfile tcbsh:source ;
+    sh:targetClass tcb:Candidate ;
+    sh:property [ sh:path rdf:type ;
+                  sh:not [ sh:in ( crm:E21_Person crm:E53_Place crm:E74_Group ) ] ;
+                  sh:message "Kandidat darf keine CRM-Klasse tragen (Regel: Kandidat ohne CRM-Klasse; README: Validierung mit SHACL)."@de ,
+                             "Candidate must not carry a CRM class (Rule: Kandidat ohne CRM-Klasse; README: SHACL validation)."@en ] ;
+    sh:message "Kandidat darf keine CRM-Klasse tragen (Regel: Kandidat ohne CRM-Klasse; README: Validierung mit SHACL)."@de ,
+               "Candidate must not carry a CRM class (Rule: Kandidat ohne CRM-Klasse; README: SHACL validation)."@en .
+
+# P67 im Ausgangsgraph: nie auf einen Kandidaten (nur bestätigte Entitäten).
+tcbsh:P67SourceShape a sh:NodeShape ;
+    tcbsh:forProfile tcbsh:source ;
+    sh:targetObjectsOf crm:P67_refers_to ;
+    sh:not [ sh:class tcb:Candidate ] ;
+    sh:message "P67 zeigt im Ausgangsgraphen nie auf einen Kandidaten (Regel: P67 nur auf bestätigte Entitäten; README: Validierung mit SHACL)."@de ,
+               "In the source graph P67 never points to a candidate (Rule: P67 nur auf bestätigte Entitäten; README: SHACL validation)."@en .
+
+# P67 im geprüften Graphen: Kandidat nur mit CRM-Klasse (angenommen).
+tcbsh:P67ReviewedShape a sh:NodeShape ;
+    tcbsh:forProfile tcbsh:reviewed ;
+    sh:targetObjectsOf crm:P67_refers_to ;
+    sh:or ( [ sh:not [ sh:class tcb:Candidate ] ]
+            [ sh:class crm:E21_Person ]
+            [ sh:class crm:E53_Place ]
+            [ sh:class crm:E74_Group ] ) ;
+    sh:message "P67 zeigt auf einen Kandidaten nur mit CRM-Klasse (Regel: P67 nur auf bestätigte Entitäten; README: Validierung mit SHACL)."@de ,
+               "P67 points to a candidate only with a CRM class (Rule: P67 nur auf bestätigte Entitäten; README: SHACL validation)."@en .
+
+# Belegstelle: genau ein Target mit genau einer Quelle und Selektor.
+tcbsh:MentionTargetShape a sh:NodeShape ;
+    sh:targetSubjectsOf tcb:origin ;
+    sh:property [ sh:path oa:hasTarget ;
+                  sh:minCount 1 ;
+                  sh:maxCount 1 ;
+                  sh:node [ sh:property [ sh:path oa:hasSource ;
+                                           sh:minCount 1 ;
+                                           sh:maxCount 1 ;
+                                           sh:message "Belegquelle fehlt oder ist mehrfach (Regel: Belegstelle mit Quelle und Selektor; README: Validierung mit SHACL)."@de ,
+                                                      "Evidence source missing or multiple (Rule: Belegstelle mit Quelle und Selektor; README: SHACL validation)."@en ] ;
+                            sh:property [ sh:path oa:hasSelector ;
+                                           sh:minCount 1 ;
+                                           sh:message "Belegstelle ohne Selektor (Regel: Belegstelle mit Quelle und Selektor; README: Validierung mit SHACL)."@de ,
+                                                      "Evidence without selector (Rule: Belegstelle mit Quelle und Selektor; README: SHACL validation)."@en ] ] ;
+                  sh:message "Jede Nennung hat genau ein Target mit genau einer Quelle und Selektor (Regel: Belegstelle mit Quelle und Selektor; README: Validierung mit SHACL)."@de ,
+                             "Every mention has exactly one target with exactly one source and selector (Rule: Belegstelle mit Quelle und Selektor; README: SHACL validation)."@en ] ;
+    sh:message "Jede Nennung hat genau ein Target mit genau einer Quelle und Selektor (Regel: Belegstelle mit Quelle und Selektor; README: Validierung mit SHACL)."@de ,
+               "Every mention has exactly one target with exactly one source and selector (Rule: Belegstelle mit Quelle und Selektor; README: SHACL validation)."@en .
+
+# Provenienz automatischer Nennungen: Lauf oder frühere Anwendung.
+tcbsh:AutomaticProvenanceShape a sh:NodeShape ;
+    sh:targetClass oa:Annotation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path tcb:origin ;
+                                     sh:hasValue tcb:automatic ] ] ]
+            [ sh:property [ sh:path prov:wasGeneratedBy ;
+                             sh:minCount 1 ] ]
+            [ sh:property [ sh:path prov:wasAttributedTo ;
+                             sh:minCount 1 ] ] ) ;
+    sh:message "Automatische Nennung braucht Lauf oder frühere Anwendung (Regel: Provenienz automatischer Nennungen; README: Validierung mit SHACL)."@de ,
+               "Automatic mention needs a run or an earlier application (Rule: Provenienz automatischer Nennungen; README: SHACL validation)."@en .
+
+# Konfidenz: höchstens eine, zwischen 0 und 1.
+tcbsh:ConfidenceShape a sh:NodeShape ;
+    sh:targetClass oa:Annotation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path tcb:origin ;
+                                     sh:hasValue tcb:automatic ] ] ]
+            [ sh:property [ sh:path tcb:confidence ;
+                             sh:maxCount 1 ] ;
+              sh:property [ sh:path tcb:confidence ;
+                             sh:minInclusive 0 ;
+                             sh:maxInclusive 1 ] ] ) ;
+    sh:message "Höchstens eine Konfidenz zwischen 0 und 1 (Regel: Konfidenz höchstens eine von 0 bis 1; README: Validierung mit SHACL)."@de ,
+               "At most one confidence between 0 and 1 (Rule: Konfidenz höchstens eine von 0 bis 1; README: SHACL validation)."@en .
+
+# Ereignis: genau ein Typ (Versand/Empfang), mindestens ein Ausführender.
+tcbsh:EventShape a sh:NodeShape ;
+    sh:targetClass crm:E7_Activity ;
+    sh:property [ sh:path crm:P2_has_type ;
+                  sh:minCount 1 ;
+                  sh:maxCount 1 ;
+                  sh:in ( tcb:sending tcb:receiving ) ;
+                  sh:message "Ereignistyp fehlt oder ist kein Versand/Empfang (Regel: Ereignis mit Typ und Ausführendem; README: Validierung mit SHACL)."@de ,
+                             "Event type missing or not sending/receiving (Rule: Ereignis mit Typ und Ausführendem; README: SHACL validation)."@en ] ;
+    sh:property [ sh:path crm:P14_carried_out_by ;
+                  sh:minCount 1 ;
+                  sh:message "Ereignis ohne Ausführende (Regel: Ereignis mit Typ und Ausführendem; README: Validierung mit SHACL)."@de ,
+                             "Event without performers (Rule: Ereignis mit Typ und Ausführendem; README: SHACL validation)."@en ] ;
+    sh:message "Ereignis braucht genau einen Typ (Versand/Empfang) und Ausführende (Regel: Ereignis mit Typ und Ausführendem; README: Validierung mit SHACL)."@de ,
+               "Event needs exactly one type (sending/receiving) and performers (Rule: Ereignis mit Typ und Ausführendem; README: SHACL validation)."@en .
+
+# Zeitspanne: Anfang nicht nach Ende (nur mit beiden Grenzen geprüft).
+tcbsh:TimeSpanShape a sh:NodeShape ;
+    sh:targetClass crm:E52_Time-Span ;
+    sh:property [ sh:path crm:P82a_begin_of_the_begin ;
+                  sh:lessThanOrEquals crm:P82b_end_of_the_end ;
+                  sh:message "Zeitspanne beginnt nicht nach ihrem Ende (Regel: Zeitspanne aufsteigend; README: Validierung mit SHACL)."@de ,
+                             "Time-span does not begin after its end (Rule: Zeitspanne aufsteigend; README: SHACL validation)."@en ] ;
+    sh:message "Zeitspanne beginnt nicht nach ihrem Ende (Regel: Zeitspanne aufsteigend; README: Validierung mit SHACL)."@de ,
+               "Time-span does not begin after its end (Rule: Zeitspanne aufsteigend; README: SHACL validation)."@en .
+
+# Lauf: Engine und Softwareversion sind Pflicht.
+tcbsh:RunShape a sh:NodeShape ;
+    sh:targetClass prov:Activity ;
+    sh:property [ sh:path tcb:engine ;
+                  sh:minCount 1 ;
+                  sh:message "Lauf ohne Engine (Regel: Lauf mit Engine und Version; README: Validierung mit SHACL)."@de ,
+                             "Run without engine (Rule: Lauf mit Engine und Version; README: SHACL validation)."@en ] ;
+    sh:property [ sh:path tcb:softwareVersion ;
+                  sh:minCount 1 ;
+                  sh:message "Lauf ohne Softwareversion (Regel: Lauf mit Engine und Version; README: Validierung mit SHACL)."@de ,
+                             "Run without software version (Rule: Lauf mit Engine und Version; README: SHACL validation)."@en ] ;
+    sh:message "Lauf braucht Engine und Softwareversion (Regel: Lauf mit Engine und Version; README: Validierung mit SHACL)."@de ,
+               "Run needs engine and software version (Rule: Lauf mit Engine und Version; README: SHACL validation)."@en .
+
+# Prüfvermerk (nur reviewed): Urheber, Zeit und Urteil aus der Liste.
+tcbsh:AssessingShape a sh:NodeShape ;
+    tcbsh:forProfile tcbsh:reviewed ;
+    sh:targetClass oa:Annotation ;
+    sh:or ( [ sh:not [ sh:property [ sh:path oa:motivatedBy ;
+                                     sh:hasValue oa:assessing ] ] ]
+            [ sh:property [ sh:path dcterms:creator ;
+                             sh:minCount 1 ;
+                             sh:maxCount 1 ] ;
+              sh:property [ sh:path dcterms:created ;
+                             sh:minCount 1 ;
+                             sh:maxCount 1 ] ;
+              sh:property [ sh:path oa:hasBody ;
+                             sh:minCount 1 ;
+                             sh:maxCount 1 ;
+                             sh:in ( tcb:accepted tcb:rejected ) ] ] ) ;
+    sh:message "Prüfvermerk braucht Urheber, Zeit und Urteil (Regel: Prüfvermerk mit Urheber, Zeit und Urteil; README: Validierung mit SHACL)."@de ,
+               "Assessment needs creator, time and verdict (Rule: Prüfvermerk mit Urheber, Zeit und Urteil; README: SHACL validation)."@en .

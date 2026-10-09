@@ -1,11 +1,11 @@
 {
   "corpus_commit": "76870800b474b0ab829c65ef1ad84c3ba5f81c4e",
-  "software_version": "0.4.0",
+  "software_version": "0.5.0",
   "base_uri": "https://example.org/tei-crm-demo/",
   "engine": "glossary mit leerem Glossar (PER/LOC/ORG je [])",
   "command": "python eval/sparql/build_graph.py --out-dir eval/work/sparql",
   "letters": 40,
   "archived_graph": "union.ttl liegt unter eval/work/sparql/ und wird nicht committet",
-  "graph_sha256": "e047c27f50ea1618b6b86eb45160651495fe4b0a6bb9bb089c2fba3bea9e3977",
+  "graph_sha256": "ce66bf1562f0ab7d6764e1adc74b5b44f0f713280e74ce5e15073f73541f953a",
   "hash_method": "SHA-256 ueber die verketteten Brief-Turtle-Dateien in Buchstabenfolge"
 }

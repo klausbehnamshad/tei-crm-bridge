@@ -125,7 +125,7 @@
             </listBibl>
          </sourceDesc>
       </fileDesc>
-      <encodingDesc><appInfo><application ident="tei-crm-bridge" version="0.4.0" xml:id="tcb-run"><label>TEI CRM Bridge</label><desc>Automatische Namenserkennung (aggregation=first, engine=hf, model=impresso-project/ner-hipe2020-hist-base, modelRevision=afd1b509233560298ae39360ad3186253c5800d3, reading=edited, stride=128, threshold=0.85). Vorschläge, nicht geprüft.</desc><ptr target="https://github.com/klausbehnamshad/tei-crm-bridge"/></application></appInfo></encodingDesc><profileDesc>
+      <encodingDesc><appInfo><application ident="tei-crm-bridge" version="0.5.0" xml:id="tcb-run"><label>TEI CRM Bridge</label><desc>Automatische Namenserkennung (aggregation=first, engine=hf, model=impresso-project/ner-hipe2020-hist-base, modelRevision=afd1b509233560298ae39360ad3186253c5800d3, reading=edited, stride=128, threshold=0.85). Vorschläge, nicht geprüft.</desc><ptr target="https://github.com/klausbehnamshad/tei-crm-bridge"/></application></appInfo></encodingDesc><profileDesc>
          <langUsage>
             <language ident="de-AT">German</language>
          </langUsage>

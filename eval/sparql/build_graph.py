@@ -1,4 +1,4 @@
-"""Vereinigungsgraph der 40 Originalbriefe für die SPARQL-Abfragen (Release 0.4.0).
+"""Vereinigungsgraph der 40 Originalbriefe für die SPARQL-Abfragen (Release 0.5.0).
 
     python eval/sparql/build_graph.py [--out-dir eval/work/sparql]
 

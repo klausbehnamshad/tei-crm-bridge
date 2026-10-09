@@ -1,4 +1,5 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix tcb: <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/#> .
@@ -141,5 +142,7 @@ tcb:unresolvedRef a rdf:Property ;
     rdfs:comment "Wert aus @ref, der sich weder als URI, über prefixDef noch als xml:id im Dokument auflösen ließ. Wird unverändert erhalten."@de ;
     rdfs:isDefinedBy <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> .
 
-<https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> rdfs:label "TEI CRM Bridge vocabulary"@en .
+<https://klausbehnamshad.github.io/tei-crm-bridge/vocab/> a owl:Ontology ;
+    rdfs:label "TEI CRM Bridge vocabulary"@en ;
+    owl:versionInfo "0.5.0" .
 

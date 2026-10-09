@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.5.0
+
+Graph abfragbar, prüfbar, über Briefgrenzen nutzbar. Datenstand: 40 Briefe der Schnitzler-Edition, eingefrorener Graph in `eval/sparql/manifest.json`, alle Zahlen gemessen am 09.10.2026 auf macOS arm64.
+
+### Triplestore und SPARQL
+- Optionales Extra `store` (pyoxigraph): `tei-crm store` lädt Turtle-Dateien in einen persistenten Store, `tei-crm query` führt `.rq`-Dateien mit Variablenbindung aus (CSV, JSON, Tabelle).
+- Q2 in FILTER-Form: gleiche 340 Zeilen wie bisher; im Store auf dem Vereinigungsgraphen unter einer Sekunde, in rdflib je Briefdatei empfohlen.
+
+### Validierung mit SHACL
+- Optionales Extra `validate` (pyshacl): Shapes in `src/tei_crm_bridge/shapes/tcb-shapes.ttl` mit Profilen `source` (Ausgangsgraph) und `reviewed` (geprüfter Graph); `tei-crm validate` meldet Exit 0 bei Formkonformität, Exit 1 bei Verstößen.
+- Beide Demo-Graphen sind formkonform; vier Negativfälle scheitern je mit der erwarteten Shape; die CI validiert beide Demos.
+
+### Netzwerk
+- Optionales Extra `network` (networkx): `tei-crm network` baut aus `correspDesc` das Korrespondenznetz (26 Personen, 37 Kanten) und aus `P67` das Nennungsnetz (80 Personen, 237 Kanten), dazu `metrics.json` mit Methode, Version, Korpus und Ehrlichkeitshinweis.
+
+### Vokabular
+- Ontologie-Kopf mit `owl:Ontology` und `owl:versionInfo` in `build_vocabulary()`.
+
 ## Unveröffentlicht
 
 ### Reconciliation

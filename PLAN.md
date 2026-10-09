@@ -21,10 +21,17 @@ Ein kleines öffentliches Demonstrationsprojekt, das wissenschaftlich saubere Mo
 - [ ] Modellvergleich (z. B. SBB-NER), Schwellenwertkalibrierung auf einem getrennten Entwicklungsset.
 - [ ] v0.3: kleine Oberfläche zum Annehmen, Ablehnen und Korrigieren von Kandidaten; bestätigte Kandidaten erhalten CRM-Klasse, `P67` und Normdaten.
 - [ ] Menschlich annotierte Blindstichprobe, auch mit Briefen ohne ausgezeichnete Namen (die Korpusauswahl schließt sie bisher aus).
-- [ ] TEI-ODD/Schematron sowie RDF/SHACL für das konkrete Mappingprofil.
+- [x] RDF/SHACL für das konkrete Mappingprofil (v0.5, `shapes/tcb-shapes.ttl` mit Profilen `source`/`reviewed`).
+- [ ] TEI-ODD/Schematron für das konkrete Mappingprofil.
 
 ## Phase 3: Portfolio-Demo
 
 - [x] Browseransicht mit Herkunft, URI und Score je Markierung; echter Brief mit Quellenangabe (v0.2).
 - [x] Vorher/Nachher-Zahlen, belegte Fehlerfälle und methodische Entscheidungen (Projektseite).
 - [ ] Dauerhafte URIs (z. B. w3id.org), Release-Tag mit DOI (Zenodo), Screenshots.
+
+## Phase 4: Graph-Folgelaufträge (nach v0.5)
+
+- [ ] SPARQL im Browser auf der Projektseite (WASM-Paket).
+- [ ] Koreferenz von Kandidaten über Briefe hinweg.
+- [ ] Verteilte Abfragen (`SERVICE`) gegen Wikidata oder GND.

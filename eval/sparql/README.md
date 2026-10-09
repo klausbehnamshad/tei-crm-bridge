@@ -145,7 +145,7 @@ nennen, ist eine Aussage der Auszeichnung, kein Netzwerkmaß.
   externe URI ergibt `seeAlso`, keine zweite Entität; `#pmb…` folgt dem
   `xml:base` der Quelle.
 - Zahlen hier gelten für 40 Briefe aus schnitzler-briefe-data
-  (`76870800…`, Stand 29.09.2026), Software 0.4.0, Glossarmodus mit leerem
+  (`76870800…`, Stand 29.09.2026), Software 0.5.0, Glossarmodus mit leerem
   Glossar. Keine Triple-Zahl belegt Qualität.
 
 ## Handabgleich

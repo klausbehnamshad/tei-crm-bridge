@@ -160,11 +160,16 @@ def check_real_letter() -> list[str]:
 # Vocabulary -----------------------------------------------------------------
 
 def build_vocabulary() -> dict[str, bytes]:
+    from rdflib.namespace import OWL
+
     vocab = Namespace(NAMESPACE)
     graph = Graph()
     graph.bind("tcb", vocab)
     graph.bind("crm", CRM)
+    graph.bind("owl", OWL)
     ontology = URIRef(NAMESPACE.rstrip("#"))
+    graph.add((ontology, RDF.type, OWL.Ontology))
+    graph.add((ontology, OWL.versionInfo, Literal(__version__)))
     graph.add((ontology, RDFS.label, Literal("TEI CRM Bridge vocabulary", lang="en")))
     types = {"class": RDFS.Class, "property": RDF.Property, "type": CRM.E55_Type, "origin": vocab.Origin,
              "decision": vocab.ReviewDecision}
