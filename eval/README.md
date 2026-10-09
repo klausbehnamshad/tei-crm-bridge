@@ -37,7 +37,7 @@ Festgelegt vor der ersten Messung ([`goldlib.py`](goldlib.py), [`evaluate.py`](e
 | `ablation-simple` | wie `v0.2-hf`, `--aggregation simple` | Begründung der Aggregation |
 | `v0.1-hf-original`, `v0.2-hf-original` | beide | Integrität auf den **unveränderten** Briefen |
 
-Alle mit `impresso-project/ner-hipe2020-hist-base` @ `afd1b50`, Schwelle 0,85, auf der CPU. Acht zentrale Pakete sind in [`requirements.txt`](requirements.txt) auf die gemessenen Versionen festgelegt; die gesamte Abhängigkeitskette ist noch nicht gesperrt. Die Ergebnisse protokollieren Python und fünf Bibliotheken. Ergebnisse in [`results/`](results/): je Lauf eine Markdown-Übersicht und ein JSON mit allen Fehlern, dazu [`compare_v0.1-hf_v0.2-hf.md`](results/compare_v0.1-hf_v0.2-hf.md) und `integrity_*.json`. `score` und `integrity` enden mit Status 1, wenn sie ein Problem finden.
+Alle mit `impresso-project/ner-hipe2020-hist-base` @ `afd1b50`, Schwelle 0,85, auf der CPU. Acht zentrale Pakete sind in [`requirements.txt`](requirements.txt) auf die gemessenen Versionen festgelegt; darüber hinaus war die Kette für die v0.2-Läufe nicht gesperrt. Die Ergebnisse protokollieren Python und fünf Bibliotheken. Ergebnisse in [`results/`](results/): je Lauf eine Markdown-Übersicht und ein JSON mit allen Fehlern, dazu [`compare_v0.1-hf_v0.2-hf.md`](results/compare_v0.1-hf_v0.2-hf.md) und `integrity_*.json`. `score` und `integrity` enden mit Status 1, wenn sie ein Problem finden.
 
 Für v0.2 ist bisher nur der Git-Baum-Hash von `src/tei_crm_bridge` gespeichert. Der signierte Commit, der den vollständigen Quellstand einschließlich Evaluation identifiziert, steht noch aus.
 
@@ -48,6 +48,14 @@ sh eval/reproduce.sh
 ```
 
 Ein Wiederholungslauf aus demselben exportierten v0.2-Schnappschuss ergab identische Kennzahlen und byte-gleiche Ausgabedateien. Nach dem signierten Commit sollte die Messung aus einem sauberen Checkout erneut laufen.
+
+## Messumgebung sperren
+
+`torch` ist plattformabhängig: je nach Betriebssystem, Architektur und CPU-/CUDA-Build gehören andere Pakete und Binärkomponenten dazu. [`requirements.txt`](requirements.txt) legt nur die acht direkten Pakete fest; die darüber hinaus installierten Distributionsversionen hält [`requirements.lock`](requirements.lock) fest. Erzeugt wird sie mit `sh eval/make_lock.sh` (frische venv mit Python 3.13, `pip install -e . -r eval/requirements.txt`, danach `pip freeze --exclude-editable`); der Dateikopf nennt Python-Version, Betriebssystem, Architektur, Datum und Befehl.
+
+Geltungsbereich: Das Lockfile belegt Anaconda Python 3.13.9 auf macOS arm64; das lokale Paket ist absichtlich ausgenommen (`pip freeze --exclude-editable`) und wird aus dem festgelegten Commit mit `pip install -e . --no-deps` dazu installiert. Es ist kein plattformübergreifendes Versprechen: Ein anderes Python 3.13, ein anderes Betriebssystem oder ein anderer Paketindex kann andere Binärpakete ergeben.
+
+Die Neumessung für 0.4.0 soll in genau dieser gesperrten Umgebung aus einem sauberen Checkout laufen; die tatsächlich verwendete venv, Plattform und der Kandidaten-Commit werden nach dem Lauf benannt (R4).
 
 ## Befunde
 

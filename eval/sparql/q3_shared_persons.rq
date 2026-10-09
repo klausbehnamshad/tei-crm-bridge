@@ -1,0 +1,29 @@
+# Q3 (optional): Welche Personen nennen mehrere Briefe, und welche Briefe sind es?
+# Datenstand: eingefrorener Graph aus eval/sparql/manifest.json
+#   (40 Originalbriefe, nur Auszeichnung der Edition, Stand 0.4.0).
+# Methode: Gruppierung ueber identische PMB-URIs der Edition (Namensraum plus
+#   "#pmb" mit Ziffern am Ende, FILTER unten); jede Zeile nennt eine
+#   (Person, Brief)-Kombination, die Briefe stehen separat. Regel wie Q1:
+#   implizite Verweise zaehlen mit (im Graphen nicht unterscheidbar).
+# Grenzen: Nur echte PMB-URIs (FILTER unten);
+#   brieflokale Entities gruppieren nie, nach Label wird nicht gruppiert.
+#   Briefkuerzel folgen aus der Dokument-URI (alles nach "document/").
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?entity ?label ?doc WHERE {
+  {
+    SELECT ?entity WHERE {
+      ?brief a crm:E31_Document ;
+             crm:P67_refers_to ?entity .
+      ?entity a crm:E21_Person .
+      FILTER(REGEX(STR(?entity), "https://id\\.acdh\\.oeaw\\.ac\\.at/schnitzler/schnitzler-briefe/editions#pmb[0-9]+$"))
+    }
+    GROUP BY ?entity
+    HAVING (COUNT(DISTINCT ?brief) > 1)
+  }
+  ?doc a crm:E31_Document ;
+       crm:P67_refers_to ?entity .
+  ?entity rdfs:label ?label .
+}
+ORDER BY ?entity ?doc

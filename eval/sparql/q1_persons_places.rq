@@ -1,0 +1,20 @@
+# Q1: Welche Personen und Orte nennt ein bestimmter Brief laut Edition?
+# Datenstand: eingefrorener Graph aus eval/sparql/manifest.json
+#   (40 Originalbriefe, nur Auszeichnung der Edition, Stand 0.4.0).
+# Parameter: ?doc an den Brief binden (z.B. per initBindings); ungebunden
+#   kommen alle Briefe. Regel: alle redaktionellen Namen einschliesslich
+#   impliziter Verweise (@subtype="implied"); Abgrenzung zur Evaluation
+#   (295 Referenzen ohne implied) siehe eval/sparql/README.md.
+# Grenzen: Organisationen (E74_Group) bewusst ausgenommen; unaufloesbare
+#   Verweise erscheinen als brief-lokale Entities unter der Dokument-URI.
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?doc ?entity ?class ?label WHERE {
+  ?doc a crm:E31_Document ;
+       crm:P67_refers_to ?entity .
+  ?entity a ?class ;
+          rdfs:label ?label .
+  FILTER(?class IN (crm:E21_Person, crm:E53_Place))
+}
+ORDER BY ?doc ?entity

@@ -1,0 +1,42 @@
+# Q2: Welche Textstelle belegt, dass ein Brief eine bestimmte Person, einen Ort oder eine Organisation nennt?
+# Datenstand: eingefrorener Graph aus eval/sparql/manifest.json
+#   (40 Originalbriefe, nur Auszeichnung der Edition, Stand 0.4.0).
+# Parameter: ?entity an die Entität binden (z.B. per initBindings);
+#   ungebunden kommen alle belegten Nennungen. Eine Zeile je (Annotation,
+#   Referent): Nennungen mit mehreren Referenten in einem @ref (z.B.
+#   "Saltens") erscheinen mehrfach mit gleicher Belegstelle. Regel wie Q1:
+#   alle redaktionellen Nennungen einschliesslich impliziter Verweise
+#   (@subtype="implied"); im Graphen sind sie von expliziten nicht
+#   unterscheidbar (kein subtype-Tripel, siehe README).
+# Grenzen: ?block/?start/?end zeigen in die Quelldatei (?source); die
+#   Stelle gilt als belegt, wenn exact dem Lesetext an der Position
+#   entspricht, prefix/suffix die Nachbarschaft treffen und ?entity aus den
+#   @ref-Tokens dieser Fundstelle stammt (Test prüft alle drei). Der
+#   Selektor-Join ist in rdflib auf dem Vereinigungsgraphen langsam
+#   (Minuten); je Briefdatei unter eval/work/sparql/letters/ läuft
+#   dieselbe Datei in Millisekunden (gleiche Zeilen, keine Blank Nodes
+#   im Ergebnis).
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX tcb: <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/#>
+
+SELECT ?entity ?ann ?block ?exact ?prefix ?suffix ?start ?end ?source WHERE {
+  ?ann a oa:Annotation ;
+       tcb:origin tcb:editorial ;
+       oa:hasBody ?entity ;
+       oa:hasTarget ?target .
+  ?target oa:hasSource ?source ;
+          oa:hasSelector ?psel, ?qsel .
+  ?psel oa:refinedBy ?pos .
+  ?pos a oa:TextPositionSelector ;
+       oa:start ?start ;
+       oa:end ?end .
+  ?qsel oa:refinedBy ?quote .
+  ?quote a oa:TextQuoteSelector ;
+         oa:exact ?exact .
+  OPTIONAL { ?quote oa:prefix ?prefix }
+  OPTIONAL { ?quote oa:suffix ?suffix }
+  ?psel rdf:value ?block .
+  ?qsel rdf:value ?block .
+}
+ORDER BY ?entity ?ann
