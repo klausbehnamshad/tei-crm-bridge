@@ -1,6 +1,6 @@
 # Q2: Welche Textstelle belegt, dass ein Brief eine bestimmte Person, einen Ort oder eine Organisation nennt?
 # Datenstand: eingefrorener Graph aus eval/sparql/manifest.json
-#   (40 Originalbriefe, nur Auszeichnung der Edition, Stand 0.4.0).
+#   (40 Originalbriefe, nur Auszeichnung der Edition, Stand 0.5.0).
 # Parameter: ?entity an die Entität binden (z.B. per initBindings);
 #   ungebunden kommen alle belegten Nennungen. Eine Zeile je (Annotation,
 #   Referent): Nennungen mit mehreren Referenten in einem @ref (z.B.
@@ -12,10 +12,10 @@
 #   Stelle gilt als belegt, wenn exact dem Lesetext an der Position
 #   entspricht, prefix/suffix die Nachbarschaft treffen und ?entity aus den
 #   @ref-Tokens dieser Fundstelle stammt (Test prüft alle drei). Der
-#   Selektor-Join ist in rdflib auf dem Vereinigungsgraphen langsam
-#   (Minuten); je Briefdatei unter eval/work/sparql/letters/ läuft
-#   dieselbe Datei in Millisekunden (gleiche Zeilen, keine Blank Nodes
-#   im Ergebnis).
+#   In rdflib bleibt je Briefdatei unter eval/work/sparql/letters/ der
+#   empfohlene Weg (dort Millisekunden; gleiche Zeilen, keine Blank Nodes
+#   im Ergebnis); mit dem Store (Extra store, tei-crm query) läuft dieselbe
+#   Datei auf dem Vereinigungsgraphen.
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX tcb: <https://klausbehnamshad.github.io/tei-crm-bridge/vocab/#>
@@ -37,6 +37,7 @@ SELECT ?entity ?ann ?block ?exact ?prefix ?suffix ?start ?end ?source WHERE {
   OPTIONAL { ?quote oa:prefix ?prefix }
   OPTIONAL { ?quote oa:suffix ?suffix }
   ?psel rdf:value ?block .
-  ?qsel rdf:value ?block .
+  ?qsel rdf:value ?qblock .
+  FILTER(?block = ?qblock)
 }
 ORDER BY ?entity ?ann
