@@ -157,8 +157,90 @@ außerhalb ihrer bekannten Form, bricht der Lauf mit Exit 1 ab. Strg-C sichert u
 Exit 130. Der JSON-Bericht nennt das Ergebnis in `status`
 (`ok`, `partial`, `no_progress`, `aborted`, `drift`, `interrupted`) und listet `failures`.
 
+## Triplestore und SPARQL
+
+```bash
+pip install -e '.[store]'
+tei-crm store eval/work/sparql/letters/*.ttl --db build/store
+tei-crm query eval/sparql/q3_shared_persons.rq --db build/store
+tei-crm query eval/sparql/q1_persons_places.rq --graph eval/work/sparql/union.ttl \
+  --bind doc=https://example.org/tei-crm-demo/document/L03501 --format csv
+```
+
+`store` lädt Turtle-Dateien in einen persistenten pyoxigraph-Store unter
+`--db`. `query` fragt einen Store oder Turtle-Dateien (`--graph`) ab;
+`--bind name=WERT` belegt Variablen (gültige IRI wird IRI, sonst Literal),
+`--format csv|json|table` wählt die Ausgabe. Q2 läuft in rdflib je
+Briefdatei, mit dem Store auf dem Vereinigungsgraphen (FILTER-Form).
+
+Laufzeiten vom 09.10.2026, macOS arm64, ein Lauf je Abfrage, 40 Briefe
+(Datenstand `eval/sparql/manifest.json`), rdflib 7.6.0:
+
+| Abfrage | Bindung | Zeilen | Zeit |
+| Q1 Union | alle | 264 | 0,09 s |
+| Q3 Union | keine | 41 | 0,04 s |
+| Q2 je Brief | alle | 340 | 3,20 s |
+| Q2 je Brief | Kainz | 2 | mitgemessen |
+
+pyoxigraph 0.5.11, gleiche Daten:
+
+| Abfrage | Bindung | Zeilen | Zeit |
+| Laden 40 | keine | 10.434 | 0,02 s |
+| Q1 Union | alle | 264 | 0,002 s |
+| Q3 Union | keine | 41 | 0,001 s |
+| Q2 Union | alle | 340 | 0,77 s |
+| Q2 Union | Kainz | 2 | 0,29 s |
+
+Beide Engines liefern dieselben Zeilen (Multimengenvergleich in
+`tests/test_store.py`).
+
+## Validierung mit SHACL
+
+```bash
+pip install -e '.[validate]'
+tei-crm validate docs/example/letter.ttl
+tei-crm validate docs/schnitzler/L02051.ttl
+```
+
+Das Profil `source` gilt dem Ausgangsgraphen, `reviewed` dem geprüften
+Graphen (`--profile source|reviewed`, Standard `source`). Im geprüften
+Graphen zeigt `P67` auf angenommene Kandidaten mit CRM-Klasse. Exit 0
+heißt formkonform, Exit 1 nennt Verstöße mit Fokusknoten, Shape und
+Meldung. Formkonform heißt nur Form; fachliche Richtigkeit prüft das
+Profil nie.
+
+| Regel | Shape |
+| Kandidat ohne CRM-Klasse (nur Ausgangsgraph) | CandidateShape |
+| P67 nur auf bestätigte Entitäten | P67SourceShape, P67ReviewedShape |
+| Provenienz automatischer Nennungen | AutomaticProvenanceShape |
+| Konfidenz höchstens eine von 0 bis 1 | ConfidenceShape |
+| Belegstelle mit Quelle und Selektor | MentionTargetShape |
+| Ereignis mit Typ und Ausführendem | EventShape |
+| Zeitspanne aufsteigend | TimeSpanShape |
+| Lauf mit Engine und Version | RunShape |
+| Prüfvermerk mit Urheber, Zeit und Urteil (nur geprüft) | AssessingShape |
+
+## Netzwerk
+
+```bash
+pip install -e '.[network]'
+tei-crm network eval/corpus/L*.xml --out-dir build/network \
+  --graphs eval/work/sparql/letters/*.ttl
+```
+
+Der Lauf schreibt `correspondence.graphml`, `correspondence_edges.csv`,
+`mentions.graphml`, `mentions_edges.csv` und `metrics.json` (Methode,
+Version, Korpus mit SHA-256, Datum). Beispielzahlen vom 09.10.2026,
+40 Briefe (Datenstand `eval/sparql/manifest.json`), Version 0.5.0:
+Korrespondenz 26 Personen und 37 Kanten, Nennungen 80 Personen und
+237 Kanten. Ehrlichkeitsregel aus `metrics.json`: „Kennzahlen
+beschreiben die Auszeichnung der Edition im gegebenen Korpus.“
+
 ## Grenzen
 
+- Q2 bleibt in rdflib auf dem Vereinigungsgraphen langsam (Minuten); empfohlen sind je Briefdatei oder der Store.
+- Netzwerkkennzahlen beschreiben die Auszeichnung der Edition, keine Bedeutung von Personen.
+- SHACL prüft Form, keine fachliche Richtigkeit.
 - Die Referenz ist eine Edition mit eigenen Richtlinien: Korrespondenzpartner in Adressen und Unterschriften sind dort nicht ausgezeichnet, Titel gehören nicht zum Namen. Die Zahlen messen daher Übereinstimmung mit dieser Edition, nicht absolute Richtigkeit.
 - Organisationen kommen im Korpus nur elfmal vor; dafür gibt es keine belastbare Aussage.
 - Keine Koreferenz, keine automatische Verlinkung mit GND oder Wikidata für neue Namen, keine Ereignisse aus dem Fließtext.

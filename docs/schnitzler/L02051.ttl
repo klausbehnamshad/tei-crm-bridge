@@ -23,7 +23,7 @@
                             oa:suffix "Demt àHotel d’JénaParis" ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/20322ffc80d6> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/a92fbdfe8509> ;
     tcb:confidence 0.9725 ;
     tcb:origin tcb:automatic .
 
@@ -106,7 +106,7 @@
                             oa:suffix " halten wir noch immer dieselbe " ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/20322ffc80d6> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/a92fbdfe8509> ;
     tcb:confidence 0.9977 ;
     tcb:origin tcb:automatic .
 
@@ -127,7 +127,7 @@
                             oa:prefix "Ihr ergebenster " ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/20322ffc80d6> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/a92fbdfe8509> ;
     tcb:confidence 0.9977 ;
     tcb:origin tcb:automatic .
 
@@ -147,7 +147,7 @@
                             oa:suffix " àHotel d’JénaParis" ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/20322ffc80d6> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/a92fbdfe8509> ;
     tcb:confidence 0.9725 ;
     tcb:origin tcb:automatic .
 
@@ -205,7 +205,7 @@
                             oa:suffix "Sternwartestrasse 71VienneAutric" ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/20322ffc80d6> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/a92fbdfe8509> ;
     tcb:confidence 0.9977 ;
     tcb:origin tcb:automatic .
 
@@ -247,7 +247,7 @@
                             oa:suffix "Autriche" ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/20322ffc80d6> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/a92fbdfe8509> ;
     tcb:confidence 0.9966 ;
     tcb:origin tcb:automatic .
 
@@ -268,7 +268,7 @@
                             oa:prefix "itzlerSternwartestrasse 71Vienne" ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/20322ffc80d6> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/a92fbdfe8509> ;
     tcb:confidence 0.9958 ;
     tcb:origin tcb:automatic .
 
@@ -395,7 +395,7 @@ tcb:sending a crm:E55_Type ;
 <https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb182> a crm:E53_Place ;
     rdfs:label "Paris" .
 
-<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/20322ffc80d6> a prov:Activity ;
+<https://klausbehnamshad.github.io/tei-crm-bridge/schnitzler/L02051.html#/run/L02051/a92fbdfe8509> a prov:Activity ;
     prov:used <https://huggingface.co/impresso-project/ner-hipe2020-hist-base> ;
     prov:wasAssociatedWith <https://github.com/klausbehnamshad/tei-crm-bridge> ;
     tcb:aggregation "first" ;
@@ -403,7 +403,7 @@ tcb:sending a crm:E55_Type ;
     tcb:model "impresso-project/ner-hipe2020-hist-base" ;
     tcb:modelRevision "afd1b509233560298ae39360ad3186253c5800d3" ;
     tcb:reading "edited" ;
-    tcb:softwareVersion "0.4.0" ;
+    tcb:softwareVersion "0.5.0" ;
     tcb:stride 128 ;
     tcb:threshold 0.85 .
 

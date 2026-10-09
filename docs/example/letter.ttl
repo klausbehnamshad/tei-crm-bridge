@@ -24,7 +24,7 @@
                             oa:suffix ", den 1. August 1797" ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/4182a6645096> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/65f11ff9ef50> ;
     tcb:origin tcb:automatic .
 
 <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/2> a oa:Annotation ;
@@ -44,7 +44,7 @@
                             oa:suffix " schrieb aus Jena an GötheGoethe" ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/4182a6645096> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/65f11ff9ef50> ;
     tcb:origin tcb:automatic .
 
 <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/3> a oa:Annotation ;
@@ -65,7 +65,7 @@
                             oa:suffix " an GötheGoethe." ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/4182a6645096> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/65f11ff9ef50> ;
     tcb:origin tcb:automatic .
 
 <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/4> a oa:Annotation ;
@@ -86,7 +86,7 @@
                             oa:suffix "." ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/4182a6645096> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/65f11ff9ef50> ;
     tcb:origin tcb:automatic .
 
 <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/5> a oa:Annotation ;
@@ -107,7 +107,7 @@
                             oa:suffix " erwähnte auch Weimar & Umgebung" ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/4182a6645096> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/65f11ff9ef50> ;
     tcb:origin tcb:automatic .
 
 <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/mention/letter-001/6> a oa:Annotation ;
@@ -145,7 +145,7 @@
                             oa:prefix "Ihr " ] ] ;
             oa:hasSource <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> ] ;
     oa:motivatedBy oa:identifying ;
-    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/4182a6645096> ;
+    prov:wasGeneratedBy <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/65f11ff9ef50> ;
     tcb:origin tcb:automatic .
 
 <https://d-nb.info/gnd/118540238> a crm:E21_Person ;
@@ -223,13 +223,13 @@ tcb:sending a crm:E55_Type ;
 <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml#weimar> a crm:E53_Place ;
     rdfs:label "Weimar" .
 
-<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/4182a6645096> a prov:Activity ;
+<https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/run/letter-001/65f11ff9ef50> a prov:Activity ;
     prov:wasAssociatedWith <https://github.com/klausbehnamshad/tei-crm-bridge> ;
     tcb:engine "glossary" ;
     tcb:glossary "glossary.json" ;
     tcb:glossarySha256 "e99831d2c69b0d86ac96ee224c61381c25d1cc7970883caa477eb0330f3ab793" ;
     tcb:reading "edited" ;
-    tcb:softwareVersion "0.4.0" .
+    tcb:softwareVersion "0.5.0" .
 
 <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.enriched.xml> dcterms:format "application/tei+xml" ;
     dcterms:isFormatOf <https://klausbehnamshad.github.io/tei-crm-bridge/example/letter.html#/document/letter-001> .

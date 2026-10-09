@@ -1,6 +1,6 @@
 # Q1: Welche Personen und Orte nennt ein bestimmter Brief laut Edition?
 # Datenstand: eingefrorener Graph aus eval/sparql/manifest.json
-#   (40 Originalbriefe, nur Auszeichnung der Edition, Stand 0.4.0).
+#   (40 Originalbriefe, nur Auszeichnung der Edition, Stand 0.5.0).
 # Parameter: ?doc an den Brief binden (z.B. per initBindings); ungebunden
 #   kommen alle Briefe. Regel: alle redaktionellen Namen einschliesslich
 #   impliziter Verweise (@subtype="implied"); Abgrenzung zur Evaluation
