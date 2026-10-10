@@ -7,7 +7,17 @@ authors:
   - given-names: Klaus
     family-names: Behnam Shad
 version: 0.5.0
-doi: "10.5281/zenodo.23270038"
+doi: "10.5281/zenodo.22979658"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23270038"
+    description: "Version 0.5.0"
+  - type: doi
+    value: "10.5281/zenodo.23269686"
+    description: "Version 0.4.0"
+  - type: doi
+    value: "10.5281/zenodo.22979659"
+    description: "Version 0.3.0"
 date-released: "2026-10-09"
 license: MIT
 repository-code: "https://github.com/klausbehnamshad/tei-crm-bridge"

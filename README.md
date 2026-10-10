@@ -1,7 +1,7 @@
 # TEI CRM Bridge
 
 [![tests](https://github.com/klausbehnamshad/tei-crm-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/klausbehnamshad/tei-crm-bridge/actions/workflows/ci.yml)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23270038.svg)](https://doi.org/10.5281/zenodo.23270038)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22979658.svg)](https://doi.org/10.5281/zenodo.22979658)
 
 Ein Werkzeug für Digital Humanities: Es ergänzt TEI-P5-Briefe um Personen, Orte und Organisationen, bewahrt dabei den Lesetext und die vorhandene Textauszeichnung, legt Aussagen und Vorschläge mit ihrer Herkunft als CIDOC CRM und W3C Web Annotation ab und misst sich an der redaktionellen Auszeichnung einer echten Edition.
 
