@@ -170,26 +170,44 @@ tei-crm query eval/sparql/q1_persons_places.rq --graph eval/work/sparql/union.tt
 `store` lädt Turtle-Dateien in einen persistenten pyoxigraph-Store unter
 `--db`. `query` fragt einen Store oder Turtle-Dateien (`--graph`) ab;
 `--bind name=WERT` belegt Variablen (gültige IRI wird IRI, sonst Literal),
-`--format csv|json|table` wählt die Ausgabe. Q2 läuft in rdflib je
+`--format csv|json|table` wählt die Ausgabe. Unterstützt werden SELECT-Abfragen;
+jede gebundene Variable muss im SELECT stehen (Grenze von pyoxigraph
+`substitutions`). Werte werden nicht in den Abfragetext eingesetzt. Auch leere
+CSV-Ergebnisse enthalten ihre Spaltenüberschrift. Lade-, Parse- und Abfragefehler
+enden mit Exit 1 und einer Meldung. Q2 läuft in rdflib je
 Briefdatei, mit dem Store auf dem Vereinigungsgraphen (FILTER-Form).
 
-Laufzeiten vom 09.10.2026, macOS arm64, ein Lauf je Abfrage, 40 Briefe
-(Datenstand `eval/sparql/manifest.json`), rdflib 7.6.0:
+Laufzeiten vom 10.10.2026, macOS 26.6.2 arm64, Python 3.13.9, 40 Briefe
+(Datenstand `eval/sparql/manifest.json`). Median von drei Wiederholungen ohne
+Warmup, inklusive Ergebnis-Materialisierung, ohne Laden/Parsen/Zählen.
+Einzelwerte, Spannweiten, Versionen, Graph- und Quellhashes stehen in
+[`benchmark-2026-10-10.json`](eval/sparql/benchmark-2026-10-10.json).
+Reproduktion (benötigt das Extra `store`, keinen Modelllauf):
+
+```bash
+python eval/sparql/build_graph.py --out-dir eval/work/sparql
+python eval/sparql/benchmark.py --graph-dir eval/work/sparql \
+  --out eval/work/sparql/benchmark.json --repeats 3
+```
+
+rdflib 7.6.0:
 
 | Abfrage | Bindung | Zeilen | Zeit |
-| Q1 Union | alle | 264 | 0,09 s |
-| Q3 Union | keine | 41 | 0,04 s |
-| Q2 je Brief | alle | 340 | 3,20 s |
-| Q2 je Brief | Kainz | 2 | mitgemessen |
+| --- | --- | --- | --- |
+| Q1 Union | keine | 264 | 0,013 s |
+| Q3 Union | keine | 41 | 0,027 s |
+| Q2 je Brief, summiert | keine | 340 | 1,533 s |
+| Q2 je Brief, summiert | Kainz | 2 | 0,607 s |
 
 pyoxigraph 0.5.11, gleiche Daten:
 
 | Abfrage | Bindung | Zeilen | Zeit |
-| Laden 40 | keine | 10.434 | 0,02 s |
-| Q1 Union | alle | 264 | 0,002 s |
+| --- | --- | --- | --- |
+| Laden 40 (ohne Zählen) | keine | 10.434 Tripel | 0,015 s |
+| Q1 Union | keine | 264 | 0,002 s |
 | Q3 Union | keine | 41 | 0,001 s |
-| Q2 Union | alle | 340 | 0,77 s |
-| Q2 Union | Kainz | 2 | 0,29 s |
+| Q2 Union | keine | 340 | 0,598 s |
+| Q2 Union | Kainz | 2 | 0,226 s |
 
 Beide Engines liefern dieselben Zeilen (Multimengenvergleich in
 `tests/test_store.py`).
@@ -202,23 +220,25 @@ tei-crm validate docs/example/letter.ttl
 tei-crm validate docs/schnitzler/L02051.ttl
 ```
 
-Das Profil `source` gilt dem Ausgangsgraphen, `reviewed` dem geprüften
-Graphen (`--profile source|reviewed`, Standard `source`). Im geprüften
-Graphen zeigt `P67` auf angenommene Kandidaten mit CRM-Klasse. Exit 0
+Das Profil `source` gilt dem Ausgangsgraphen, `reviewed` dem Graphen mit
+Prüfvermerken (`--profile source|reviewed`, Standard `source`). `reviewed`
+erlaubt `P67` auf Kandidaten mit CRM-Klasse; ein Annahmevermerk für diese
+Entität wird dabei nicht verlangt. Der Profilname bestätigt keine Prüfung. Exit 0
 heißt formkonform, Exit 1 nennt Verstöße mit Fokusknoten, Shape und
 Meldung. Formkonform heißt nur Form; fachliche Richtigkeit prüft das
 Profil nie.
 
 | Regel | Shape |
-| Kandidat ohne CRM-Klasse (nur Ausgangsgraph) | CandidateShape |
-| P67 nur auf bestätigte Entitäten | P67SourceShape, P67ReviewedShape |
-| Provenienz automatischer Nennungen | AutomaticProvenanceShape |
-| Konfidenz höchstens eine von 0 bis 1 | ConfidenceShape |
-| Belegstelle mit Quelle und Selektor | MentionTargetShape |
-| Ereignis mit Typ und Ausführendem | EventShape |
-| Zeitspanne aufsteigend | TimeSpanShape |
-| Lauf mit Engine und Version | RunShape |
-| Prüfvermerk mit Urheber, Zeit und Urteil (nur geprüft) | AssessingShape |
+| --- | --- |
+| Kandidat ohne CRM-Klasse: `tcb:Candidate` ohne E21/E53/E74 (nur `source`) | CandidateShape |
+| P67-Kandidatenbedingungen: jedes P67-Ziel; in `source` kein Candidate, in `reviewed` Candidate nur mit E21/E53/E74; keine Annahmeprüfung | P67SourceShape, P67ReviewedShape |
+| Provenienz automatischer Nennungen: `oa:Annotation` mit `origin automatic` braucht mindestens ein `wasGeneratedBy` **oder** `wasAttributedTo` | AutomaticProvenanceShape |
+| Konfidenz höchstens eine von 0 bis 1: nur automatische `oa:Annotation`, Wert darf fehlen | ConfidenceShape |
+| Belegstelle und Prüfvermerk-Target: jede `oa:Annotation` sowie jedes Subjekt mit `tcb:origin` braucht genau ein Target; gewöhnliche Annotation: genau eine `hasSource` und mindestens ein `hasSelector` im Target; Prüfvermerk mit `motivatedBy assessing`: Target vom Typ `oa:Annotation` | MentionTargetShape |
+| Ereignis mit Typ und Ausführendem: jedes E7 braucht genau ein P2 aus `sending`/`receiving` und mindestens ein P14 | EventShape |
+| Zeitspanne aufsteigend: bei E52 mit beiden Grenzen P82a ≤ P82b; Grenzen müssen nicht vorhanden sein | TimeSpanShape |
+| Lauf mit Engine und Version: jede `prov:Activity` braucht mindestens einen Engine- und SoftwareVersion-Wert; deren Richtigkeit wird nicht geprüft | RunShape |
+| Prüfvermerk mit Urheber, Zeit und Urteil: `oa:Annotation` mit `motivatedBy assessing` braucht je genau einen Creator, Created und Body; Body aus `accepted`/`rejected` (nur `reviewed`) | AssessingShape |
 
 ## Netzwerk
 
@@ -229,11 +249,31 @@ tei-crm network eval/corpus/L*.xml --out-dir build/network \
 ```
 
 Der Lauf schreibt `correspondence.graphml`, `correspondence_edges.csv`,
-`mentions.graphml`, `mentions_edges.csv` und `metrics.json` (Methode,
-Version, Korpus mit SHA-256, Datum). Beispielzahlen vom 09.10.2026,
+`mentions.graphml`, `mentions_edges.csv`, `mentions_bipartite.graphml`,
+`mentions_bipartite_edges.csv` und `metrics.json` (Methode,
+Software- und networkx-Version, Korpus mit SHA-256, Datum). Beispielzahlen vom 10.10.2026,
 40 Briefe (Datenstand `eval/sparql/manifest.json`), Version 0.5.0:
 Korrespondenz 26 Personen und 37 Kanten, Nennungen 80 Personen und
-237 Kanten. Ehrlichkeitsregel aus `metrics.json`: „Kennzahlen
+237 Kanten; bipartit 40 Briefe und 185 Entitäten, 273 Kanten.
+
+Das bipartite Netz verbindet Brief-URIs über P67 mit externen URIs der Klassen
+E21/E53/E74. Die Personenprojektion enthält alle solchen E21-Personen, auch
+außerhalb des PMB-Namensraums, und alle gemeinsam genannten Paare. Q3 bildet
+eine Teilmenge davon; die Projektion ist kein Filter auf Q3. `weight` zählt
+verschiedene vollständige Brief-URIs; `letters` zeigt kurze IDs und die
+zusätzliche Spalte `letter_uris` bewahrt die vollständige Identität.
+
+Korrespondenzkanten tragen parallele Listen `letters`, `date_begin`, `date_end`
+und `date_source` (`sent`, ersatzweise `received`, sonst `none`); `date_fallbacks`
+nennt Briefe mit Empfangsdatum als Ersatz. Ungültige oder widersprüchliche
+Datumsangaben werden unter `correspondence.date_errors` in `metrics.json`
+und als `date_errors` in der CLI-Ausgabe gesammelt, mit Datei, Brief, Handlung
+und Meldung. Betroffene Briefe behalten ihre Kanten mit leeren Datumsgrenzen
+und `date_source none`; der Netzlauf läuft weiter. Mehrere Daten derselben
+Handlungsart werden geschnitten. Grade sind ungewichtete Gesamtgrade (bei
+gerichteten Netzen Eingang plus Ausgang), Betweenness ist normalisiert und
+ungewichtet; Komponenten sind bei gerichteten Netzen schwach zusammenhängend.
+Ehrlichkeitsregel aus `metrics.json`: „Kennzahlen
 beschreiben die Auszeichnung der Edition im gegebenen Korpus.“
 
 ## Grenzen

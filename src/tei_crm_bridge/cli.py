@@ -110,7 +110,7 @@ def _query_parser(parser: argparse.ArgumentParser) -> None:
     source.add_argument("--graph", nargs="+", type=Path, metavar="GRAPH.ttl",
                         help="Turtle-Dateien für einen Speicher-Store")
     parser.add_argument("--bind", action="append", default=[], metavar="name=WERT",
-                        help="Variablenbindung, mehrfach möglich; "
+                        help="Bindung einer in SELECT ausgegebenen Variable, mehrfach möglich; "
                         "ein als IRI gültiger Wert wird IRI, sonst Literal")
     parser.add_argument("--format", choices=["csv", "json", "table"], default="table",
                         help="Ausgabeformat (Standard: table)")
@@ -131,11 +131,14 @@ def run_store(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None
     if missing:
         parser.error(f"input not found: {', '.join(missing)}")
     store_module = _load_store_module("store", parser)
-    store = store_module.load([], args.db)
-    before = store_module.triple_count(store)
-    del store
-    store = store_module.load(args.inputs, args.db)
-    after = store_module.triple_count(store)
+    try:
+        store = store_module.load([], args.db)
+        before = store_module.triple_count(store)
+        del store
+        store = store_module.load(args.inputs, args.db)
+        after = store_module.triple_count(store)
+    except Exception as error:
+        parser.exit(1, f"tei-crm store: Ladefehler: {error}\n")
     print(json.dumps({"db": str(args.db), "files": len(args.inputs),
                       "triples_before": before, "triples_after": after},
                      ensure_ascii=False, indent=2))
@@ -170,9 +173,9 @@ def _print_table(rows: list[dict], store_module) -> None:
 
 
 def _print_csv(rows: list[dict], store_module) -> None:
-    if not rows:
+    names = list(rows[0]) if rows else list(getattr(rows, "variables", ()))
+    if not names:
         return
-    names = list(rows[0])
     writer = csv.writer(sys.stdout)
     writer.writerow(names)
     for row in rows:
@@ -199,12 +202,12 @@ def run_query(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None
             parser.error(f"input not found: {', '.join(missing)}")
     bindings = _parse_bindings(args.bind, parser)
     store_module = _load_store_module("query", parser)
-    text = args.query.read_text(encoding="utf-8")
-    if args.db is not None:
-        store = store_module.load([], args.db)
-    else:
-        store = store_module.load(args.graph, None)
     try:
+        text = args.query.read_text(encoding="utf-8")
+        if args.db is not None:
+            store = store_module.load([], args.db)
+        else:
+            store = store_module.load(args.graph, None)
         rows = store_module.query(store, text, bindings)
     except Exception as error:
         parser.exit(1, f"tei-crm query: Abfragefehler: {error}\n")
@@ -273,10 +276,13 @@ def run_network(args: argparse.Namespace, parser: argparse.ArgumentParser) -> No
     try:
         correspondence, corr_stats = network_module.build_correspondence(args.inputs)
         mentions = mentions_stats = None
+        bipartite = bipartite_stats = None
         if args.graphs:
-            mentions, mentions_stats = network_module.build_mentions(args.graphs)
+            bipartite, bipartite_stats = network_module.build_bipartite_mentions(args.graphs)
+            mentions, mentions_stats = network_module.build_mentions(args.graphs, bipartite=bipartite)
         body = network_module.write_outputs(args.out_dir, correspondence, corr_stats,
-                                            mentions, mentions_stats, args.inputs, args.graphs)
+                                            mentions, mentions_stats, args.inputs, args.graphs,
+                                            bipartite=bipartite, bipartite_stats=bipartite_stats)
     except Exception as error:
         parser.exit(1, f"tei-crm network: Netzfehler: {error}\n")
     summary = {"out_dir": str(args.out_dir),
@@ -285,8 +291,13 @@ def run_network(args: argparse.Namespace, parser: argparse.ArgumentParser) -> No
                "mentions": ({"nodes": body["mentions"]["nodes"],
                              "edges": body["mentions"]["edges"]}
                             if body["mentions"] is not None else None),
+               "mentions_bipartite": ({"nodes": body["mentions_bipartite"]["nodes"],
+                                       "edges": body["mentions_bipartite"]["edges"]}
+                                      if body["mentions_bipartite"] is not None else None),
                "without_sent": body["correspondence"]["without_sent"],
-               "without_received": body["correspondence"]["without_received"]}
+               "without_received": body["correspondence"]["without_received"],
+               "date_fallbacks": body["correspondence"]["date_fallbacks"],
+               "date_errors": body["correspondence"]["date_errors"]}
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
