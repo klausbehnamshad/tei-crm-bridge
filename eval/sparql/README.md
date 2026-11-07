@@ -27,7 +27,7 @@ Person). Der Graph verzeichnet sie wie explizite Namen (P67, Annotation mit
 Belegstelle); ein `subtype`-Tripel gibt es nicht (`src/tei_crm_bridge/rdf.py`,
 `add_mention`), und am Wortlaut sind sie nicht erkennbar. Deshalb kann keine
 Abfrage über den eingefrorenen Graphen implizite Verweise ausschließen oder
-markieren — das ginge nur mit einer Modelländerung (eigener Triple-Typ für die
+markieren. Dafür wäre eine Modelländerung nötig (eigener Triple-Typ für die
 Auszeichnungsart), die außerhalb dieses Releases liegt.
 
 Abgrenzung zur Evaluation: Dort zählen 295 Referenzen, weil implizite
@@ -99,8 +99,8 @@ Zeilen. Wer alle Briefe braucht, hängt die 40 Ergebnisse aneinander
 (`tests/test_sparql.py` macht genau das). Die Gleichheit gilt unter zwei
 Strukturbedingungen: Die Annotation-URIs sind je Brief verschieden
 (`rdf.py` erzeugt sie briefbezogen), und Blank Nodes werden je Datei
-getrennt geparst (`build_union` liest jede Turtle-Datei einzeln ein) —
-sonst entstünden Kreuzkombinationen über Briefgrenzen. Ein Zwei-Brief-Test
+getrennt geparst (`build_union` liest jede Turtle-Datei einzeln ein).
+Diese Trennung verhindert Kreuzkombinationen über Briefgrenzen. Ein Zwei-Brief-Test
 mit gemeinsamer Entität vergleicht die Q2-Zeilen auf der Vereinigung und je
 Brief als Multimenge (ohne Reihenfolge).
 
@@ -154,10 +154,30 @@ nennen, ist eine Aussage der Auszeichnung, kein Netzwerkmaß.
 der zehn Q1-Funde im Brief gefunden (Josef Kainz, Olga Schnitzler, Heinrich
 Schnitzler, Lido); Q2-Belegstelle Kainz in L03501; Q2-Belegstelle Kopenhagen
 in L02051 im ersten `<p>` des eigentlichen Briefs nach Adresse und Anrede."
-Geprüft ist: die Menge (Brief, @ref-Token) je Brief per XPath — eine
-fehlende zweite Fundstelle mit demselben Token erkennt das nicht;
-Fundstellen über die Leseregel des Werkzeugs, wie in der Evaluation; bei Q2
-zusätzlich Wortlaut, Position und die Entität an genau dieser Fundstelle
-(umgebogene Bodies fliegen auf). Der
+Die Tests vergleichen die Menge (Brief, @ref-Token) je Brief per XPath.
+Der Mengenvergleich erfasst keine fehlende zweite Fundstelle mit demselben Token.
+Zusätzlich vergleichen die Tests Fundstellen über die Leseregel des Werkzeugs,
+wie in der Evaluation; bei Q2 auch Wortlaut, Position und die Entität an genau
+dieser Fundstelle (umgebogene Bodies fliegen auf). Der
 Handabgleich ist ein zweiter, stichprobenhafter Prüfweg. Nichts darüber
 hinaus ist als geprüft zu bezeichnen.
+
+## Reproduzierbarer Engine-Vergleich
+
+```bash
+python eval/sparql/build_graph.py --out-dir eval/work/sparql
+python eval/sparql/benchmark.py --graph-dir eval/work/sparql \
+  --out eval/work/sparql/benchmark.json --repeats 3
+```
+
+`benchmark.py` prüft Eingaben, Softwarestand und Graph-Hash gegen die Manifeste.
+Es misst Q1/Q3 auf dem Vereinigungsgraphen und Q2 in rdflib je Briefdatei,
+im Speicher-Store dagegen auf der Vereinigung, jeweils ungebunden und für Q2
+zusätzlich gebunden an Kainz. Jede Wiederholung vergleicht lexikalische
+Ergebnis-Multimengen. Parsen, Laden und Zählen stehen getrennt von den
+Queryzeiten einschließlich Ergebnis-Materialisierung; es gibt keinen Warmup.
+
+[`benchmark-2026-10-10.json`](benchmark-2026-10-10.json) enthält drei
+Wiederholungen, Median und Spannweite, Befehl, Maschine, Python- und
+Engine-Versionen, Graph-Hash, Korpuscommit und Quellhashes. Der optionale
+Bezugscommit bezeichnet keine unveränderte oder bereits committete Version.

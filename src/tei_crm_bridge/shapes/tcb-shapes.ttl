@@ -1,4 +1,4 @@
-# TCB-SHACL-Profil: Formregeln für Ausgangs- und geprüfte Graphen.
+# TCB-SHACL-Profil: Formregeln für Ausgangsgraphen und Graphen mit Prüfvermerken.
 #
 # Ein Profil je Datei wäre doppelt: Sechs Shapes gelten für beide Profile,
 # die Kandidat- und die P67-Regel unterscheiden sich je Profil, und die
@@ -33,15 +33,15 @@ tcbsh:CandidateShape a sh:NodeShape ;
     sh:message "Kandidat darf keine CRM-Klasse tragen (Regel: Kandidat ohne CRM-Klasse; README: Validierung mit SHACL)."@de ,
                "Candidate must not carry a CRM class (Rule: Kandidat ohne CRM-Klasse; README: SHACL validation)."@en .
 
-# P67 im Ausgangsgraph: nie auf einen Kandidaten (nur bestätigte Entitäten).
+# P67 im Ausgangsgraph: nie auf einen Kandidaten; keine fachliche Annahmeprüfung.
 tcbsh:P67SourceShape a sh:NodeShape ;
     tcbsh:forProfile tcbsh:source ;
     sh:targetObjectsOf crm:P67_refers_to ;
     sh:not [ sh:class tcb:Candidate ] ;
-    sh:message "P67 zeigt im Ausgangsgraphen nie auf einen Kandidaten (Regel: P67 nur auf bestätigte Entitäten; README: Validierung mit SHACL)."@de ,
-               "In the source graph P67 never points to a candidate (Rule: P67 nur auf bestätigte Entitäten; README: SHACL validation)."@en .
+    sh:message "P67 zeigt im Ausgangsgraphen nie auf einen Kandidaten (Regel: P67-Kandidatenbedingungen; README: Validierung mit SHACL)."@de ,
+               "In the source graph P67 never points to a candidate (Rule: P67-Kandidatenbedingungen; README: SHACL validation)."@en .
 
-# P67 im geprüften Graphen: Kandidat nur mit CRM-Klasse (angenommen).
+# P67 unter reviewed: Kandidat nur mit E21/E53/E74; kein Annahmenachweis.
 tcbsh:P67ReviewedShape a sh:NodeShape ;
     tcbsh:forProfile tcbsh:reviewed ;
     sh:targetObjectsOf crm:P67_refers_to ;
@@ -49,28 +49,35 @@ tcbsh:P67ReviewedShape a sh:NodeShape ;
             [ sh:class crm:E21_Person ]
             [ sh:class crm:E53_Place ]
             [ sh:class crm:E74_Group ] ) ;
-    sh:message "P67 zeigt auf einen Kandidaten nur mit CRM-Klasse (Regel: P67 nur auf bestätigte Entitäten; README: Validierung mit SHACL)."@de ,
-               "P67 points to a candidate only with a CRM class (Rule: P67 nur auf bestätigte Entitäten; README: SHACL validation)."@en .
+    sh:message "P67 zeigt auf einen Kandidaten nur mit CRM-Klasse (Regel: P67-Kandidatenbedingungen; README: Validierung mit SHACL)."@de ,
+               "P67 points to a candidate only with a CRM class (Rule: P67-Kandidatenbedingungen; README: SHACL validation)."@en .
 
-# Belegstelle: genau ein Target mit genau einer Quelle und Selektor.
+# Alle Annotationen brauchen ein Target, auch ohne origin-Marker.
+# Prüfvermerke adressieren die vorhandene Annotation (review.py bleibt unverändert).
 tcbsh:MentionTargetShape a sh:NodeShape ;
+    sh:targetClass oa:Annotation ;
     sh:targetSubjectsOf tcb:origin ;
-    sh:property [ sh:path oa:hasTarget ;
-                  sh:minCount 1 ;
-                  sh:maxCount 1 ;
-                  sh:node [ sh:property [ sh:path oa:hasSource ;
-                                           sh:minCount 1 ;
-                                           sh:maxCount 1 ;
-                                           sh:message "Belegquelle fehlt oder ist mehrfach (Regel: Belegstelle mit Quelle und Selektor; README: Validierung mit SHACL)."@de ,
-                                                      "Evidence source missing or multiple (Rule: Belegstelle mit Quelle und Selektor; README: SHACL validation)."@en ] ;
-                            sh:property [ sh:path oa:hasSelector ;
-                                           sh:minCount 1 ;
-                                           sh:message "Belegstelle ohne Selektor (Regel: Belegstelle mit Quelle und Selektor; README: Validierung mit SHACL)."@de ,
-                                                      "Evidence without selector (Rule: Belegstelle mit Quelle und Selektor; README: SHACL validation)."@en ] ] ;
-                  sh:message "Jede Nennung hat genau ein Target mit genau einer Quelle und Selektor (Regel: Belegstelle mit Quelle und Selektor; README: Validierung mit SHACL)."@de ,
-                             "Every mention has exactly one target with exactly one source and selector (Rule: Belegstelle mit Quelle und Selektor; README: SHACL validation)."@en ] ;
-    sh:message "Jede Nennung hat genau ein Target mit genau einer Quelle und Selektor (Regel: Belegstelle mit Quelle und Selektor; README: Validierung mit SHACL)."@de ,
-               "Every mention has exactly one target with exactly one source and selector (Rule: Belegstelle mit Quelle und Selektor; README: SHACL validation)."@en .
+    sh:or (
+        [ sh:property [ sh:path oa:motivatedBy ; sh:hasValue oa:assessing ] ;
+          sh:property [ sh:path oa:hasTarget ; sh:minCount 1 ; sh:maxCount 1 ;
+                        sh:class oa:Annotation ;
+                        sh:message "Prüfvermerk braucht genau eine Annotation als Target (Regel: Belegstelle und Prüfvermerk-Target; README: Validierung mit SHACL)."@de ,
+                                   "Assessment needs exactly one annotation target (Rule: Belegstelle und Prüfvermerk-Target; README: SHACL validation)."@en ] ]
+        [ sh:not [ sh:property [ sh:path oa:motivatedBy ; sh:hasValue oa:assessing ] ] ;
+          sh:property [ sh:path oa:hasTarget ;
+                        sh:minCount 1 ; sh:maxCount 1 ;
+                        sh:node [ sh:property [ sh:path oa:hasSource ;
+                                                 sh:minCount 1 ; sh:maxCount 1 ;
+                                                 sh:message "Belegquelle fehlt oder ist mehrfach (Regel: Belegstelle und Prüfvermerk-Target; README: Validierung mit SHACL)."@de ,
+                                                            "Evidence source missing or multiple (Rule: Belegstelle und Prüfvermerk-Target; README: SHACL validation)."@en ] ;
+                                  sh:property [ sh:path oa:hasSelector ; sh:minCount 1 ;
+                                                 sh:message "Belegstelle ohne Selektor (Regel: Belegstelle und Prüfvermerk-Target; README: Validierung mit SHACL)."@de ,
+                                                            "Evidence without selector (Rule: Belegstelle und Prüfvermerk-Target; README: SHACL validation)."@en ] ] ;
+                        sh:message "Nennung braucht genau ein Target mit genau einer Quelle und mindestens einem Selektor (Regel: Belegstelle und Prüfvermerk-Target; README: Validierung mit SHACL)."@de ,
+                                   "Mention needs one target, one source and at least one selector (Rule: Belegstelle und Prüfvermerk-Target; README: SHACL validation)."@en ] ]
+    ) ;
+    sh:message "Annotation braucht eine Belegstelle; Prüfvermerk braucht eine Annotation als Target (Regel: Belegstelle und Prüfvermerk-Target; README: Validierung mit SHACL)."@de ,
+               "Annotation needs an evidence target; assessment needs an annotation target (Rule: Belegstelle und Prüfvermerk-Target; README: SHACL validation)."@en .
 
 # Provenienz automatischer Nennungen: Lauf oder frühere Anwendung.
 tcbsh:AutomaticProvenanceShape a sh:NodeShape ;

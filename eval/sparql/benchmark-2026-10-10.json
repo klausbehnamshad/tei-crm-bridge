@@ -1,0 +1,200 @@
+{
+  "timestamp_utc": "2026-10-10T06:58:56.508739+00:00",
+  "command": "python eval/sparql/benchmark.py --graph-dir /private/tmp/tei-crm-fixes-graph-final --out eval/sparql/benchmark-2026-10-10.json --repeats 3 --base-commit 57e6afd4094fc56ed2c504ef3b98be9dd462883a",
+  "python": "3.13.9",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "processor": "arm",
+  "versions": {
+    "rdflib": "7.6.0",
+    "pyoxigraph": "0.5.11"
+  },
+  "base_commit": "57e6afd4094fc56ed2c504ef3b98be9dd462883a",
+  "source_state": "Quellbaum über source_sha256 identifiziert; base_commit ist nur Bezug.",
+  "source_sha256": {
+    "eval/manifest.tsv": "455691396e060ee82909dbaf728edd766840f601985595898c591c79a0a2e5ab",
+    "eval/sparql/benchmark.py": "c29c4df311bb817c2a46c815169081eed6769c5c27d1736456fa1ec67b75bca3",
+    "eval/sparql/build_graph.py": "7cd5e4bd62df8e003e1c10cd06252f1c81e5a5d7e833833b3777b9f6795d31a0",
+    "eval/sparql/manifest.json": "51d4af46d552cbe07f5518a5d7dc4c33701beb70d9b04fc3f8f682479bf551a7",
+    "eval/sparql/q1_persons_places.rq": "45a4c8be7b45c5577022e4c7f37dea04df618585116c05976bd5f0bab820762a",
+    "eval/sparql/q2_evidence.rq": "f0d1695f221f1ab5df9912b45c4e9bf3730e147e53199ce07e14be0ec1c96be8",
+    "eval/sparql/q3_shared_persons.rq": "1d5e8a5318d09aa7355f0771c7bef12e1dec7ba6ff11f9d1931a76ecc900164a",
+    "pyproject.toml": "627df84d559f31c7b182010f23e95d3a8605b806ffd1082ef1802982578fa9a9",
+    "src/tei_crm_bridge/__init__.py": "f4f9d7e9b8994b21d01af659f4da883802b82374dbc7f86111ff402bc14de5ef",
+    "src/tei_crm_bridge/cli.py": "11a626460ec5a0adb3e466b5bc4a78e809254bb57c1070900d9ddbc280d614eb",
+    "src/tei_crm_bridge/cmif.py": "fcc118261ed4b281bd98660362a17f0307b9813b560112dd033b6a7e4140bebe",
+    "src/tei_crm_bridge/core.py": "2751da35235b6a84976d7a774a366a98a649bc94c61b1e62c0d9326e9bdb0370",
+    "src/tei_crm_bridge/dates.py": "9e577e74fe500b3a9e6ba5b691a4b31971c4e373f0a1636d06225a55d74c4447",
+    "src/tei_crm_bridge/ner.py": "648828929884e1baf02d846d2ad429a7f1dd3a72dda326fbf4620b6191e565bc",
+    "src/tei_crm_bridge/network.py": "d74f66794c62605c24d57575f9096c54e1ce3dfd2bdee85256004e9020fe0413",
+    "src/tei_crm_bridge/preview.py": "a0dbe213a2c193f0cf6600850b314d764981878c68f03cb85adf95f99b7c029d",
+    "src/tei_crm_bridge/projection.py": "1e070f32017dba7c7b915f6f765bf860761e223d838cbaca6b9b6992b51fb0c9",
+    "src/tei_crm_bridge/rdf.py": "b7ef0ec11c89cb6c219a27d7c4fb265ecd5019712de152af49feb7d3d9aa1728",
+    "src/tei_crm_bridge/reconcile.py": "222a17d923aef95647fb92438ef50a7bbd2168d54f6800f2465ff70ef21c0374",
+    "src/tei_crm_bridge/review.py": "898ca2c9e16e6c3b2e2a43ee008c0bf5b8b9731dad0a9774239814e0620a601d",
+    "src/tei_crm_bridge/review_ui.py": "2e0ee2fdf3d26d3c73dfc4438db47529e5219ebbd4a548ffd1417b9149069d2b",
+    "src/tei_crm_bridge/store.py": "800591bd127873b765463308d8997bf7bca4897b2112cdbfe9012a209eded5d2",
+    "src/tei_crm_bridge/validate.py": "17eba1ab88430e1981ed46368b132a544b2a0942da6f8e94bf4bdfa2199ecebf",
+    "src/tei_crm_bridge/vocabulary.py": "e2a9632bc687e4498251fe74862b0165aed90f49011b7c807cf2fb4e0664c9ad",
+    "src/tei_crm_bridge/writeback.py": "7cde5417abb4e90e37bf71b7197d6b59b718346fe3caa187e5b5c474ed28c613"
+  },
+  "graph_sha256": "ce66bf1562f0ab7d6764e1adc74b5b44f0f713280e74ce5e15073f73541f953a",
+  "corpus_commit": "76870800b474b0ab829c65ef1ad84c3ba5f81c4e",
+  "letters": 40,
+  "triples": 10434,
+  "method": "perf_counter, ohne Warmup; alle Wiederholungen gespeichert; Queryzeit einschließlich Materialisierung, ohne Laden/Parsen/Zählen; Q2 rdflib je Brief, pyoxigraph Union; Speicher-Store; lexikalische Ergebnis-Multimengen jeder Wiederholung verglichen.",
+  "parse_seconds": {
+    "rdflib_union": 0.12941925000632182,
+    "rdflib_per_letter": 0.16918749996693805
+  },
+  "pyoxigraph_load_seconds": [
+    0.01871829101582989,
+    0.015043749997857958,
+    0.014931083016563207
+  ],
+  "pyoxigraph_count_seconds": [
+    0.00032645801547914743,
+    0.0002730409614741802,
+    0.0003353329957462847
+  ],
+  "engines_equal": {
+    "Q1": true,
+    "Q2": true,
+    "Q3": true,
+    "Q2_Kainz": true
+  },
+  "runs": [
+    {
+      "engine": "rdflib",
+      "query": "Q1",
+      "binding": {},
+      "scope": "union",
+      "rows": 264,
+      "result_multiset_sha256": "e04c3c9b63c786f9e30ac532635f42279683f669844479a146257b2a2eadab0c",
+      "seconds": [
+        0.059546625008806586,
+        0.013167082972358912,
+        0.012712249998003244
+      ],
+      "median_seconds": 0.013167082972358912,
+      "min_seconds": 0.012712249998003244,
+      "max_seconds": 0.059546625008806586
+    },
+    {
+      "engine": "pyoxigraph",
+      "query": "Q1",
+      "binding": {},
+      "scope": "union",
+      "rows": 264,
+      "result_multiset_sha256": "e04c3c9b63c786f9e30ac532635f42279683f669844479a146257b2a2eadab0c",
+      "seconds": [
+        0.00540595903294161,
+        0.0021795420325361192,
+        0.0021697499905712903
+      ],
+      "median_seconds": 0.0021795420325361192,
+      "min_seconds": 0.0021697499905712903,
+      "max_seconds": 0.00540595903294161
+    },
+    {
+      "engine": "rdflib",
+      "query": "Q2",
+      "binding": {},
+      "scope": "per_letter",
+      "rows": 340,
+      "result_multiset_sha256": "8787b3f3a3275f090853d12062da9fabf11247c2c2e4476026f31e222e36c213",
+      "seconds": [
+        1.544843125040643,
+        1.5328924580244347,
+        1.5270486249937676
+      ],
+      "median_seconds": 1.5328924580244347,
+      "min_seconds": 1.5270486249937676,
+      "max_seconds": 1.544843125040643
+    },
+    {
+      "engine": "pyoxigraph",
+      "query": "Q2",
+      "binding": {},
+      "scope": "union",
+      "rows": 340,
+      "result_multiset_sha256": "8787b3f3a3275f090853d12062da9fabf11247c2c2e4476026f31e222e36c213",
+      "seconds": [
+        0.5978095410391688,
+        0.5962718339869753,
+        0.5996657920186408
+      ],
+      "median_seconds": 0.5978095410391688,
+      "min_seconds": 0.5962718339869753,
+      "max_seconds": 0.5996657920186408
+    },
+    {
+      "engine": "rdflib",
+      "query": "Q3",
+      "binding": {},
+      "scope": "union",
+      "rows": 41,
+      "result_multiset_sha256": "7b11d3b3c7cf2604075901d1ad47cd543b54ddd43251958cfef126229b7b02ba",
+      "seconds": [
+        0.029112500022165477,
+        0.02668133401311934,
+        0.02709116699406877
+      ],
+      "median_seconds": 0.02709116699406877,
+      "min_seconds": 0.02668133401311934,
+      "max_seconds": 0.029112500022165477
+    },
+    {
+      "engine": "pyoxigraph",
+      "query": "Q3",
+      "binding": {},
+      "scope": "union",
+      "rows": 41,
+      "result_multiset_sha256": "7b11d3b3c7cf2604075901d1ad47cd543b54ddd43251958cfef126229b7b02ba",
+      "seconds": [
+        0.003354625019710511,
+        0.000748499995097518,
+        0.0007100420189090073
+      ],
+      "median_seconds": 0.000748499995097518,
+      "min_seconds": 0.0007100420189090073,
+      "max_seconds": 0.003354625019710511
+    },
+    {
+      "engine": "rdflib",
+      "query": "Q2_Kainz",
+      "binding": {
+        "entity": "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb11851"
+      },
+      "scope": "per_letter",
+      "rows": 2,
+      "result_multiset_sha256": "07c8866df982619d97dee00682d873adb9f0c833fabe7c23533d42921693f8f4",
+      "seconds": [
+        0.5747641249909066,
+        0.61280387500301,
+        0.6074472090112977
+      ],
+      "median_seconds": 0.6074472090112977,
+      "min_seconds": 0.5747641249909066,
+      "max_seconds": 0.61280387500301
+    },
+    {
+      "engine": "pyoxigraph",
+      "query": "Q2_Kainz",
+      "binding": {
+        "entity": "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions#pmb11851"
+      },
+      "scope": "union",
+      "rows": 2,
+      "result_multiset_sha256": "07c8866df982619d97dee00682d873adb9f0c833fabe7c23533d42921693f8f4",
+      "seconds": [
+        0.22647191601572558,
+        0.2256929170107469,
+        0.23040687502361834
+      ],
+      "median_seconds": 0.22647191601572558,
+      "min_seconds": 0.2256929170107469,
+      "max_seconds": 0.23040687502361834
+    }
+  ]
+}

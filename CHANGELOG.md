@@ -1,5 +1,23 @@
 # Changelog
 
+## Unveröffentlicht (nach 0.5.0)
+
+- Graph-Review: GND je `@ref`-Token, gesammelte Datumsfehler mit Datei, Brief und Handlung,
+  sichtbarer Empfangsdatum-Fallback und vollständige Brief-URI als Gewichtungsidentität.
+  Briefe mit Datumsfehlern bleiben als undatierte Kanten im Netz erhalten;
+  `date_errors` steht in CLI-Ausgabe und `correspondence.date_errors` in `metrics.json`.
+- Zusätzliche bipartite Nennungsausgabe mit E21/E53/E74; Personenprojektion
+  auch für externe URIs außerhalb der PMB-Edition. Bisherige Korpuszahlen bleiben gleich.
+  Mengenprüfung der Dokument-URI-Präfixe ersetzt den Vergleich mit jedem Brief.
+- SHACL erfasst Annotationen ohne `origin`; Prüfvermerke adressieren weiterhin
+  Annotationen. README nennt alle Bedingungen und bezeichnet Formkonformität
+  nicht als fachliche Bestätigung.
+- SELECT-Bindungsgrenze von pyoxigraph dokumentiert; klare Lade- und
+  Abfragefehler, CSV-Kopf auch bei leerem Ergebnis, Store-Zählung ohne Python-Iteration.
+- Reproduzierbarer Benchmark mit Einzelwerten, Quell- und Graphhashes.
+  Historische Laufzeiten vom 09.10.2026 sind ohne Laufdatei unbelegt; neue
+  Messung vom 10.10.2026 siehe `eval/sparql/benchmark-2026-10-10.json`.
+
 ## 0.5.0
 
 Graph abfragbar, prüfbar, über Briefgrenzen nutzbar. Datenstand: 40 Briefe der Schnitzler-Edition, eingefrorener Graph in `eval/sparql/manifest.json`, alle Zahlen gemessen am 09.10.2026 auf macOS arm64.

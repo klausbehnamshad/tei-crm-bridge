@@ -28,7 +28,15 @@ def load(paths: list[Path], db: Path | None) -> Store:
 
 def triple_count(store: Store) -> int:
     """Zahl der Tripel im Store (für die vorher/nachher-Ausgabe der CLI)."""
-    return sum(1 for _ in store.quads_for_pattern(None, None, None, None))
+    return len(store)
+
+
+class QueryRows(list):
+    """SELECT-Zeilen mit Spaltennamen, auch wenn die Ergebnismenge leer ist."""
+
+    def __init__(self, variables):
+        super().__init__()
+        self.variables = tuple(variables)
 
 
 def query(store: Store, text: str, bindings: dict[str, str]) -> list[dict]:
@@ -37,14 +45,25 @@ def query(store: Store, text: str, bindings: dict[str, str]) -> list[dict]:
     Bindungswerte, die als IRI gültig sind (``rdf.valid_iri``), werden
     ``NamedNode``, sonst ``Literal``. Ergebnis: Liste von Dicts mit
     Variablennamen (ohne ``?``) als Schlüsseln, in SELECT-Reihenfolge.
+    Jede gebundene Variable muss in der SELECT-Projektion stehen
+    (Beschränkung von pyoxigraph substitutions); Werte werden nicht in
+    den Abfragetext eingesetzt. QueryRows.variables hält die Spaltennamen.
     """
     substitutions = {
         Variable(name): NamedNode(value) if valid_iri(value) else Literal(value)
         for name, value in bindings.items()
     }
-    results = store.query(text, substitutions=substitutions)
+    try:
+        results = store.query(text, substitutions=substitutions)
+    except RuntimeError as error:
+        if substitutions and "SELECT projection" in str(error):
+            raise ValueError("Die SELECT-Projektion muss jede --bind-Variable enthalten: "
+                             + ", ".join("?" + name for name in bindings)) from error
+        raise
+    if not hasattr(results, "variables"):
+        raise ValueError("tei-crm query unterstützt SELECT-Abfragen.")
     names = [variable.value for variable in results.variables]
-    rows = []
+    rows = QueryRows(names)
     for solution in results:
         rows.append({name: solution[variable] for name, variable in zip(names, results.variables)})
     return rows
